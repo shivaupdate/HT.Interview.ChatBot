@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Interview.ChatBot.Data</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Interview.ChatBot.Data.ChatbotDataContext">
+            <summary>
+            Master Data Context
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatbotDataContext.User">
+            <inheritdoc />
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc />
+            <summary>
+            On Configuring
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+            <summary>
+            On Model Creating
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Data.IChatbotDataContext">
+            <summary>
+            IChatbotDataContext
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatbotDataContext.User">
+            <summary>
+            User
+            </summary>
+        </member>
+    </members>
+</doc>
