@@ -7,23 +7,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58CE3D37-380
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{526E6109-D716-4B96-854F-A99DDBC0F04E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Common", "src\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj", "{339FA022-B826-497E-9495-EBD154732EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.Common", "src\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj", "{339FA022-B826-497E-9495-EBD154732EC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Data", "src\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj", "{E11E029E-508B-4682-9E47-362FA25AD350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.Data", "src\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj", "{E11E029E-508B-4682-9E47-362FA25AD350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Services", "src\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj", "{711379B4-8A9C-438A-9EC5-3386680FB8BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.Services", "src\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj", "{711379B4-8A9C-438A-9EC5-3386680FB8BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Resources", "src\HT.Interview.ChatBot.Resources\HT.Interview.ChatBot.Resources.csproj", "{4332559C-9F33-433A-AD77-09610CFB43F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.Resources", "src\HT.Interview.ChatBot.Resources\HT.Interview.ChatBot.Resources.csproj", "{4332559C-9F33-433A-AD77-09610CFB43F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.API.Proxies", "src\HT.Interview.ChatBot.API.Proxies\HT.Interview.ChatBot.API.Proxies.csproj", "{140FE5D9-FA1C-4A55-99F1-3B664CF61294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.API.Proxies", "src\HT.Interview.ChatBot.API.Proxies\HT.Interview.ChatBot.API.Proxies.csproj", "{140FE5D9-FA1C-4A55-99F1-3B664CF61294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.API", "src\HT.Interview.ChatBot.API\HT.Interview.ChatBot.API.csproj", "{DAFF490C-F97C-4C1E-9463-5B782155D899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.API", "src\HT.Interview.ChatBot.API\HT.Interview.ChatBot.API.csproj", "{DAFF490C-F97C-4C1E-9463-5B782155D899}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{79AAAA47-6393-4C02-8D89-E2202929A6EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{286CDF02-5CBC-4354-8923-615C1E4770A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Web", "src\HT.Interview.ChatBot.Web\HT.Interview.ChatBot.Web.csproj", "{BA72D509-9D44-46C2-ACFA-3C38306C02A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Interview.ChatBot.Web", "src\HT.Interview.ChatBot.Web\HT.Interview.ChatBot.Web.csproj", "{BA72D509-9D44-46C2-ACFA-3C38306C02A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6E4F447-B205-44F9-9ADB-61B95FD806F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{9594CA05-E881-46D8-8737-46C61D369ED1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework", "src\HT.Framework\HT.Framework.csproj", "{09937E83-C99C-4771-AABE-1D65B4645C3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.Autofac", "src\HT.Framework.Autofac\HT.Framework.Autofac.csproj", "{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.ContentService.Resource.Autofac", "src\HT.Framework.ContentService.Resource.Autofac\HT.Framework.ContentService.Resource.Autofac.csproj", "{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Framework.MVC", "src\HT.Framework.MVC\HT.Framework.MVC.csproj", "{7FBA32ED-8998-4765-98C3-7B758114115B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Framework.ContentService.Resource", "src\HT.Framework.ContentService.Resource\HT.Framework.ContentService.Resource.csproj", "{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +73,26 @@ Global
 		{BA72D509-9D44-46C2-ACFA-3C38306C02A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA72D509-9D44-46C2-ACFA-3C38306C02A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA72D509-9D44-46C2-ACFA-3C38306C02A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09937E83-C99C-4771-AABE-1D65B4645C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09937E83-C99C-4771-AABE-1D65B4645C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09937E83-C99C-4771-AABE-1D65B4645C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09937E83-C99C-4771-AABE-1D65B4645C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBA32ED-8998-4765-98C3-7B758114115B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBA32ED-8998-4765-98C3-7B758114115B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBA32ED-8998-4765-98C3-7B758114115B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBA32ED-8998-4765-98C3-7B758114115B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +107,12 @@ Global
 		{79AAAA47-6393-4C02-8D89-E2202929A6EE} = {58CE3D37-380F-4DF7-A76B-EF1E82BC9EAA}
 		{286CDF02-5CBC-4354-8923-615C1E4770A0} = {58CE3D37-380F-4DF7-A76B-EF1E82BC9EAA}
 		{BA72D509-9D44-46C2-ACFA-3C38306C02A6} = {286CDF02-5CBC-4354-8923-615C1E4770A0}
+		{9594CA05-E881-46D8-8737-46C61D369ED1} = {B6E4F447-B205-44F9-9ADB-61B95FD806F8}
+		{09937E83-C99C-4771-AABE-1D65B4645C3C} = {9594CA05-E881-46D8-8737-46C61D369ED1}
+		{1AD7D4A2-46F9-41F7-969E-7A0452CA35D1} = {9594CA05-E881-46D8-8737-46C61D369ED1}
+		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D} = {9594CA05-E881-46D8-8737-46C61D369ED1}
+		{7FBA32ED-8998-4765-98C3-7B758114115B} = {9594CA05-E881-46D8-8737-46C61D369ED1}
+		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1} = {9594CA05-E881-46D8-8737-46C61D369ED1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7B3E883-FB1E-4EEB-BD54-B171B5C403F5}
