@@ -7,7 +7,7 @@ namespace HT.Interview.ChatBot.Data
     /// <summary>
     /// Master Data Context
     /// </summary>
-    public class ChatbotDataContext : DbContext, IChatbotDataContext
+    public class ChatBotDataContext : DbContext, IChatBotDataContext
     {
         private readonly string _connectionString;
 
@@ -15,7 +15,7 @@ namespace HT.Interview.ChatBot.Data
         /// Constructor
         /// </summary>
         /// <param name="connectionString"></param>
-        public ChatbotDataContext(string connectionString)
+        public ChatBotDataContext(string connectionString)
         {
             _connectionString = connectionString;
         }

@@ -6,11 +6,11 @@ namespace HT.Interview.ChatBot.Data
     /// <summary>
     /// IChatbotDataContext
     /// </summary>
-    internal interface IChatbotDataContext
+    public interface IChatBotDataContext
     {
         /// <summary>
         /// User model
         /// </summary>
-        DbSet<User> User { get; set; } 
+        DbSet<User> User { get; set; }
     }
 }

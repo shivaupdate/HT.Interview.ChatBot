@@ -4,43 +4,44 @@
         <name>HT.Interview.ChatBot.Data</name>
     </assembly>
     <members>
-        <member name="T:HT.Interview.ChatBot.Data.ChatbotDataContext">
+        <member name="T:HT.Interview.ChatBot.Data.ChatBotDataContext">
+            <inheritdoc />
             <summary>
             Master Data Context
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.#ctor(System.String)">
+        <member name="M:HT.Interview.ChatBot.Data.ChatBotDataContext.#ctor(System.String)">
             <summary>
             Constructor
             </summary>
             <param name="connectionString"></param>
         </member>
-        <member name="P:HT.Interview.ChatBot.Data.ChatbotDataContext.User">
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.User">
             <inheritdoc />
             <summary>
-            User
+            User entity
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+        <member name="M:HT.Interview.ChatBot.Data.ChatBotDataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <inheritdoc />
             <summary>
-            On Configuring
+            On configuring
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.Data.ChatbotDataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:HT.Interview.ChatBot.Data.ChatBotDataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
             <summary>
-            On Model Creating
+            On model creating
             </summary>
         </member>
-        <member name="T:HT.Interview.ChatBot.Data.IChatbotDataContext">
+        <member name="T:HT.Interview.ChatBot.Data.IChatBotDataContext">
             <summary>
             IChatbotDataContext
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.Data.IChatbotDataContext.User">
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.User">
             <summary>
-            User
+            User model
             </summary>
         </member>
     </members>

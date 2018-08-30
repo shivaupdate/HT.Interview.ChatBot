@@ -1,5 +1,7 @@
 ﻿using HT.Framework;
+using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Common.Contracts
@@ -13,6 +15,6 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get users async
         /// </summary>
         /// <param name="user"></param>
-        Task<Response> GetUsersAsync(User user); 
+        Task<Response<IEnumerable<User>>> GetUsersAsync(UserQuery uq); 
     }
 }
