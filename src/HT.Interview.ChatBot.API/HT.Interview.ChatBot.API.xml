@@ -53,7 +53,7 @@
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.UserQuery">
             <summary>
-            User Claim Query
+            UserQuery
             </summary>
         </member>
         <member name="M:HT.Interview.ChatBot.API.DTO.UserQuery.#ctor">
@@ -61,50 +61,179 @@
             Constructor
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.UserName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.LoggedInUserId">
             <summary>
-            Get or Sets User Name
+            Get or sets the logged in user id
             </summary>
             <value>
-            The User Name
+            The LoggedInUserId
             </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Id">
+            <summary>
+            Get or sets id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.FirstName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The FirstName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.LastName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The LastName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Email">
+            <summary>
+            Get or sets email
+            </summary>
+            <value>
+            The Email
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.RecordType">
+            <summary>
+            Get or sets record type
+            </summary>
+            <value>
+            The RecordType
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Fields">
+            <summary>
+            Get or sets fields
+            </summary>
+            <value>
+            The Fields
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.SortExpression">
+            <summary>
+            Get or Sets sort expression
+            </summary>
+            <value>
+            The Sort Expression
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CurrentPage">
+            <summary>
+            Get or sets current page
+            </summary>
+            <value>
+            The Current Page
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.PageSize">
+            <summary>
+            Get or sets page size
+            </summary>
+            <value>
+            The Page Size
+            </value> 
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.UserResponse">
             <summary>
             UserResponse
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Id">
+        <!-- Badly formed XML comment ignored for member "P:HT.Interview.ChatBot.API.DTO.UserResponse.Id" -->
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.FirstName">
             <summary>
-            Get or sets the user Id
+            Get or sets the first name
             </summary>
             <value>
-            The Id
-            </value> 
+            The FirstName
+            </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.UserName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.LastName">
             <summary>
-            Get or sets user Name
+            Get or sets the last name
             </summary>
             <value>
-            The User Name
-            </value>   
+            The LastName
+            </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.UserId">
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Email">
             <summary>
-            Get or sets user Id
+            Get or sets the email
             </summary>
             <value>
-            The User Id
-            </value>   
+            The Email
+            </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.IsActive">
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.CreatedBy">
             <summary>
-            Get or sets is active 
+            Get or sets the created by
             </summary>
             <value>
-            The Is Active 
-            </value>   
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
         </member>
         <member name="T:HT.Interview.ChatBot.API.Program">
             <summary>

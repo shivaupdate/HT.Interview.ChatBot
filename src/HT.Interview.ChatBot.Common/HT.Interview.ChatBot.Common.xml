@@ -66,11 +66,11 @@
             <summary>
             Get users async
             </summary>
-            <param name="user"></param>
+            <param name="uq"></param>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.DTO.UserQuery">
             <summary>
-            User Query
+            UserQuery
             </summary>
         </member>
         <member name="M:HT.Interview.ChatBot.Common.DTO.UserQuery.#ctor">
@@ -78,13 +78,53 @@
             Constructor
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.UserName">
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.LoggedInUserId">
             <summary>
-            Get or Sets User Name
+            Get or Sets the Logged In User Id
             </summary>
             <value>
-            The User Name
+            The LoggedInUserId
             </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.Id">
+            <summary>
+            Get or sets user id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.FirstName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The FirstName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.LastName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The LastName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.Email">
+            <summary>
+            Get or sets Email
+            </summary>
+            <value>
+            The Email
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.RecordType">
+            <summary>
+            Get or sets record type
+            </summary>
+            <value>
+            The RecordType
+            </value> 
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Entities.User">
             <inheritdoc />
@@ -94,7 +134,7 @@
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.User.Id">
             <summary>
-            Get or sets the user id
+            Get or sets the id
             </summary>
             <value>
             The Id

@@ -50,12 +50,10 @@
             <param name="chatbotDataContext"></param>
         </member>
         <member name="M:HT.Interview.ChatBot.Services.UserService.GetUsersAsync(HT.Interview.ChatBot.Common.DTO.UserQuery)">
-            <inheritdoc />
             <summary>
-            <para>This function can return records based on loggedInUserId i.e. based on user permission to View, Create, Update and Delete User Claims if GetManageableOnly is set to true.</para>
-            <para>Otherwise it will get records independent of user permission</para>
+            Get users async
             </summary>
-            <param name="uc"></param>
+            <param name="uq"></param>
             <returns></returns>
         </member>
     </members>

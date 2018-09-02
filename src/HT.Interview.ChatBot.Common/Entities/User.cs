@@ -10,7 +10,7 @@ namespace HT.Interview.ChatBot.Common.Entities
     public class User 
     {
         /// <summary>
-        /// Get or sets the user id
+        /// Get or sets the id
         /// </summary>
         /// <value>
         /// The Id

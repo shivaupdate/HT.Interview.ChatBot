@@ -3,7 +3,7 @@
 namespace HT.Interview.ChatBot.Common.DTO
 {
     /// <summary>
-    /// User Query
+    /// UserQuery
     /// </summary>
     public class UserQuery
     {
@@ -11,58 +11,56 @@ namespace HT.Interview.ChatBot.Common.DTO
         /// Constructor
         /// </summary>
         public UserQuery()
-        {
-            //GetManageableOnly = false;
-            //RecordType = RecordType.All;
-            //SortExpression = nameof(UserName);
+        { 
+            RecordType = RecordType.All; 
         }
 
-        ///// <summary>
-        ///// Get or Sets the Logged In User Id
-        ///// </summary>
-        ///// <value>
-        ///// The Logged In User Id
-        ///// </value>  
-        //public string LoggedInUserId { get; set; }
-
-        ///// <summary>
-        ///// Get or Set the Get Manageable Only
-        ///// </summary>
-        ///// <value>
-        ///// The Get Manageable Only
-        ///// </value> 
-        //public bool GetManageableOnly { get; set; }
-
         /// <summary>
-        /// Get or Sets User Name
+        /// Get or Sets the Logged In User Id
         /// </summary>
         /// <value>
-        /// The User Name
+        /// The LoggedInUserId
         /// </value>  
-        public string UserName { get; set; }
+        public string LoggedInUserId { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets User Id
-        ///// </summary>
-        ///// <value>
-        ///// The User Id
-        ///// </value>  
-        //public string UserId { get; set; }
+        /// <summary>
+        /// Get or sets user id
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value>  
+        public int  Id { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Record Type
-        ///// </summary>
-        ///// <value>
-        ///// The Record Type
-        ///// </value> 
-        //public RecordType RecordType { get; set; }
+        /// <summary>
+        /// Get or sets first name
+        /// </summary>
+        /// <value>
+        /// The FirstName
+        /// </value>  
+        public string FirstName { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Sort Expression
-        ///// </summary>
-        ///// <value>
-        ///// The Sort Expression
-        ///// </value> 
-        //public string SortExpression { get; set; } 
+        /// <summary>
+        /// Get or sets first name
+        /// </summary>
+        /// <value>
+        /// The LastName
+        /// </value>  
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Get or sets Email
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value>  
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Get or sets record type
+        /// </summary>
+        /// <value>
+        /// The RecordType
+        /// </value> 
+        public RecordType RecordType { get; set; } 
     }
 }

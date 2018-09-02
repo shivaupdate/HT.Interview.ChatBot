@@ -25,5 +25,178 @@
             <param name="successStatusCode"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Framework.MVC.DataShapingHelper">
+            <summary>
+            DataShapingHelper
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.DataShapingHelper.PaginataionDefaultFields">
+            <summary>
+            Pagindation default fields
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.DataShapingHelper.CreateShapedData``1(System.Linq.IQueryable{``0},System.String,System.Char)">
+            <summary>
+            Create shaped data <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="fields"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.DataShapingHelper.CreateShapedData``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Char)">
+            <summary>
+            Create shaped data <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="fields"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.DataShapingHelper.CreateShapedData``1(``0,System.String,System.Char)">
+            <summary>
+            Create shaped data <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="fields"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.DataShapingHelper.CreateShapedData``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create shaped data <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="listOfFields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.DataShapingHelper.CreatePageableShapedData``1(HT.Framework.MVC.Pageable{``0},System.String,System.Char)">
+            <summary>
+            Create pageable shaped data <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="fields"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Framework.MVC.BaseEntityExtensions">
+            <summary>
+            BaseEntityExtensions
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.BaseEntityExtensions.GetMappedResponse``2(HT.Framework.Response{``0},AutoMapper.IMapper)">
+            <summary>
+            Get mapped response
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+            <param name="response"></param>
+            <param name="mapper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.BaseEntityExtensions.EnforceFailures(HT.Framework.Response)">
+            <summary>
+            Enforce Failures
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="T:HT.Framework.MVC.Pageable`1">
+            <summary>
+            Pageable
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.CurrentPage">
+            <summary>
+            Get Current Page
+            </summary>
+            <value>
+            The CurrentPage
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.TotalPages">
+            <summary>
+            Total Pages
+            </summary>
+            <value>
+            The TotalPages
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.TotalCount">
+            <summary>
+            Total Count
+            </summary>
+            <value>
+            The TotalCount
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.PageSize">
+            <summary>
+            Page Size
+            </summary>
+            <value>
+            The PageSize
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.HasPreviousPage">
+            <summary>
+            Has Previous Page
+            </summary>
+            <value>
+            The HasPreviousPage
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.HasNextPage">
+            <summary>
+            Has Next Page
+            </summary>
+            <value>
+            The HasNextPage
+            </value>
+        </member>
+        <member name="P:HT.Framework.MVC.Pageable`1.Items">
+            <summary>
+            Items
+            </summary>
+            <value>
+            The Items
+            </value>
+        </member>
+        <member name="M:HT.Framework.MVC.Pageable`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.Pageable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            Pageable
+            </summary>
+            <param name="items"></param>
+            <param name="currentPage"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:HT.Framework.MVC.Pageable`1.Paginate(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            Paginate collection
+            </summary>
+            <param name="items"></param>
+            <param name="currentPage"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.Pageable`1.Paginate(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            Paginate collection
+            </summary>
+            <param name="items"></param>
+            <param name="currentPage"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

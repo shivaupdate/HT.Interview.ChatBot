@@ -1,10 +1,11 @@
 ﻿using HT.Interview.ChatBot.Common;
+using System;
 using static HT.Interview.ChatBot.Common.Enums;
 
 namespace HT.Interview.ChatBot.API.DTO
 {
     /// <summary>
-    /// User Claim Query
+    /// UserQuery
     /// </summary>
     public class UserQuery
     {
@@ -12,76 +13,123 @@ namespace HT.Interview.ChatBot.API.DTO
         /// Constructor
         /// </summary>
         public UserQuery()
-        {
-            //GetManageableOnly = false;
-            //RecordType = RecordType.All;
-            //SortExpression = nameof(UserName);
-            //CurrentPage = Constants.DefaultPage;
-            //PageSize = Constants.NoLimit;
+        { 
+            RecordType = RecordType.All;
+            SortExpression = nameof(FirstName);
+            CurrentPage = Constants.DefaultPage;
+            PageSize = Constants.NoLimit;
         }
 
-        ///// <summary>
-        ///// Get or Set the Get Manageable Only
-        ///// </summary>
-        ///// <value>
-        ///// The Get Manageable Only
-        ///// </value> 
-        //public bool GetManageableOnly { get; set; }
-         
         /// <summary>
-        /// Get or Sets User Name
+        /// Get or sets the logged in user id
         /// </summary>
         /// <value>
-        /// The User Name
+        /// The LoggedInUserId
         /// </value>  
-        public string UserName { get; set; }
+        public string LoggedInUserId { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets User Id
-        ///// </summary>
-        ///// <value>
-        ///// The User Id
-        ///// </value>  
-        //public string UserId { get; set; }
-         
-        ///// <summary>
-        ///// Get or Sets Record Type
-        ///// </summary>
-        ///// <value>
-        ///// The Record Type
-        ///// </value> 
-        //public RecordType RecordType { get; set; }
+        /// <summary>
+        /// Get or sets id
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value>  
+        public int Id { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Fields
-        ///// </summary>
-        ///// <value>
-        ///// The Fields
-        ///// </value> 
-        //public string Fields { get; set; }
+        /// <summary>
+        /// Get or sets first name
+        /// </summary>
+        /// <value>
+        /// The FirstName
+        /// </value>  
+        public string FirstName { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Sort Expression
-        ///// </summary>
-        ///// <value>
-        ///// The Sort Expression
-        ///// </value> 
-        //public string SortExpression { get; set; }
+        /// <summary>
+        /// Get or sets first name
+        /// </summary>
+        /// <value>
+        /// The LastName
+        /// </value>  
+        public string LastName { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Current Page
-        ///// </summary>
-        ///// <value>
-        ///// The Current Page
-        ///// </value> 
-        //public int CurrentPage { get; set; }
+        /// <summary>
+        /// Get or sets email
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value>  
+        public string Email { get; set; }
 
-        ///// <summary>
-        ///// Get or Sets Page Size
-        ///// </summary>
-        ///// <value>
-        ///// The Page Size
-        ///// </value> 
-        //public int PageSize { get; set; }
+        /// <summary>
+        /// Get or sets the created by
+        /// </summary>
+        /// <value>
+        /// The CreatedBy
+        /// </value>  
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// Get or sets the created on
+        /// </summary>
+        /// <value>
+        /// The CreatedOn
+        /// </value>  
+        public DateTime CreatedOn { get; set; }
+
+        /// <summary>
+        /// Get or sets the modified by
+        /// </summary>
+        /// <value>
+        /// The ModifiedBy
+        /// </value>  
+        public string ModifiedBy { get; set; }
+
+        /// <summary>
+        /// Get or sets the modified on
+        /// </summary>
+        /// <value>
+        /// The ModifiedOn
+        /// </value>  
+        public DateTime? ModifiedOn { get; set; }
+
+        /// <summary>
+        /// Get or sets record type
+        /// </summary>
+        /// <value>
+        /// The RecordType
+        /// </value> 
+        public RecordType RecordType { get; set; }
+
+        /// <summary>
+        /// Get or sets fields
+        /// </summary>
+        /// <value>
+        /// The Fields
+        /// </value> 
+        public string Fields { get; set; }
+
+        /// <summary>
+        /// Get or Sets sort expression
+        /// </summary>
+        /// <value>
+        /// The Sort Expression
+        /// </value> 
+        public string SortExpression { get; set; }
+
+        /// <summary>
+        /// Get or sets current page
+        /// </summary>
+        /// <value>
+        /// The Current Page
+        /// </value> 
+        public int CurrentPage { get; set; }
+
+        /// <summary>
+        /// Get or sets page size
+        /// </summary>
+        /// <value>
+        /// The Page Size
+        /// </value> 
+        public int PageSize { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO;
 using HT.Interview.ChatBot.Common.Contracts;
+using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -43,10 +44,13 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
         [Produces(typeof(IEnumerable<UserResponse>))]
-        //[SwaggerOperation(Common.Constants.GetMany)]
         public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
-        { 
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc))));
+        {
+            return await GetResponseAsync(async () =>
+            {
+                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc)))
+                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), uc.CurrentPage, uc.PageSize);
+            }); 
         }
 
         #endregion
