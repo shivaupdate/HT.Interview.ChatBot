@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Framework.MVC</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Framework.MVC.ApiControllerBase">
+            <summary>
+            ApiControllerBase
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiControllerBase.GetResponseAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Get response async <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="codeToExecute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiControllerBase.GetResponseAsync(System.Func{System.Threading.Tasks.Task},System.Net.HttpStatusCode)">
+            <summary>
+            Get response async 
+            </summary>
+            <param name="codeToExecute"></param>
+            <param name="successStatusCode"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

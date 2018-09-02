@@ -15,9 +15,18 @@ namespace HT.Framework.Contracts
         /// <returns>String value if found, otherwise null</returns>
         string GetString(string key, CultureInfo culture = null);
 
+        /// <summary>
+        /// Get value
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         string this[string key] { get; }
     }
 
+    /// <summary>
+    /// IContentService <typeparamref name="T"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IContentService<T> : IContentService
     {
     }

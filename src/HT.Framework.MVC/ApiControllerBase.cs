@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Net;
 using System.Security;
@@ -9,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace HT.Framework.MVC
 {
+    /// <summary>
+    /// ApiControllerBase
+    /// </summary>
     public abstract class ApiControllerBase : Controller
     {
         //protected readonly IHostingEnvironment Environment;
@@ -19,7 +20,13 @@ namespace HT.Framework.MVC
         //    Environment = environment;
         //    LoggingService = loggingService;
         //}
-         
+
+        /// <summary>
+        /// Get response async <typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="codeToExecute"></param>
+        /// <returns></returns>
         protected async Task<ActionResult> GetResponseAsync<T>(Func<Task<T>> codeToExecute)
         {
             ActionResult result;
@@ -31,21 +38,27 @@ namespace HT.Framework.MVC
             catch (InvalidOperationException ex)
             {
                 result = BadRequest(ex.Message);
-              //  LoggingService.LogError("The request could not be processed", ex);
+                //  LoggingService.LogError("The request could not be processed", ex);
             }
             catch (SecurityException)
             {
                 result = Forbid();
-               // LoggingService.LogError("SecurityException occurred", ex);
+                // LoggingService.LogError("SecurityException occurred", ex);
             }
-            catch 
+            catch
             {
                 result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-               // LoggingService.LogError("Unknown Exception occurred", ex);
+                // LoggingService.LogError("Unknown Exception occurred", ex);
             }
             return result;
         }
 
+        /// <summary>
+        /// Get response async 
+        /// </summary>
+        /// <param name="codeToExecute"></param>
+        /// <param name="successStatusCode"></param>
+        /// <returns></returns>
         protected async Task<ActionResult> GetResponseAsync(Func<Task> codeToExecute,
             HttpStatusCode successStatusCode = HttpStatusCode.OK)
         {
@@ -58,17 +71,17 @@ namespace HT.Framework.MVC
             catch (InvalidOperationException ex)
             {
                 result = BadRequest(ex.Message);
-               // LoggingService.LogError("The request could not be processed", ex);
+                // LoggingService.LogError("The request could not be processed", ex);
             }
             catch (SecurityException)
             {
                 result = Forbid();
-               // LoggingService.LogError("SecurityException occurred", ex);
+                // LoggingService.LogError("SecurityException occurred", ex);
             }
-            catch 
+            catch
             {
                 result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-               // LoggingService.LogError("Unknown Exception occurred", ex);
+                // LoggingService.LogError("Unknown Exception occurred", ex);
             }
             return result;
         }

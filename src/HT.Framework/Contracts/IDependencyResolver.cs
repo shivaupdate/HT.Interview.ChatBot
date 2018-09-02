@@ -2,6 +2,9 @@
 
 namespace HT.Framework.Contracts
 {
+    /// <summary>
+    /// IDependencyResolver
+    /// </summary>
     public interface IDependencyResolver
     {
         /// <summary>
@@ -10,6 +13,7 @@ namespace HT.Framework.Contracts
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         T Resolve<T>();
+
         /// <summary>
         /// Resolves the named dependency
         /// </summary>
@@ -17,6 +21,7 @@ namespace HT.Framework.Contracts
         /// <param name="name"></param>
         /// <returns></returns>
         T Resolve<T>(string name);
+
         /// <summary>
         /// Resolves the specified args.
         /// </summary>
@@ -26,6 +31,7 @@ namespace HT.Framework.Contracts
         ///  0.
         /// </returns>
         T Resolve<T>(IDictionary<string, object> args);
+
         /// <summary>
         /// Resolves all.
         /// </summary>
