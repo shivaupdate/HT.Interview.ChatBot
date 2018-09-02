@@ -35,9 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.Autofac", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.ContentService.Resource.Autofac", "src\HT.Framework.ContentService.Resource.Autofac\HT.Framework.ContentService.Resource.Autofac.csproj", "{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Framework.MVC", "src\HT.Framework.MVC\HT.Framework.MVC.csproj", "{7FBA32ED-8998-4765-98C3-7B758114115B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.MVC", "src\HT.Framework.MVC\HT.Framework.MVC.csproj", "{7FBA32ED-8998-4765-98C3-7B758114115B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Framework.ContentService.Resource", "src\HT.Framework.ContentService.Resource\HT.Framework.ContentService.Resource.csproj", "{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.ContentService.Resource", "src\HT.Framework.ContentService.Resource\HT.Framework.ContentService.Resource.csproj", "{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,7 +9,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HT.Framework.Autofac\HT.Framework.Autofac.csproj" />
+    <ProjectReference Include="..\HT.Framework.ContentService.Resource.Autofac\HT.Framework.ContentService.Resource.Autofac.csproj" />
+    <ProjectReference Include="..\HT.Framework.MVC\HT.Framework.MVC.csproj" />
+    <ProjectReference Include="..\HT.Framework\HT.Framework.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj" />
   </ItemGroup>
 
 </Project>

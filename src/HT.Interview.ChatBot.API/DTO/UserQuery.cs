@@ -1,9 +1,10 @@
-﻿using static HT.Interview.ChatBot.Common.Enums;
+﻿using HT.Interview.ChatBot.Common;
+using static HT.Interview.ChatBot.Common.Enums;
 
-namespace HT.Interview.ChatBot.Common.DTO
+namespace HT.Interview.ChatBot.API.DTO
 {
     /// <summary>
-    /// User Query
+    /// User Claim Query
     /// </summary>
     public class UserQuery
     {
@@ -15,15 +16,9 @@ namespace HT.Interview.ChatBot.Common.DTO
             //GetManageableOnly = false;
             //RecordType = RecordType.All;
             //SortExpression = nameof(UserName);
+            //CurrentPage = Constants.DefaultPage;
+            //PageSize = Constants.NoLimit;
         }
-
-        ///// <summary>
-        ///// Get or Sets the Logged In User Id
-        ///// </summary>
-        ///// <value>
-        ///// The Logged In User Id
-        ///// </value>  
-        //public string LoggedInUserId { get; set; }
 
         ///// <summary>
         ///// Get or Set the Get Manageable Only
@@ -32,7 +27,7 @@ namespace HT.Interview.ChatBot.Common.DTO
         ///// The Get Manageable Only
         ///// </value> 
         //public bool GetManageableOnly { get; set; }
-
+         
         /// <summary>
         /// Get or Sets User Name
         /// </summary>
@@ -48,7 +43,7 @@ namespace HT.Interview.ChatBot.Common.DTO
         ///// The User Id
         ///// </value>  
         //public string UserId { get; set; }
-
+         
         ///// <summary>
         ///// Get or Sets Record Type
         ///// </summary>
@@ -58,6 +53,14 @@ namespace HT.Interview.ChatBot.Common.DTO
         //public RecordType RecordType { get; set; }
 
         ///// <summary>
+        ///// Get or Sets Fields
+        ///// </summary>
+        ///// <value>
+        ///// The Fields
+        ///// </value> 
+        //public string Fields { get; set; }
+
+        ///// <summary>
         ///// Get or Sets Sort Expression
         ///// </summary>
         ///// <value>
@@ -65,5 +68,20 @@ namespace HT.Interview.ChatBot.Common.DTO
         ///// </value> 
         //public string SortExpression { get; set; }
 
+        ///// <summary>
+        ///// Get or Sets Current Page
+        ///// </summary>
+        ///// <value>
+        ///// The Current Page
+        ///// </value> 
+        //public int CurrentPage { get; set; }
+
+        ///// <summary>
+        ///// Get or Sets Page Size
+        ///// </summary>
+        ///// <value>
+        ///// The Page Size
+        ///// </value> 
+        //public int PageSize { get; set; }
     }
 }

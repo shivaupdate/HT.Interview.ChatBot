@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.Data
 {
     /// <inheritdoc />
     /// <summary>
-    /// Master Data Context
+    /// ChatBot Data Context
     /// </summary>
     public class ChatBotDataContext : DbContext, IChatBotDataContext
     {
@@ -42,7 +42,7 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("User", "dbo").Property(t => t.Id);
+            modelBuilder.Entity<User>().ToTable("User", "icb").Property(t => t.Id);
         }
     }
 }

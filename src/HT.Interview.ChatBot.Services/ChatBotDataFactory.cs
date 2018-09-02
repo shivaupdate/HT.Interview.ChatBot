@@ -20,6 +20,11 @@ namespace HT.Interview.ChatBot.Services
             _dependencyResolver = dependencyResolver;
         } 
 
+        public IContentService GetResourceService(string name)
+        {
+            return _dependencyResolver.Resolve<IContentService>();
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Get user service

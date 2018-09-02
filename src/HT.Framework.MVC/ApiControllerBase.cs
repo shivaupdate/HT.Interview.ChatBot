@@ -11,67 +11,15 @@ namespace HT.Framework.MVC
 {
     public abstract class ApiControllerBase : Controller
     {
-        protected readonly IHostingEnvironment Environment;
-        protected readonly ILogger<ApiControllerBase> LoggingService;
+        //protected readonly IHostingEnvironment Environment;
+        //protected readonly ILogger<ApiControllerBase> LoggingService;
 
-        protected ApiControllerBase(IHostingEnvironment environment, ILogger<ApiControllerBase> loggingService)
-        {
-            Environment = environment;
-            LoggingService = loggingService;
-        }
-
-        protected ActionResult GetResponse<T>(Func<T> codeToExecute)
-        {
-            ActionResult result;
-            try
-            {
-                T r = codeToExecute();
-                result = r == null ? (ActionResult)NotFound() : Ok(r);
-            }
-            catch (InvalidOperationException ex)
-            {
-                result = BadRequest(ex.Message);
-                LoggingService.LogError("The request could not be processed", ex);
-            }
-            catch (SecurityException ex)
-            {
-                result = Forbid();
-                LoggingService.LogError("Security Exception occurred", ex);
-            }
-            catch (Exception ex)
-            {
-                result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-                LoggingService.LogError("Unknown Exception occurred", ex);
-            }
-            return result;
-        }
-
-        protected ActionResult GetResponse(Action codeToExecute, HttpStatusCode successStatusCode = HttpStatusCode.OK)
-        {
-            ActionResult result;
-            try
-            {
-                codeToExecute();
-                result = StatusCode((int)successStatusCode);
-            }
-            catch (InvalidOperationException ex)
-            {
-                result = BadRequest(ex.Message);
-                LoggingService.LogError("The request could not be processed", ex);
-            }
-            catch (SecurityException ex)
-            {
-                result = Forbid();
-                LoggingService.LogError("SecurityException occurred", ex);
-            }
-            catch (Exception ex)
-            {
-                result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-                LoggingService.LogError("Unknown Exception occurred", ex);
-            }
-            return result;
-        }
-
+        //protected ApiControllerBase(IHostingEnvironment environment, ILogger<ApiControllerBase> loggingService)
+        //{
+        //    Environment = environment;
+        //    LoggingService = loggingService;
+        //}
+         
         protected async Task<ActionResult> GetResponseAsync<T>(Func<Task<T>> codeToExecute)
         {
             ActionResult result;
@@ -83,17 +31,17 @@ namespace HT.Framework.MVC
             catch (InvalidOperationException ex)
             {
                 result = BadRequest(ex.Message);
-                LoggingService.LogError("The request could not be processed", ex);
+              //  LoggingService.LogError("The request could not be processed", ex);
             }
-            catch (SecurityException ex)
+            catch (SecurityException)
             {
                 result = Forbid();
-                LoggingService.LogError("SecurityException occurred", ex);
+               // LoggingService.LogError("SecurityException occurred", ex);
             }
-            catch (Exception ex)
+            catch 
             {
                 result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-                LoggingService.LogError("Unknown Exception occurred", ex);
+               // LoggingService.LogError("Unknown Exception occurred", ex);
             }
             return result;
         }
@@ -110,17 +58,17 @@ namespace HT.Framework.MVC
             catch (InvalidOperationException ex)
             {
                 result = BadRequest(ex.Message);
-                LoggingService.LogError("The request could not be processed", ex);
+               // LoggingService.LogError("The request could not be processed", ex);
             }
-            catch (SecurityException ex)
+            catch (SecurityException)
             {
                 result = Forbid();
-                LoggingService.LogError("SecurityException occurred", ex);
+               // LoggingService.LogError("SecurityException occurred", ex);
             }
-            catch (Exception ex)
+            catch 
             {
                 result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
-                LoggingService.LogError("Unknown Exception occurred", ex);
+               // LoggingService.LogError("Unknown Exception occurred", ex);
             }
             return result;
         }
