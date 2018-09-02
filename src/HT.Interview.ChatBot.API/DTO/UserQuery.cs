@@ -17,7 +17,7 @@ namespace HT.Interview.ChatBot.API.DTO
             RecordType = RecordType.All;
             SortExpression = nameof(FirstName);
             CurrentPage = Constants.DefaultPage;
-            PageSize = Constants.NoLimit;
+            PageSize = Constants.PageSizeTen;
         }
 
         /// <summary>

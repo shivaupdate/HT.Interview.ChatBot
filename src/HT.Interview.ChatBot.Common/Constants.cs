@@ -16,6 +16,11 @@
         public const int NoLimit = 0;
 
         /// <summary>
+        /// Page size ten
+        /// </summary>
+        public const int PageSizeTen = 10;
+
+        /// <summary>
         /// Resource component
         /// </summary>
         public const string ResourceComponent = "Resources.ChatBot";
@@ -29,5 +34,10 @@
         /// Get many
         /// </summary>
         public const string GetMany = "get-many";
+
+        /// <summary>
+        /// Get many as pageable
+        /// </summary>
+        public const string GetManyAsPageable = "get-many-as-pageable";
     }
 }

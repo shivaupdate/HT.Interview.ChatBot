@@ -33,9 +33,9 @@
             </summary>
             <param name="factory"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
             <summary>
-            Get User Groups Async
+            Get many as pageable async
             </summary>
             <returns></returns>
         </member>
@@ -178,7 +178,14 @@
             UserResponse
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:HT.Interview.ChatBot.API.DTO.UserResponse.Id" -->
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value>
+        </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.FirstName">
             <summary>
             Get or sets the first name

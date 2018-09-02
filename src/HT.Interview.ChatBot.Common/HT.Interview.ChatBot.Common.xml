@@ -19,6 +19,11 @@
             No limit
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.PageSizeTen">
+            <summary>
+            Page size ten
+            </summary>
+        </member>
         <member name="F:HT.Interview.ChatBot.Common.Constants.ResourceComponent">
             <summary>
             Resource component
@@ -32,6 +37,11 @@
         <member name="F:HT.Interview.ChatBot.Common.Constants.GetMany">
             <summary>
             Get many
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.GetManyAsPageable">
+            <summary>
+            Get many as pageable
             </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory">

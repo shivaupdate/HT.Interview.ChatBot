@@ -39,12 +39,12 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
-        /// Get User Groups Async
+        /// Get many as pageable async
         /// </summary>
         /// <returns></returns>
-        [HttpGet(Common.Constants.GetMany)]
+        [HttpGet(Common.Constants.GetManyAsPageable)]
         [Produces(typeof(IEnumerable<UserResponse>))]
-        public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
+        public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserQuery uc)
         {
             return await GetResponseAsync(async () =>
             {
