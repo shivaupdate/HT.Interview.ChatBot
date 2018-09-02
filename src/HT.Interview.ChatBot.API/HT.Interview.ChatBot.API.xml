@@ -33,6 +33,12 @@
             </summary>
             <param name="factory"></param>
         </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
             <summary>
             Get many as pageable async
