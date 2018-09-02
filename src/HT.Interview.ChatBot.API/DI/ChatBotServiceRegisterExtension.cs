@@ -1,16 +1,15 @@
 ﻿using Autofac;
-using Microsoft.Extensions.Configuration;
 using HT.Framework.Autofac;
-using HT.Framework.ContentService.Resource.Autofac;
-using HT.Framework.Contracts; 
+using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Data;
 using HT.Interview.ChatBot.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace HT.Interview.ChatBot.API.DI
 {
     /// <summary>
-    /// ChatBot data service registration
+    /// ChatBotServiceRegisterExtension
     /// </summary>
     public static class ChatBotServiceRegisterExtension
     {

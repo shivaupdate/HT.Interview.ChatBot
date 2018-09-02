@@ -20,11 +20,9 @@ namespace HT.Interview.ChatBot.API
         /// Configure auto mapper 
         /// </summary>
         public UserProfile()
-        {
-            CreateMap<UserResponse, User>();
+        { 
             CreateMap<User, UserResponse>();
-            CreateMap<UserQuery, Model.UserQuery>();
-            CreateMap<Model.UserQuery, UserQuery>();
+            CreateMap<UserQuery, Model.UserQuery>(); 
         }
     }
 }

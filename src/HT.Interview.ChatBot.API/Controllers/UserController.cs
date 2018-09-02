@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using HT.Framework.MVC;
+﻿using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,7 +10,7 @@ namespace HT.Interview.ChatBot.API.Controllers
 {
     /// <inheritdoc />
     /// <summary>
-    /// User controller
+    /// UserController
     /// </summary>
     [Route("api/v2/user")]
     [Produces("application/json")]
@@ -44,10 +42,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         [Produces(typeof(IEnumerable<UserResponse>))]
         //[SwaggerOperation(Common.Constants.GetMany)]
         public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
-        {
-            //return await GetResponseAsync(async () => (await _userService.GetUsersAsync(new Model.UserQuery()))
-            //.GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>());
-
+        { 
             return await GetResponseAsync(async () => (await _userService.GetUsersAsync(new Model.UserQuery())));
         }
 

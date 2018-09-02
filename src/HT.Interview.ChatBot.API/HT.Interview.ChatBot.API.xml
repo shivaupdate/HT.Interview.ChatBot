@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Interview.ChatBot.API</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Interview.ChatBot.API.UserProfile">
+            <inheritdoc />
+            <summary>
+            User Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.UserProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.UserProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.UserController">
+            <inheritdoc />
+            <summary>
+            UserController
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
+            <summary>
+            Get User Groups Async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DI.ChatBotServiceRegisterExtension">
+            <summary>
+            ChatBotServiceRegisterExtension
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DI.ChatBotServiceRegisterExtension.AddChatBotDataService(Autofac.ContainerBuilder,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Add ChatBot data service
+            </summary>
+            <param name="builder"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.UserQuery">
+            <summary>
+            User Claim Query
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.UserQuery.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.UserName">
+            <summary>
+            Get or Sets User Name
+            </summary>
+            <value>
+            The User Name
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.UserResponse">
+            <summary>
+            UserResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Id">
+            <summary>
+            Get or sets the user Id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.UserName">
+            <summary>
+            Get or sets user Name
+            </summary>
+            <value>
+            The User Name
+            </value>   
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.UserId">
+            <summary>
+            Get or sets user Id
+            </summary>
+            <value>
+            The User Id
+            </value>   
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.IsActive">
+            <summary>
+            Get or sets is active 
+            </summary>
+            <value>
+            The Is Active 
+            </value>   
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -3,7 +3,7 @@
 namespace HT.Interview.ChatBot.API.DTO
 {
     /// <summary>
-    /// User Response
+    /// UserResponse
     /// </summary>
     public class UserResponse
     {
@@ -38,13 +38,6 @@ namespace HT.Interview.ChatBot.API.DTO
         /// The Is Active 
         /// </value>   
         public bool IsActive { get; set; }
-
-        /// <summary>
-        /// Get or sets does user has write access        
-        /// </summary>
-        /// <value>
-        /// The Does User Has Write Access
-        /// </value> 
-        public bool DoesUserHasWriteAccess { get; set; } 
+         
     }
 }
