@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using AutoMapper;
-//using HT.Interview.ChatBot.API.AutoMapper;
+using AutoMapper; 
 using HT.Interview.ChatBot.API.DI;
 using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -63,9 +62,9 @@ namespace HT.Interview.ChatBot.API
             services.AddSwaggerGen();
             services.ConfigureSwaggerGen(options =>
             {
-                options.SwaggerDoc("v2", new Info
+                options.SwaggerDoc("v1", new Info
                 {
-                    Version = "v2",
+                    Version = "v1",
                     Title = "Hexaware Interview ChatBot API",
                     Description = "A REST API that exposes Hexaware's Interview ChatBot API",
                     TermsOfService = "None"
@@ -104,7 +103,7 @@ namespace HT.Interview.ChatBot.API
             app.UseSwagger();
             app.UseSwaggerUI(ui =>
             {
-                ui.SwaggerEndpoint("/swagger/v2/swagger.json", "ChatBot API V2");
+                ui.SwaggerEndpoint("/swagger/v1/swagger.json", "ChatBot API V1");
             });
             app.UseMvc();
         }
