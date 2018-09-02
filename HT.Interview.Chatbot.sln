@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.MVC", "src\HT.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HT.Framework.ContentService.Resource", "src\HT.Framework.ContentService.Resource\HT.Framework.ContentService.Resource.csproj", "{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Interview.ChatBot.Test", "test\HT.Interview.ChatBot.Test\HT.Interview.ChatBot.Test.csproj", "{9EE1BE55-59F2-4EF1-A7DC-783587B07669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE1BE55-59F2-4EF1-A7DC-783587B07669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE1BE55-59F2-4EF1-A7DC-783587B07669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE1BE55-59F2-4EF1-A7DC-783587B07669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE1BE55-59F2-4EF1-A7DC-783587B07669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +112,7 @@ Global
 		{AF1355E0-461D-45EF-BC49-C6C4A0CAE40D} = {9594CA05-E881-46D8-8737-46C61D369ED1}
 		{7FBA32ED-8998-4765-98C3-7B758114115B} = {9594CA05-E881-46D8-8737-46C61D369ED1}
 		{9143E8FF-6CD5-4F7F-8621-6D01D0DCFDB1} = {9594CA05-E881-46D8-8737-46C61D369ED1}
+		{9EE1BE55-59F2-4EF1-A7DC-783587B07669} = {526E6109-D716-4B96-854F-A99DDBC0F04E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7B3E883-FB1E-4EEB-BD54-B171B5C403F5}
