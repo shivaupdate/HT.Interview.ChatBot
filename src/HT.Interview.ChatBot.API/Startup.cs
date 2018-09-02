@@ -16,8 +16,15 @@ using System.Collections.Generic;
 
 namespace HT.Interview.ChatBot.API
 {
+    /// <summary>
+    /// Startup
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Startup
+        /// </summary>
+        /// <param name="env"></param>
         public Startup(IHostingEnvironment env)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder()
@@ -33,9 +40,15 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public IServiceProvider ConfigureServices(IServiceCollection services)
-        {
+        {    
+            //Adding AutoMapper Support 
+            services.AddAutoMapper();
             services.AddMvc(config =>
                 {
                     // Add XML Content Negotiation
@@ -59,8 +72,7 @@ namespace HT.Interview.ChatBot.API
                 });
                 options.MapType<IEnumerable<string>>(() => new Schema { Type = "string[]", Format = "string[]" });
             });
-            //Adding AutoMapper Support 
-            services.AddAutoMapper();
+        
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
             {
@@ -77,7 +89,11 @@ namespace HT.Interview.ChatBot.API
             return container.Resolve<IServiceProvider>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        ///  This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

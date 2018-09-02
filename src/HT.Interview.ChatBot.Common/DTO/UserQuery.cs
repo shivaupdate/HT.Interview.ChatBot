@@ -63,7 +63,6 @@ namespace HT.Interview.ChatBot.Common.DTO
         ///// <value>
         ///// The Sort Expression
         ///// </value> 
-        //public string SortExpression { get; set; }
-
+        //public string SortExpression { get; set; } 
     }
 }

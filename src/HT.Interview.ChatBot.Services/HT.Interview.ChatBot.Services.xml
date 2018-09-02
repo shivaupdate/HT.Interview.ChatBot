@@ -16,6 +16,19 @@
             </summary>
             <param name="dependencyResolver"></param>
         </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetMapperService">
+            <summary>
+            Get mapper service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetResourceService(System.String)">
+            <summary>
+            Get resource service
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetUserService">
             <inheritdoc />
             <summary>

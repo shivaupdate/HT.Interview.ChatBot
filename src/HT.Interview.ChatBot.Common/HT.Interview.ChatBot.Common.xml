@@ -39,6 +39,12 @@
             IChatBotDataFactory
             </summary>
         </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetMapperService">
+            <summary>
+            Get mapper service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetResourceService(System.String)">
             <summary>
             Get resource service

@@ -10,11 +10,11 @@ namespace HT.Interview.ChatBot.Common.Contracts
     /// IUserService
     /// </summary>
     public interface IUserService
-    { 
+    {
         /// <summary>
         /// Get users async
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="uq"></param>
         Task<Response<IEnumerable<User>>> GetUsersAsync(UserQuery uq); 
     }
 }

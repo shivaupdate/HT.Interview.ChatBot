@@ -1,4 +1,5 @@
-﻿using HT.Framework.Contracts;
+﻿using AutoMapper;
+using HT.Framework.Contracts;
 using Microsoft.Extensions.Logging;
 
 namespace HT.Interview.ChatBot.Common.Contracts
@@ -7,7 +8,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
     /// IChatBotDataFactory
     /// </summary>
     public interface IChatBotDataFactory
-    { 
+    {
+        /// <summary>
+        /// Get mapper service
+        /// </summary>
+        /// <returns></returns>
+        IMapper GetMapperService();
+
         /// <summary>
         /// Get resource service
         /// </summary>

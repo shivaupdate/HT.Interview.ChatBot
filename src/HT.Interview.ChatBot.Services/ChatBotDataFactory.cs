@@ -1,4 +1,5 @@
-﻿using HT.Framework.Contracts;
+﻿using AutoMapper;
+using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts; 
 
 namespace HT.Interview.ChatBot.Services
@@ -18,8 +19,22 @@ namespace HT.Interview.ChatBot.Services
         public ChatBotDataFactory(IDependencyResolver dependencyResolver)
         {
             _dependencyResolver = dependencyResolver;
-        } 
+        }
 
+        /// <summary>
+        /// Get mapper service
+        /// </summary>
+        /// <returns></returns>
+        public IMapper GetMapperService()
+        {
+            return _dependencyResolver.Resolve<IMapper>();
+        }
+
+        /// <summary>
+        /// Get resource service
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public IContentService GetResourceService(string name)
         {
             return _dependencyResolver.Resolve<IContentService>();

@@ -1,4 +1,5 @@
-﻿using HT.Framework.MVC;
+﻿using AutoMapper;
+using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO;
 using HT.Interview.ChatBot.Common.Contracts;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         #region Fields
 
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
         #endregion
 
@@ -32,6 +34,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public UserController(IChatBotDataFactory factory)
         {
             _userService = factory.GetUserService();
+            _mapper = factory.GetMapperService();
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         //[SwaggerOperation(Common.Constants.GetMany)]
         public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
         { 
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(new Model.UserQuery())));
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc))));
         }
 
         #endregion

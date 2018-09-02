@@ -106,10 +106,53 @@
             The Is Active 
             </value>   
         </member>
+        <member name="T:HT.Interview.ChatBot.API.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Create Web Host Builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Startup
+            </summary>
+            <param name="env"></param>
+        </member>
         <member name="P:HT.Interview.ChatBot.API.Startup.Configuration">
             <summary>
             Configuration
             </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
         </member>
     </members>
 </doc>
