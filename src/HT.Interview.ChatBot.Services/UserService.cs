@@ -1,4 +1,5 @@
 ﻿using HT.Framework;
+using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
@@ -18,7 +19,7 @@ namespace HT.Interview.ChatBot.Services
         #region Fields
 
         private readonly IChatBotDataContext _chatbotDataContext;
-        // private readonly IContentService _resourceService;
+        private readonly IContentService _resourceService;
 
         #endregion
 
@@ -32,7 +33,7 @@ namespace HT.Interview.ChatBot.Services
         public UserService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
         {
             _chatbotDataContext = chatbotDataContext;
-            // _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
+            _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
         #region Get-Check User Claims

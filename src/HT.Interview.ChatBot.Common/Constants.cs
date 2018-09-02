@@ -39,5 +39,10 @@
         /// Get many as pageable
         /// </summary>
         public const string GetManyAsPageable = "get-many-as-pageable";
+
+        /// <summary>
+        /// Users no record found
+        /// </summary>
+        public const string UsersNoRecordFound = "UsersNoRecordFound";
     }
 }

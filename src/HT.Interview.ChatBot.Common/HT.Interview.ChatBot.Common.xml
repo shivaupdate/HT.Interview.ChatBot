@@ -44,6 +44,11 @@
             Get many as pageable
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.UsersNoRecordFound">
+            <summary>
+            Users no record found
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory">
             <summary>
             IChatBotDataFactory

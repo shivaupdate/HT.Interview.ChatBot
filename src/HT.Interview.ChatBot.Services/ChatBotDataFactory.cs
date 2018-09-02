@@ -37,7 +37,7 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public IContentService GetResourceService(string name)
         {
-            return _dependencyResolver.Resolve<IContentService>();
+            return _dependencyResolver.Resolve<IContentService>(name);
         }
 
         /// <inheritdoc />

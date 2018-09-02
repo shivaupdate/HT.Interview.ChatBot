@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using HT.Framework.Autofac;
+using HT.Framework.ContentService.Resource.Autofac;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Data;
@@ -24,11 +25,9 @@ namespace HT.Interview.ChatBot.API.DI
             builder.RegisterType<ChatBotDataContext>().As<IChatBotDataContext>().
                 WithParameter(new NamedParameter("connectionString", configuration["ConnectionStrings:ChatBotConnectionString"])).InstancePerLifetimeScope();
 
-            builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>().SingleInstance();
-            
+            builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>().SingleInstance(); 
             builder.RegisterType<UserService>().As<IUserService>(); 
-
-            //builder.AddResourceService<Resources.Resources>(Common.Constants.ResourceComponent);
+            builder.AddResourceService<Resources.Resources>(Common.Constants.ResourceComponent);
         }
     }
 }

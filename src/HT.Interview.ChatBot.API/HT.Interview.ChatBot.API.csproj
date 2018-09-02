@@ -26,6 +26,7 @@
     <ProjectReference Include="..\HT.Framework\HT.Framework.csproj" />
     <ProjectReference Include="..\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj" />
     <ProjectReference Include="..\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Resources\HT.Interview.ChatBot.Resources.csproj" />
     <ProjectReference Include="..\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj" />
   </ItemGroup>
 
