@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HT.Framework.Serialization.Json\HT.Framework.Serialization.Json.csproj" />
     <ProjectReference Include="..\HT.Framework\HT.Framework.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using HT.Framework.ContentService.Resource;
+﻿using HT.Framework;
 using HT.Interview.ChatBot.Common;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;

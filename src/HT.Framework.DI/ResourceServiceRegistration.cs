@@ -1,11 +1,8 @@
 ﻿using Autofac;
 using HT.Framework.Contracts;
 
-namespace HT.Framework.ContentService.Resource.Autofac
+namespace HT.Framework.DI
 {
-    /// <summary>
-    /// ResourceServiceRegistration
-    /// </summary>
     public static class ResourceServiceRegistration
     {
         /// <summary>

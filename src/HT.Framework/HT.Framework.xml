@@ -87,32 +87,25 @@
             <param name="bccAddress"></param>
             <returns></returns>
         </member>
-        <member name="T:HT.Framework.Contracts.ISerializer">
+        <member name="T:HT.Framework.ResourceService`1">
             <summary>
-            ISerializer
-            </summary>
-        </member>
-        <member name="M:HT.Framework.Contracts.ISerializer.Serialize(System.Object)">
-            <summary>
-            Serialize
-            </summary>
-            <param name="objectToSerialize"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Framework.Contracts.ISerializer.Deserialize``1(System.String)">
-            <summary>
-            Deserialize <typeparamref name="T"/>
+            Resource service <typeparamref name="T"/>
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="objectAsString"></param>
+        </member>
+        <member name="M:HT.Framework.ResourceService`1.GetString(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Get string
+            </summary>
+            <param name="key"></param>
+            <param name="culture"></param>
             <returns></returns>
         </member>
-        <member name="M:HT.Framework.Contracts.ISerializer.Deserialize(System.String,System.Type)">
+        <member name="P:HT.Framework.ResourceService`1.Item(System.String)">
             <summary>
-            Deserialize
+            Get string
             </summary>
-            <param name="objectAsString"></param>
-            <param name="objectType"></param>
+            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Framework.Response">

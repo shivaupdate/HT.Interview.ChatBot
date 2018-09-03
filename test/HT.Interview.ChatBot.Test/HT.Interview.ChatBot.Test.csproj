@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\HT.Framework.ContentService.Resource\HT.Framework.ContentService.Resource.csproj" />
     <ProjectReference Include="..\..\src\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj" />
     <ProjectReference Include="..\..\src\HT.Interview.ChatBot.Resources\HT.Interview.ChatBot.Resources.csproj" />
     <ProjectReference Include="..\..\src\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj" />
