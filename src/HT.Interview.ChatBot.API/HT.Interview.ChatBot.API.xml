@@ -33,7 +33,13 @@
             </summary>
             <param name="factory"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.UserQuery)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.Request.UserQuery)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.Request.UserQuery)">
             <summary>
             Get many as pageable async
             </summary>
@@ -51,17 +57,260 @@
             <param name="builder"></param>
             <param name="configuration"></param>
         </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.UserQuery">
+        <member name="T:HT.Interview.ChatBot.API.DTO.ApiAiJson`1">
             <summary>
-            UserQuery
+            ApiAiJson <typeparamref name="T"/>
             </summary>
+            <typeparam name="T"></typeparam>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.DTO.UserQuery.#ctor">
+        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.#cctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.LoggedInUserId">
+        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.Serialize(`0)">
+            <summary>
+            Serialize <typeparamref name="T"/>
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.Deserialize(System.String)">
+            <summary>
+            Deserialize <typeparamref name="T"/>
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HT.Interview.ChatBot.API.DTO.ApiAiJson`1._settings">
+            <summary>
+            Settigns
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.ApiAiVersion">
+            <summary>
+            ApiAiVersion
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.API.DTO.ApiAiVersion.Default">
+            <summary>
+            Defualt
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Context">
+            <summary>
+            Context
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Context.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Context.Parameters">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Context.Lifespan">
+            <summary>
+            Lifespan
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Entity">
+            <summary>
+            The entity JSON object contains all information about an entity, including its ID, name, and entries.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entity.Id">
+            <summary>
+            A unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entity.Name">
+            <summary>
+            The name of the entity.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entity.Entries">
+            <summary>
+            An array of entry objects, which contain reference values and synonyms.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entity.IsEnum">
+            <summary>
+            Indicates if the entity is a mapping or an enum type entity.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entity.AutomatedExpansion">
+            <summary>
+            Indicates if the entity can be automatically expanded.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Entry">
+            <summary>
+            Entry
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entry.Value">
+            <summary>
+            For mapping entities: a canonical name to be used in place of synonyms.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Entry.Synonyms">
+            <summary>
+            Array of strings that can include simple strings (for words and phrases) or references to other entites (with or without aliases).
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.MessageCollectionConverter">
+            <summary>
+            MessageCollectionConverter
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.MessageCollectionConverter.CanConvert(System.Type)">
+            <summary>
+            Can covert
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.MessageCollectionConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Read Json
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.MessageCollectionConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Write Json
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.LocationRequest">
+            <summary>
+            LocationRequest
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.LocationRequest.Latitude">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.LocationRequest.Longitude">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.OriginalRequest">
+            <summary>
+            OriginalRequest
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.OriginalRequest.Source">
+            <summary>
+            Request source name. 
+            Possible values: "facebook", "kik", "slack", "slack_testbot", "line", 
+            "skype", "spark", "telegram", "tropo", "twilio", "twilio-ip", "twitter"
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.OriginalRequest.Data">
+            <summary>
+            Request data.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.QueryRequest">
+            <summary>
+            QueryRequest
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Query">
+            <summary>
+            The natural language text to be processed. The request can have multiple query parameters. 
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Confidence">
+            <summary>
+            The confidence of the corresponding query parameter having been correctly recognized by a 
+            speech recognition system. 0 represents no confidence and 1 represents the highest confidence. 
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.SessionId">
+            <summary>
+            A string token up to 36 symbols long, used to identify the client and to manage sessions parameters (including contexts) per client.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Lang">
+            <summary>
+            Language tag.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Contexts">
+            <summary>
+            Array of additional input context objects.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.ResetContexts">
+            <summary>
+            If true, all current contexts in a session will be reset before the new ones are set. False by default.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Entities">
+            <summary>
+            Array of entities that replace developer defined entities for this request only. The entity(ies) need to exist in the developer console
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Timezone">
+            <summary>
+            Time zone from IANA Time Zone Database. 
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.Location">
+            <summary>
+            Latitude and longitude values.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.QueryRequest.OriginalRequest">
+            <summary>
+            Full request coming from the integrated platform (Facebook Messenger, Slack, etc.) 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.RequestBase">
+            <summary>
+            RequestBase
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.RequestBase.V">
+            <summary>
+            Version of the protocol, e.g. v=20150910
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.TtsRequest">
+            <summary>
+            The tts endpoint is used to perform text-to-speech - generate speech (audio file) from text.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.TtsRequest.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.UserQuery">
+            <summary>
+            UserQuery
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Request.UserQuery.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.LoggedInUserId">
             <summary>
             Get or sets the logged in user id
             </summary>
@@ -69,7 +318,7 @@
             The LoggedInUserId
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Id">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Id">
             <summary>
             Get or sets id
             </summary>
@@ -77,7 +326,7 @@
             The Id
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.FirstName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.FirstName">
             <summary>
             Get or sets first name
             </summary>
@@ -85,7 +334,7 @@
             The FirstName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.LastName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.LastName">
             <summary>
             Get or sets first name
             </summary>
@@ -93,7 +342,7 @@
             The LastName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Email">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Email">
             <summary>
             Get or sets email
             </summary>
@@ -101,7 +350,7 @@
             The Email
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CreatedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CreatedBy">
             <summary>
             Get or sets the created by
             </summary>
@@ -109,7 +358,7 @@
             The CreatedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CreatedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CreatedOn">
             <summary>
             Get or sets the created on
             </summary>
@@ -117,7 +366,7 @@
             The CreatedOn
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.ModifiedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.ModifiedBy">
             <summary>
             Get or sets the modified by
             </summary>
@@ -125,7 +374,7 @@
             The ModifiedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.ModifiedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.ModifiedOn">
             <summary>
             Get or sets the modified on
             </summary>
@@ -133,7 +382,7 @@
             The ModifiedOn
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.RecordType">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.RecordType">
             <summary>
             Get or sets record type
             </summary>
@@ -141,7 +390,7 @@
             The RecordType
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.Fields">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Fields">
             <summary>
             Get or sets fields
             </summary>
@@ -149,7 +398,7 @@
             The Fields
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.SortExpression">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.SortExpression">
             <summary>
             Get or Sets sort expression
             </summary>
@@ -157,7 +406,7 @@
             The Sort Expression
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.CurrentPage">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CurrentPage">
             <summary>
             Get or sets current page
             </summary>
@@ -165,7 +414,7 @@
             The Current Page
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserQuery.PageSize">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.PageSize">
             <summary>
             Get or sets page size
             </summary>
@@ -173,12 +422,412 @@
             The Page Size
             </value> 
         </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.UserResponse">
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.EntityResponse">
+            <summary>
+            EntityResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.EntityResponse.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.EntityResponse.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.EntityResponse.Count">
+            <summary>
+            Count
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.EntityResponse.Preview">
+            <summary>
+            Preview
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.FulfillmentResponse">
+            <summary>
+            FulfillmentResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.FulfillmentResponse.Speech">
+            <summary>
+            ext to be pronounced to the user / shown on the screen
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.FulfillmentResponse.Messages">
+            <summary>
+            Array of message objects
+            </summary>       
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse">
+            <summary>
+            BaseMessageResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            On deserialized
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse.OnSerialized(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            On serialized
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse">
+            <summary>
+            CardMessageResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.Title">
+            <summary>
+            Card title.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.Subtitle">
+            <summary>
+            Card subtitle.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.ImageUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.Buttons">
+            <summary>
+            Array of objects corresponding to card buttons.
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponseButton">
+            <summary>
+             CardMessageResponseButton
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponseButton.Text">
+            <summary>
+            Button text.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.CardMessageResponseButton.Postback">
+            <summary>
+            A text sent back to API.AI or a URL to open.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.ImageMessageResponse">
+            <summary>
+            ImageMessageResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.ImageMessageResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.ImageMessageResponse.ImageUrl">
+            <summary>
+            Public URL to the image file.
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.ImageMessageResponse.SetMessageType">
+            <summary>
+            Set meesage type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.PayloadMessageResponse">
+            <summary>
+            PayloadMessageResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.PayloadMessageResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.PayloadMessageResponse.Payload">
+            <summary>
+            Developer defined JSON. It is sent without modifications
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.PayloadMessageResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.QuickReplyMessageResponse">
+            <summary>
+            QuickReplyMessageResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.QuickReplyMessageResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.QuickReplyMessageResponse.Title">
+            <summary>
+            Quick replies title.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.QuickReplyMessageResponse.Replies">
+            <summary>
+            Array of strings corresponding to quick replies.
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.QuickReplyMessageResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse">
+            <summary>
+            TextMessageResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse.Speech">
+            <summary>
+            Agent's text reply. Line breaks are supported for Facebook Messenger, Kik, Slack, and Telegram one-click integrations.
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.MetadataResponse">
+            <summary>
+            MetadataResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.MetadataResponse.IntentId">
+            <summary>
+            ID of the intent that produced this result.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.MetadataResponse.WebhookUsed">
+            <summary>
+            Indicates wheather webhook functionaly is enabled in the triggered intent.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.MetadataResponse.IntentName">
+            <summary>
+            Name of the intent that produced this result.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.QueryResponse">
+            <summary>
+            QueryResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResponse.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.QueryResult">
+            <summary>
+            QueryResult
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Source">
+            <summary>
+            Source of the answer. Could be "agent" if the response was retrieved from the agent. 
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.ResolvedQuery">
+            <summary>
+            The query that was used to produce this result.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Action">
+            <summary>
+            An action to take.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.ActionIncomplete">
+            <summary>
+            true if the triggered intent has required parameters and not all the required parameter values have been collected
+            false if all required parameter values have been collected or if the triggered intent doesn't containt any required parameters
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Parameters">
+            <summary>
+            Parameters to be used by the action.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Contexts">
+            <summary>
+            Array of context objects with the fields "name", "parameters", "lifespan".
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Fulfillment">
+            <summary>
+            Data about fulfillment, speech, structured fulfillment data, etc.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Score">
+            <summary>
+            Matching score for the intent
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.QueryResult.Metadata">
+            <summary>
+            Contains data on intents and contexts.
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.QueryResult.GetContextByName(System.String)">
+            <summary>
+            Get context by name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.QueryResult.GetContextParameterValueByNameKey(System.String,System.String)">
+            <summary>
+            Get parameter value in context (name) by key
+            </summary>
+            <param name="name"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.QueryResult.GetParameterValueByKey(System.String)">
+            <summary>
+            Get parameter value by key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.ResponseBase">
+            <summary>
+            ResponseBase
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.ResponseBase.Id">
+            <summary>
+            Unique identifier of the result.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.ResponseBase.Timestamp">
+            <summary>
+            Date and time of the request in UTC timezone using ISO-8601 format.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.ResponseBase.Status">
+            <summary>
+            Contains data on how the request succeeded or failed.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.ResponseBase.SessionId">
+            <summary>
+            Session id informed on request.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.StatusResponse">
+            <summary>
+            StatusResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.StatusResponse.Code">
+            <summary>
+            HTTP status code
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.StatusResponse.ErrorType">
+            <summary>
+            Text description of error, or "success" if no error.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.StatusResponse.ErrorId">
+            <summary>
+            D of the error. Optionally returned if the request failed.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.StatusResponse.ErrorDetails">
+            <summary>
+            Text details of the error. Only returned if the request failed.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.StatusResponse.IsSuccessStatusCode">
+            <summary>
+            Check Code http status is success (200).
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.TtsResponse">
+            <summary>
+            TtsResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.#ctor(System.IO.Stream)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.Bytes">
+            <summary>
+            Bytes
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.Stream">
+            <summary>
+            Stream
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.ReadFully(System.IO.Stream)">
+            <summary>
+            Read fully
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.WriteToFile(System.String)">
+            <summary>
+            Create a file
+            </summary>
+            <param name="path">Path not include filne name.</param>
+            <returns>File name</returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.TtsResponse.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.UserResponse">
             <summary>
             UserResponse
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Id">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.Id">
             <summary>
             Get or sets the id
             </summary>
@@ -186,7 +835,7 @@
             The Id
             </value>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.FirstName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.FirstName">
             <summary>
             Get or sets the first name
             </summary>
@@ -194,7 +843,7 @@
             The FirstName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.LastName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.LastName">
             <summary>
             Get or sets the last name
             </summary>
@@ -202,7 +851,7 @@
             The LastName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.Email">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.Email">
             <summary>
             Get or sets the email
             </summary>
@@ -210,7 +859,7 @@
             The Email
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.CreatedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.CreatedBy">
             <summary>
             Get or sets the created by
             </summary>
@@ -218,7 +867,7 @@
             The CreatedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.CreatedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.CreatedOn">
             <summary>
             Get or sets the created on
             </summary>
@@ -226,7 +875,7 @@
             The CreatedOn
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.ModifiedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.ModifiedBy">
             <summary>
             Get or sets the modified by
             </summary>
@@ -234,13 +883,44 @@
             The ModifiedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.UserResponse.ModifiedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.UserResponse.ModifiedOn">
             <summary>
             Get or sets the modified on
             </summary>
             <value>
             The ModifiedOn
             </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse">
+            <summary>
+            WebhookResponse
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse.Speech">
+            <summary>
+            Voice response to the request.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse.DisplayText">
+            <summary>
+            Text displayed on the user device screen.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse.Data">
+            <summary>
+            Additional data required for performing the action on the client side.
+            The data is sent to the client in the original form and is not processed by Api.ai.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse.ContextOut">
+            <summary>
+            Array of context objects set after intent completion.
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.WebhookResponse.Source">
+            <summary>
+            Data source
+            </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.API.Program">
             <summary>
