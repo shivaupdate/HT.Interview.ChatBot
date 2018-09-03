@@ -84,6 +84,18 @@
             <param name="seperator"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Framework.MVC.EnumExtension">
+            <summary>
+            EnumExtension
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.EnumExtension.DisplayName(System.Enum)">
+            <summary>
+            Display name
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Framework.MVC.BaseEntityExtensions">
             <summary>
             BaseEntityExtensions

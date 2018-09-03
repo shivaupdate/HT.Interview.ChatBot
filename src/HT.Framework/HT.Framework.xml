@@ -87,6 +87,34 @@
             <param name="bccAddress"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Framework.Contracts.ISerializer">
+            <summary>
+            ISerializer
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.ISerializer.Serialize(System.Object)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="objectToSerialize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.ISerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserialize <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objectAsString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.ISerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="objectAsString"></param>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Framework.Response">
             <summary>
             Response

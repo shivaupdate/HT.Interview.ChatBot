@@ -236,5 +236,210 @@
             All
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums.RequestType">
+            <summary>
+            Request type
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RequestType.Query">
+            <summary>
+            Query
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RequestType.Tts">
+            <summary>
+            Tts
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RequestType.Entities">
+            <summary>
+            Entities
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RequestType.UserEntities">
+            <summary>
+            User entities
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RequestType.Intents">
+            <summary>
+            Intents
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Card">
+            <summary>
+            Card
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.QuickReply">
+            <summary>
+            Quick reply
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Payload">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums.Source">
+            <summary>
+            Source
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Facebook">
+            <summary>
+            Facebook
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Kik">
+            <summary>
+            Kik
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Slack">
+            <summary>
+            Slack
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.SlackTestbot">
+            <summary>
+            Slack test bot
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Line">
+            <summary>
+            Line
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Skype">
+            <summary>
+            Skype
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Spark">
+            <summary>
+            Spark
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Telegram">
+            <summary>
+            Telegram
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Tropo">
+            <summary>
+            Tropo
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Twilio">
+            <summary>
+            Twilio
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.TwilioIp">
+            <summary>
+            TwiloIp
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Source.Twitter">
+            <summary>
+            Twitter
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums.Language">
+            <summary>
+            Language
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.English">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.BrazilianPortuguese">
+            <summary>
+            Brazilian Portuguese
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.ChineseCantonese">
+            <summary>
+            Chinese Cantonese
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.ChineseSimplified">
+            <summary>
+            Chinese Simplified
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.ChineseTraditional">
+            <summary>
+            Chinese Traditional
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Dutch">
+            <summary>
+            Dutch
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.French">
+            <summary>
+            French
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.German">
+            <summary>
+            German
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Italian">
+            <summary>
+            Italian
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Japanese">
+            <summary>
+            Japanese
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Korean">
+            <summary>
+            Korean
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Portuguese">
+            <summary>
+            Portuguese
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Russian">
+            <summary>
+            Russian
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Spanish">
+            <summary>
+            Spanish
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Language.Ukrainian">
+            <summary>
+            Ukrainian
+            </summary>
+        </member>
     </members>
 </doc>
