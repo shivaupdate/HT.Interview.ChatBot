@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HT.Interview.ChatBot.API.DTO
+namespace HT.Interview.ChatBot.API.DTO.Response
 {
     /// <summary>
     /// UserResponse

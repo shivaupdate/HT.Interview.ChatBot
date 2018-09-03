@@ -2,7 +2,7 @@
 using System;
 using static HT.Interview.ChatBot.Common.Enums;
 
-namespace HT.Interview.ChatBot.API.DTO
+namespace HT.Interview.ChatBot.API.DTO.Request
 {
     /// <summary>
     /// UserQuery

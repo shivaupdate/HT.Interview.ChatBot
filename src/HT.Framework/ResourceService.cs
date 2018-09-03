@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
-namespace HT.Framework.ContentService.Resource
+namespace HT.Framework
 {
     /// <summary>
     /// Resource service <typeparamref name="T"/>

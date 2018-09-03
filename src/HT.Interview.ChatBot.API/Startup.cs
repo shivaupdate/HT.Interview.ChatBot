@@ -66,7 +66,7 @@ namespace HT.Interview.ChatBot.API
                 {
                     Version = "v1",
                     Title = "Hexaware Interview ChatBot API",
-                    Description = "A REST API that exposes Hexaware's Interview ChatBot API",
+                    Description = "A REST API that exposes Hexaware's Interview ChatBot Data API",
                     TermsOfService = "None"
                 });
                 options.MapType<IEnumerable<string>>(() => new Schema { Type = "string[]", Format = "string[]" });

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HT.Framework.MVC;
-using HT.Interview.ChatBot.API.DTO;
+using HT.Interview.ChatBot.API.DTO.Request;
+using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,18 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
+        /// Get many async
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet(Common.Constants.GetMany)]
+        [Produces(typeof(IEnumerable<UserResponse>))]
+        public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
+        {
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc)))
+                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper));
+        }
+
+        /// <summary>
         /// Get many as pageable async
         /// </summary>
         /// <returns></returns>
@@ -50,7 +63,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc)))
                 .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), uc.CurrentPage, uc.PageSize);
-            }); 
+            });
         }
 
         #endregion

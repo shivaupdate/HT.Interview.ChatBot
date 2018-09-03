@@ -4,12 +4,12 @@ using HT.Framework.Contracts;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HT.Framework.Autofac
+namespace HT.Framework.DI
 {
     /// <summary>
-    /// AutofacDependencyResolver
+    /// DependencyResolver
     /// </summary>
-    public class AutofacDependencyResolver : IDependencyResolver
+    public class DependencyResolver : IDependencyResolver
     {
         private readonly IContainer _container;
 
@@ -17,7 +17,7 @@ namespace HT.Framework.Autofac
         /// Constructor
         /// </summary>
         /// <param name="container"></param>
-        public AutofacDependencyResolver(IContainer container)
+        public DependencyResolver(IContainer container)
         {
             _container = container;
         }
