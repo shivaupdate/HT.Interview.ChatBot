@@ -15,8 +15,7 @@ namespace HT.Interview.ChatBot.API.Controllers
     /// <summary>
     /// UserController
     /// </summary>
-    [Route("api/v1/user")]
-    [Produces("application/json")]
+    [Route("api/v1/user")] 
     public class UserController : ApiControllerBase
     {
         #region Fields

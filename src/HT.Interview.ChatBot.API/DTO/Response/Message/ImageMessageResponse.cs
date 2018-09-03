@@ -27,7 +27,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         /// </summary>
         public override void SetMessageType()
         {
-            this.Type = (int)Enums.Type.Image;
+            Type = Enums.Type.Image;
         }
     }
 }
