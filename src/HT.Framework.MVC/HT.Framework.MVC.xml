@@ -4,10 +4,129 @@
         <name>HT.Framework.MVC</name>
     </assembly>
     <members>
+        <member name="T:HT.Framework.MVC.ApiAiHttpClient">
+            <summary>
+            ApiAiHttpClient
+            </summary>
+        </member>
+        <member name="F:HT.Framework.MVC.ApiAiHttpClient._httpClient">
+            <summary>
+            HttpClient
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiHttpClient.#ctor(HT.Framework.MVC.ApiAiSettings)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="apiAiSettings"></param> 
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiHttpClient.GetAsync``1(System.String)">
+            <summary>
+            Get async
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiHttpClient.PostAsync(System.Uri,System.Net.Http.HttpContent)">
+            <summary>
+            Post async
+            </summary>
+            <param name="requestUri"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiHttpClient.PutAsync(System.Uri,System.Net.Http.HttpContent)">
+            <summary>
+            Put async
+            </summary>
+            <param name="requestUri"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiHttpClient.DeleteAsync(System.Uri)">
+            <summary>
+            Delete async
+            </summary>
+            <param name="requestUri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Framework.MVC.ApiAiJson`1">
+            <summary>
+            ApiAiJson <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiJson`1.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiJson`1.Serialize(`0)">
+            <summary>
+            Serialize <typeparamref name="T"/>
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiJson`1.Deserialize(System.String)">
+            <summary>
+            Deserialize <typeparamref name="T"/>
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HT.Framework.MVC.ApiAiJson`1._settings">
+            <summary>
+            Settigns
+            </summary>
+        </member>
+        <member name="T:HT.Framework.MVC.ApiAiSettings">
+            <summary>
+            ApiAiSettings
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.ApiAiSettings.AccessToken">
+            <summary>
+            Access token
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.ApiAiSettings.DefaultApiVersion">
+            <summary>
+            Default api version
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.ApiAiSettings.DefaultBaseUrl">
+            <summary>
+            Default base url
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.ApiAiSettings.DefaultLanguage">
+            <summary>
+            Default language
+            </summary>
+        </member>
+        <member name="P:HT.Framework.MVC.ApiAiSettings.Timeout">
+            <summary>
+            Timeout
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiAiSettings.#ctor(Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
         <member name="T:HT.Framework.MVC.ApiControllerBase">
             <summary>
             ApiControllerBase
             </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.ApiControllerBase.GetApiAiResponseAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Get Api Ai response async <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="codeToExecute"></param>
+            <returns></returns>
         </member>
         <member name="M:HT.Framework.MVC.ApiControllerBase.GetResponseAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
             <summary>

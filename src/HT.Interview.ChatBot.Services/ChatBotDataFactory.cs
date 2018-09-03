@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using HT.Framework.Contracts;
-using HT.Interview.ChatBot.Common.Contracts; 
+using HT.Framework.MVC;
+using HT.Interview.ChatBot.Common.Contracts;
+using System.Net.Http;
 
 namespace HT.Interview.ChatBot.Services
 {
@@ -19,6 +21,24 @@ namespace HT.Interview.ChatBot.Services
         public ChatBotDataFactory(IDependencyResolver dependencyResolver)
         {
             _dependencyResolver = dependencyResolver;
+        }
+
+        /// <summary>
+        /// Get Api Ai settings
+        /// </summary>
+        /// <returns></returns>
+        public ApiAiSettings GetApiAiSettings()
+        {
+            return _dependencyResolver.Resolve<ApiAiSettings>();
+        }
+
+        /// <summary>
+        /// Get Http client
+        /// </summary>
+        /// <returns></returns>
+        public IHttpClient GetHttpClient()
+        {
+            return _dependencyResolver.Resolve<IHttpClient>();
         }
 
         /// <summary>

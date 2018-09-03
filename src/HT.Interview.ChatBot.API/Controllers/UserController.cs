@@ -43,11 +43,10 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// Get many async
         /// </summary>
         /// <returns></returns>
-        [HttpGet(Common.Constants.GetMany)]
-        [Produces(typeof(IEnumerable<UserResponse>))]
-        public async Task<ActionResult> GetManyAsync([FromQuery] UserQuery uc)
+        [HttpGet(Common.Constants.GetMany)] 
+        public async Task<ActionResult> GetManyAsync([FromQuery] UserRequest u)
         {
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc)))
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(u)))
                 .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper));
         }
 
@@ -55,14 +54,13 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// Get many as pageable async
         /// </summary>
         /// <returns></returns>
-        [HttpGet(Common.Constants.GetManyAsPageable)]
-        [Produces(typeof(IEnumerable<UserResponse>))]
-        public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserQuery uc)
+        [HttpGet(Common.Constants.GetManyAsPageable)] 
+        public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserRequest u)
         {
             return await GetResponseAsync(async () =>
             {
-                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(uc)))
-                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), uc.CurrentPage, uc.PageSize);
+                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(u)))
+                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), u.CurrentPage, u.PageSize);
             });
         }
 
