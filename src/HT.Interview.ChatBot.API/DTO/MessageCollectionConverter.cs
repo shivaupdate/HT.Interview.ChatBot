@@ -42,7 +42,8 @@ namespace HT.Interview.ChatBot.API.DTO
 
                 for (var i = 0; i < jArray.Count; i++)
                 {
-                    var messageType = (Enums.Type)System.Enum.Parse(typeof(Enums.Type), jArray[i]["type"].ToString());
+                    //var messageType = (Enums.Type)System.Enum.Parse(typeof(Enums.Type), jArray[i]["type"].ToString());
+                    var messageType =  EnumHelper.Parse<Enums.Type>(jArray[i]["type"].ToString());
 
                     switch (messageType)
                     {
@@ -65,7 +66,9 @@ namespace HT.Interview.ChatBot.API.DTO
                         case Enums.Type.Payload:
                             result[i] = ApiAiJson<PayloadMessageResponse>.Deserialize(jArray[i].ToString());
                             break;
-
+                        case Enums.Type.Simple_Response:
+                            result[i] = ApiAiJson<SimpleResponse>.Deserialize(jArray[i].ToString());
+                            break;
                         default:
                             result[i] = null;
                             break;

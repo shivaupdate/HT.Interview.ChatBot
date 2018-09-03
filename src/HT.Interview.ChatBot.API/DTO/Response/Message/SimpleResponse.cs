@@ -1,33 +1,31 @@
 ﻿using HT.Interview.ChatBot.Common;
-using System;
 
 namespace HT.Interview.ChatBot.API.DTO.Response.Message
 {
     /// <summary>
-    /// ImageMessageResponse
+    /// SimpleResponse
     /// </summary>
-    [Serializable]
-    public class ImageMessageResponse : BaseMessageResponse
+    public class SimpleResponse : BaseMessageResponse
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        public ImageMessageResponse()
+        public SimpleResponse()
         {
             SetMessageType();
         }
 
         /// <summary>
-        /// Public URL to the image file.
+        /// Agent's simple response
         /// </summary>
-        public string ImageUrl { get; set; }
+        public string TextToSpeech { get; set; }
 
         /// <summary>
-        /// Set meesage type
+        /// Set message type
         /// </summary>
         public override void SetMessageType()
         {
-            Type = Enums.Type.Image;
+            Type = Enums.Type.Simple_Response;
         }
     }
 }

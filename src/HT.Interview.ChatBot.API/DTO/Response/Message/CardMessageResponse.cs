@@ -8,14 +8,14 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
     /// </summary>
     [Serializable]
     public class CardMessageResponse : BaseMessageResponse
-    { 
+    {
         /// <summary>
         /// Constructor
         /// </summary>
         public CardMessageResponse()
         {
             SetMessageType();
-        } 
+        }
 
         /// <summary>
         /// Card title.
@@ -36,15 +36,15 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         /// Array of objects corresponding to card buttons.
         /// </summary>
         public CardMessageResponseButton[] Buttons { get; set; }
-         
+
         /// <summary>
         /// Set message type
         /// </summary>
         public override void SetMessageType()
         {
-            this.Type = (int)Enums.Type.Card;
+            Type = Enums.Type.Card;
         }
-         
+
     }
 
     /// <summary>

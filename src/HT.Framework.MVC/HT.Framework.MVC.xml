@@ -215,6 +215,19 @@
             <param name="source"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Framework.MVC.EnumHelper">
+            <summary>
+            EnumHelper
+            </summary>
+        </member>
+        <member name="M:HT.Framework.MVC.EnumHelper.Parse``1(System.String)">
+            <summary>
+            Parse <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Framework.MVC.BaseEntityExtensions">
             <summary>
             BaseEntityExtensions

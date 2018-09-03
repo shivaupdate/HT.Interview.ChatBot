@@ -573,6 +573,26 @@
             Set message type
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse">
+            <summary>
+            SimpleResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.TextToSpeech">
+            <summary>
+            Agent's simple response
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse">
             <summary>
             TextMessageResponse

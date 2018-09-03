@@ -8,7 +8,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
     /// </summary>
     [Serializable]
     public class QuickReplyMessageResponse : BaseMessageResponse
-    { 
+    {
         /// <summary>
         /// Constructor
         /// </summary>
@@ -16,7 +16,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         {
             SetMessageType();
         }
-         
+
         /// <summary>
         /// Quick replies title.
         /// </summary>
@@ -26,13 +26,13 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         /// Array of strings corresponding to quick replies.
         /// </summary>
         public string[] Replies { get; set; }
-         
+
         /// <summary>
         /// Set message type
         /// </summary>
         public override void SetMessageType()
         {
-            this.Type = (int)Enums.Type.QuickReply;
-        } 
+            Type = Enums.Type.QuickReply;
+        }
     }
 }

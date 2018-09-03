@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace HT.Interview.ChatBot.Common
@@ -63,39 +64,44 @@ namespace HT.Interview.ChatBot.Common
 
         /// <summary>
         /// Type
-        /// </summary>
+        /// </summary> 
         public enum Type
         {
             /// <summary>
             /// Text
-            /// </summary>
-            Text = 0,
+            /// </summary> 
+            Text,
 
             /// <summary>
             /// Card
-            /// </summary>
-            Card = 1,
+            /// </summary> 
+            Card ,
 
             /// <summary>
             /// Quick reply
-            /// </summary>
-            QuickReply = 2,
+            /// </summary> 
+            QuickReply ,
 
             /// <summary>
             /// Image
-            /// </summary>
-            Image = 3,
+            /// </summary> 
+            Image,
 
             /// <summary>
             /// Payload
-            /// </summary>
-            Payload = 4
+            /// </summary> 
+            Payload,
+
+            /// <summary>
+            /// Simple response
+            /// </summary> 
+            Simple_Response 
         }
 
         /// <summary>
         /// Source
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]       
+        [JsonConverter(typeof(StringEnumConverter))]
         public enum Source
         {
             /// <summary>
@@ -115,7 +121,7 @@ namespace HT.Interview.ChatBot.Common
             /// </summary>
             [EnumMember(Value = "slack")]
             Slack = 2,
-            
+
             /// <summary>
             /// Slack test bot
             /// </summary>
