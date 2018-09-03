@@ -62,5 +62,4 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         /// </summary>
         public string Postback { get; set; }
     }
-
 }

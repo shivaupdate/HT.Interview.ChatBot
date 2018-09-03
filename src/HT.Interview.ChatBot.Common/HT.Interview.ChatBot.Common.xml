@@ -318,6 +318,11 @@
             Simple response
             </summary> 
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Suggestion_Chips">
+            <summary>
+            Suggestion chips
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Enums.Source">
             <summary>
             Source

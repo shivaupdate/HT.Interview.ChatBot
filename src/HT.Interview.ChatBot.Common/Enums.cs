@@ -95,7 +95,12 @@ namespace HT.Interview.ChatBot.Common
             /// <summary>
             /// Simple response
             /// </summary> 
-            Simple_Response 
+            Simple_Response ,
+
+            /// <summary>
+            /// Suggestion chips
+            /// </summary>
+            Suggestion_Chips
         }
 
         /// <summary>
