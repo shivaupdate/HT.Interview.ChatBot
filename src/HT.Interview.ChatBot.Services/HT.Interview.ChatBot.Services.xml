@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Interview.ChatBot.Services</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Interview.ChatBot.Services.ChatBotDataFactory">
+            <inheritdoc />
+            <summary>
+            Chat bot data factory
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.#ctor(HT.Framework.Contracts.IDependencyResolver)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dependencyResolver"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetMapperService">
+            <summary>
+            Get mapper service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetResourceService(System.String)">
+            <summary>
+            Get resource service
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetUserService">
+            <inheritdoc />
+            <summary>
+            Get user service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.UserService">
+            <inheritdoc />
+            <summary>
+            User Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.UserService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.UserService.GetUsersAsync(HT.Interview.ChatBot.Common.DTO.UserQuery)">
+            <summary>
+            Get users async
+            </summary>
+            <param name="uq"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Framework.Autofac</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Framework.Autofac.AutofacDependencyResolver">
+            <summary>
+            AutofacDependencyResolver
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Autofac.AutofacDependencyResolver.#ctor(Autofac.IContainer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:HT.Framework.Autofac.AutofacDependencyResolver.Resolve``1">
+            <summary>
+            Resolve <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Autofac.AutofacDependencyResolver.Resolve``1(System.String)">
+            <summary>
+            Resolve by name <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Autofac.AutofacDependencyResolver.Resolve``1(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Resolve by parameter <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Autofac.AutofacDependencyResolver.ResolveAll``1">
+            <summary>
+            Resolve all <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
