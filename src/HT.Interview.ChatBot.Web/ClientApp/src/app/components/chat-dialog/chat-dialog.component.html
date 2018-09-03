@@ -22,7 +22,7 @@
           <img src="../../assets/images/chatbot.png" class="avatar" />
           {{ message.response.result.fulfillment.speech }}
           <div *ngFor="let r of message.response.result.fulfillment.messages">
-            <div *ngIf="r.type === 'suggestion_chips'" class="chips">
+            <div *ngIf="r.type === 5" class="chips">
               <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
                 {{s.title}}
               </div>

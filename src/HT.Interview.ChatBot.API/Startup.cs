@@ -57,6 +57,7 @@ namespace HT.Interview.ChatBot.API
                 }
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddCors();
             services.AddLogging();
             //Adding Swagger
             services.AddSwaggerGen();
@@ -99,7 +100,7 @@ namespace HT.Interview.ChatBot.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors();
             app.UseSwagger();
             app.UseSwaggerUI(ui =>
             {

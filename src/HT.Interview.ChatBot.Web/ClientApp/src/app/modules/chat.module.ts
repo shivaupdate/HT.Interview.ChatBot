@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatDialogComponent } from '../components/chat-dialog/chat-dialog.component';
 import { ChatService } from '../services/chat.service';
 import { FormsModule } from '@angular/forms';
 
@@ -11,9 +10,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [
-    ChatDialogComponent
   ],
-  exports: [ChatDialogComponent],
+  exports: [],
   providers: [ChatService]
 })
 export class ChatModule { }

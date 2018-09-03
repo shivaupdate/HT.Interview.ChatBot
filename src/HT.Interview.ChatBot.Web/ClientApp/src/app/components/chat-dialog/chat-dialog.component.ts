@@ -19,41 +19,41 @@ export class ChatDialogComponent implements OnInit {
   messages: Observable<Message[]>;
   query: string;
 
-  //constructor(public chat: ChatService, public speech: SpeechService) { }
+  constructor(public chat: ChatService, public speech: SpeechService) { }
 
   ngOnInit() {
-    //this.speech.started.subscribe(started => this.started = started); 
-    //this.chat.defaultIntent(); 
-    //this.messages = this.chat.conversation.asObservable()
-    //  .scan((acc, val) => acc.concat(val));
+    this.speech.started.subscribe(started => this.started = started); 
+    this.chat.defaultIntent(); 
+    this.messages = this.chat.conversation.asObservable()
+      .scan((acc, val) => acc.concat(val));
   }
 
 
-  //toggleVoiceRecognition() {
-  //  if (!this.started) {
-  //    this.started = true; 
-  //    this.speech.record()
-  //      .subscribe(
-  //        //listener
-  //        (value) => {
-  //          this.message.query = value;
-  //          this.chat.converse(this.message);
-  //          this.resetControls(); 
-  //        },
-  //        //errror
-  //        (err) => {
-  //          if (err.error == "no-speech") {
-  //            this.started = false;
-  //            this.toggleVoiceRecognition(); 
-  //            //TODO: Show error message
-  //          }
-  //        });
-  //  }
-  //  else {
-  //    this.started = false;
-  //    this.speech.destroySpeechObject(); 
-  //  }
-  //}
+  toggleVoiceRecognition() {
+    if (!this.started) {
+      this.started = true; 
+      this.speech.record()
+        .subscribe(
+          //listener
+          (value) => {
+            this.message.query = value;
+            this.chat.converse(this.message);
+            this.resetControls(); 
+          },
+          //errror
+          (err) => {
+            if (err.error == "no-speech") {
+              this.started = false;
+              this.toggleVoiceRecognition(); 
+              //TODO: Show error message
+            }
+          });
+    }
+    else {
+      this.started = false;
+      this.speech.destroySpeechObject(); 
+    }
+  }
 
   getMicStyle() {
     if (this.started) {
@@ -63,20 +63,20 @@ export class ChatDialogComponent implements OnInit {
     }
   }
 
-  //sendMessage() {
-  //  this.message.query = this.query;
-  //  this.chat.converse(this.message);
-  //  this.query = '';
-  //  this.resetControls();
-  //}
+  sendMessage() {
+    this.message.query = this.query;
+    this.chat.converse(this.message);
+    this.query = '';
+    this.resetControls();
+  }
 
-  //autoSendMessage(query: string) {
-  //  this.query = query;
-  //  this.sendMessage();
-  //}
+  autoSendMessage(query: string) {
+    this.query = query;
+    this.sendMessage();
+  }
 
-  //resetControls() {
-  //  this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollHeight - 300; 
-  //  this.message = new Message();
-  //}
+  resetControls() {
+    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollHeight - 300; 
+    this.message = new Message();
+  }
 }

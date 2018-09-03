@@ -11,9 +11,11 @@ html {
   overflow: hidden !important;
   border-radius: 10px;
   border: outset #000000 !important;
+  width: 95%;
+  margin-left: 45px;
+ /* width: 75%;
+  margin: 0 auto;*/
   border-bottom: outset #000000 !important;
-  margin-top: 50px;
-  height: 500px;
 }
 
   #lc_chat_layout #lc_chat_header {
@@ -36,14 +38,19 @@ html {
       font-family: Calibri;
     }
 
-  #lc_chat_layout #lc_chat_container { 
+  #lc_chat_layout #lc_chat_container {
+    min-height: 325px;
     text-align: left;
-    background-color: hsla(0,0%,100%,.9) !important; 
+    background-color: hsla(0,0%,100%,.9) !important;
+    /*border-top: outset #000000 !important;
+    border-left: outset #000000 !important;
+    border-right: outset #000000 !important;*/
   }
 
     #lc_chat_layout #lc_chat_container #lc_chat_message_window {
       width: auto;
-      padding-bottom: 370px; 
+      padding-bottom: 250px;
+      max-height: 325px;
       overflow-y: scroll;
       scrollbar-base-color: ActiveBorder
     }
