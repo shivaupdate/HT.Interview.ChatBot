@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HT.Interview.ChatBot.Common;
+using Newtonsoft.Json;
 using System.Runtime.Serialization;
 
 namespace HT.Interview.ChatBot.API.DTO.Response.Message
@@ -12,7 +13,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         /// <summary>
         /// Type
         /// </summary>
-        public int Type { get; set; }
+        public Enums.Type Type { get; set; }
         
         /// <summary>
         /// Set message type

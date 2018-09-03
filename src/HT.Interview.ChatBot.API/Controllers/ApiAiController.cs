@@ -14,8 +14,7 @@ namespace HT.Interview.ChatBot.API.Controllers
     /// <summary>
     /// UserController
     /// </summary>
-    [Route("api/v1/apiai")]
-    [Produces("application/json")]
+    [Route("api/v1/apiai")]  
     public class ApiAiController : ApiControllerBase
     {
         #region Fields
@@ -45,15 +44,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
-        {
-            // TODO: This is to be removed. This will come from Angular web application
-            q = new QueryRequest
-            {
-                SessionId = "1",
-                Query = new string[] { "Hello" },
-                Lang = Enums.Language.English
-            };
-
+        { 
             return await GetResponseAsync(async () => await _httpClient.GetAsync<QueryResponse>(q.ToQueryString()));
         }
 

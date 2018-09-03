@@ -286,31 +286,41 @@
         <member name="T:HT.Interview.ChatBot.Common.Enums.Type">
             <summary>
             Type
-            </summary>
+            </summary> 
         </member>
         <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Text">
             <summary>
             Text
-            </summary>
+            </summary> 
         </member>
         <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Card">
             <summary>
             Card
-            </summary>
+            </summary> 
         </member>
         <member name="F:HT.Interview.ChatBot.Common.Enums.Type.QuickReply">
             <summary>
             Quick reply
-            </summary>
+            </summary> 
         </member>
         <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Image">
             <summary>
             Image
-            </summary>
+            </summary> 
         </member>
         <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Payload">
             <summary>
             Payload
+            </summary> 
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Simple_Response">
+            <summary>
+            Simple response
+            </summary> 
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.Type.Suggestion_Chips">
+            <summary>
+            Suggestion chips
             </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Enums.Source">

@@ -33,11 +33,20 @@ namespace HT.Framework.MVC
         /// <param name="query"></param>
         /// <returns></returns>
         public async Task<T> GetAsync<T>(string query)
-        { 
-            _httpClient.BaseAddress = new Uri(_httpClient.BaseAddress.ToString() + query);
-            HttpResponseMessage httpResponseMessage = await _httpClient.GetAsync(_httpClient.BaseAddress); 
-            string content = await httpResponseMessage.Content.ReadAsStringAsync(); 
-            return ApiAiJson<T>.Deserialize(content);
+        {
+            T result = default(T);
+            try
+            {
+                _httpClient.BaseAddress = new Uri(_httpClient.BaseAddress.ToString() + query);
+                HttpResponseMessage httpResponseMessage = await _httpClient.GetAsync(_httpClient.BaseAddress);
+                string content = await httpResponseMessage.Content.ReadAsStringAsync();
+                result = ApiAiJson<T>.Deserialize(content);
+            }
+            catch (Exception ex)
+            {
+                string meesage = ex.Message; 
+            }
+            return result;
         }
 
         /// <summary>

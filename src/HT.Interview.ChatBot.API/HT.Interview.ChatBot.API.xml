@@ -573,6 +573,56 @@
             Set message type
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse">
+            <summary>
+            SimpleResponse
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.TextToSpeech">
+            <summary>
+            Agent's simple response
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SimpleResponse.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionChips">
+            <summary>
+            SuggestionChips
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionChips.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionChips.Suggestions">
+            <summary>
+            Suggestions
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionChips.SetMessageType">
+            <summary>
+            Set message type
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionsTitles">
+            <summary>
+             SuggestionsTitles
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.Message.SuggestionsTitles.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.TextMessageResponse">
             <summary>
             TextMessageResponse

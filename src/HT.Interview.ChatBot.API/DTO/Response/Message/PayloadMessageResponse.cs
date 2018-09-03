@@ -6,7 +6,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
     /// PayloadMessageResponse
     /// </summary>
     public class PayloadMessageResponse : BaseMessageResponse
-    { 
+    {
         /// <summary>
         /// Constructor
         /// </summary>
@@ -14,18 +14,18 @@ namespace HT.Interview.ChatBot.API.DTO.Response.Message
         {
             SetMessageType();
         }
-          
+
         /// <summary>
         /// Developer defined JSON. It is sent without modifications
         /// </summary>
         public object Payload { get; set; }
- 
+
         /// <summary>
         /// Set message type
         /// </summary>
         public override void SetMessageType()
         {
-            this.Type = (int)Enums.Type.Payload;
-        } 
+            Type = Enums.Type.Payload;
+        }
     }
 }
