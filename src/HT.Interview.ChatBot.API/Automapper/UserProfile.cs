@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using HT.Interview.ChatBot.API.DTO;
+using HT.Interview.ChatBot.API.DTO.Request;
+using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Entities;
 using Model = HT.Interview.ChatBot.Common.DTO;
 
