@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Framework.Contracts.IContentService">
+            <summary>
+            Provides the interface for various content services used by the application (e.g. getting label text from a CMS/resource assembly)
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.IContentService.GetString(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Get the equivalent string for a given key
+            </summary>
+            <param name="key">Key used to identify the string</param>
+            <param name="culture"></param>
+            <returns>String value if found, otherwise null</returns>
+        </member>
+        <member name="P:HT.Framework.Contracts.IContentService.Item(System.String)">
+            <summary>
+            Get value
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Framework.Contracts.IContentService`1">
+            <summary>
+            IContentService <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:HT.Framework.Contracts.IDependencyResolver">
+            <summary>
+            IDependencyResolver
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDependencyResolver.Resolve``1">
+            <summary>
+            Resolve the default dependency
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDependencyResolver.Resolve``1(System.String)">
+            <summary>
+            Resolves the named dependency
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDependencyResolver.Resolve``1(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Resolves the specified args.
+            </summary>
+            <typeparam name="T" />
+            <param name="args">The args.</param>
+            <returns>
+             0.
+            </returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDependencyResolver.ResolveAll``1">
+            <summary>
+            Resolves all.
+            </summary>
+            <typeparam name="T" />
+            <returns>
+            IEnumerable{``0}.
+            </returns>
+        </member>
+        <member name="T:HT.Framework.Contracts.IEmailService">
+            <summary>
+            IEmailService
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.IEmailService.SendMail(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            Send mail
+            </summary>
+            <param name="fromAdress"></param>
+            <param name="toAddress"></param>
+            <param name="isBodyHtml"></param>
+            <param name="subject"></param>
+            <param name="bodyText"></param>
+            <param name="ccAddress"></param>
+            <param name="bccAddress"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Framework.Response">
+            <summary>
+            Response
+            </summary>
+        </member>
+        <member name="P:HT.Framework.Response.IsSuccess">
+            <summary>
+            Is suceess
+            </summary>
+        </member>
+        <member name="P:HT.Framework.Response.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="P:HT.Framework.Response.IsFailure">
+            <summary>
+            Is failure
+            </summary>
+        </member>
+        <member name="P:HT.Framework.Response.ResponseType">
+            <summary>
+            Get or sets the response type
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Response.#ctor(System.Boolean,System.String,HT.Framework.ResponseType)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="isSuccess"></param>
+            <param name="error"></param>
+            <param name="responseType"></param>
+        </member>
+        <member name="M:HT.Framework.Response.Fail(System.String,HT.Framework.ResponseType)">
+            <summary>
+            Fail response
+            </summary>
+            <param name="error"></param>
+            <param name="responseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Response.Fail``1(System.String,HT.Framework.ResponseType)">
+            <summary>
+            Fail response <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="error"></param>
+            <param name="responseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Response.Ok(HT.Framework.ResponseType)">
+            <summary>
+            Ok response
+            </summary>
+            <param name="responseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Response.Ok``1(``0,HT.Framework.ResponseType)">
+            <summary>
+            Ok response <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="responseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Response.IsSuccessResponseCode(HT.Framework.ResponseType)">
+            <summary>
+            Is success response code
+            </summary>
+            <param name="responseType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Framework.Response`1">
+            <summary>
+            Respose <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:HT.Framework.Response`1.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Response`1.#ctor(System.Boolean,System.String,HT.Framework.ResponseType,`0)">
+            <summary>
+            Response
+            </summary>
+            <param name="isSuccess"></param>
+            <param name="error"></param>
+            <param name="responseType"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:HT.Framework.ResponseType">
+            <summary>
+            Response type
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.Ok">
+            <summary>
+            Indicates a general success
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.Created">
+            <summary>
+            Indicates a resource was created
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.InvalidRequest">
+            <summary>
+            Indicates that the request to the methods was invalid.
+            This could be inputs being null or ones that fail validation rules
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.ResourceNotFound">
+            <summary>
+            Indicates that the requested resource was not found
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.Conflict">
+            <summary>
+            Indicates that the requested resource has changed or is already present
+            </summary>
+        </member>
+        <member name="F:HT.Framework.ResponseType.GenericError">
+            <summary>
+            Indicates a general server side error
+            </summary>
+        </member>
+    </members>
+</doc>

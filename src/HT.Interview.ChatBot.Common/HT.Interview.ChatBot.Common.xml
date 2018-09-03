@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Interview.ChatBot.Common</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Interview.ChatBot.Common.Constants">
+            <summary>
+            Constants
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.DefaultPage">
+            <summary>
+            Default page
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.NoLimit">
+            <summary>
+            No limit
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.PageSizeTen">
+            <summary>
+            Page size ten
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.ResourceComponent">
+            <summary>
+            Resource component
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.UserName">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.GetMany">
+            <summary>
+            Get many
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.GetManyAsPageable">
+            <summary>
+            Get many as pageable
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.UsersNoRecordFound">
+            <summary>
+            Users no record found
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory">
+            <summary>
+            IChatBotDataFactory
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetMapperService">
+            <summary>
+            Get mapper service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetResourceService(System.String)">
+            <summary>
+            Get resource service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetUserService">
+            <summary>
+            Get user service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IUserService">
+            <summary>
+            IUserService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IUserService.GetUsersAsync(HT.Interview.ChatBot.Common.DTO.UserQuery)">
+            <summary>
+            Get users async
+            </summary>
+            <param name="uq"></param>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.DTO.UserQuery">
+            <summary>
+            UserQuery
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.DTO.UserQuery.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.LoggedInUserId">
+            <summary>
+            Get or Sets the Logged In User Id
+            </summary>
+            <value>
+            The LoggedInUserId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.Id">
+            <summary>
+            Get or sets user id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.FirstName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The FirstName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.LastName">
+            <summary>
+            Get or sets first name
+            </summary>
+            <value>
+            The LastName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.Email">
+            <summary>
+            Get or sets Email
+            </summary>
+            <value>
+            The Email
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.DTO.UserQuery.RecordType">
+            <summary>
+            Get or sets record type
+            </summary>
+            <value>
+            The RecordType
+            </value> 
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.User">
+            <inheritdoc />
+            <summary>
+            User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.FirstName">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.LastName">
+            <summary>
+            Get or sets the last name
+            </summary>
+            <value>
+            The LastName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.Email">
+            <summary>
+            Get or sets the email
+            </summary>
+            <value>
+            The Email
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.User.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums">
+            <summary>
+            Enums
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Enums.RecordType">
+            <summary>
+            Record type
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RecordType.InActive">
+            <summary>
+            In Active
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RecordType.Active">
+            <summary>
+            Active
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Enums.RecordType.All">
+            <summary>
+            All
+            </summary>
+        </member>
+    </members>
+</doc>

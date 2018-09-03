@@ -4,4 +4,19 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\WU138HG\Source\Repos\HT\PSV\HT.Interview.Chatbot\src\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HT.Framework\HT.Framework.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj" />
+    <ProjectReference Include="..\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj" />
+  </ItemGroup>
+
 </Project>
