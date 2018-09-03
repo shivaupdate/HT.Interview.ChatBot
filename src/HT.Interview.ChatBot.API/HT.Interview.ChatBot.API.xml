@@ -20,6 +20,25 @@
             Configure auto mapper 
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.ApiAiController">
+            <inheritdoc />
+            <summary>
+            UserController
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.ApiAiController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.ApiAiController.GetAsync(HT.Interview.ChatBot.API.DTO.Request.QueryRequest)">
+            <summary>
+            Get async
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.UserController">
             <inheritdoc />
             <summary>
@@ -33,13 +52,13 @@
             </summary>
             <param name="factory"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.Request.UserQuery)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsync(HT.Interview.ChatBot.API.DTO.Request.UserRequest)">
             <summary>
             Get many async
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.Request.UserQuery)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.UserController.GetManyAsPageableAsync(HT.Interview.ChatBot.API.DTO.Request.UserRequest)">
             <summary>
             Get many as pageable async
             </summary>
@@ -56,46 +75,6 @@
             </summary>
             <param name="builder"></param>
             <param name="configuration"></param>
-        </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.ApiAiJson`1">
-            <summary>
-            ApiAiJson <typeparamref name="T"/>
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.#cctor">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.Serialize(`0)">
-            <summary>
-            Serialize <typeparamref name="T"/>
-            </summary>
-            <param name="t"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.DTO.ApiAiJson`1.Deserialize(System.String)">
-            <summary>
-            Deserialize <typeparamref name="T"/>
-            </summary>
-            <param name="json"></param>
-            <returns></returns>
-        </member>
-        <member name="F:HT.Interview.ChatBot.API.DTO.ApiAiJson`1._settings">
-            <summary>
-            Settigns
-            </summary>
-        </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.ApiAiVersion">
-            <summary>
-            ApiAiVersion
-            </summary>
-        </member>
-        <member name="F:HT.Interview.ChatBot.API.DTO.ApiAiVersion.Default">
-            <summary>
-            Defualt
-            </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Context">
             <summary>
@@ -280,16 +259,6 @@
             Full request coming from the integrated platform (Facebook Messenger, Slack, etc.) 
             </summary>
         </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.Request.RequestBase">
-            <summary>
-            RequestBase
-            </summary>
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.RequestBase.V">
-            <summary>
-            Version of the protocol, e.g. v=20150910
-            </summary>
-        </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Request.TtsRequest">
             <summary>
             The tts endpoint is used to perform text-to-speech - generate speech (audio file) from text.
@@ -300,17 +269,17 @@
             Text
             </summary>
         </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.Request.UserQuery">
+        <member name="T:HT.Interview.ChatBot.API.DTO.Request.UserRequest">
             <summary>
-            UserQuery
+            UserRequest
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.DTO.Request.UserQuery.#ctor">
+        <member name="M:HT.Interview.ChatBot.API.DTO.Request.UserRequest.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.LoggedInUserId">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.LoggedInUserId">
             <summary>
             Get or sets the logged in user id
             </summary>
@@ -318,7 +287,7 @@
             The LoggedInUserId
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Id">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.Id">
             <summary>
             Get or sets id
             </summary>
@@ -326,7 +295,7 @@
             The Id
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.FirstName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.FirstName">
             <summary>
             Get or sets first name
             </summary>
@@ -334,7 +303,7 @@
             The FirstName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.LastName">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.LastName">
             <summary>
             Get or sets first name
             </summary>
@@ -342,7 +311,7 @@
             The LastName
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Email">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.Email">
             <summary>
             Get or sets email
             </summary>
@@ -350,7 +319,7 @@
             The Email
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CreatedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.CreatedBy">
             <summary>
             Get or sets the created by
             </summary>
@@ -358,7 +327,7 @@
             The CreatedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CreatedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.CreatedOn">
             <summary>
             Get or sets the created on
             </summary>
@@ -366,7 +335,7 @@
             The CreatedOn
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.ModifiedBy">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.ModifiedBy">
             <summary>
             Get or sets the modified by
             </summary>
@@ -374,7 +343,7 @@
             The ModifiedBy
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.ModifiedOn">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.ModifiedOn">
             <summary>
             Get or sets the modified on
             </summary>
@@ -382,7 +351,7 @@
             The ModifiedOn
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.RecordType">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.RecordType">
             <summary>
             Get or sets record type
             </summary>
@@ -390,7 +359,7 @@
             The RecordType
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.Fields">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.Fields">
             <summary>
             Get or sets fields
             </summary>
@@ -398,7 +367,7 @@
             The Fields
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.SortExpression">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.SortExpression">
             <summary>
             Get or Sets sort expression
             </summary>
@@ -406,7 +375,7 @@
             The Sort Expression
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.CurrentPage">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.CurrentPage">
             <summary>
             Get or sets current page
             </summary>
@@ -414,7 +383,7 @@
             The Current Page
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserQuery.PageSize">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Request.UserRequest.PageSize">
             <summary>
             Get or sets page size
             </summary>
@@ -938,6 +907,18 @@
             Create Web Host Builder
             </summary>
             <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.QueryExtension">
+            <summary>
+            QueryExtension
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.QueryExtension.ToQueryString(HT.Interview.ChatBot.API.DTO.Request.QueryRequest)">
+            <summary>
+            To query string
+            </summary>
+            <param name="queryRequest"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.API.Startup">

@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace HT.Interview.ChatBot.API.DTO
+namespace HT.Framework.MVC
 {
     /// <summary>
     /// ApiAiJson <typeparamref name="T"/>

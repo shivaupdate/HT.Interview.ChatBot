@@ -3,7 +3,7 @@
     /// <summary>
     /// The tts endpoint is used to perform text-to-speech - generate speech (audio file) from text.
     /// </summary>
-    public class TtsRequest : RequestBase
+    public class TtsRequest  
     {  
         /// <summary>
         /// Text

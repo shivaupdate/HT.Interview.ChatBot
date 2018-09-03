@@ -16,6 +16,18 @@
             </summary>
             <param name="dependencyResolver"></param>
         </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetApiAiSettings">
+            <summary>
+            Get Api Ai settings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetHttpClient">
+            <summary>
+            Get Http client
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetMapperService">
             <summary>
             Get mapper service

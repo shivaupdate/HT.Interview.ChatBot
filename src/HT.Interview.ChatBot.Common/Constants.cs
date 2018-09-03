@@ -31,6 +31,11 @@
         public const string UserName = "UserName";
 
         /// <summary>
+        /// Get
+        /// </summary>
+        public const string Get = "get";
+
+        /// <summary>
         /// Get many
         /// </summary>
         public const string GetMany = "get-many";

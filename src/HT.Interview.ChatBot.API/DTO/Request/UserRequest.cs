@@ -5,14 +5,14 @@ using static HT.Interview.ChatBot.Common.Enums;
 namespace HT.Interview.ChatBot.API.DTO.Request
 {
     /// <summary>
-    /// UserQuery
+    /// UserRequest
     /// </summary>
-    public class UserQuery
+    public class UserRequest
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        public UserQuery()
+        public UserRequest()
         { 
             RecordType = RecordType.All;
             SortExpression = nameof(FirstName);

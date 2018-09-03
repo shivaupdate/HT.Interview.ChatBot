@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.API.DTO.Request
     /// <summary>
     /// QueryRequest
     /// </summary>
-    public class QueryRequest : RequestBase
+    public class QueryRequest  
     { 
         /// <summary>
         /// The natural language text to be processed. The request can have multiple query parameters. 

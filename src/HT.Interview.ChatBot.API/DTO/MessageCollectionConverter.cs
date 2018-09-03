@@ -1,4 +1,5 @@
-﻿using HT.Interview.ChatBot.API.DTO.Response.Message;
+﻿using HT.Framework.MVC;
+using HT.Interview.ChatBot.API.DTO.Response.Message;
 using HT.Interview.ChatBot.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
