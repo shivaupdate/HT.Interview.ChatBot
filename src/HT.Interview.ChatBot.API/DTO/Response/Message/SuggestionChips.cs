@@ -1,5 +1,4 @@
 ﻿using HT.Interview.ChatBot.Common;
-using System;
 
 namespace HT.Interview.ChatBot.API.DTO.Response.Message
 {
