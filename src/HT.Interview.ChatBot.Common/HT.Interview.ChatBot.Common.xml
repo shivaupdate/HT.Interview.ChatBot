@@ -34,6 +34,11 @@
             User name
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.Get">
+            <summary>
+            Get
+            </summary>
+        </member>
         <member name="F:HT.Interview.ChatBot.Common.Constants.GetMany">
             <summary>
             Get many
@@ -53,6 +58,18 @@
             <summary>
             IChatBotDataFactory
             </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetApiAiSettings">
+            <summary>
+            Get Api Ai settings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetHttpClient">
+            <summary>
+            Get Http client
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetMapperService">
             <summary>

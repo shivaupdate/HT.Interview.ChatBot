@@ -23,7 +23,7 @@ namespace HT.Interview.ChatBot.API
         public UserProfile()
         { 
             CreateMap<User, UserResponse>();
-            CreateMap<UserQuery, Model.UserQuery>(); 
+            CreateMap<UserRequest, Model.UserQuery>(); 
         }
     }
 }

@@ -87,6 +87,41 @@
             <param name="bccAddress"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Framework.Contracts.IHttpClient">
+            <summary>
+            IHttpClient
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.IHttpClient.GetAsync``1(System.String)">
+            <summary>
+            Get async
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IHttpClient.PostAsync(System.Uri,System.Net.Http.HttpContent)">
+            <summary>
+            Post async
+            </summary>
+            <param name="requestUri"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IHttpClient.PutAsync(System.Uri,System.Net.Http.HttpContent)">
+            <summary>
+            Put async
+            </summary>
+            <param name="requestUri"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IHttpClient.DeleteAsync(System.Uri)">
+            <summary>
+            Delete async
+            </summary>
+            <param name="requestUri"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Framework.ResourceService`1">
             <summary>
             Resource service <typeparamref name="T"/>
