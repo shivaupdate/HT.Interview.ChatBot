@@ -39,6 +39,11 @@
             Get
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.GetIntent">
+            <summary>
+            Get Intent
+            </summary>
+        </member>
         <member name="F:HT.Interview.ChatBot.Common.Constants.GetMany">
             <summary>
             Get many

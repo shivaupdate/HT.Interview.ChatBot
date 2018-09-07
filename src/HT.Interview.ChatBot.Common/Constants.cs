@@ -36,6 +36,11 @@
         public const string Get = "get";
 
         /// <summary>
+        /// Get Intent
+        /// </summary>
+        public const string GetIntent = "get-intent";
+
+        /// <summary>
         /// Get many
         /// </summary>
         public const string GetMany = "get-many";
