@@ -94,6 +94,22 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetDialogflowService">
+            <summary>
+            Get dialog flow service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IDialogflowService">
+            <summary>
+            IDialogflowService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IDialogflowService.GetIntentsAsync">
+            <summary>
+            Get intents async
+            </summary> 
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IUserService">
             <summary>
             IUserService
@@ -162,6 +178,248 @@
             <value>
             The RecordType
             </value> 
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.Intent">
+            <inheritdoc />
+            <summary>
+            Intent model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CompetenceId">
+            <summary>
+            Get or sets the competence id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CompetenceLevelId">
+            <summary>
+            Get or sets the competence level id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DisplayName">
+            <summary>
+            Get or sets the display name
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.Text">
+            <summary>
+            Get or sets the text
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.AllocatedTime">
+            <summary>
+            Get or sets the allocated time
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IntentTrainingPhrase">
+            <summary>
+            Get or sets the intent training phrase
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IntentSuggestion">
+            <summary>
+            Get or sets the intent suggestion
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.IntentSuggestion">
+            <inheritdoc />
+            <summary>
+            Intent Suggestion model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.IntentId">
+            <summary>
+            Get or sets the intent od
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.Intent">
+            <summary>
+            Get or sets the intent
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.Title">
+            <summary>
+            Get or sets the title
+            </summary>
+            <value>
+            The Email
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentSuggestion.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase">
+            <inheritdoc />
+            <summary>
+            Intent Training Phrase model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.IntentId">
+            <summary>
+            Get or sets the intent id
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.Intent">
+            <summary>
+            Get or sets the intent
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.Text">
+            <summary>
+            Get or sets the text
+            </summary>
+            <value>
+            The Email
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentTrainingPhrase.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Entities.User">
             <inheritdoc />

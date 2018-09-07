@@ -48,6 +48,33 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetDialogflowService">
+            <inheritdoc />
+            <summary>
+            Get dialogflow service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.DialogflowService">
+            <inheritdoc />
+            <summary>
+            Dialogflow Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.GetIntentsAsync">
+            <summary>
+            Get intents async
+            </summary>
+            <param name="uq"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.Services.UserService">
             <inheritdoc />
             <summary>
