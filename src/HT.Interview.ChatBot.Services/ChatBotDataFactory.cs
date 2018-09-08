@@ -68,6 +68,165 @@ namespace HT.Interview.ChatBot.Services
         public IUserService GetUserService()
         {
             return _dependencyResolver.Resolve<IUserService>();
-        }         
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get role service
+        /// </summary>
+        /// <returns></returns>
+        public IRoleService GetRoleService()
+        {
+            return _dependencyResolver.Resolve<IRoleService>();
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get QuestionarieSuggestionChip service
+        /// </summary>
+        /// <returns></returns>
+        public IQuestionarieSuggestionChipService GetQuestionarieSuggestionChipService()
+        {
+            return _dependencyResolver.Resolve<IQuestionarieSuggestionChipService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Questionarie service
+        /// </summary>
+        /// <returns></returns>
+        public IQuestionarieService GetQuestionarieService()
+        {
+            return _dependencyResolver.Resolve<IQuestionarieService>();
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Menu service
+        /// </summary>
+        /// <returns></returns>
+        public IMenuService GetMenuService()
+        {
+            return _dependencyResolver.Resolve<IMenuService>();
+        }
+
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get InterviewTypeCompetenceMapping service
+        /// </summary>
+        /// <returns></returns>
+        public IInterviewTypeCompetenceMappingService GetInterviewTypeCompetenceMappingService()
+        {
+            return _dependencyResolver.Resolve<IInterviewTypeCompetenceMappingService>();
+        }
+
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get InterviewType service
+        /// </summary>
+        /// <returns></returns>
+        public IInterviewTypeService GetInterviewTypeService()
+        {
+            return _dependencyResolver.Resolve<IInterviewTypeService>();
+        }
+
+
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get InterviewDetail service
+        /// </summary>
+        /// <returns></returns>
+        public IInterviewDetailService GetInterviewDetailService()
+        {
+            return _dependencyResolver.Resolve<IInterviewDetailService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Gender service
+        /// </summary>
+        /// <returns></returns>
+        public IGenderService GetGenderService()
+        {
+            return _dependencyResolver.Resolve<IGenderService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Employee service
+        /// </summary>
+        /// <returns></returns>
+        public IEmployeeService GetEmployeeService()
+        {
+            return _dependencyResolver.Resolve<IEmployeeService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get CompetenceLevel service
+        /// </summary>
+        /// <returns></returns>
+        public ICompetenceLevelService GetCompetenceLevelService()
+        {
+            return _dependencyResolver.Resolve<ICompetenceLevelService>();
+        }
+
+
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Competence service
+        /// </summary>
+        /// <returns></returns>
+        public ICompetenceService GetCompetenceService()
+        {
+            return _dependencyResolver.Resolve<ICompetenceService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Candidate service
+        /// </summary>
+        /// <returns></returns>
+        public ICandidateService GetCandidateService()
+        {
+            return _dependencyResolver.Resolve<ICandidateService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Attachment service
+        /// </summary>
+        /// <returns></returns>
+        public IAttachmentService GetAttachmentService()
+        {
+            return _dependencyResolver.Resolve<IAttachmentService>();
+        }
+
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get AccessMatrix service
+        /// </summary>
+        /// <returns></returns>
+        public IAccessMatrixService GetAccessMatrixService()
+        {
+            return _dependencyResolver.Resolve<IAccessMatrixService>();
+        }
+
+
     }
 }

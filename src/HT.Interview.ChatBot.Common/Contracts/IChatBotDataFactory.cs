@@ -39,6 +39,78 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get user service
         /// </summary>
         /// <returns></returns>
-        IUserService GetUserService(); 
+        IUserService GetUserService();
+
+        /// <summary>
+        /// Get role service
+        /// </summary>
+        /// <returns></returns>
+        IRoleService GetRoleService();
+         
+        /// <summary>
+        /// Get InterviewTypeCompetenceMapping service
+        /// </summary>
+        /// <returns></returns>
+        IInterviewTypeCompetenceMappingService GetInterviewTypeCompetenceMappingService();
+
+
+        /// <summary>
+        /// Get InterviewType service
+        /// </summary>
+        /// <returns></returns>
+        IInterviewTypeService GetInterviewTypeService();
+
+         
+        /// <summary>
+        /// Get Gender service
+        /// </summary>
+        /// <returns></returns>
+        IGenderService GetGenderService();
+
+
+        /// <summary>
+        /// Get CompetenceLevel service
+        /// </summary>
+        /// <returns></returns>
+        ICompetenceLevelService GetCompetenceLevelService();
+
+        /// <summary>
+        /// Get Competence service
+        /// </summary>
+        /// <returns></returns>
+        ICompetenceService GetCompetenceService();
+
+        /// <summary>
+        /// Get Candidate service
+        /// </summary>
+        /// <returns></returns>
+        ICandidateService GetCandidateService();
+
+        /// <summary>
+        /// Get Attachment service
+        /// </summary>
+        /// <returns></returns>
+        IAttachmentService GetAttachmentService();
+
+        /// <summary>
+        /// Get AccessMatrix service
+        /// </summary>
+        /// <returns></returns>
+        IAccessMatrixService GetAccessMatrixService();
+
+        /// <summary>
+        /// Get Menu service
+        /// </summary>
+        /// <returns></returns>
+        IMenuService GetMenuService();
+
+
+        /// <summary>
+        /// Get Employee service
+        /// </summary>
+        /// <returns></returns>
+        IEmployeeService GetEmployeeService();
+
+
     }
 }
