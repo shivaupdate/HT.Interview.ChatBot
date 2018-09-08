@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>C:\Users\WU138HG\source\repos\HT\PSV\HT.Interview.Chatbot\src\HT.Interview.ChatBot.API\HT.Interview.ChatBot.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

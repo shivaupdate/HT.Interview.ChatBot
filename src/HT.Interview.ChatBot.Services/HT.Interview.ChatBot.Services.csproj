@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>C:\Users\WU138HG\source\repos\HT\PSV\HT.Interview.Chatbot\src\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,12 @@
     <Reference Include="Microsoft.Extensions.Http">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.http\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Http.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="HT.Interview.ChatBot.Services.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

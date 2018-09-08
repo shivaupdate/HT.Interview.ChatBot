@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HT.Framework.DI</name>
+    </assembly>
+    <members>
+        <member name="T:HT.Framework.DI.DependencyResolver">
+            <summary>
+            Dependency Resolver
+            </summary>
+        </member>
+        <member name="M:HT.Framework.DI.DependencyResolver.#ctor(Autofac.IContainer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:HT.Framework.DI.DependencyResolver.Resolve``1">
+            <summary>
+            Resolve <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.DI.DependencyResolver.Resolve``1(System.String)">
+            <summary>
+            Resolve by name <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.DI.DependencyResolver.Resolve``1(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Resolve by parameter <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.DI.DependencyResolver.ResolveAll``1">
+            <summary>
+            Resolve all <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.DI.ResourceServiceRegistration.AddResourceService``1(Autofac.ContainerBuilder,System.String)">
+            <summary>
+            Add resource service <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="resource"></param>
+        </member>
+    </members>
+</doc>

@@ -33,6 +33,11 @@ namespace HT.Interview.ChatBot.Data
         public virtual DbSet<Intent> Intent { get; set; }
 
         /// <summary>
+        /// Intent Output Context model
+        /// </summary>
+        public virtual DbSet<IntentOutputContext> IntentOutputContext { get; set; }
+
+        /// <summary>
         /// Intent Competence Mapping model
         /// </summary>
         public virtual DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
@@ -117,7 +122,7 @@ namespace HT.Interview.ChatBot.Data
         /// AccessMatrix entity
         /// </summary>
         public virtual DbSet<AccessMatrix> AccessMatrix { get; set; }
-         
+
         /// <inheritdoc />
         /// <summary>
         /// On configuring
@@ -134,22 +139,41 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("User", "icb").Property(t => t.Id);
-            modelBuilder.Entity<Role>().ToTable("Role", "icb").Property(t => t.Id);
+            modelBuilder.Entity<User>().ToTable("User", "icb").HasKey(t => t.Id);
+
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
-            intent.Property(i => i.Id);
+            intent.HasKey(i => i.Id);
+            intent.HasMany(i => i.IntentOutputContext);
             intent.HasMany(i => i.IntentCompetenceMapping);
             intent.HasMany(i => i.IntentTrainingPhrase);
             intent.HasMany(i => i.IntentParameter);
             intent.HasMany(i => i.IntentSuggestion);
 
-            modelBuilder.Entity<IntentCompetenceMapping>().ToTable("IntentCompetenceMapping", "icb") 
+            modelBuilder.Entity<IntentCompetenceMapping>().ToTable("IntentCompetenceMapping", "icb")
                  .HasKey(t => new { t.IntentId, t.CompetenceId, t.CompetenceLevelId });
+
+            modelBuilder.Entity<IntentOutputContext>().ToTable("IntentOutputContext", "icb")
+                 .HasKey(t => new { t.Id });
 
             modelBuilder.Entity<IntentTrainingPhrase>().ToTable("IntentTrainingPhrase", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentParameter>().ToTable("IntentParameter", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id);
+
+
+            modelBuilder.Entity<Role>().ToTable("Role", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<InterviewTypeCompetenceMapping>().ToTable("InterviewTypeCompetenceMapping", "icb")
+                .HasKey(t => new { t.InterviewTypeId, t.CompetenceId });
+
+            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Employee>().ToTable("Employee", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<CompetenceLevel>().ToTable("CompetenceLevel", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Candidate>().ToTable("Candidate", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Attachment>().ToTable("Attachment", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<InterviewType>().ToTable("InterviewType", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb").HasKey(t => t.Id);
         }
     }
 }

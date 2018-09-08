@@ -9,6 +9,31 @@ namespace HT.Interview.ChatBot.Data
     public interface IChatBotDataContext
     {
         /// <summary>
+        /// Intent model
+        /// </summary>
+        DbSet<Intent> Intent { get; set; }
+
+        /// <summary>
+        /// Intent model
+        /// </summary>
+        DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
+
+        /// <summary>
+        /// Intent Training Phrase model
+        /// </summary>
+        DbSet<IntentTrainingPhrase> IntentTrainingPhrase { get; set; }
+
+        /// <summary>
+        /// Intent Parameter model
+        /// </summary>
+        DbSet<IntentParameter> IntentParameter { get; set; }
+
+        /// <summary>
+        /// Intent Suggestion model
+        /// </summary>
+        DbSet<IntentSuggestion> IntentSuggestion { get; set; }
+
+        /// <summary>
         /// User model
         /// </summary>
         DbSet<User> User { get; set; }
@@ -17,8 +42,7 @@ namespace HT.Interview.ChatBot.Data
         /// Role model
         /// </summary>
         DbSet<Role> Role { get; set; }
-
-        /// <summary> 
+         
         /// <summary>
         /// Menu model
         /// </summary>
@@ -33,21 +57,21 @@ namespace HT.Interview.ChatBot.Data
         /// InterviewType model
         /// </summary>
         DbSet<InterviewType> InterviewType { get; set; }
-         
+
         /// <summary>
         /// Gender model
         /// </summary>
-        DbSet<Gender> Gender { get; set; } 
+        DbSet<Gender> Gender { get; set; }
 
         /// <summary>
         /// Employee model
         /// </summary>
-        DbSet<Employee> Employee { get; set; } 
+        DbSet<Employee> Employee { get; set; }
 
         /// <summary>
         /// CompetenceLevel model
         /// </summary>
-        DbSet<CompetenceLevel> CompetenceLevel { get; set; } 
+        DbSet<CompetenceLevel> CompetenceLevel { get; set; }
 
         /// <summary>
         /// Competence model
@@ -67,32 +91,7 @@ namespace HT.Interview.ChatBot.Data
         /// <summary>
         /// AccessMatrix model
         /// </summary>
-        DbSet<AccessMatrix> AccessMatrix { get; set; } 
-
-        /// <summary>
-        /// Intent model
-        /// </summary>
-        DbSet<Intent> Intent { get; set; }
-
-        /// <summary>
-        /// Intent model
-        /// </summary>
-        DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-        
-        /// <summary>
-        /// Intent Training Phrase model
-        /// </summary>
-        DbSet<IntentTrainingPhrase> IntentTrainingPhrase { get; set; }
-
-        /// <summary>
-        /// Intent Parameter model
-        /// </summary>
-        DbSet<IntentParameter> IntentParameter { get; set; }
-
-        /// <summary>
-        /// Intent Suggestion model
-        /// </summary>
-        DbSet<IntentSuggestion> IntentSuggestion { get; set; }
+        DbSet<AccessMatrix> AccessMatrix { get; set; }
 
     }
 }

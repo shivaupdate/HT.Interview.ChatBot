@@ -69,10 +69,17 @@ namespace HT.Interview.ChatBot.API.Controllers
                     foreach (IntentResponse intentResponse in intentList)
                     {
                         Intent intent = new Intent();
+                        Context context = new Context()
+                        {
+                            LifespanCount = 2,
+                            Name = "Test" 
+                        };
 
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
+                        intent.OutputContexts.Add(context);
+                        //intent.InputContextNames.Add()
 
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {

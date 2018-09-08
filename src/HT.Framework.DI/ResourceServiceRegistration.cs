@@ -3,6 +3,9 @@ using HT.Framework.Contracts;
 
 namespace HT.Framework.DI
 {
+    /// <summary>
+    /// Resource Service Registration
+    /// </summary>
     public static class ResourceServiceRegistration
     {
         /// <summary>

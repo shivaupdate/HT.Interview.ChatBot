@@ -65,6 +65,15 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         public ICollection<IntentCompetenceMappingResponse> IntentCompetenceMappingResponse { get; set; }
 
         /// <summary>
+        /// Get or sets the intent output context response
+        /// </summary>
+        /// <value>
+        /// The IntentOutputContext
+        /// </value> 
+        public ICollection<IntentOutputContextResponse> IntentOutputContext { get; set; }
+
+
+        /// <summary>
         /// Get or sets the intent training phrase response
         /// </summary>
         /// <value>

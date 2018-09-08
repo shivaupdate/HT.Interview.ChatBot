@@ -26,6 +26,7 @@ namespace HT.Interview.ChatBot.API
                 .ForMember(dest => dest.IntentParameterResponse, opt => opt.MapFrom(src => src.IntentParameter))
                 .ForMember(dest => dest.IntentSuggestionResponse, opt => opt.MapFrom(src => src.IntentSuggestion));
             CreateMap<IntentCompetenceMapping, IntentCompetenceMappingResponse>();
+            CreateMap<IntentOutputContext, IntentOutputContextResponse>();
             CreateMap<IntentTrainingPhrase, IntentTrainingPhraseResponse>();
             CreateMap<IntentParameter, IntentParameterResponse>();
             CreateMap<IntentSuggestion, IntentSuggestionResponse>();
