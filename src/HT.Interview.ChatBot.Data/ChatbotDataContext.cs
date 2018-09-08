@@ -54,6 +54,12 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
+        /// Role entity
+        /// </summary>
+        public virtual DbSet<Role> Role { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// On configuring
         /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -69,6 +75,7 @@ namespace HT.Interview.ChatBot.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("User", "icb").Property(t => t.Id);
+            modelBuilder.Entity<Role>().ToTable("Role", "icb").Property(t => t.Id);
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
             intent.Property(i => i.Id);
