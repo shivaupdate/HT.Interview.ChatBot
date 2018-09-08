@@ -18,30 +18,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         [Required]
         public int Id { get; set; }
-
-        /// <summary>
-        /// Get or sets the competence id
-        /// </summary>
-        /// <value>
-        /// The Id
-        /// </value> 
-        [Required]
-        public int? CompetenceId { get; set; }
-
-        /// <summary>
-        /// Get or sets the competence level id
-        /// </summary>
-        /// <value>
-        /// The Id
-        /// </value>  
-        public int? CompetenceLevelId { get; set; }
-
-
+         
         /// <summary>
         /// Get or sets the display name
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The DisplayName
         /// </value> 
         [Required]
         public string DisplayName { get; set; }
@@ -50,33 +32,40 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the text
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The Text
         /// </value> 
         [Required]
         public string Text { get; set; }
 
         /// <summary>
-        /// Get or sets the allocated time
+        /// Get or sets the intent competence mapping
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The IntentCompetenceMapping
         /// </value> 
-        [Required]
-        public int AllocatedTime { get; set; }
+        public ICollection<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
 
         /// <summary>
         /// Get or sets the intent training phrase
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The IntentTrainingPhrase
         /// </value> 
         public ICollection<IntentTrainingPhrase> IntentTrainingPhrase { get; set; }
+
+        /// <summary>
+        /// Get or sets the intent parameter
+        /// </summary>
+        /// <value>
+        /// The IntentParameter
+        /// </value> 
+        public ICollection<IntentParameter> IntentParameter { get; set; }
 
         /// <summary>
         /// Get or sets the intent suggestion
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The IntentSuggestion
         /// </value> 
         public ICollection<IntentSuggestion> IntentSuggestion { get; set; }
 

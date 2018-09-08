@@ -1,51 +1,66 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace HT.Interview.ChatBot.API.DTO.Response
+namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// Intent Suggestion Response model
+    /// Intent Competence Mapping model
     /// </summary>
-    public class IntentSuggestionResponse
+    public class IntentCompetenceMapping
     {
         /// <summary>
         /// Get or sets the id
         /// </summary>
         /// <value>
         /// The Id
-        /// </value>  
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Get or sets the intent od
-        /// </summary>
-        /// <value>
-        /// The IntentId
-        /// </value>  
+        /// </value> 
+        [Required]
         public int IntentId { get; set; }
 
         /// <summary>
-        /// Get or sets the intent response
+        /// Get or sets the intent
         /// </summary>
         /// <value>
-        /// The IntentResponse
-        /// </value>  
-        public IntentResponse IntentResponse { get; set; }
+        /// The Intent
+        /// </value> 
+        [Required]
+        public Intent Intent { get; set; }
 
         /// <summary>
-        /// Get or sets the title
+        /// Get or sets the competence id
         /// </summary>
         /// <value>
-        /// The Title
+        /// The CompetenceId
+        /// </value> 
+        [Required]
+        public int CompetenceId { get; set; }
+         
+        /// <summary>
+        /// Get or sets the competence level id
+        /// </summary>
+        /// <value>
+        /// The CompetenceLevelId
         /// </value>  
-        public string Title { get; set; }
-
+        [Required]
+        public int CompetenceLevelId { get; set; }
+         
+        /// <summary>
+        /// Get or sets the allocated time
+        /// </summary>
+        /// <value>
+        /// The AllocatedTime
+        /// </value> 
+        [Required]
+        public int AllocatedTime { get; set; }
+         
         /// <summary>
         /// Get or sets the created by
         /// </summary>
         /// <value>
         /// The CreatedBy
-        /// </value>  
+        /// </value> 
+        [Required]
         public string CreatedBy { get; set; }
 
         /// <summary>
@@ -53,7 +68,8 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// </summary>
         /// <value>
         /// The CreatedOn
-        /// </value>  
+        /// </value> 
+        [Required]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>

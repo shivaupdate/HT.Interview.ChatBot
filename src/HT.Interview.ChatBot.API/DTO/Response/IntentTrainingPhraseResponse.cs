@@ -20,25 +20,33 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// Get or sets the intent id
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The IntentId
         /// </value>  
         public int IntentId { get; set; }
 
         /// <summary>
-        /// Get or sets the intent
+        /// Get or sets the intent response
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The IntentResponse
         /// </value>  
-        public IntentResponse Intent { get; set; }
+        public IntentResponse IntentResponse { get; set; }
 
         /// <summary>
-        /// Get or sets the title
+        /// Get or sets the Text
         /// </summary>
         /// <value>
-        /// The Email
+        /// The Text
         /// </value>  
-        public string Title { get; set; }
+        public string Text { get; set; }
+
+        /// <summary>
+        /// Get or sets the entity type
+        /// </summary>
+        /// <value>
+        /// The EntityType
+        /// </value>  
+        public string EntityType { get; set; }
 
         /// <summary>
         /// Get or sets the created by

@@ -19,13 +19,24 @@ namespace HT.Interview.ChatBot.Data
         DbSet<Intent> Intent { get; set; }
 
         /// <summary>
-        /// Intent Suggestion model
+        /// Intent model
         /// </summary>
-        DbSet<IntentSuggestion> IntentSuggestion { get; set; }
-
+        DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
+        
         /// <summary>
         /// Intent Training Phrase model
         /// </summary>
         DbSet<IntentTrainingPhrase> IntentTrainingPhrase { get; set; }
+
+        /// <summary>
+        /// Intent Parameter model
+        /// </summary>
+        DbSet<IntentParameter> IntentParameter { get; set; }
+
+        /// <summary>
+        /// Intent Suggestion model
+        /// </summary>
+        DbSet<IntentSuggestion> IntentSuggestion { get; set; }
+
     }
 }

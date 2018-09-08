@@ -39,14 +39,14 @@ namespace HT.Interview.ChatBot.Services
 
         /// <summary>
         /// Get intents async
-        /// </summary>
-        /// <param name="uq"></param>
+        /// </summary> 
         /// <returns></returns>
         public async Task<Response<IEnumerable<Intent>>> GetIntentsAsync()
         {
-            IEnumerable<Intent> intents = await _chatbotDataContext.Intent
-                .Include(x => x.IntentSuggestion)
-                .Include(x => x.IntentTrainingPhrase).ToListAsync();
+            IEnumerable<Intent> intents = await _chatbotDataContext.Intent               
+                .Include(x => x.IntentTrainingPhrase)
+                .Include(x => x.IntentParameter)
+                .Include(x => x.IntentSuggestion).ToListAsync();
             return Response.Ok(intents); 
         }
 

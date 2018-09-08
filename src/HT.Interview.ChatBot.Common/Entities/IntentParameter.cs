@@ -5,9 +5,9 @@ namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// Intent Training Phrase model
+    /// Intent Parameter model
     /// </summary>
-    public class IntentTrainingPhrase
+    public class IntentParameter
     {
         /// <summary>
         /// Get or sets the id
@@ -37,21 +37,49 @@ namespace HT.Interview.ChatBot.Common.Entities
         public Intent Intent { get; set; }
 
         /// <summary>
-        /// Get or sets the text
+        /// Get or sets the mandatory
         /// </summary>
         /// <value>
-        /// The Text
+        /// The Mandatory
         /// </value> 
         [Required]
-        public string Text { get; set; }
+        public bool Mandatory { get; set; }
 
         /// <summary>
-        /// Get or sets the entity type
+        /// Get or sets the display name
         /// </summary>
         /// <value>
-        /// The EntityType
-        /// </value>  
-        public string EntityType { get; set; }
+        /// The DisplayName
+        /// </value> 
+        [Required]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Get or sets the entity type display name
+        /// </summary>
+        /// <value>
+        /// The EntityTypeDisplayName
+        /// </value> 
+        [Required]
+        public string EntityTypeDisplayName { get; set; }
+
+        /// <summary>
+        /// Get or sets the value
+        /// </summary>
+        /// <value>
+        /// The Value
+        /// </value> 
+        [Required]
+        public string Value { get; set; }
+
+        /// <summary>
+        /// Get or sets the IsList
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value> 
+        [Required]
+        public bool IsList { get; set; }
 
         /// <summary>
         /// Get or sets the created by

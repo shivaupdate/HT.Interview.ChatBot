@@ -22,7 +22,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the intent od
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The IntentId
         /// </value> 
         [Required]
         public int IntentId { get; set; }
@@ -31,7 +31,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the intent
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The Intent
         /// </value> 
         [Required]
         public Intent Intent { get; set; }
@@ -40,7 +40,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the title
         /// </summary>
         /// <value>
-        /// The Email
+        /// The Title
         /// </value> 
         [Required]
         public string Title { get; set; }

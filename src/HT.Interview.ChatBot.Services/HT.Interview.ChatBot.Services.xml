@@ -71,8 +71,7 @@
         <member name="M:HT.Interview.ChatBot.Services.DialogflowService.GetIntentsAsync">
             <summary>
             Get intents async
-            </summary>
-            <param name="uq"></param>
+            </summary> 
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Services.UserService">

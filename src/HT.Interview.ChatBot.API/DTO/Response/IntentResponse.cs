@@ -20,7 +20,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// Get or sets the competence id
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CompetenceId
         /// </value> 
         public int? CompetenceId { get; set; }
 
@@ -28,15 +28,15 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// Get or sets the competence level id
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CompetenceLevelId
         /// </value>  
         public int? CompetenceLevelId { get; set; }
-        
+
         /// <summary>
         /// Get or sets the display name
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The DisplayName
         /// </value> 
         public string DisplayName { get; set; }
 
@@ -44,7 +44,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// Get or sets the text
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The Text
         /// </value> 
         public string Text { get; set; }
 
@@ -52,23 +52,39 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// Get or sets the allocated time
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The AllocatedTime
         /// </value> 
         public int AllocatedTime { get; set; }
 
         /// <summary>
-        /// Get or sets the intent training phrase
+        /// Get or sets the intent compentence mapping response
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The IntentCompetenceMappingResponse
+        /// </value> 
+        public ICollection<IntentCompetenceMappingResponse> IntentCompetenceMappingResponse { get; set; }
+
+        /// <summary>
+        /// Get or sets the intent training phrase response
+        /// </summary>
+        /// <value>
+        /// The IntentTrainingPhraseResponse
         /// </value> 
         public ICollection<IntentTrainingPhraseResponse> IntentTrainingPhraseResponse { get; set; }
 
         /// <summary>
-        /// Get or sets the intent suggestion
+        /// Get or sets the intent parameter response
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The IntentParameterResponse
+        /// </value> 
+        public ICollection<IntentParameterResponse> IntentParameterResponse { get; set; }
+
+        /// <summary>
+        /// Get or sets the intent suggestion response
+        /// </summary>
+        /// <value>
+        /// The IntentSuggestionResponse
         /// </value> 
         public ICollection<IntentSuggestionResponse> IntentSuggestionResponse { get; set; }
 

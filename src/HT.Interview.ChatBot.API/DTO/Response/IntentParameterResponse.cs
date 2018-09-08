@@ -4,9 +4,9 @@ namespace HT.Interview.ChatBot.API.DTO.Response
 {
     /// <inheritdoc />
     /// <summary>
-    /// Intent Suggestion Response model
+    /// Intent Parameter model
     /// </summary>
-    public class IntentSuggestionResponse
+    public class IntentParameterResponse
     {
         /// <summary>
         /// Get or sets the id
@@ -17,7 +17,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the intent od
+        /// Get or sets the intent id
         /// </summary>
         /// <value>
         /// The IntentId
@@ -33,12 +33,44 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         public IntentResponse IntentResponse { get; set; }
 
         /// <summary>
-        /// Get or sets the title
+        /// Get or sets the mandatory
         /// </summary>
         /// <value>
-        /// The Title
+        /// The Mandatory
         /// </value>  
-        public string Title { get; set; }
+        public bool Mandatory { get; set; }
+
+        /// <summary>
+        /// Get or sets the display name
+        /// </summary>
+        /// <value>
+        /// The DisplayName
+        /// </value>  
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Get or sets the entity type display name
+        /// </summary>
+        /// <value>
+        /// The EntityTypeDisplayName
+        /// </value>  
+        public string EntityTypeDisplayName { get; set; }
+
+        /// <summary>
+        /// Get or sets the value
+        /// </summary>
+        /// <value>
+        /// The Value
+        /// </value>  
+        public string Value { get; set; }
+
+        /// <summary>
+        /// Get or sets the IsList
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value>  
+        public bool IsList { get; set; }
 
         /// <summary>
         /// Get or sets the created by

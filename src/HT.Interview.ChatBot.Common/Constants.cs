@@ -31,6 +31,11 @@
         public const string UserName = "UserName";
 
         /// <summary>
+        /// Create
+        /// </summary>
+        public const string Create = "create";
+
+        /// <summary>
         /// Get
         /// </summary>
         public const string Get = "get";
