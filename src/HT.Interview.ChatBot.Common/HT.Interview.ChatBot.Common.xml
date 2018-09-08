@@ -840,6 +840,14 @@
             The Id
             </value> 
         </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.ParentIntentId">
+            <summary>
+            Get or sets the parent intent id
+            </summary>
+            <value>
+            The ParentIntentId
+            </value>  
+        </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DisplayName">
             <summary>
             Get or sets the display name
@@ -847,14 +855,6 @@
             <value>
             The DisplayName
             </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.InputContextNames">
-            <summary>
-            Get or sets the input context names
-            </summary>
-            <value>
-            The InputContextNames
-            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.Text">
             <summary>
@@ -871,14 +871,6 @@
             <value>
             The ExpectedAnswer
             </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IntentOutputContext">
-            <summary>
-            Get or sets the intent ouput context
-            </summary>
-            <value>
-            The IntentOutputContext
-            </value> 
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IntentCompetenceMapping">
             <summary>
@@ -1015,92 +1007,6 @@
             </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.IntentCompetenceMapping.ModifiedOn">
-            <summary>
-            Get or sets the modified on
-            </summary>
-            <value>
-            The ModifiedOn
-            </value>  
-        </member>
-        <member name="T:HT.Interview.ChatBot.Common.Entities.IntentOutputContext">
-            <inheritdoc />
-            <summary>
-            Intent model
-            </summary>
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.Id">
-            <summary>
-            Get or sets the id
-            </summary>
-            <value>
-            The Id
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.IntentId">
-            <summary>
-            Get or sets the intent id
-            </summary>
-            <value>
-            The IntentId
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.Intent">
-            <summary>
-            Get or sets the intent
-            </summary>
-            <value>
-            The Intent
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.LifespanCount">
-            <summary>
-            Get or sets the lifespan count
-            </summary>
-            <value>
-            The LifespanCount
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.Name">
-            <summary>
-            Get or sets the name
-            </summary>
-            <value>
-            The Name
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.Parameters">
-            <summary>
-            Get or sets the parameters
-            </summary>
-            <value>
-            The Parameters
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.CreatedBy">
-            <summary>
-            Get or sets the created by
-            </summary>
-            <value>
-            The CreatedBy
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.CreatedOn">
-            <summary>
-            Get or sets the created on
-            </summary>
-            <value>
-            The CreatedOn
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.ModifiedBy">
-            <summary>
-            Get or sets the modified by
-            </summary>
-            <value>
-            The ModifiedBy
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.Common.Entities.IntentOutputContext.ModifiedOn">
             <summary>
             Get or sets the modified on
             </summary>

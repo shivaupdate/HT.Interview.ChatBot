@@ -31,12 +31,7 @@ namespace HT.Interview.ChatBot.Data
         /// Intent model
         /// </summary>
         public virtual DbSet<Intent> Intent { get; set; }
-
-        /// <summary>
-        /// Intent Output Context model
-        /// </summary>
-        public virtual DbSet<IntentOutputContext> IntentOutputContext { get; set; }
-
+         
         /// <summary>
         /// Intent Competence Mapping model
         /// </summary>
@@ -143,8 +138,7 @@ namespace HT.Interview.ChatBot.Data
 
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
-            intent.HasKey(i => i.Id);
-            intent.HasMany(i => i.IntentOutputContext);
+            intent.HasKey(i => i.Id); 
             intent.HasMany(i => i.IntentCompetenceMapping);
             intent.HasMany(i => i.IntentTrainingPhrase);
             intent.HasMany(i => i.IntentParameter);
@@ -152,9 +146,7 @@ namespace HT.Interview.ChatBot.Data
 
             modelBuilder.Entity<IntentCompetenceMapping>().ToTable("IntentCompetenceMapping", "icb")
                  .HasKey(t => new { t.IntentId, t.CompetenceId, t.CompetenceLevelId });
-
-            modelBuilder.Entity<IntentOutputContext>().ToTable("IntentOutputContext", "icb")
-                 .HasKey(t => new { t.Id });
+             
 
             modelBuilder.Entity<IntentTrainingPhrase>().ToTable("IntentTrainingPhrase", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentParameter>().ToTable("IntentParameter", "icb").HasKey(t => t.Id);

@@ -60,8 +60,11 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             try
             {
+               
                 IEnumerable<IntentResponse> intentList =
                     (await _dialogflowService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
+
+                string previousIntentName =string.Empty;
 
                 if (intentList.Any())
                 {
@@ -69,17 +72,12 @@ namespace HT.Interview.ChatBot.API.Controllers
                     foreach (IntentResponse intentResponse in intentList)
                     {
                         Intent intent = new Intent();
-                        Context context = new Context()
-                        {
-                            LifespanCount = 2,
-                            Name = "Test" 
-                        };
+
 
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
-                        intent.OutputContexts.Add(context);
-                        //intent.InputContextNames.Add()
+                         
 
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {
@@ -105,7 +103,21 @@ namespace HT.Interview.ChatBot.API.Controllers
                             }
                         }
 
+                        //if (intentResponse.InputContextNames != null)
+                        //{
+                        //    FollowupIntentInfo followupIntentInfo = new FollowupIntentInfo()
+                        //    {
+                        //        FollowupIntentName = "projects/ht-interview-chatbot/agent/intents/" + intentResponse.InputContextNames
+                        //    };
+                        //    intent.ParentFollowupIntentName = "projects/ht-interview-chatbot/agent/intents/" + previousIntentName; 
+                        //    intent.FollowupIntentInfo.Add(followupIntentInfo);
+                        //}
+                        //intent.ResetContexts = false;
+                        //intent.Action = "";
+                        
                         Intent newIntent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        previousIntentName = newIntent.Name;
+                        var result = newIntent.OutputContexts;
                     }
                 }
             }

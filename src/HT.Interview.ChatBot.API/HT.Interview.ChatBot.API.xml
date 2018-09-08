@@ -998,92 +998,6 @@
             The ModifiedOn
             </value>  
         </member>
-        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse">
-            <inheritdoc />
-            <summary>
-            Intent model
-            </summary>
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.Id">
-            <summary>
-            Get or sets the id
-            </summary>
-            <value>
-            The Id
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.IntentId">
-            <summary>
-            Get or sets the intent id
-            </summary>
-            <value>
-            The IntentId
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.Intent">
-            <summary>
-            Get or sets the intent response
-            </summary>
-            <value>
-            The IntentResponse
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.LifespanCount">
-            <summary>
-            Get or sets the lifespan count
-            </summary>
-            <value>
-            The LifespanCount
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.Name">
-            <summary>
-            Get or sets the name
-            </summary>
-            <value>
-            The Name
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.Parameters">
-            <summary>
-            Get or sets the parameters
-            </summary>
-            <value>
-            The Parameters
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.CreatedBy">
-            <summary>
-            Get or sets the created by
-            </summary>
-            <value>
-            The CreatedBy
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.CreatedOn">
-            <summary>
-            Get or sets the created on
-            </summary>
-            <value>
-            The CreatedOn
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.ModifiedBy">
-            <summary>
-            Get or sets the modified by
-            </summary>
-            <value>
-            The ModifiedBy
-            </value>  
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentOutputContextResponse.ModifiedOn">
-            <summary>
-            Get or sets the modified on
-            </summary>
-            <value>
-            The ModifiedOn
-            </value>  
-        </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse">
             <inheritdoc />
             <summary>
@@ -1199,20 +1113,12 @@
             The Id
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceId">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.ParentIntentId">
             <summary>
-            Get or sets the competence id
+            Get or sets the parent intent id
             </summary>
             <value>
-            The CompetenceId
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceLevelId">
-            <summary>
-            Get or sets the competence level id
-            </summary>
-            <value>
-            The CompetenceLevelId
+            The ParentIntentId
             </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
@@ -1245,14 +1151,6 @@
             </summary>
             <value>
             The IntentCompetenceMappingResponse
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentOutputContext">
-            <summary>
-            Get or sets the intent output context response
-            </summary>
-            <value>
-            The IntentOutputContext
             </value> 
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentTrainingPhraseResponse">

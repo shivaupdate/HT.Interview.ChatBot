@@ -18,7 +18,15 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         [Required]
         public int Id { get; set; }
-         
+
+        /// <summary>
+        /// Get or sets the parent intent id
+        /// </summary>
+        /// <value>
+        /// The ParentIntentId
+        /// </value>  
+        public int? ParentIntentId { get; set; }
+
         /// <summary>
         /// Get or sets the display name
         /// </summary>
@@ -27,15 +35,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         [Required]
         public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Get or sets the input context names
-        /// </summary>
-        /// <value>
-        /// The InputContextNames
-        /// </value>  
-        public string InputContextNames { get; set; }
-
+         
         /// <summary>
         /// Get or sets the text
         /// </summary>
@@ -52,15 +52,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ExpectedAnswer
         /// </value>  
         public string ExpectedAnswer { get; set; }
-
-        /// <summary>
-        /// Get or sets the intent ouput context
-        /// </summary>
-        /// <value>
-        /// The IntentOutputContext
-        /// </value> 
-        public ICollection<IntentOutputContext> IntentOutputContext { get; set; }
-
+         
         /// <summary>
         /// Get or sets the intent competence mapping
         /// </summary>

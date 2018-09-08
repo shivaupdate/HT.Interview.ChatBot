@@ -43,7 +43,7 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<IEnumerable<Intent>>> GetIntentsAsync()
         {
-            IEnumerable<Intent> intents = await _chatbotDataContext.Intent               
+            IEnumerable<Intent> intents = await _chatbotDataContext.Intent 
                 .Include(x => x.IntentTrainingPhrase)
                 .Include(x => x.IntentParameter)
                 .Include(x => x.IntentSuggestion).ToListAsync();

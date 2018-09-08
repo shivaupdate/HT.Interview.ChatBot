@@ -27,11 +27,6 @@
             Intent model
             </summary>
         </member>
-        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentOutputContext">
-            <summary>
-            Intent Output Context model
-            </summary>
-        </member>
         <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentCompetenceMapping">
             <summary>
             Intent Competence Mapping model
@@ -170,7 +165,11 @@
             Role model
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:HT.Interview.ChatBot.Data.IChatBotDataContext.Menu" -->
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Menu">
+            <summary>
+            Menu model
+            </summary>
+        </member>
         <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.InterviewTypeCompetenceMapping">
             <summary>
             InterviewTypeCompetenceMapping model
