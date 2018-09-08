@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Google.Api.Gax.ResourceNames;
 using Google.Cloud.Dialogflow.V2;
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Response;
@@ -63,7 +62,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 IEnumerable<IntentResponse> intentList =
                     (await _dialogflowService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
-                 
+
                 if (intentList.Any())
                 {
                     IntentsClient client = IntentsClient.Create();
@@ -74,7 +73,7 @@ namespace HT.Interview.ChatBot.API.Controllers
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
-                         
+
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {
                             foreach (IntentTrainingPhraseResponse trainingPhrase in intentResponse.IntentTrainingPhraseResponse)
@@ -134,9 +133,15 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             TrainingPhrase.Types.Part part = new TrainingPhrase.Types.Part()
             {
-                Text = tp.Text,
-                EntityType = tp.EntityType,
+                Text = tp.Text
+
             };
+
+            if (tp.EntityType != null)
+            {
+                part.EntityType = tp.EntityType;
+            }
+
             TrainingPhrase trainingPhrase = new TrainingPhrase();
             trainingPhrase.Parts.Add(part);
             return trainingPhrase;
