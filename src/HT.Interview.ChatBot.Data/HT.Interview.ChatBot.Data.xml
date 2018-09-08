@@ -22,6 +22,31 @@
             User entity
             </summary>
         </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Intent">
+            <summary>
+            Intent model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentCompetenceMapping">
+            <summary>
+            Intent Competence Mapping model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentTrainingPhrase">
+            <summary>
+            Intent Training Phrase model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentParameter">
+            <summary>
+            Intent Parameter model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.IntentSuggestion">
+            <summary>
+            Intent Suggestion model
+            </summary>
+        </member>
         <member name="M:HT.Interview.ChatBot.Data.ChatBotDataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <inheritdoc />
             <summary>
@@ -42,6 +67,31 @@
         <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.User">
             <summary>
             User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Intent">
+            <summary>
+            Intent model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.IntentCompetenceMapping">
+            <summary>
+            Intent model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.IntentTrainingPhrase">
+            <summary>
+            Intent Training Phrase model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.IntentParameter">
+            <summary>
+            Intent Parameter model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.IntentSuggestion">
+            <summary>
+            Intent Suggestion model
             </summary>
         </member>
     </members>

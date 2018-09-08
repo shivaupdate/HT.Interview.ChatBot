@@ -31,9 +31,19 @@
         public const string UserName = "UserName";
 
         /// <summary>
+        /// Create
+        /// </summary>
+        public const string Create = "create";
+
+        /// <summary>
         /// Get
         /// </summary>
         public const string Get = "get";
+
+        /// <summary>
+        /// Get Intent
+        /// </summary>
+        public const string GetIntent = "get-intent";
 
         /// <summary>
         /// Get many
