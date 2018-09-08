@@ -68,13 +68,15 @@ namespace HT.Interview.ChatBot.API.Controllers
                     IntentsClient client = IntentsClient.Create();
                     foreach (IntentResponse intentResponse in intentList.OrderBy(x => x.ParentIntentId))
                     {
-                        Intent intent = new Intent();
-
-
+                        Intent intent = new Intent(); 
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
-
+                         
+                        if (intentResponse.ParentIntentId != null)
+                        {
+                            intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().IntentName;
+                        }
 
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {
@@ -98,11 +100,6 @@ namespace HT.Interview.ChatBot.API.Controllers
                             {
                                 intent.Messages.Add(AddIntentSuggestion(suggestion.Title));
                             }
-                        }
-
-                        if (intentResponse.ParentIntentId != null)
-                        {
-                            intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().IntentName;
                         }
 
                         intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
