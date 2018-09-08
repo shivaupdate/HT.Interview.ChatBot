@@ -108,10 +108,7 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         IEmployeeService GetEmployeeService();
-
-
-        IUserService GetUserService();
-
+         
         /// <summary>
         /// Get dialog flow service
         /// </summary>

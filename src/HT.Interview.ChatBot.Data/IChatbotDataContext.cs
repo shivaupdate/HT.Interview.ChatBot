@@ -18,49 +18,36 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         DbSet<Role> Role { get; set; }
 
-        /// <summary>
-        /// QuestionarieSuggestionChip model
-        /// </summary>
-        DbSet<QuestionarieSuggestionChip> QuestionarieSuggestionChip { get; set; }
-        /// <summary>
-        /// Questionarie model
-        /// </summary>
-        DbSet<Questionarie> Questionarie { get; set; }
+        /// <summary> 
         /// <summary>
         /// Menu model
         /// </summary>
         DbSet<Menu> Menu { get; set; }
+
         /// <summary>
         /// InterviewTypeCompetenceMapping model
         /// </summary>
         DbSet<InterviewTypeCompetenceMapping> InterviewTypeCompetenceMapping { get; set; }
+
         /// <summary>
         /// InterviewType model
         /// </summary>
         DbSet<InterviewType> InterviewType { get; set; }
-
-        /// <summary>
-        /// InterviewDetail model
-        /// </summary>
-        DbSet<InterviewDetail> InterviewDetail { get; set; }
-
+         
         /// <summary>
         /// Gender model
         /// </summary>
-        DbSet<Gender> Gender { get; set; }
-
+        DbSet<Gender> Gender { get; set; } 
 
         /// <summary>
         /// Employee model
         /// </summary>
-        DbSet<Employee> Employee { get; set; }
-
+        DbSet<Employee> Employee { get; set; } 
 
         /// <summary>
         /// CompetenceLevel model
         /// </summary>
-        DbSet<CompetenceLevel> CompetenceLevel { get; set; }
-
+        DbSet<CompetenceLevel> CompetenceLevel { get; set; } 
 
         /// <summary>
         /// Competence model
@@ -80,8 +67,7 @@ namespace HT.Interview.ChatBot.Data
         /// <summary>
         /// AccessMatrix model
         /// </summary>
-        DbSet<AccessMatrix> AccessMatrix { get; set; }
-     
+        DbSet<AccessMatrix> AccessMatrix { get; set; } 
 
         /// <summary>
         /// Intent model
