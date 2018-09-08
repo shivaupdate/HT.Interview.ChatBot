@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using HT.Framework.Contracts;
 using HT.Framework.MVC;
-using Microsoft.Extensions.Logging;
-using System.Net.Http;
 
 namespace HT.Interview.ChatBot.Common.Contracts
 {
@@ -39,6 +37,12 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get user service
         /// </summary>
         /// <returns></returns>
-        IUserService GetUserService(); 
+        IUserService GetUserService();
+
+        /// <summary>
+        /// Get dialog flow service
+        /// </summary>
+        /// <returns></returns>
+        IDialogflowService GetDialogflowService();
     }
 }

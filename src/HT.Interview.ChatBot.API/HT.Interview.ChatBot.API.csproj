@@ -5,17 +5,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\WU138HG\Source\Repos\HT\PSV\HT.Interview.Chatbot\src\HT.Interview.ChatBot.API\HT.Interview.ChatBot.API.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Google.Apis.Dialogflow.v2" Version="1.35.1.1335" />
+    <PackageReference Include="Google.Cloud.Dialogflow.V2" Version="1.0.0-beta02" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
@@ -28,6 +26,12 @@
     <ProjectReference Include="..\HT.Interview.ChatBot.Data\HT.Interview.ChatBot.Data.csproj" />
     <ProjectReference Include="..\HT.Interview.ChatBot.Resources\HT.Interview.ChatBot.Resources.csproj" />
     <ProjectReference Include="..\HT.Interview.ChatBot.Services\HT.Interview.ChatBot.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="HT.Interview.ChatBot.API.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
