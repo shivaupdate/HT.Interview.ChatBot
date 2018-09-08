@@ -60,6 +60,66 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
+        /// InterviewTypeCompetenceMapping entity
+        /// </summary>
+        public virtual DbSet<InterviewTypeCompetenceMapping> InterviewTypeCompetenceMapping { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gender entity
+        /// </summary>
+        public virtual DbSet<Gender> Gender { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Employee entity
+        /// </summary>
+        public virtual DbSet<Employee> Employee { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// CompetenceLevel entity
+        /// </summary>
+        public virtual DbSet<CompetenceLevel> CompetenceLevel { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Role entity
+        /// </summary>
+        public virtual DbSet<Competence> Competence { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Candidate entity
+        /// </summary>
+        public virtual DbSet<Candidate> Candidate { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Attachment entity
+        /// </summary>
+        public virtual DbSet<Attachment> Attachment { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Menu entity
+        /// </summary>
+        public virtual DbSet<Menu> Menu { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// InterviewType entity
+        /// </summary>
+        public virtual DbSet<InterviewType> InterviewType { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// AccessMatrix entity
+        /// </summary>
+        public virtual DbSet<AccessMatrix> AccessMatrix { get; set; }
+         
+        /// <inheritdoc />
+        /// <summary>
         /// On configuring
         /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

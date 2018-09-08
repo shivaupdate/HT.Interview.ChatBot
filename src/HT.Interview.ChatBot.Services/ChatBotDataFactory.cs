@@ -78,27 +78,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IRoleService>();
         }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Get QuestionarieSuggestionChip service
-        /// </summary>
-        /// <returns></returns>
-        public IQuestionarieSuggestionChipService GetQuestionarieSuggestionChipService()
-        {
-            return _dependencyResolver.Resolve<IQuestionarieSuggestionChipService>();
-        }
-
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Questionarie service
-        /// </summary>
-        /// <returns></returns>
-        public IQuestionarieService GetQuestionarieService()
-        {
-            return _dependencyResolver.Resolve<IQuestionarieService>();
-        }
+         
 
         /// <inheritdoc />
         /// <summary>
@@ -133,21 +113,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IInterviewTypeService>();
         }
-
-
-
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Get InterviewDetail service
-        /// </summary>
-        /// <returns></returns>
-        public IInterviewDetailService GetInterviewDetailService()
-        {
-            return _dependencyResolver.Resolve<IInterviewDetailService>();
-        }
-
-
+          
         /// <inheritdoc />
         /// <summary>
         /// Get Gender service
@@ -157,8 +123,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IGenderService>();
         }
-
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Get Employee service
@@ -168,8 +133,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IEmployeeService>();
         }
-
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Get CompetenceLevel service
@@ -178,10 +142,7 @@ namespace HT.Interview.ChatBot.Services
         public ICompetenceLevelService GetCompetenceLevelService()
         {
             return _dependencyResolver.Resolve<ICompetenceLevelService>();
-        }
-
-
-
+        } 
 
         /// <inheritdoc />
         /// <summary>
@@ -192,8 +153,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICompetenceService>();
         }
-
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Get Candidate service
@@ -203,8 +163,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICandidateService>();
         }
-
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Get Attachment service
@@ -214,8 +173,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IAttachmentService>();
         }
-
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Get AccessMatrix service
@@ -224,10 +182,7 @@ namespace HT.Interview.ChatBot.Services
         public IAccessMatrixService GetAccessMatrixService()
         {
             return _dependencyResolver.Resolve<IAccessMatrixService>();
-        }
-
-
-        }
+        } 
 
         /// <inheritdoc />
         /// <summary>
