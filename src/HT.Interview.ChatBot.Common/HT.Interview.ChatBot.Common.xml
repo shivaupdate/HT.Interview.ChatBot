@@ -64,6 +64,46 @@
             Users no record found
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IAccessMatrixService">
+            <summary>
+            IAccessMatrixService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IAccessMatrixService.GetAccessMatrixsAsync(HT.Interview.ChatBot.Common.Entities.AccessMatrix)">
+            <summary>
+            Get Accessmatrix async
+            </summary>
+            <param name="Accessmatrix classclass"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IAttachmentService">
+            <summary>
+            IAttachmentService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IAttachmentService.GetAttachmentsAsync(HT.Interview.ChatBot.Common.Entities.Attachment)">
+            <summary>
+            Get Attachment async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.ICandidateService">
+            <summary>
+            ICandidateService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.ICandidateService.GetCandidatesAsync(HT.Interview.ChatBot.Common.Entities.Candidate)">
+            <summary>
+            Get Candidate async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory">
             <summary>
             IChatBotDataFactory
@@ -99,10 +139,104 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetRoleService">
+            <summary>
+            Get role service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetInterviewTypeCompetenceMappingService">
+            <summary>
+            Get InterviewTypeCompetenceMapping service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetInterviewTypeService">
+            <summary>
+            Get InterviewType service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetGenderService">
+            <summary>
+            Get Gender service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetCompetenceLevelService">
+            <summary>
+            Get CompetenceLevel service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetCompetenceService">
+            <summary>
+            Get Competence service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetCandidateService">
+            <summary>
+            Get Candidate service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetAttachmentService">
+            <summary>
+            Get Attachment service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetAccessMatrixService">
+            <summary>
+            Get AccessMatrix service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetMenuService">
+            <summary>
+            Get Menu service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetEmployeeService">
+            <summary>
+            Get Employee service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetDialogflowService">
             <summary>
             Get dialog flow service
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.ICompetenceLevelService">
+            <summary>
+            ICompetenceLevelService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.ICompetenceLevelService.GetCompetenceLevelsAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get CompetenceLevels async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.ICompetenceService">
+            <summary>
+            ICompetenceService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.ICompetenceService.GetCompetencesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get Competences async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IDialogflowService">
@@ -114,6 +248,88 @@
             <summary>
             Get intents async
             </summary> 
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IEmployeeService">
+            <summary>
+            IEmployeeService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IEmployeeService.GetEmployeesAsync(HT.Interview.ChatBot.Common.Entities.Employee)">
+            <summary>
+            Get Employees async
+            </summary>
+            <param name="employee classclass"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IGenderService">
+            <summary>
+            IGenderService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IGenderService.GetGendersAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get Genders async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeCompetenceMappingService">
+            <summary>
+            IInterviewTypeCompetenceMappingService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeCompetenceMappingService.GetInterviewTypeCompetenceMappingsAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get InterviewTypeCompetenceMappings async
+            </summary>
+            <param name="interviewTypeId"></param>
+            <param name="competenceId"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeService">
+            <summary>
+            InterviewTypeService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeService.GetInterviewTypesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get roles async
+            </summary>
+            <param name="id"></param>
+            <param name="type"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IMenuService">
+            <summary>
+            IMenuService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IMenuService.GetMenusAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get menus async
+            </summary>
+            <param name="id"></param>
+            <param name="options"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IRoleService">
+            <summary>
+            IRoleService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IRoleService.GetRolesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get roles async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IUserService">
             <summary>
@@ -184,6 +400,432 @@
             The RecordType
             </value> 
         </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.AccessMatrix">
+            <inheritdoc />
+            <summary>
+            User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.RoleId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.MenuId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.AccessMatrix.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.Attachment">
+            <inheritdoc />
+            <summary>
+            User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.CandidateId">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.ResumeFilePath">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.GestureRecordingFilePath">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Attachment.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Entities.Candidate">
+            <inheritdoc />
+            <summary>
+            User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.FirstName">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.LastName">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.Email">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.GenderId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.Mobile">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.CreatedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Candidate.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.Name">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.CreatedBy">
+            <summary>
+            Get or sets the  name
+            </summary>
+            <value>
+            The Name
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Competence.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.Name">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.CompetenceLevel.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.EmployeeNo">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.UserName">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.RoleId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Employee.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.Name">
+            <summary>
+            Get or sets the first name
+            </summary>
+            <value>
+            The FirstName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Gender.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Entities.Intent">
             <inheritdoc />
             <summary>
@@ -197,6 +839,14 @@
             <value>
             The Id
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.ParentIntentId">
+            <summary>
+            Get or sets the parent intent id
+            </summary>
+            <value>
+            The ParentIntentId
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DisplayName">
             <summary>
@@ -213,6 +863,14 @@
             <value>
             The Text
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.ExpectedAnswer">
+            <summary>
+            Get or sets the expected answer
+            </summary>
+            <value>
+            The ExpectedAnswer
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IntentCompetenceMapping">
             <summary>
@@ -605,6 +1263,198 @@
             <value>
             The ModifiedOn
             </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.Type">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.CreatedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.CreatedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.ModifiedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewType.ModifiedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.InterviewTypeId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.CompetenceId">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.CreatedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.CreatedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.ModifiedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.InterviewTypeCompetenceMapping.ModifiedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.Options">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.CreatedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.CreatedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.ModifiedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Menu.ModifiedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.Name">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.CreatedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.CreatedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.ModifiedBy">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Role.ModifiedOn">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Entities.User">
             <inheritdoc />

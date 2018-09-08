@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>C:\Users\WU138HG\source\repos\HT\PSV\HT.Interview.Chatbot\src\HT.Framework\HT.Framework.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="HT.Framework.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
