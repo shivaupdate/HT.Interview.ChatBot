@@ -59,13 +59,10 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task CreateAsync()
         {
             try
-            {
-               
+            { 
                 IEnumerable<IntentResponse> intentList =
                     (await _dialogflowService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
-
-                string previousIntentName =string.Empty;
-
+                 
                 if (intentList.Any())
                 {
                     IntentsClient client = IntentsClient.Create();
@@ -103,21 +100,13 @@ namespace HT.Interview.ChatBot.API.Controllers
                             }
                         }
 
-                        //if (intentResponse.InputContextNames != null)
-                        //{
-                        //    FollowupIntentInfo followupIntentInfo = new FollowupIntentInfo()
-                        //    {
-                        //        FollowupIntentName = "projects/ht-interview-chatbot/agent/intents/" + intentResponse.InputContextNames
-                        //    };
-                        //    intent.ParentFollowupIntentName = "projects/ht-interview-chatbot/agent/intents/" + previousIntentName; 
-                        //    intent.FollowupIntentInfo.Add(followupIntentInfo);
-                        //}
-                        //intent.ResetContexts = false;
-                        //intent.Action = "";
-                        
-                        Intent newIntent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
-                        previousIntentName = newIntent.Name;
-                        var result = newIntent.OutputContexts;
+                        if (intentResponse.ParentIntentId != null)
+                        {
+                            intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().IntentName;
+                        }  
+
+                        intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        intentResponse.IntentName = intent.Name;
                     }
                 }
             }
