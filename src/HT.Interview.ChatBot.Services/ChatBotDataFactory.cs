@@ -2,7 +2,6 @@
 using HT.Framework.Contracts;
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.Common.Contracts;
-using System.Net.Http;
 
 namespace HT.Interview.ChatBot.Services
 {
@@ -68,6 +67,16 @@ namespace HT.Interview.ChatBot.Services
         public IUserService GetUserService()
         {
             return _dependencyResolver.Resolve<IUserService>();
-        }         
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get dialogflow service
+        /// </summary>
+        /// <returns></returns>
+        public IDialogflowService GetDialogflowService()
+        {
+            return _dependencyResolver.Resolve<IDialogflowService>();
+        }        
     }
 }

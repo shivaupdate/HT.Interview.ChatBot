@@ -4,6 +4,22 @@
         <name>HT.Interview.ChatBot.API</name>
     </assembly>
     <members>
+        <member name="T:HT.Interview.ChatBot.API.IntentProfile">
+            <inheritdoc />
+            <summary>
+            Intent Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.IntentProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.IntentProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.UserProfile">
             <inheritdoc />
             <summary>
@@ -37,6 +53,59 @@
             <summary>
             Get async
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.DialogflowController">
+            <inheritdoc />
+            <summary>
+            Dialogflow Controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.GetManyAsync">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.CreateAsync">
+            <summary>
+            Create async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentDefault(System.String)">
+            <summary>
+            Add intent default
+            </summary>
+            <param name="defaultResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentTrainingPhrase(HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse)">
+            <summary>
+            Add intent training phrase
+            </summary>
+            <param name="tp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentParameter(HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse)">
+            <summary>
+            Add intent parameter
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentSuggestion(System.String)">
+            <summary>
+            Add intent suggestion
+            </summary>
+            <param name="title"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.UserController">
@@ -430,6 +499,451 @@
             <summary>
             Array of message objects
             </summary>       
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse">
+            <inheritdoc />
+            <summary>
+            Intent Competence Mapping model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.IntentId">
+            <summary>
+            Get or sets the intent id
+            </summary>
+            <value>
+            The IntentId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.CompetenceId">
+            <summary>
+            Get or sets the competence id
+            </summary>
+            <value>
+            The CompetenceId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.CompetenceLevelId">
+            <summary>
+            Get or sets the competence level id
+            </summary>
+            <value>
+            The CompetenceLevelId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.IntentResponse">
+            <summary>
+            Get or sets the intent response
+            </summary>
+            <value>
+            The IntentResponse
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.AllocatedTime">
+            <summary>
+            Get or sets the allocated time
+            </summary>
+            <value>
+            The AllocatedTime
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse">
+            <inheritdoc />
+            <summary>
+            Intent Parameter model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.IntentId">
+            <summary>
+            Get or sets the intent id
+            </summary>
+            <value>
+            The IntentId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.IntentResponse">
+            <summary>
+            Get or sets the intent response
+            </summary>
+            <value>
+            The IntentResponse
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.Mandatory">
+            <summary>
+            Get or sets the mandatory
+            </summary>
+            <value>
+            The Mandatory
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.DisplayName">
+            <summary>
+            Get or sets the display name
+            </summary>
+            <value>
+            The DisplayName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.EntityTypeDisplayName">
+            <summary>
+            Get or sets the entity type display name
+            </summary>
+            <value>
+            The EntityTypeDisplayName
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.Value">
+            <summary>
+            Get or sets the value
+            </summary>
+            <value>
+            The Value
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.IsList">
+            <summary>
+            Get or sets the IsList
+            </summary>
+            <value>
+            The Email
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentResponse">
+            <summary>
+            Intent Response
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceId">
+            <summary>
+            Get or sets the competence id
+            </summary>
+            <value>
+            The CompetenceId
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceLevelId">
+            <summary>
+            Get or sets the competence level id
+            </summary>
+            <value>
+            The CompetenceLevelId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
+            <summary>
+            Get or sets the display name
+            </summary>
+            <value>
+            The DisplayName
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.Text">
+            <summary>
+            Get or sets the text
+            </summary>
+            <value>
+            The Text
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.AllocatedTime">
+            <summary>
+            Get or sets the allocated time
+            </summary>
+            <value>
+            The AllocatedTime
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentCompetenceMappingResponse">
+            <summary>
+            Get or sets the intent compentence mapping response
+            </summary>
+            <value>
+            The IntentCompetenceMappingResponse
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentTrainingPhraseResponse">
+            <summary>
+            Get or sets the intent training phrase response
+            </summary>
+            <value>
+            The IntentTrainingPhraseResponse
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentParameterResponse">
+            <summary>
+            Get or sets the intent parameter response
+            </summary>
+            <value>
+            The IntentParameterResponse
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentSuggestionResponse">
+            <summary>
+            Get or sets the intent suggestion response
+            </summary>
+            <value>
+            The IntentSuggestionResponse
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse">
+            <inheritdoc />
+            <summary>
+            Intent Suggestion Response model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.IntentId">
+            <summary>
+            Get or sets the intent od
+            </summary>
+            <value>
+            The IntentId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.IntentResponse">
+            <summary>
+            Get or sets the intent response
+            </summary>
+            <value>
+            The IntentResponse
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.Title">
+            <summary>
+            Get or sets the title
+            </summary>
+            <value>
+            The Title
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentSuggestionResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse">
+            <inheritdoc />
+            <summary>
+            Intent Training Phrase Response model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.Id">
+            <summary>
+            Get or sets the id
+            </summary>
+            <value>
+            The Id
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.IntentId">
+            <summary>
+            Get or sets the intent id
+            </summary>
+            <value>
+            The IntentId
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.IntentResponse">
+            <summary>
+            Get or sets the intent response
+            </summary>
+            <value>
+            The IntentResponse
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.Text">
+            <summary>
+            Get or sets the Text
+            </summary>
+            <value>
+            The Text
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.EntityType">
+            <summary>
+            Get or sets the entity type
+            </summary>
+            <value>
+            The EntityType
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.CreatedBy">
+            <summary>
+            Get or sets the created by
+            </summary>
+            <value>
+            The CreatedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.CreatedOn">
+            <summary>
+            Get or sets the created on
+            </summary>
+            <value>
+            The CreatedOn
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.ModifiedBy">
+            <summary>
+            Get or sets the modified by
+            </summary>
+            <value>
+            The ModifiedBy
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse.ModifiedOn">
+            <summary>
+            Get or sets the modified on
+            </summary>
+            <value>
+            The ModifiedOn
+            </value>  
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse">
             <summary>
