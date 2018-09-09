@@ -1,5 +1,4 @@
 ﻿using HT.Framework;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,9 +6,9 @@ using System.Threading.Tasks;
 namespace HT.Interview.ChatBot.Common.Contracts
 {
     /// <summary>
-    /// IDialogflowService
+    /// IIntentService
     /// </summary>
-    public interface IDialogflowService
+    public interface IIntentService
     {
         /// <summary>
         /// Get intents async

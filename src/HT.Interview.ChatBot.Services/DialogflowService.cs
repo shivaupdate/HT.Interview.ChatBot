@@ -11,9 +11,9 @@ namespace HT.Interview.ChatBot.Services
 {
     /// <inheritdoc />
     /// <summary>
-    /// Dialogflow Service
+    /// Intent Service
     /// </summary>
-    public class DialogflowService : IDialogflowService
+    public class IntentService : IIntentService
     {
         #region Fields
 
@@ -29,7 +29,7 @@ namespace HT.Interview.ChatBot.Services
         /// </summary>
         /// <param name="factory"></param>
         /// <param name="chatbotDataContext"></param>
-        public DialogflowService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
+        public IntentService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
         {
             _chatbotDataContext = chatbotDataContext;
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);

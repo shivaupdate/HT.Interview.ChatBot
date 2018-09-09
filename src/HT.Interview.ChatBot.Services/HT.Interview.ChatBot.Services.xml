@@ -114,6 +114,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetIntentService">
+            <inheritdoc />
+            <summary>
+            Get intent service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetRoleService">
             <inheritdoc />
             <summary>
@@ -191,13 +198,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetDialogflowService">
-            <inheritdoc />
-            <summary>
-            Get dialogflow service
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:HT.Interview.ChatBot.Services.CompetenceLevelService">
             <inheritdoc />
             <summary>
@@ -242,20 +242,20 @@
             <param name="createdBy"></param>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.Services.DialogflowService">
+        <member name="T:HT.Interview.ChatBot.Services.IntentService">
             <inheritdoc />
             <summary>
-            Dialogflow Service
+            Intent Service
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
             <summary>
             Constructor
             </summary>
             <param name="factory"></param>
             <param name="chatbotDataContext"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.GetIntentsAsync">
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.GetIntentsAsync">
             <summary>
             Get intents async
             </summary> 

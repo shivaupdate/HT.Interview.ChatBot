@@ -139,6 +139,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetIntentService">
+            <summary>
+            Get intent service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetRoleService">
             <summary>
             Get role service
@@ -205,12 +211,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetDialogflowService">
-            <summary>
-            Get dialog flow service
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.ICompetenceLevelService">
             <summary>
             ICompetenceLevelService
@@ -239,16 +239,6 @@
             <param name="createdBy"></param>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.Common.Contracts.IDialogflowService">
-            <summary>
-            IDialogflowService
-            </summary>
-        </member>
-        <member name="M:HT.Interview.ChatBot.Common.Contracts.IDialogflowService.GetIntentsAsync">
-            <summary>
-            Get intents async
-            </summary> 
-        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IEmployeeService">
             <summary>
             IEmployeeService
@@ -274,6 +264,16 @@
             <param name="name"></param>
             <param name="createdBy"></param>
             <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IIntentService">
+            <summary>
+            IIntentService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IIntentService.GetIntentsAsync">
+            <summary>
+            Get intents async
+            </summary> 
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeCompetenceMappingService">
             <summary>
@@ -903,6 +903,22 @@
             <value>
             The IntentSuggestion
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DialogflowGeneratedName">
+            <summary>
+            Get or sets the dialogflow generated name
+            </summary>
+            <value>
+            The DialogFlowGeneratedName
+            </value> C
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DialogflowGeneratedIntent">
+            <summary>
+            Get or sets the  dialogflow generated intent
+            </summary>
+            <value>
+            The DialogFlowGeneratedIntent
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CreatedBy">
             <summary>
