@@ -4,6 +4,118 @@
         <name>HT.Interview.ChatBot.API</name>
     </assembly>
     <members>
+        <member name="T:HT.Interview.ChatBot.API.AccessMatrixProfile">
+            <inheritdoc />
+            <summary>
+            AccessMatrix Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.AccessMatrixProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.AccessMatrixProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.AttachmentProfile">
+            <inheritdoc />
+            <summary>
+            Attachment Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.AttachmentProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.AttachmentProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.CandidateProfile">
+            <inheritdoc />
+            <summary>
+            Candidate Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.CandidateProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.CandidateProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.CompetenceLevelProfile">
+            <inheritdoc />
+            <summary>
+            CompetenceLevel Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.CompetenceLevelProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.CompetenceLevelProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.CompetenceProfile">
+            <inheritdoc />
+            <summary>
+            Competence Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.CompetenceProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.CompetenceProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.EmployeeProfile">
+            <inheritdoc />
+            <summary>
+            Employee Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.EmployeeProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.EmployeeProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.GenderProfile">
+            <inheritdoc />
+            <summary>
+            Gender Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.GenderProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.GenderProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.IntentProfile">
             <inheritdoc />
             <summary>
@@ -16,6 +128,70 @@
             </summary>
         </member>
         <member name="M:HT.Interview.ChatBot.API.IntentProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.InterviewTypeCompetenceMappingProfile">
+            <inheritdoc />
+            <summary>
+            InterviewTypeCompetenceMapping Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.InterviewTypeCompetenceMappingProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.InterviewTypeCompetenceMappingProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.InterviewTypeProfile">
+            <inheritdoc />
+            <summary>
+            InterviewType Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.InterviewTypeProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.InterviewTypeProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.MenuProfile">
+            <inheritdoc />
+            <summary>
+            Menu Profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.MenuProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.MenuProfile.#ctor">
+            <summary>
+            Configure auto mapper 
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.RoleProfile">
+            <inheritdoc />
+            <summary>
+            Role profile
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.RoleProfile.ProfileName">
+            <summary>
+            Profile name
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.RoleProfile.#ctor">
             <summary>
             Configure auto mapper 
             </summary>
@@ -36,6 +212,25 @@
             Configure auto mapper 
             </summary>
         </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.AccessMatrixController">
+            <inheritdoc />
+            <summary>
+            AccessMatrix controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.AccessMatrixController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.AccessMatrixController.GetManyAsync(HT.Interview.ChatBot.Common.Entities.AccessMatrix)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.ApiAiController">
             <inheritdoc />
             <summary>
@@ -55,57 +250,247 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.API.Controllers.DialogflowController">
+        <member name="T:HT.Interview.ChatBot.API.Controllers.AttachmentController">
             <inheritdoc />
             <summary>
-            Dialogflow Controller
+            Attachment controller
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.AttachmentController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
             <inheritdoc />
             <summary>
             Constructor
             </summary>
             <param name="factory"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.GetManyAsync">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.AttachmentController.GetManyAsync(HT.Interview.ChatBot.Common.Entities.Attachment)">
             <summary>
             Get many async
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.CreateAsync">
+        <member name="T:HT.Interview.ChatBot.API.Controllers.CandidateController">
+            <inheritdoc />
+            <summary>
+            Candidate controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CandidateController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CandidateController.GetManyAsync(HT.Interview.ChatBot.Common.Entities.Candidate)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.CompetenceController">
+            <inheritdoc />
+            <summary>
+            Competence controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CompetenceController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CompetenceController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.CompetenceLevelController">
+            <inheritdoc />
+            <summary>
+            CompetenceLevel controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CompetenceLevelController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.CompetenceLevelController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.EmployeeController">
+            <inheritdoc />
+            <summary>
+            Employee controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.EmployeeController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.EmployeeController.GetManyAsync(HT.Interview.ChatBot.Common.Entities.Employee)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.GenderController">
+            <inheritdoc />
+            <summary>
+            Gender controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.GenderController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.GenderController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.IntentController">
+            <inheritdoc />
+            <summary>
+            Intent Controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.GetManyAsync">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.CreateAsync">
             <summary>
             Create async
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentDefault(System.String)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentDefault(System.String)">
             <summary>
             Add intent default
             </summary>
             <param name="defaultResponse"></param>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentTrainingPhrase(HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentTrainingPhrase(HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse)">
             <summary>
             Add intent training phrase
             </summary>
             <param name="tp"></param>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentParameter(HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentParameter(HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse)">
             <summary>
             Add intent parameter
             </summary>
             <param name="param"></param>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentSuggestion(System.String)">
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentSuggestion(System.String)">
             <summary>
             Add intent suggestion
             </summary>
             <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.InterviewTypeCompetenceMappingController">
+            <inheritdoc />
+            <summary>
+            InterviewTypeCompetenceMapping controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewTypeCompetenceMappingController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewTypeCompetenceMappingController.GetManyAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.InterviewTypeController">
+            <inheritdoc />
+            <summary>
+            InterviewType controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewTypeController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewTypeController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.MenuController">
+            <inheritdoc />
+            <summary>
+            Menu controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.MenuController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.MenuController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.RoleController">
+            <inheritdoc />
+            <summary>
+            Role controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.RoleController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.RoleController.GetManyAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get many async
+            </summary>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.UserController">
@@ -460,6 +845,36 @@
             The Page Size
             </value> 
         </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.AccessMatrixResponse">
+            <summary>
+            AccessMatrix response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.AttachmentResponse">
+            <summary>
+            Attachment response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.CandidateResponse">
+            <summary>
+            Candidate response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.CompetenceLevelResponse">
+            <summary>
+            CompetenceLevel response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.CompetenceResponse">
+            <summary>
+            Competence response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.EmployeeResponse">
+            <summary>
+            Employee response
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.EntityResponse">
             <summary>
             EntityResponse
@@ -499,6 +914,11 @@
             <summary>
             Array of message objects
             </summary>       
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.GenderResponse">
+            <summary>
+            Gender response
+            </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.IntentCompetenceMappingResponse">
             <inheritdoc />
@@ -693,20 +1113,12 @@
             The Id
             </value> 
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceId">
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.ParentIntentId">
             <summary>
-            Get or sets the competence id
+            Get or sets the parent intent id
             </summary>
             <value>
-            The CompetenceId
-            </value> 
-        </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CompetenceLevelId">
-            <summary>
-            Get or sets the competence level id
-            </summary>
-            <value>
-            The CompetenceLevelId
+            The ParentIntentId
             </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
@@ -764,6 +1176,22 @@
             <value>
             The IntentSuggestionResponse
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DialogflowGeneratedName">
+            <summary>
+            Get or sets the dialogflow generated name
+            </summary>
+            <value>
+            The DialogFlowGeneratedName
+            </value> C
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DialogflowGeneratedIntent">
+            <summary>
+            Get or sets the  dialogflow generated intent
+            </summary>
+            <value>
+            The DialogFlowGeneratedIntent
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CreatedBy">
             <summary>
@@ -944,6 +1372,21 @@
             <value>
             The ModifiedOn
             </value>  
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.InterviewTypeCompetenceMappingResponse">
+            <summary>
+            InterviewTypeCompetenceMapping response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.InterviewTypeResponse">
+            <summary>
+            InterviewType response
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.MenuResponse">
+            <summary>
+            Menu response
+            </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.Message.BaseMessageResponse">
             <summary>
@@ -1283,6 +1726,11 @@
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.ResponseBase.SessionId">
             <summary>
             Session id informed on request.
+            </summary>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.DTO.Response.RoleResponse">
+            <summary>
+            Role response
             </summary>
         </member>
         <member name="T:HT.Interview.ChatBot.API.DTO.Response.StatusResponse">

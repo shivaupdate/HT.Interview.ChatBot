@@ -7,7 +7,7 @@ using System.Linq;
 namespace HT.Framework.DI
 {
     /// <summary>
-    /// DependencyResolver
+    /// Dependency Resolver
     /// </summary>
     public class DependencyResolver : IDependencyResolver
     {

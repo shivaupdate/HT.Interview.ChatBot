@@ -4,6 +4,7 @@ using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,14 @@ namespace HT.Interview.ChatBot.API.Controllers
 {
     /// <inheritdoc />
     /// <summary>
-    /// Dialogflow Controller
+    /// Intent Controller
     /// </summary>
-    [Route("api/v1/dialogflow")]
-    public class DialogflowController : ApiControllerBase
+    [Route("api/v1/intent")]
+    public class IntentController : ApiControllerBase
     {
         #region Fields
 
-        private readonly IDialogflowService _dialogflowService;
+        private readonly IIntentService _intentService;
         private readonly IMapper _mapper;
 
         #endregion
@@ -34,9 +35,9 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// Constructor
         /// </summary>
         /// <param name="factory"></param>
-        public DialogflowController(IChatBotDataFactory factory)
+        public IntentController(IChatBotDataFactory factory)
         {
-            _dialogflowService = factory.GetDialogflowService();
+            _intentService = factory.GetIntentService();
             _mapper = factory.GetMapperService();
         }
 
@@ -47,7 +48,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpGet(Common.Constants.GetMany)]
         public async Task<ActionResult> GetManyAsync()
         {
-            return await GetResponseAsync(async () => (await _dialogflowService.GetIntentsAsync())
+            return await GetResponseAsync(async () => (await _intentService.GetIntentsAsync())
                 .GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper));
         }
 
@@ -61,18 +62,22 @@ namespace HT.Interview.ChatBot.API.Controllers
             try
             {
                 IEnumerable<IntentResponse> intentList =
-                    (await _dialogflowService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
+                    (await _intentService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
 
                 if (intentList.Any())
                 {
                     IntentsClient client = IntentsClient.Create();
-                    foreach (IntentResponse intentResponse in intentList)
+                    foreach (IntentResponse intentResponse in intentList.OrderBy(x => x.ParentIntentId))
                     {
                         Intent intent = new Intent();
-
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
+
+                        if (intentResponse.ParentIntentId != null)
+                        {
+                            intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().DialogflowGeneratedName;
+                        }
 
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {
@@ -98,7 +103,10 @@ namespace HT.Interview.ChatBot.API.Controllers
                             }
                         }
 
-                        Intent newIntent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        intentResponse.DialogflowGeneratedName = intent.Name;
+                        intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent); 
+                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse)); 
                     }
                 }
             }

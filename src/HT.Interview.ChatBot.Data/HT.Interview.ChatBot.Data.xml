@@ -47,6 +47,72 @@
             Intent Suggestion model
             </summary>
         </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Role">
+            <inheritdoc />
+            <summary>
+            Role entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.InterviewTypeCompetenceMapping">
+            <inheritdoc />
+            <summary>
+            InterviewTypeCompetenceMapping entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Gender">
+            <inheritdoc />
+            <summary>
+            Gender entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Employee">
+            <inheritdoc />
+            <summary>
+            Employee entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.CompetenceLevel">
+            <inheritdoc />
+            <summary>
+            CompetenceLevel entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Competence">
+            <inheritdoc />
+            <summary>
+            Role entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Candidate">
+            <inheritdoc />
+            <summary>
+            Candidate entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Attachment">
+            <inheritdoc />
+            <summary>
+            Attachment entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.Menu">
+            <inheritdoc />
+            <summary>
+            Menu entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.InterviewType">
+            <inheritdoc />
+            <summary>
+            InterviewType entity
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.ChatBotDataContext.AccessMatrix">
+            <inheritdoc />
+            <summary>
+            AccessMatrix entity
+            </summary>
+        </member>
         <member name="M:HT.Interview.ChatBot.Data.ChatBotDataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <inheritdoc />
             <summary>
@@ -62,11 +128,6 @@
         <member name="T:HT.Interview.ChatBot.Data.IChatBotDataContext">
             <summary>
             IChatbotDataContext
-            </summary>
-        </member>
-        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.User">
-            <summary>
-            User model
             </summary>
         </member>
         <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Intent">
@@ -92,6 +153,66 @@
         <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.IntentSuggestion">
             <summary>
             Intent Suggestion model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.User">
+            <summary>
+            User model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Role">
+            <summary>
+            Role model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Menu">
+            <summary>
+            Menu model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.InterviewTypeCompetenceMapping">
+            <summary>
+            InterviewTypeCompetenceMapping model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.InterviewType">
+            <summary>
+            InterviewType model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Gender">
+            <summary>
+            Gender model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Employee">
+            <summary>
+            Employee model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.CompetenceLevel">
+            <summary>
+            CompetenceLevel model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Competence">
+            <summary>
+            Competence model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Candidate">
+            <summary>
+            Candidate model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.Attachment">
+            <summary>
+            Attachment model
+            </summary>
+        </member>
+        <member name="P:HT.Interview.ChatBot.Data.IChatBotDataContext.AccessMatrix">
+            <summary>
+            AccessMatrix model
             </summary>
         </member>
     </members>

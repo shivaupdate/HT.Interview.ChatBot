@@ -17,21 +17,13 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the competence id
+        /// Get or sets the parent intent id
         /// </summary>
         /// <value>
-        /// The CompetenceId
-        /// </value> 
-        public int? CompetenceId { get; set; }
-
-        /// <summary>
-        /// Get or sets the competence level id
-        /// </summary>
-        /// <value>
-        /// The CompetenceLevelId
+        /// The ParentIntentId
         /// </value>  
-        public int? CompetenceLevelId { get; set; }
-
+        public int? ParentIntentId { get; set; }
+         
         /// <summary>
         /// Get or sets the display name
         /// </summary>
@@ -39,7 +31,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The DisplayName
         /// </value> 
         public string DisplayName { get; set; }
-
+         
         /// <summary>
         /// Get or sets the text
         /// </summary>
@@ -63,7 +55,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The IntentCompetenceMappingResponse
         /// </value> 
         public ICollection<IntentCompetenceMappingResponse> IntentCompetenceMappingResponse { get; set; }
-
+         
         /// <summary>
         /// Get or sets the intent training phrase response
         /// </summary>
@@ -87,6 +79,22 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The IntentSuggestionResponse
         /// </value> 
         public ICollection<IntentSuggestionResponse> IntentSuggestionResponse { get; set; }
+
+        /// <summary>
+        /// Get or sets the dialogflow generated name
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedName
+        /// </value> C
+        public string DialogflowGeneratedName { get; set; }
+
+        /// <summary>
+        /// Get or sets the  dialogflow generated intent
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedIntent
+        /// </value>  
+        public string DialogflowGeneratedIntent { get; set; }
 
         /// <summary>
         /// Get or sets the created by
