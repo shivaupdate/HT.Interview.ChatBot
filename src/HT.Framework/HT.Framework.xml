@@ -30,6 +30,59 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
+        <member name="T:HT.Framework.Contracts.IDbContext">
+            <summary>
+            IDBContext
+            </summary>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.Entry(System.Object)">
+            <summary>
+            Entry
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.SaveChanges">
+            <summary>
+            Save changes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Save changes async
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Save changes async
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.Remove(System.Object)">
+            <summary>
+            Remove
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.Remove``1(``0)">
+            <summary>
+            Remove <typeparamref name="TEntity"/>
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Framework.Contracts.IDbContext.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
         <member name="T:HT.Framework.Contracts.IDependencyResolver">
             <summary>
             IDependencyResolver

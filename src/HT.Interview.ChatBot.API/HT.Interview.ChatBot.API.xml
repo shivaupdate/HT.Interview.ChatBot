@@ -326,59 +326,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.API.Controllers.DialogflowController">
-            <inheritdoc />
-            <summary>
-            Dialogflow Controller
-            </summary>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
-            <inheritdoc />
-            <summary>
-            Constructor
-            </summary>
-            <param name="factory"></param>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.GetManyAsync">
-            <summary>
-            Get many async
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.CreateAsync">
-            <summary>
-            Create async
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentDefault(System.String)">
-            <summary>
-            Add intent default
-            </summary>
-            <param name="defaultResponse"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentTrainingPhrase(HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse)">
-            <summary>
-            Add intent training phrase
-            </summary>
-            <param name="tp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentParameter(HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse)">
-            <summary>
-            Add intent parameter
-            </summary>
-            <param name="param"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HT.Interview.ChatBot.API.Controllers.DialogflowController.AddIntentSuggestion(System.String)">
-            <summary>
-            Add intent suggestion
-            </summary>
-            <param name="title"></param>
-            <returns></returns>
-        </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.EmployeeController">
             <inheritdoc />
             <summary>
@@ -415,6 +362,59 @@
             <summary>
             Get many async
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.IntentController">
+            <inheritdoc />
+            <summary>
+            Intent Controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.GetManyAsync">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.CreateAsync">
+            <summary>
+            Create async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentDefault(System.String)">
+            <summary>
+            Add intent default
+            </summary>
+            <param name="defaultResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentTrainingPhrase(HT.Interview.ChatBot.API.DTO.Response.IntentTrainingPhraseResponse)">
+            <summary>
+            Add intent training phrase
+            </summary>
+            <param name="tp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentParameter(HT.Interview.ChatBot.API.DTO.Response.IntentParameterResponse)">
+            <summary>
+            Add intent parameter
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentSuggestion(System.String)">
+            <summary>
+            Add intent suggestion
+            </summary>
+            <param name="title"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.InterviewTypeCompetenceMappingController">
@@ -1121,14 +1121,6 @@
             The ParentIntentId
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentName">
-            <summary>
-            Get or sets the parent intent name
-            </summary>
-            <value>
-            The ParentIntentName
-            </value>  
-        </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
             <summary>
             Get or sets the display name
@@ -1184,6 +1176,22 @@
             <value>
             The IntentSuggestionResponse
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DialogflowGeneratedName">
+            <summary>
+            Get or sets the dialogflow generated name
+            </summary>
+            <value>
+            The DialogFlowGeneratedName
+            </value> C
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DialogflowGeneratedIntent">
+            <summary>
+            Get or sets the  dialogflow generated intent
+            </summary>
+            <value>
+            The DialogFlowGeneratedIntent
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CreatedBy">
             <summary>

@@ -64,6 +64,21 @@
             Users no record found
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.IntentsNotFound">
+            <summary>
+            Intents not found
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.UpdateIntentRequestIsNull">
+            <summary>
+            Update intent request is null
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.IntentByIdNotFound">
+            <summary>
+            Intent by id not found
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IAccessMatrixService">
             <summary>
             IAccessMatrixService
@@ -139,6 +154,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetIntentService">
+            <summary>
+            Get intent service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetRoleService">
             <summary>
             Get role service
@@ -205,12 +226,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory.GetDialogflowService">
-            <summary>
-            Get dialog flow service
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.ICompetenceLevelService">
             <summary>
             ICompetenceLevelService
@@ -239,16 +254,6 @@
             <param name="createdBy"></param>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.Common.Contracts.IDialogflowService">
-            <summary>
-            IDialogflowService
-            </summary>
-        </member>
-        <member name="M:HT.Interview.ChatBot.Common.Contracts.IDialogflowService.GetIntentsAsync">
-            <summary>
-            Get intents async
-            </summary> 
-        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IEmployeeService">
             <summary>
             IEmployeeService
@@ -273,6 +278,23 @@
             <param name="id"></param>
             <param name="name"></param>
             <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Common.Contracts.IIntentService">
+            <summary>
+            IIntentService
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IIntentService.GetIntentsAsync">
+            <summary>
+            Get intents async
+            </summary> 
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IIntentService.UpdateIntentsAsync(HT.Interview.ChatBot.Common.Entities.Intent)">
+            <summary>
+            Update intent async
+            </summary>
+            <param name="intent"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeCompetenceMappingService">
@@ -903,6 +925,22 @@
             <value>
             The IntentSuggestion
             </value> 
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DialogflowGeneratedName">
+            <summary>
+            Get or sets the dialogflow generated name
+            </summary>
+            <value>
+            The DialogFlowGeneratedName
+            </value> C
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DialogflowGeneratedIntent">
+            <summary>
+            Get or sets the  dialogflow generated intent
+            </summary>
+            <value>
+            The DialogFlowGeneratedIntent
+            </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CreatedBy">
             <summary>

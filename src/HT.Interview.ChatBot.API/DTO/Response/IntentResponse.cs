@@ -23,15 +23,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The ParentIntentId
         /// </value>  
         public int? ParentIntentId { get; set; }
-
-        /// <summary>
-        /// Get or sets the parent intent name
-        /// </summary>
-        /// <value>
-        /// The ParentIntentName
-        /// </value>  
-        public string IntentName { get; set; }
-
+         
         /// <summary>
         /// Get or sets the display name
         /// </summary>
@@ -87,6 +79,22 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The IntentSuggestionResponse
         /// </value> 
         public ICollection<IntentSuggestionResponse> IntentSuggestionResponse { get; set; }
+
+        /// <summary>
+        /// Get or sets the dialogflow generated name
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedName
+        /// </value> C
+        public string DialogflowGeneratedName { get; set; }
+
+        /// <summary>
+        /// Get or sets the  dialogflow generated intent
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedIntent
+        /// </value>  
+        public string DialogflowGeneratedIntent { get; set; }
 
         /// <summary>
         /// Get or sets the created by

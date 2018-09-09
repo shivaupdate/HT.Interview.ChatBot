@@ -1,4 +1,5 @@
-﻿using HT.Interview.ChatBot.Common.Entities;
+﻿using HT.Framework.Contracts;
+using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HT.Interview.ChatBot.Data
@@ -6,7 +7,7 @@ namespace HT.Interview.ChatBot.Data
     /// <summary>
     /// IChatbotDataContext
     /// </summary>
-    public interface IChatBotDataContext
+    public interface IChatBotDataContext : IDbContext
     {
         /// <summary>
         /// Intent model

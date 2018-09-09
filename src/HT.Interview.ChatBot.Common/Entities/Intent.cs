@@ -86,6 +86,22 @@ namespace HT.Interview.ChatBot.Common.Entities
         public ICollection<IntentSuggestion> IntentSuggestion { get; set; }
 
         /// <summary>
+        /// Get or sets the dialogflow generated name
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedName
+        /// </value> C
+        public string DialogflowGeneratedName { get; set; }
+
+        /// <summary>
+        /// Get or sets the  dialogflow generated intent
+        /// </summary>
+        /// <value>
+        /// The DialogFlowGeneratedIntent
+        /// </value>  
+        public string DialogflowGeneratedIntent { get; set; }
+
+        /// <summary>
         /// Get or sets the created by
         /// </summary>
         /// <value>
