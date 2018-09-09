@@ -1121,14 +1121,6 @@
             The ParentIntentId
             </value>  
         </member>
-        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IntentName">
-            <summary>
-            Get or sets the parent intent name
-            </summary>
-            <value>
-            The ParentIntentName
-            </value>  
-        </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
             <summary>
             Get or sets the display name

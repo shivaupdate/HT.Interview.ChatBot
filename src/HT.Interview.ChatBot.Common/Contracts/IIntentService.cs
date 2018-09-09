@@ -14,5 +14,12 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get intents async
         /// </summary> 
         Task<Response<IEnumerable<Intent>>> GetIntentsAsync();
+
+        /// <summary>
+        /// Update intent async
+        /// </summary>
+        /// <param name="intent"></param>
+        /// <returns></returns>
+        Task<Response> UpdateIntentsAsync(Intent intent);
     }
 }

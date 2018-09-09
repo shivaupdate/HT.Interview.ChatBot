@@ -29,6 +29,7 @@ namespace HT.Interview.ChatBot.API
             CreateMap<IntentTrainingPhrase, IntentTrainingPhraseResponse>();
             CreateMap<IntentParameter, IntentParameterResponse>();
             CreateMap<IntentSuggestion, IntentSuggestionResponse>();
+            CreateMap<IntentResponse, Intent>();
         }
     }
 }

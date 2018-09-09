@@ -64,6 +64,21 @@
             Users no record found
             </summary>
         </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.IntentsNotFound">
+            <summary>
+            Intents not found
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.UpdateIntentRequestIsNull">
+            <summary>
+            Update intent request is null
+            </summary>
+        </member>
+        <member name="F:HT.Interview.ChatBot.Common.Constants.IntentByIdNotFound">
+            <summary>
+            Intent by id not found
+            </summary>
+        </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IAccessMatrixService">
             <summary>
             IAccessMatrixService
@@ -274,6 +289,13 @@
             <summary>
             Get intents async
             </summary> 
+        </member>
+        <member name="M:HT.Interview.ChatBot.Common.Contracts.IIntentService.UpdateIntentsAsync(HT.Interview.ChatBot.Common.Entities.Intent)">
+            <summary>
+            Update intent async
+            </summary>
+            <param name="intent"></param>
+            <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Common.Contracts.IInterviewTypeCompetenceMappingService">
             <summary>

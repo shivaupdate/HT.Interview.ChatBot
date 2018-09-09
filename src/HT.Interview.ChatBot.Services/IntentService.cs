@@ -4,7 +4,9 @@ using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Services
@@ -35,22 +37,75 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
-        #region Get-Check User Claims
-
         /// <summary>
         /// Get intents async
         /// </summary> 
         /// <returns></returns>
         public async Task<Response<IEnumerable<Intent>>> GetIntentsAsync()
         {
-            IEnumerable<Intent> intents = await _chatbotDataContext.Intent 
+            IEnumerable<Intent> intents = await _chatbotDataContext.Intent
                 .Include(x => x.IntentTrainingPhrase)
                 .Include(x => x.IntentParameter)
-                .Include(x => x.IntentSuggestion).ToListAsync();
-            return Response.Ok(intents); 
+                .Include(x => x.IntentSuggestion).AsNoTracking().ToListAsync();
+
+            if (intents.Any()) return Response.Ok(intents);
+            {
+                string message = _resourceService.GetString(Common.Constants.IntentsNotFound);
+                return Response.Fail<IEnumerable<Intent>>(message, ResponseType.ResourceNotFound);
+            }
+        }
+
+        /// <summary>
+        /// Update intent async
+        /// </summary>
+        /// <param name="intent"></param>
+        /// <returns></returns>
+        public async Task<Response> UpdateIntentsAsync(Intent intent)
+        {
+            try
+            {
+                if (intent == null)
+                {
+                    string message = _resourceService.GetString(Common.Constants.UpdateIntentRequestIsNull);
+                    return Response.Fail(message, ResponseType.InvalidRequest);
+                }
+                Intent i = await GetIntentById(intent.Id);
+                if (i == null)
+                {
+                    string message = string.Format(_resourceService.GetString(Common.Constants.IntentByIdNotFound), intent.Id);
+                    return Response.Fail(message, ResponseType.ResourceNotFound);
+                }
+
+                i.DialogflowGeneratedName = intent.DialogflowGeneratedName;
+                i.DialogflowGeneratedIntent = intent.DialogflowGeneratedIntent;
+                i.ModifiedOn = DateTime.UtcNow.Date;
+                i.ModifiedBy = "RavindraK@hexaware.com";
+
+                _chatbotDataContext.Intent.Attach(i);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception ex)
+            {
+                string test = ex.Message;
+                return null;
+            }
         }
 
         #endregion
+
+        #region Private Functions
+
+        /// <summary>
+        /// Get intent by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task<Intent> GetIntentById(int id)
+        {
+            return await _chatbotDataContext.Intent.FirstOrDefaultAsync(x => x.Id == id);
+        }
 
         #endregion
     }

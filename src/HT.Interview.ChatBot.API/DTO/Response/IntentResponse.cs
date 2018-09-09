@@ -23,15 +23,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The ParentIntentId
         /// </value>  
         public int? ParentIntentId { get; set; }
-
-        /// <summary>
-        /// Get or sets the parent intent name
-        /// </summary>
-        /// <value>
-        /// The ParentIntentName
-        /// </value>  
-        public string IntentName { get; set; }
-
+         
         /// <summary>
         /// Get or sets the display name
         /// </summary>

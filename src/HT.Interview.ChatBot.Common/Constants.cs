@@ -59,5 +59,20 @@
         /// Users no record found
         /// </summary>
         public const string UsersNoRecordFound = "UsersNoRecordFound";
+
+        /// <summary>
+        /// Intents not found
+        /// </summary>
+        public const string IntentsNotFound = "IntentsNotFound";
+
+        /// <summary>
+        /// Update intent request is null
+        /// </summary>
+        public const string UpdateIntentRequestIsNull = "UpdateIntentRequestIsNull";
+
+        /// <summary>
+        /// Intent by id not found
+        /// </summary>
+        public const string IntentByIdNotFound = "IntentByIdNotFound";
     }
 }
