@@ -23,7 +23,23 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The ParentIntentId
         /// </value>  
         public int? ParentIntentId { get; set; }
-         
+
+        /// <summary>
+        /// Get or sets the input context
+        /// </summary>
+        /// <value>
+        /// The InputeContext
+        /// </value>  
+        public string InputContext { get; set; }
+
+        /// <summary>
+        /// Get or sets the output context
+        /// </summary>
+        /// <value>
+        /// The OutputContext
+        /// </value>  
+        public string OutputContext { get; set; }
+
         /// <summary>
         /// Get or sets the display name
         /// </summary>
@@ -95,6 +111,14 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The DialogFlowGeneratedIntent
         /// </value>  
         public string DialogflowGeneratedIntent { get; set; }
+
+        /// <summary>
+        /// Get or sets the is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value>  
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Get or sets the created by

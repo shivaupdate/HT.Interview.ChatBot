@@ -46,7 +46,7 @@ namespace HT.Interview.ChatBot.Services
             IEnumerable<Intent> intents = await _chatbotDataContext.Intent
                 .Include(x => x.IntentTrainingPhrase)
                 .Include(x => x.IntentParameter)
-                .Include(x => x.IntentSuggestion).AsNoTracking().ToListAsync();
+                .Include(x => x.IntentSuggestion).Where(x=> x.IsActive == true).AsNoTracking().ToListAsync();
 
             if (intents.Any()) return Response.Ok(intents);
             {

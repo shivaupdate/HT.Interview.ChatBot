@@ -389,6 +389,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentInputContext(System.String)">
+            <summary>
+            Add intent input context
+            </summary>
+            <param name="inputContextName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentOutputContext(System.String)">
+            <summary>
+            Add intent output context
+            </summary>
+            <param name="outputContextName"></param>
+            <returns></returns>
+        </member>
         <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentDefault(System.String)">
             <summary>
             Add intent default
@@ -408,6 +422,13 @@
             Add intent parameter
             </summary>
             <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentSuggestion(System.Collections.Generic.List{System.String})">
+            <summary>
+            Add intent suggestion
+            </summary>
+            <param name="titles"></param>
             <returns></returns>
         </member>
         <member name="M:HT.Interview.ChatBot.API.Controllers.IntentController.AddIntentSuggestion(System.String)">
@@ -432,7 +453,7 @@
         </member>
         <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewController.GetAsync(System.String)">
             <summary>
-            Get many async
+            Get async
             </summary>
             <returns></returns>
         </member>
@@ -1140,6 +1161,22 @@
             The ParentIntentId
             </value>  
         </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.InputContext">
+            <summary>
+            Get or sets the input context
+            </summary>
+            <value>
+            The InputeContext
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.OutputContext">
+            <summary>
+            Get or sets the output context
+            </summary>
+            <value>
+            The OutputContext
+            </value>  
+        </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.DisplayName">
             <summary>
             Get or sets the display name
@@ -1210,6 +1247,14 @@
             </summary>
             <value>
             The DialogFlowGeneratedIntent
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.IsActive">
+            <summary>
+            Get or sets the is active
+            </summary>
+            <value>
+            The IsActive
             </value>  
         </member>
         <member name="P:HT.Interview.ChatBot.API.DTO.Response.IntentResponse.CreatedBy">
