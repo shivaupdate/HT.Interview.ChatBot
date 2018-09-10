@@ -79,6 +79,16 @@ namespace HT.Interview.ChatBot.API.Controllers
                             intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().DialogflowGeneratedName;
                         }
 
+                        if (intentResponse.InputContext != null)
+                        {
+                            intent.InputContextNames.Add(AddIntentInputContext(intentResponse.InputContext));
+                        }
+
+                        if (intentResponse.OutputContext != null)
+                        {
+                            intent.OutputContexts.Add(AddIntentOutputContext(intentResponse.OutputContext));
+                        }
+
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
                         {
                             foreach (IntentTrainingPhraseResponse trainingPhrase in intentResponse.IntentTrainingPhraseResponse)
@@ -97,16 +107,13 @@ namespace HT.Interview.ChatBot.API.Controllers
 
                         if (intentResponse.IntentSuggestionResponse.Any())
                         {
-                            foreach (IntentSuggestionResponse suggestion in intentResponse.IntentSuggestionResponse)
-                            {
-                                intent.Messages.Add(AddIntentSuggestion(suggestion.Title));
-                            }
+                            intent.Messages.Add(AddIntentSuggestion(intentResponse.IntentSuggestionResponse.Select(x => x.Title).ToList()));
                         }
 
                         intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
                         intentResponse.DialogflowGeneratedName = intent.Name;
-                        intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent); 
-                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse)); 
+                        intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent);
+                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse));
                     }
                 }
             }
@@ -114,6 +121,32 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 string message = ex.Message;
             }
+        }
+
+        /// <summary>
+        /// Add intent input context
+        /// </summary>
+        /// <param name="inputContextName"></param>
+        /// <returns></returns>
+        private string AddIntentInputContext(string inputContextName)
+        {
+
+            return "projects/ht-interview-chatbot/agent/sessions/-/contexts/" + inputContextName;
+        }
+
+        /// <summary>
+        /// Add intent output context
+        /// </summary>
+        /// <param name="outputContextName"></param>
+        /// <returns></returns>
+        private Context AddIntentOutputContext(string outputContextName)
+        {
+            Context context = new Context()
+            {
+                LifespanCount = 2,
+                Name = "projects/ht-interview-chatbot/agent/sessions/-/contexts/" + outputContextName
+            };
+            return context;
         }
 
         /// <summary>
@@ -170,6 +203,33 @@ namespace HT.Interview.ChatBot.API.Controllers
                 Value = param.Value,
                 IsList = param.IsList
             };
+        }
+
+        /// <summary>
+        /// Add intent suggestion
+        /// </summary>
+        /// <param name="titles"></param>
+        /// <returns></returns>
+        private Message AddIntentSuggestion(List<string> titles)
+        {
+            Suggestions suggestions = new Suggestions();
+
+            foreach (string title in titles)
+            {
+                Suggestion suggestion = new Suggestion
+                {
+                    Title = title
+                };
+
+                suggestions.Suggestions_.Add(suggestion);
+            }
+
+            Message message = new Message()
+            {
+                Suggestions = suggestions
+            };
+
+            return message;
         }
 
         /// <summary>

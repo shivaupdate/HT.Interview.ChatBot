@@ -56,7 +56,7 @@ export class ChatService {
   }
 
   getApiAiResponse(query): Observable<any> {
-    var url = "http://localhost:50463/api/v1/interview/get?text=" + query;
+    var url = "http://localhost:50463/api/v1/interview/get?Query=" + query;
     
     return this.http.get(url, { responseType: 'json' });
   }
