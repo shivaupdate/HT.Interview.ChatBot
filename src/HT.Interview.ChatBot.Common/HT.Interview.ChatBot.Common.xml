@@ -870,6 +870,22 @@
             The ParentIntentId
             </value>  
         </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.InputContext">
+            <summary>
+            Get or sets the input context
+            </summary>
+            <value>
+            The InputeContext
+            </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.OutputContext">
+            <summary>
+            Get or sets the output context
+            </summary>
+            <value>
+            The OutputContext
+            </value>  
+        </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.DisplayName">
             <summary>
             Get or sets the display name
@@ -941,6 +957,14 @@
             <value>
             The DialogFlowGeneratedIntent
             </value>  
+        </member>
+        <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.IsActive">
+            <summary>
+            Get or sets the is active
+            </summary>
+            <value>
+            The IsActive
+            </value> 
         </member>
         <member name="P:HT.Interview.ChatBot.Common.Entities.Intent.CreatedBy">
             <summary>
