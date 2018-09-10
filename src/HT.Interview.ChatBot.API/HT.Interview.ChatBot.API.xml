@@ -417,6 +417,25 @@
             <param name="title"></param>
             <returns></returns>
         </member>
+        <member name="T:HT.Interview.ChatBot.API.Controllers.InterviewController">
+            <inheritdoc />
+            <summary>
+            Intent Controller
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewController.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory)">
+            <inheritdoc />
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.API.Controllers.InterviewController.GetAsync(System.String)">
+            <summary>
+            Get many async
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.API.Controllers.InterviewTypeCompetenceMappingController">
             <inheritdoc />
             <summary>
