@@ -56,7 +56,8 @@ export class ChatService {
   }
 
   getApiAiResponse(query): Observable<any> {
-    var url = "http://localhost:50463/api/v1/apiai/get?Query=" + query + "&SessionId=1&Lang=en";
+    var url = "http://localhost:50463/api/v1/interview/get?text=" + query;
+    
     return this.http.get(url, { responseType: 'json' });
   }
 }
