@@ -22,7 +22,9 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public InterviewTypeCompetenceMappingProfile()
         { 
-            CreateMap<InterviewTypeCompetenceMapping, InterviewTypeCompetenceMappingResponse>(); 
+            CreateMap<InterviewTypeCompetenceMapping, InterviewTypeCompetenceMappingResponse>();
+            CreateMap<InterviewTypeCompetenceMappingRequest, Model.InterviewTypeCompetenceMappingRequest>();
+
         }
     }
 }

@@ -43,9 +43,9 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
-        public async Task<ActionResult> GetManyAsync([FromQuery] Attachment attachment)
+        public async Task<ActionResult> GetManyAsync([FromQuery] AttachmentRequest attachmentRequest)
         {
-            return await GetResponseAsync(async () => (await _attachmentService.GetAttachmentsAsync(attachment))
+            return await GetResponseAsync(async () => (await _attachmentService.GetAttachmentsAsync(_mapper.Map<Attachment>(attachmentRequest)))
                 .GetMappedResponse<IEnumerable<Attachment>, IEnumerable<AttachmentResponse>>(_mapper));
         }
          

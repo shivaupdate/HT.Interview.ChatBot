@@ -28,6 +28,24 @@ namespace HT.Interview.ChatBot.API.DI
 
             builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>();
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<AccessMatrixService>().As<IAccessMatrixService>();
+            builder.RegisterType<AttachmentService>().As<IAttachmentService>();
+            builder.RegisterType<CandidateService>().As<ICandidateService>();
+            builder.RegisterType<CompetenceService>().As<ICompetenceService>();
+            builder.RegisterType<CompetenceLevelService>().As<ICompetenceLevelService>();
+            builder.RegisterType<EmployeeService>().As<IEmployeeService>();
+            builder.RegisterType<GenderService>().As<IGenderService>();
+            builder.RegisterType<IntentService>().As<IIntentService>();
+            builder.RegisterType<IntentCompetenceMappingService>().As<IIntentCompetenceMappingService>();
+            builder.RegisterType<IntentParameterService>().As<IIntentParameterService>();
+            builder.RegisterType<IntentSuggestionService>().As<IIntentSuggestionService>();
+            builder.RegisterType<IntentTrainingPhraseService>().As<IIntentTrainingPhraseService>();
+            builder.RegisterType<InterviewService>().As<IInterviewService>();
+            builder.RegisterType<InterviewDetailService>().As<IInterviewDetailService>();
+            builder.RegisterType<InterviewTypeService>().As<IInterviewTypeService>();
+            builder.RegisterType<InterviewTypeCompetenceMappingService>().As<IInterviewTypeCompetenceMappingService>();
+            builder.RegisterType<MenuService>().As<IMenuService>();
+            builder.RegisterType<RoleService>().As<IRoleService>();
             builder.RegisterType<DialogflowService>().As<IDialogflowService>();
             builder.RegisterType<ApiAiHttpClient>().As<IHttpClient>();
             builder.AddResourceService<Resources.Resources>(Common.Constants.ResourceComponent);

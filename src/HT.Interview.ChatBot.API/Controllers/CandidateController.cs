@@ -41,11 +41,12 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get many async
         /// </summary>
+        /// <param name="candidate"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
-        public async Task<ActionResult> GetManyAsync([FromQuery] Candidate candidate)
+        public async Task<ActionResult> GetManyAsync([FromQuery] CandidateRequest candidateRequest)
         {
-            return await GetResponseAsync(async () => (await _candidateService.GetCandidatesAsync(candidate))
+            return await GetResponseAsync(async () => (await _candidateService.GetCandidatesAsync(_mapper.Map<Candidate>(candidateRequest)))
                 .GetMappedResponse<IEnumerable<Candidate>, IEnumerable<CandidateResponse>>(_mapper));
         }
          
