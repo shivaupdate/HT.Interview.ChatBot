@@ -20,10 +20,10 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the first name
+        /// Get or sets the Name
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The Name
         /// </value> 
         [Required]
         public string Name { get; set; }

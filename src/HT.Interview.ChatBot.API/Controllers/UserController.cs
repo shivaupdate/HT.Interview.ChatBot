@@ -45,7 +45,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpGet(Common.Constants.GetMany)] 
         public async Task<ActionResult> GetManyAsync([FromQuery] UserRequest u)
         {
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(u)))
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<Model.UserRequest>(u)))
                 .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper));
         }
 
@@ -58,7 +58,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             return await GetResponseAsync(async () =>
             {
-                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserQuery>(u)))
+                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<Model.UserRequest>(u)))
                 .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), u.CurrentPage, u.PageSize);
             });
         }

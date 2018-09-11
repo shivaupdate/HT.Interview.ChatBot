@@ -85,7 +85,7 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
-        /// Role entity
+        /// Competence entity
         /// </summary>
         public virtual DbSet<Competence> Competence { get; set; }
 

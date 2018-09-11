@@ -27,7 +27,7 @@ namespace HT.Interview.ChatBot.Test.Services
         public async Task GetUsersAsync_ReturnsUsers_GivenUsersExist()
         {
             //Arrange
-            UserQuery uq = new UserQuery();
+            UserRequest uq = new UserRequest();
 
             //Act
             Response<System.Collections.Generic.IEnumerable<User>> response = await Sut.Object.GetUsersAsync(uq);

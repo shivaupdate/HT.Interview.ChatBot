@@ -43,7 +43,7 @@ namespace HT.Interview.ChatBot.Services
         /// </summary>
         /// <param name="uq"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<User>>> GetUsersAsync(UserQuery uq)
+        public async Task<Response<IEnumerable<User>>> GetUsersAsync(UserRequest uq)
         {
             IEnumerable<User> users = await _chatbotDataContext.User.ToListAsync();
             return Response.Ok(users);
