@@ -11,6 +11,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
     public interface IIntentService
     {
         /// <summary>
+        /// Get itent by dialogflow generated intent id
+        /// </summary>
+        /// <param name="dialogflowGeneratedIntentId"></param>
+        /// <returns></returns>
+        Task<Intent> GetIntentByDialogflowGeneratedIntentIdAsync(string dialogflowGeneratedIntentId);
+
+        /// <summary>
         /// Get intents async
         /// </summary> 
         Task<Response<IEnumerable<Intent>>> GetIntentsAsync();

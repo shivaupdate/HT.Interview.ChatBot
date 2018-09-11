@@ -17,28 +17,28 @@ namespace HT.Interview.ChatBot.API
         {
             string result  = $"&query={queryRequest.Query.FirstOrDefault()}";
 
-            if (!string.IsNullOrEmpty(queryRequest.Timezone))
-            {
-                result += $"&timezone={queryRequest.Timezone}";
-            }
+            //if (!string.IsNullOrEmpty(queryRequest.Timezone))
+            //{
+            //    result += $"&timezone={queryRequest.Timezone}";
+            //}
 
-            result += $"&lang={queryRequest.Lang}";
+            result += $"&lang={queryRequest.Language}";
 
-            if (queryRequest.Contexts != null && queryRequest.Contexts.Count() > 0)
-            {
-                foreach (var context in queryRequest.Contexts)
-                {
-                    result += $"&contexts={context.Name}";
-                }
-            }
+            //if (queryRequest.Contexts != null && queryRequest.Contexts.Count() > 0)
+            //{
+            //    foreach (var context in queryRequest.Contexts)
+            //    {
+            //        result += $"&contexts={context.Name}";
+            //    }
+            //}
 
-            if (queryRequest.Location != null)
-            {
-                if (!string.IsNullOrEmpty(queryRequest.Location.Latitude) && !string.IsNullOrEmpty(queryRequest.Location.Longitude))
-                {
-                    result += $"&latitude={queryRequest.Location.Latitude}&longitude={queryRequest.Location.Longitude}";
-                }
-            }
+            //if (queryRequest.Location != null)
+            //{
+            //    if (!string.IsNullOrEmpty(queryRequest.Location.Latitude) && !string.IsNullOrEmpty(queryRequest.Location.Longitude))
+            //    {
+            //        result += $"&latitude={queryRequest.Location.Latitude}&longitude={queryRequest.Location.Longitude}";
+            //    }
+            //}
 
             if (!string.IsNullOrEmpty(queryRequest.SessionId))
             {

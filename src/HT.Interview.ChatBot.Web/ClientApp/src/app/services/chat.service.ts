@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChatService {                                     
   conversation = new BehaviorSubject<Message[]>([]);
+  dialogflowGeneratedIntentId = new Observable<string>();
   constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }
 
   //// Sends and receives messages via DialogFlow
@@ -35,6 +36,8 @@ export class ChatService {
     const message = new Message();
     message.timestamp = new Date();
     message.response = response;
+    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
+    console.log(this.dialogflowGeneratedIntentId);
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
   }
@@ -56,7 +59,7 @@ export class ChatService {
   }
 
   getApiAiResponse(query): Observable<any> {
-    var url = "http://localhost:50463/api/v1/interview/get?Query=" + query;
+    var url = "http://localhost:50463/api/v1/interview/get?Query=" + query + "&DialogflowGeneratedIntentId=" + this.dialogflowGeneratedIntentId;
     
     return this.http.get(url, { responseType: 'json' });
   }

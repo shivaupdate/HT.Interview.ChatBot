@@ -29,6 +29,11 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         #region Public Properties
 
         /// <summary>
+        /// Dialogflow generated intent id
+        /// </summary>
+        public string DialogflowGeneratedIntentId { get; set; }
+
+        /// <summary>
         /// Source of the answer. Could be "agent" if the response was retrieved from the agent. 
         /// </summary>
         public string Source { get; set; }
