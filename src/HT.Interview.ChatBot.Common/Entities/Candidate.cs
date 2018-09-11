@@ -15,7 +15,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Id
         /// </value> 
-        
+
         public int Id { get; set; }
 
         /// <summary>
@@ -28,21 +28,40 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the Last Name
         /// </summary>
         /// <value>
         /// The Id
         /// </value> 
-
         [Required]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the Name
         /// </summary>
         /// <value>
         /// The Id
         /// </value> 
+        [Required]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Get or sets the Photo ID
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value> 
+        [Required]
+        public string PhotoUrl { get; set; }
+
+        /// <summary>
+        /// Get or sets the Role ID
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value> 
+        [Required]
+        public string RoleId { get; set; }
 
         [Required]
         public string Email { get; set; }
