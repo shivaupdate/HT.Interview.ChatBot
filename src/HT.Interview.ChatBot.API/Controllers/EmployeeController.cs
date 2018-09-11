@@ -48,7 +48,24 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => (await _employeeService.GetEmployeesAsync(employee))
                 .GetMappedResponse<IEnumerable<Employee>, IEnumerable<EmployeeResponse>>(_mapper));
         }
-         
+
+        [HttpPost]
+        public async Task<ActionResult> AddEmployee(Employee employee)
+        {
+            return await GetResponseAsync(async () => (await _employeeService.AddEmployeeAsync(employee)));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateEmployee(Employee employee)
+        {
+            return await GetResponseAsync(async () => (await _employeeService.UpdateEmployeeAsync(employee)));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteEmployee(Employee employee)
+        {
+            return await GetResponseAsync(async () => (await _employeeService.DeleteEmployeeAsync(employee)));
+        }
         #endregion
     }
 }

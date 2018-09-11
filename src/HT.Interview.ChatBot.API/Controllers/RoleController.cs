@@ -48,7 +48,24 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => (await _roleService.GetRolesAsync(id, name, createdyBy))
                 .GetMappedResponse<IEnumerable<Role>, IEnumerable<RoleResponse>>(_mapper));
         }
-         
+
+        [HttpPost]
+        public async Task<ActionResult> AddRole(Role role)
+        {
+            return await GetResponseAsync(async () => (await _roleService.AddRoleAsync(role)));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateRole(Role role)
+        {
+            return await GetResponseAsync(async () => (await _roleService.UpdateRoleAsync(role)));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteRole(Role role)
+        {
+            return await GetResponseAsync(async () => (await _roleService.DeleteRoleAsync(role)));
+        }
         #endregion
     }
 }
