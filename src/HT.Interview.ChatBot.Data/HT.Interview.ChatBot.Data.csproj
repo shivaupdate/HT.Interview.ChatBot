@@ -17,4 +17,10 @@
     <ProjectReference Include="..\HT.Interview.ChatBot.Common\HT.Interview.ChatBot.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="HT.Interview.ChatBot.Data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

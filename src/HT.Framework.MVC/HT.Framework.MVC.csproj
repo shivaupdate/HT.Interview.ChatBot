@@ -18,4 +18,10 @@
     <ProjectReference Include="..\HT.Framework\HT.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="HT.Framework.MVC.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

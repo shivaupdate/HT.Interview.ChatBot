@@ -40,6 +40,12 @@ namespace HT.Interview.ChatBot.Common.Contracts
         IUserService GetUserService();
 
         /// <summary>
+        /// Get intent service
+        /// </summary>
+        /// <returns></returns>
+        IIntentService GetIntentService();
+
+        /// <summary>
         /// Get role service
         /// </summary>
         /// <returns></returns>
@@ -108,11 +114,11 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         IEmployeeService GetEmployeeService();
-         
+
         /// <summary>
-        /// Get dialog flow service
+        /// Get interview service
         /// </summary>
         /// <returns></returns>
-        IDialogflowService GetDialogflowService();
+        IInterviewService GetInterviewService(); 
     }
 }

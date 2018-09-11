@@ -57,7 +57,12 @@ namespace HT.Interview.ChatBot.API
                 }
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("InterviewChatBot",
+                    policy => policy.WithOrigins("http://localhost:4200"));
+            });
+
             services.AddLogging();
             //Adding Swagger
             services.AddSwaggerGen();

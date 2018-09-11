@@ -1,7 +1,6 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;

@@ -4,6 +4,72 @@
         <name>HT.Interview.ChatBot.Services</name>
     </assembly>
     <members>
+        <member name="T:HT.Interview.ChatBot.Services.AccessMatrixService">
+            <inheritdoc />
+            <summary>
+            AccessMatrix Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.AccessMatrixService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.AccessMatrixService.GetAccessMatrixsAsync(HT.Interview.ChatBot.Common.Entities.AccessMatrix)">
+            <summary>
+            Get AccessMatrixs async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.AttachmentService">
+            <inheritdoc />
+            <summary>
+            Attachment Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.AttachmentService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.AttachmentService.GetAttachmentsAsync(HT.Interview.ChatBot.Common.Entities.Attachment)">
+            <summary>
+            Get Attachments async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.CandidateService">
+            <inheritdoc />
+            <summary>
+            Candidate Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.CandidateService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.CandidateService.GetCandidatesAsync(HT.Interview.ChatBot.Common.Entities.Candidate)">
+            <summary>
+            Get Candidates async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
         <member name="T:HT.Interview.ChatBot.Services.ChatBotDataFactory">
             <inheritdoc />
             <summary>
@@ -48,30 +114,297 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetDialogflowService">
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetIntentService">
             <inheritdoc />
             <summary>
-            Get dialogflow service
+            Get intent service
             </summary>
             <returns></returns>
         </member>
-        <member name="T:HT.Interview.ChatBot.Services.DialogflowService">
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetRoleService">
             <inheritdoc />
             <summary>
-            Dialogflow Service
+            Get role service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetMenuService">
+            <inheritdoc />
+            <summary>
+            Get Menu service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetInterviewTypeCompetenceMappingService">
+            <inheritdoc />
+            <summary>
+            Get InterviewTypeCompetenceMapping service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetInterviewTypeService">
+            <inheritdoc />
+            <summary>
+            Get InterviewType service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetGenderService">
+            <inheritdoc />
+            <summary>
+            Get Gender service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetEmployeeService">
+            <inheritdoc />
+            <summary>
+            Get Employee service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetCompetenceLevelService">
+            <inheritdoc />
+            <summary>
+            Get CompetenceLevel service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetCompetenceService">
+            <inheritdoc />
+            <summary>
+            Get Competence service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetCandidateService">
+            <inheritdoc />
+            <summary>
+            Get Candidate service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetAttachmentService">
+            <inheritdoc />
+            <summary>
+            Get Attachment service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.ChatBotDataFactory.GetAccessMatrixService">
+            <inheritdoc />
+            <summary>
+            Get AccessMatrix service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.CompetenceLevelService">
+            <inheritdoc />
+            <summary>
+            CompetenceLevel Service
             </summary>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+        <member name="M:HT.Interview.ChatBot.Services.CompetenceLevelService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
             <summary>
             Constructor
             </summary>
             <param name="factory"></param>
             <param name="chatbotDataContext"></param>
         </member>
-        <member name="M:HT.Interview.ChatBot.Services.DialogflowService.GetIntentsAsync">
+        <member name="M:HT.Interview.ChatBot.Services.CompetenceLevelService.GetCompetenceLevelsAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get CompetenceLevels async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.CompetenceService">
+            <inheritdoc />
+            <summary>
+            Competence Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.CompetenceService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.CompetenceService.GetCompetencesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get Competences async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.EmployeeService">
+            <inheritdoc />
+            <summary>
+            Employee Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.EmployeeService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.EmployeeService.GetEmployeesAsync(HT.Interview.ChatBot.Common.Entities.Employee)">
+            <summary>
+            Get Employees async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.GenderService">
+            <inheritdoc />
+            <summary>
+            Gender Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.GenderService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.GenderService.GetGendersAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get Genders async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.IntentService">
+            <inheritdoc />
+            <summary>
+            Intent Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.GetIntentsAsync">
             <summary>
             Get intents async
             </summary> 
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.UpdateIntentsAsync(HT.Interview.ChatBot.Common.Entities.Intent)">
+            <summary>
+            Update intent async
+            </summary>
+            <param name="intent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.IntentService.GetIntentById(System.Int32)">
+            <summary>
+            Get intent by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.InterviewTypeCompetenceMappingService">
+            <inheritdoc />
+            <summary>
+            InterviewTypeCompetenceMapping Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.InterviewTypeCompetenceMappingService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.InterviewTypeCompetenceMappingService.GetInterviewTypeCompetenceMappingsAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get InterviewTypeCompetenceMapping async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.InterviewTypeService">
+            <inheritdoc />
+            <summary>
+            Role Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.InterviewTypeService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.InterviewTypeService.GetInterviewTypesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get InterviewTypes async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.MenuService">
+            <inheritdoc />
+            <summary>
+            Role Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.MenuService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.MenuService.GetMenusAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get Menus async
+            </summary>
+            <param name="id"></param>
+            <param name="options"></param>
+            <param name="createdBy"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HT.Interview.ChatBot.Services.RoleService">
+            <inheritdoc />
+            <summary>
+            Role Service
+            </summary>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.RoleService.#ctor(HT.Interview.ChatBot.Common.Contracts.IChatBotDataFactory,HT.Interview.ChatBot.Data.IChatBotDataContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="factory"></param>
+            <param name="chatbotDataContext"></param>
+        </member>
+        <member name="M:HT.Interview.ChatBot.Services.RoleService.GetRolesAsync(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Get roles async
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="createdBy"></param>
             <returns></returns>
         </member>
         <member name="T:HT.Interview.ChatBot.Services.UserService">

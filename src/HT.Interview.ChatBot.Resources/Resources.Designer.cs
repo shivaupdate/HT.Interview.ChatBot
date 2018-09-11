@@ -61,6 +61,51 @@ namespace HT.Interview.ChatBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Intent by specified Id not found.
+        /// </summary>
+        public static string IntentByIdNotFound {
+            get {
+                return ResourceManager.GetString("IntentByIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No intent found.
+        /// </summary>
+        public static string IntentsNotFound {
+            get {
+                return ResourceManager.GetString("IntentsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interview by specified Id not found.
+        /// </summary>
+        public static string InterviewByIdNotFound {
+            get {
+                return ResourceManager.GetString("InterviewByIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update intent request is null.
+        /// </summary>
+        public static string UpdateIntentRequestIsNull {
+            get {
+                return ResourceManager.GetString("UpdateIntentRequestIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update interview request is null.
+        /// </summary>
+        public static string UpdateInterviewRequestIsNull {
+            get {
+                return ResourceManager.GetString("UpdateInterviewRequestIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User records not found.
         /// </summary>
         public static string UsersNoRecordFound {

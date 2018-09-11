@@ -68,6 +68,16 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IUserService>();
         }
+         
+        /// <inheritdoc />
+        /// <summary>
+        /// Get intent service
+        /// </summary>
+        /// <returns></returns>
+        public IIntentService GetIntentService()
+        {
+            return _dependencyResolver.Resolve<IIntentService>();
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -182,16 +192,16 @@ namespace HT.Interview.ChatBot.Services
         public IAccessMatrixService GetAccessMatrixService()
         {
             return _dependencyResolver.Resolve<IAccessMatrixService>();
-        } 
+        }
 
         /// <inheritdoc />
         /// <summary>
-        /// Get dialogflow service
+        /// Get Interview service
         /// </summary>
         /// <returns></returns>
-        public IDialogflowService GetDialogflowService()
+        public IInterviewService GetInterviewService()
         {
-            return _dependencyResolver.Resolve<IDialogflowService>();
-        }        
+            return _dependencyResolver.Resolve<IInterviewService>();
+        }
     }
 }
