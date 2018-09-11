@@ -14,7 +14,7 @@ namespace HT.Interview.ChatBot.Common.DTO
         /// </summary>
         public RoleRequest()
         {
-            RecordType = RecordType.All;
+             
 
 
         }
