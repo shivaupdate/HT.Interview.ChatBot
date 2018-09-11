@@ -1,6 +1,7 @@
 ﻿using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Model = HT.Interview.ChatBot.Common.Entities;
 
 namespace HT.Interview.ChatBot.Data
 {
@@ -31,7 +32,7 @@ namespace HT.Interview.ChatBot.Data
         /// Intent model
         /// </summary>
         public virtual DbSet<Intent> Intent { get; set; }
-         
+
         /// <summary>
         /// Intent Competence Mapping model
         /// </summary>
@@ -120,6 +121,12 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
+        /// Interview entity
+        /// </summary>
+        public virtual DbSet<Model.Interview> Interview { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// On configuring
         /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -138,7 +145,8 @@ namespace HT.Interview.ChatBot.Data
 
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
-            intent.HasKey(i => i.Id); 
+            intent.HasKey(i => i.Id);
+            intent.Property(i => i.Id).ValueGeneratedOnAdd();
             intent.HasMany(i => i.IntentCompetenceMapping);
             intent.HasMany(i => i.IntentTrainingPhrase);
             intent.HasMany(i => i.IntentParameter);
@@ -146,7 +154,7 @@ namespace HT.Interview.ChatBot.Data
 
             modelBuilder.Entity<IntentCompetenceMapping>().ToTable("IntentCompetenceMapping", "icb")
                  .HasKey(t => new { t.IntentId, t.CompetenceId, t.CompetenceLevelId });
-             
+
 
             modelBuilder.Entity<IntentTrainingPhrase>().ToTable("IntentTrainingPhrase", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentParameter>().ToTable("IntentParameter", "icb").HasKey(t => t.Id);
@@ -166,6 +174,11 @@ namespace HT.Interview.ChatBot.Data
             modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<InterviewType>().ToTable("InterviewType", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb").HasKey(t => t.Id);
+
+            EntityTypeBuilder<Model.Interview> interview = modelBuilder.Entity<Model.Interview>().ToTable("Interview", "icb");
+            interview.HasKey(t => t.Id);
+            interview.Property(i => i.Id).ValueGeneratedOnAdd();
+
         }
     }
 }

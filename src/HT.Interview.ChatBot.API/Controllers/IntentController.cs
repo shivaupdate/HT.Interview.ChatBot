@@ -111,6 +111,7 @@ namespace HT.Interview.ChatBot.API.Controllers
                         }
 
                         intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        intentResponse.DialogflowGeneratedIntentId = intent.IntentName.IntentId;
                         intentResponse.DialogflowGeneratedName = intent.Name;
                         intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent);
                         await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse));

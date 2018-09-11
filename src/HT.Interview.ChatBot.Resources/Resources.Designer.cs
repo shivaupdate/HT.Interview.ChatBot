@@ -79,11 +79,29 @@ namespace HT.Interview.ChatBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interview by specified Id not found.
+        /// </summary>
+        public static string InterviewByIdNotFound {
+            get {
+                return ResourceManager.GetString("InterviewByIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update intent request is null.
         /// </summary>
         public static string UpdateIntentRequestIsNull {
             get {
                 return ResourceManager.GetString("UpdateIntentRequestIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update interview request is null.
+        /// </summary>
+        public static string UpdateInterviewRequestIsNull {
+            get {
+                return ResourceManager.GetString("UpdateInterviewRequestIsNull", resourceCulture);
             }
         }
         

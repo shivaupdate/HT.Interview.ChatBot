@@ -6,6 +6,7 @@ using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.API.Controllers
@@ -20,7 +21,7 @@ namespace HT.Interview.ChatBot.API.Controllers
     {
         #region Fields
 
-        private readonly IIntentService _intentService;
+        private readonly IInterviewService _interviewService;
         private readonly IMapper _mapper;
         private readonly IHttpClient _httpClient;
 
@@ -36,7 +37,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public InterviewController(IChatBotDataFactory factory)
         {
             _httpClient = factory.GetHttpClient();
-            _intentService = factory.GetIntentService();
+            _interviewService = factory.GetInterviewService();
             _mapper = factory.GetMapperService();
         }
 
@@ -72,19 +73,41 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get async
         /// </summary>
+        /// <param name="q"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
-        public async Task<ActionResult> GetAsync([FromQuery] string query)
+        public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
         {
-            QueryRequest q = new QueryRequest()
+            //QueryRequest q = new QueryRequest()
+            //{
+            //    Query = new string[] { query },
+            //    SessionId = "1",
+            //    Lang = Common.Enums.Language.English
+            //}; 
+
+            if (string.IsNullOrWhiteSpace(q.SessionId))
             {
-                Query = new string[]{ query },
-                SessionId = "1",
-                Lang = Common.Enums.Language.English
-            };
+                q.SessionId = "1";
+            }
 
+            if (q.CandidateId <= 0)
+            {
+                q.CandidateId = 1;
+            }
 
-            return await GetResponseAsync(async () => await _httpClient.GetAsync<QueryResponse>(q.ToQueryString()));
+            if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
+            {
+                await _interviewService.UpdateInterviewAsync(q.CandidateId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken);
+            }
+
+            QueryResponse queryResponse = await _httpClient.GetAsync<QueryResponse>(q.ToQueryString());
+            queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
+            if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
+            {
+                await _interviewService.AddInterviewAsync(q.CandidateId, queryResponse.Result.DialogflowGeneratedIntentId);
+            }
+
+            return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
         }
 
         #endregion

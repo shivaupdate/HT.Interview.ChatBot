@@ -1,6 +1,7 @@
 ﻿using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.EntityFrameworkCore;
+using Model = HT.Interview.ChatBot.Common.Entities;
 
 namespace HT.Interview.ChatBot.Data
 {
@@ -43,7 +44,7 @@ namespace HT.Interview.ChatBot.Data
         /// Role model
         /// </summary>
         DbSet<Role> Role { get; set; }
-         
+
         /// <summary>
         /// Menu model
         /// </summary>
@@ -94,5 +95,10 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         DbSet<AccessMatrix> AccessMatrix { get; set; }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Interview entity
+        /// </summary>
+        DbSet<Model.Interview> Interview { get; set; } 
     }
 }
