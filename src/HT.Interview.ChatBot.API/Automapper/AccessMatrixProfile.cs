@@ -22,7 +22,10 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public AccessMatrixProfile()
         { 
-            CreateMap<AccessMatrix, AccessMatrixResponse>(); 
+            CreateMap<AccessMatrix, AccessMatrixResponse>();
+            CreateMap<AccessMatrixRequest, Model.AccessMatrixRequest>();
+
+
         }
     }
 }

@@ -19,10 +19,10 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the Name
         /// </summary>
         /// <value>
-        /// The Id
+        /// The Name
         /// </value> 
 
         [Required]
@@ -30,10 +30,10 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CreatedBy
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CreatedBy
         /// </value> 
 
         [Required]
@@ -41,10 +41,10 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CreatedOn
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CreatedOn
         /// </value> 
 
         [Required]
@@ -52,20 +52,20 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the ModifiedBy
         /// </summary>
         /// <value>
-        /// The Id
+        /// The ModifiedBy
         /// </value> 
 
         public string ModifiedBy { get; set; }
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the ModifiedOn
         /// </summary>
         /// <value>
-        /// The Id
+        /// The ModifiedOn
         /// </value> 
 
         public DateTime? ModifiedOn { get; set; }

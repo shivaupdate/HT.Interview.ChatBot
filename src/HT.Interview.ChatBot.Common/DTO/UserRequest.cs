@@ -3,14 +3,14 @@
 namespace HT.Interview.ChatBot.Common.DTO
 {
     /// <summary>
-    /// UserQuery
+    /// UserRequest
     /// </summary>
-    public class UserQuery
+    public class UserRequest
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        public UserQuery()
+        public UserRequest()
         { 
             RecordType = RecordType.All; 
         }

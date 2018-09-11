@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// User model
+    /// Candidate model
     /// </summary>
     public class Candidate
     {
@@ -28,50 +28,50 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the LastName
         /// </summary>
         /// <value>
-        /// The Id
+        /// The LastName
         /// </value> 
 
         [Required]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the Email
         /// </summary>
         /// <value>
-        /// The Id
+        /// The Email
         /// </value> 
 
         [Required]
         public string Email { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the GenderId
         /// </summary>
         /// <value>
-        /// The Id
+        /// The GenderId
         /// </value> 
 
         [Required]
         public int GenderId { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the Mobile
         /// </summary>
         /// <value>
-        /// The Id
+        /// The Mobile
         /// </value> 
 
         [Required]
         public string Mobile { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CreatedBy
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CreatedBy
         /// </value> 
 
         [Required]

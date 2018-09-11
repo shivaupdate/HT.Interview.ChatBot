@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// User model
+    /// Attachment model
     /// </summary>
     public class Attachment
     {
@@ -19,7 +19,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the first name
+        /// Get or sets the CandidateId
         /// </summary>
         /// <value>
         /// The FirstName
@@ -30,7 +30,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int CandidateId { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the ResumeFilePath
         /// </summary>
         /// <value>
         /// The Id
@@ -42,7 +42,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string ResumeFilePath { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the GestureRecordingFilePath
         /// </summary>
         /// <value>
         /// The Id

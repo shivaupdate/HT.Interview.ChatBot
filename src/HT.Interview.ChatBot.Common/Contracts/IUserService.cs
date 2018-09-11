@@ -15,6 +15,6 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get users async
         /// </summary>
         /// <param name="uq"></param>
-        Task<Response<IEnumerable<User>>> GetUsersAsync(UserQuery uq); 
+        Task<Response<IEnumerable<User>>> GetUsersAsync(UserRequest uq); 
     }
 }
