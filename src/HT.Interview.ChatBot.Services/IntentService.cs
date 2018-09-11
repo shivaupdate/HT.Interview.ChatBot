@@ -69,6 +69,7 @@ namespace HT.Interview.ChatBot.Services
                     string message = _resourceService.GetString(Common.Constants.UpdateIntentRequestIsNull);
                     return Response.Fail(message, ResponseType.InvalidRequest);
                 }
+
                 Intent i = await GetIntentById(intent.Id);
                 if (i == null)
                 {
@@ -76,6 +77,7 @@ namespace HT.Interview.ChatBot.Services
                     return Response.Fail(message, ResponseType.ResourceNotFound);
                 }
 
+                i.DialogflowIntentId = intent.DialogflowIntentId;
                 i.DialogflowGeneratedName = intent.DialogflowGeneratedName;
                 i.DialogflowGeneratedIntent = intent.DialogflowGeneratedIntent;
                 i.ModifiedOn = DateTime.UtcNow.Date;

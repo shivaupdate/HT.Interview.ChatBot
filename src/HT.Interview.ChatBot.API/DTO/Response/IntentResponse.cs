@@ -97,6 +97,14 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         public ICollection<IntentSuggestionResponse> IntentSuggestionResponse { get; set; }
 
         /// <summary>
+        /// Get or sets the dialogflow dialogflow intent id
+        /// </summary>
+        /// <value>
+        /// The DialogflowIntentId
+        /// </value> 
+        public string DialogflowIntentId { get; set; }
+
+        /// <summary>
         /// Get or sets the dialogflow generated name
         /// </summary>
         /// <value>
