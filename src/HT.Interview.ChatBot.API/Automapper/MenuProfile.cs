@@ -22,7 +22,8 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public MenuProfile()
         { 
-            CreateMap<Menu, MenuResponse>(); 
+            CreateMap<Menu, MenuResponse>();
+            CreateMap<MenuRequest, Model.MenuRequest>();
         }
     }
 }

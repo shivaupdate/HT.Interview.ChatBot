@@ -8,7 +8,7 @@ namespace HT.Interview.ChatBot.Common.Entities
     public class InterviewTypeCompetenceMapping
     {
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the InterviewTypeId
         /// </summary>
         /// <value>
         /// The Id
@@ -18,7 +18,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int InterviewTypeId { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CompetenceId
         /// </summary>
         /// <value>
         /// The Id
@@ -27,11 +27,13 @@ namespace HT.Interview.ChatBot.Common.Entities
         [Required]
         public int CompetenceId { get; set; }
 
+
+
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CreatedBy
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CreatedBy
         /// </value> 
 
         [Required]
@@ -39,10 +41,10 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the CreatedOn
         /// </summary>
         /// <value>
-        /// The Id
+        /// The CreatedOn
         /// </value> 
 
         [Required]
@@ -50,22 +52,23 @@ namespace HT.Interview.ChatBot.Common.Entities
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the ModifiedBy
         /// </summary>
         /// <value>
-        /// The Id
+        /// The ModifiedBy
         /// </value> 
 
         public string ModifiedBy { get; set; }
 
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the ModifiedOn
         /// </summary>
         /// <value>
-        /// The Id
+        /// The ModifiedOn
         /// </value> 
 
         public DateTime? ModifiedOn { get; set; }
+
     }
 }

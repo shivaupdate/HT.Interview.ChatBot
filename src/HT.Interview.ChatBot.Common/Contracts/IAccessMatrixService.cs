@@ -2,6 +2,7 @@
 using HT.Interview.ChatBot.Common.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+//using HT.Interview.ChatBot.API.DTO.Request;
 
 namespace HT.Interview.ChatBot.Common.Contracts
 {

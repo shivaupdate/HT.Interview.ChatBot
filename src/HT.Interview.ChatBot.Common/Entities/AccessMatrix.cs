@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// User model
+    /// AccessMatrix model
     /// </summary>
     public class AccessMatrix
     {
@@ -19,10 +19,10 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the roleId
         /// </summary>
         /// <value>
-        /// The Id
+        /// The roleId
         /// </value> 
 
 
@@ -31,10 +31,10 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int RoleId { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the menuId
         /// </summary>
         /// <value>
-        /// The Id
+        /// The menuId
         /// </value> 
 
         [Required]

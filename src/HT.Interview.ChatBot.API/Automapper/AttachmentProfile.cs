@@ -22,7 +22,8 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public AttachmentProfile()
         { 
-            CreateMap<Attachment, AttachmentResponse>(); 
+            CreateMap<Attachment, AttachmentResponse>();            
+            CreateMap<AttachmentRequest, Model.AttachmentRequest>();
         }
     }
 }
