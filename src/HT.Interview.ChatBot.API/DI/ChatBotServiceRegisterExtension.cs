@@ -29,6 +29,7 @@ namespace HT.Interview.ChatBot.API.DI
             builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<IntentService>().As<IIntentService>();
+            builder.RegisterType<InterviewService>().As<IInterviewService>();
             builder.RegisterType<ApiAiHttpClient>().As<IHttpClient>();
             builder.AddResourceService<Resources.Resources>(Common.Constants.ResourceComponent);
         }

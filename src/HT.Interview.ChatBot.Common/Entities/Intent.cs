@@ -105,9 +105,9 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the dialogflow dialogflow intent id
         /// </summary>
         /// <value>
-        /// The DialogflowIntentId
+        /// The DialogflowGeneratedIntentId
         /// </value> 
-        public string DialogflowIntentId { get; set; }
+        public string DialogflowGeneratedIntentId { get; set; }
 
         /// <summary>
         /// Get or sets the dialogflow generated name

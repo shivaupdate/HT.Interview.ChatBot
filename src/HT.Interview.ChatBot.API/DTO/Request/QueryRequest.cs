@@ -21,6 +21,16 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         public int CandidateId { get; set; }
 
         /// <summary>
+        /// Dialogflow generated intent id
+        /// </summary>
+        public string DialogflowGeneratedIntentId { get; set; }
+
+        /// <summary>
+        /// Time taken
+        /// </summary>
+        public int? TimeTaken { get; set; }
+
+        /// <summary>
         /// The natural language text to be processed. The request can have multiple query parameters. 
         /// </summary>
         public string[] Query { get; set; }
