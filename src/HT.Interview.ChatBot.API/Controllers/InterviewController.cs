@@ -72,18 +72,21 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get async
         /// </summary>
+        /// <param name="q"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
-        public async Task<ActionResult> GetAsync([FromQuery] string query)
+        public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
         {
-            QueryRequest q = new QueryRequest()
+            //QueryRequest q = new QueryRequest()
+            //{
+            //    Query = new string[] { query },
+            //    SessionId = "1",
+            //    Lang = Common.Enums.Language.English
+            //}; 
+            if (string.IsNullOrWhiteSpace(q.SessionId))
             {
-                Query = new string[]{ query },
-                SessionId = "1",
-                Lang = Common.Enums.Language.English
-            };
-
-
+                q.SessionId = "1";
+            } 
             return await GetResponseAsync(async () => await _httpClient.GetAsync<QueryResponse>(q.ToQueryString()));
         }
 

@@ -5,8 +5,21 @@ namespace HT.Interview.ChatBot.API.DTO.Request
     /// <summary>
     /// QueryRequest
     /// </summary>
-    public class QueryRequest  
-    { 
+    public class QueryRequest
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public QueryRequest()
+        {
+            Language = Language.English;
+        }
+
+        /// <summary>
+        /// Candidate Id
+        /// </summary>
+        public int CandidateId { get; set; }
+
         /// <summary>
         /// The natural language text to be processed. The request can have multiple query parameters. 
         /// </summary>
@@ -24,9 +37,9 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         public string SessionId { get; set; }
 
         /// <summary>
-        /// Language tag.
+        /// Language
         /// </summary>
-        public Language Lang { get; set; }
+        public Language Language { get; set; }
 
         /// <summary>
         /// Array of additional input context objects.
@@ -56,6 +69,6 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         /// <summary>
         /// Full request coming from the integrated platform (Facebook Messenger, Slack, etc.) 
         /// </summary>
-        public OriginalRequest OriginalRequest { get; set; } 
+        public OriginalRequest OriginalRequest { get; set; }
     }
 }
