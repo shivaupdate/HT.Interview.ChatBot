@@ -36,8 +36,7 @@ export class ChatService {
     const message = new Message();
     message.timestamp = new Date();
     message.response = response;
-    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
-    console.log(this.dialogflowGeneratedIntentId);
+    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;   
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
   }

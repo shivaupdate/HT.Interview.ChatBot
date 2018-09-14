@@ -60,7 +60,7 @@ namespace HT.Interview.ChatBot.API
             services.AddCors(options =>
             {
                 options.AddPolicy("InterviewChatBot",
-                    policy => policy.WithOrigins("http://localhost:4200"));
+                    policy => policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
             });
 
             services.AddLogging();
@@ -105,7 +105,7 @@ namespace HT.Interview.ChatBot.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors();
+             app.UseCors("InterviewChatBot");
             app.UseSwagger();
             app.UseSwaggerUI(ui =>
             {
