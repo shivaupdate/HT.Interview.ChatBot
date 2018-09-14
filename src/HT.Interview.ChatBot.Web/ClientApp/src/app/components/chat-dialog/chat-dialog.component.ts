@@ -3,7 +3,7 @@ import { Message } from '../../models/message';
 import { ChatService } from '../../services/chat.service';
 import { SpeechService } from '../../services/speech.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/scan';      
+import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
@@ -30,14 +30,15 @@ export class ChatDialogComponent {
     var _this = this;
 
     this.chat.conversation.subscribe(res => {
-      res.forEach(function (value) {      
+      res.forEach(function (value) {
         value.response.result.fulfillment.messages.forEach(function (response) {
-          //if response type is payload which holds the allocated time value
-          if (response.type == 4) {
+          // if response type is payload which holds the allocated time value
+          if (response.type === 4) {
             var allocatedTime = Number(response.payload.timer);
             _this.message.allocatedTime = Observable.timer(0, _this.tick)
               .take(allocatedTime)
-              .map(() => --allocatedTime);     
+              .map(() => --allocatedTime);
+          }
         });
       });
     });
@@ -49,22 +50,21 @@ export class ChatDialogComponent {
       this.started = true;
       this.speech.record()
         .subscribe(
-          //listener
+          // listener
           (value) => {
             this.message.query = value;
             this.chat.converse(this.message);
             this.resetControls();
           },
-          //errror
+          // errror
           (err) => {
-            if (err.error == "no-speech") {
+            if (err.error === 'no-speech') {
               this.started = false;
               this.toggleVoiceRecognition();
-              //TODO: Show error message
+              // TODO: Show error message
             }
           });
-    }
-    else {
+    } else {
       this.started = false;
       this.speech.destroySpeechObject();
     }
