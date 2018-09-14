@@ -62,7 +62,7 @@ namespace HT.Interview.ChatBot.API.DTO
                             result[i] = ApiAiJson<ImageMessageResponse>.Deserialize(jArray[i].ToString());
                             break;
 
-                        case Enums.Type.Payload:
+                        case Enums.Type.Custom_Payload:
                             result[i] = ApiAiJson<PayloadMessageResponse>.Deserialize(jArray[i].ToString());
                             break;
 
