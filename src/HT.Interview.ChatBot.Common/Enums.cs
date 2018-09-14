@@ -90,7 +90,7 @@ namespace HT.Interview.ChatBot.Common
             /// <summary>
             /// Payload
             /// </summary> 
-            Payload,
+            Custom_Payload,
 
             /// <summary>
             /// Simple response

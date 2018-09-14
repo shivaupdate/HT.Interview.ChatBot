@@ -68,7 +68,16 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ExpectedAnswer
         /// </value>  
         public string ExpectedAnswer { get; set; }
-         
+
+        /// <summary>
+        /// Get or sets the allocated time
+        /// </summary>
+        /// <value>
+        /// The AllocatedTime
+        /// </value> 
+
+        public int AllocatedTime { get; set; }
+
         /// <summary>
         /// Get or sets the intent competence mapping
         /// </summary>

@@ -2,6 +2,20 @@ html {
   height: 100%;
 }
 
+#lc_chat_layout #lc_chat_header #lc_chat_title_left {
+  color: #ffffff;
+  font: bold;
+  font-family: Calibri;
+  float: left;
+}
+
+#lc_chat_layout #lc_chat_header #lc_chat_title_right {
+  color: #ffffff;
+  font: bold;
+  font-family: Calibri;
+  float: right;
+}
+
 #lc_chat_layout {
   display: block;
   text-align: left !important;
@@ -13,7 +27,7 @@ html {
   border: outset #000000 !important;
   width: 95%;
   margin-left: 45px;
- /* width: 75%;
+  /* width: 75%;
   margin: 0 auto;*/
   border-bottom: outset #000000 !important;
 }
@@ -31,12 +45,6 @@ html {
     border-right: outset #ed3e3e !important;
   }
 
-
-    #lc_chat_layout #lc_chat_header #lc_chat_title {
-      color: #ffffff;
-      font: bold;
-      font-family: Calibri;
-    }
 
   #lc_chat_layout #lc_chat_container {
     min-height: 325px;
