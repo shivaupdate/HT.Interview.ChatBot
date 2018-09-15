@@ -1,7 +1,7 @@
 <div id="lc_chat_layout" class="bg">
   <div id="lc_chat_header">
     <span id="lc_chat_title_left">Live Chat Conversation</span>
-    <span id="lc_chat_title_right" *ngIf="message.allocatedTime > '0'">Time Remaining : {{message.allocatedTime | async}}</span>
+    <span id="lc_chat_title_right" *ngIf="message.allocatedTime | async">Time Remaining : {{message.allocatedTime | async}}</span>
   </div>
   <div id="countDown"></div>
   <div id="lc_chat_container">

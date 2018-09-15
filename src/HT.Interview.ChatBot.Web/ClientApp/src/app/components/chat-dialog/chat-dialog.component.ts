@@ -33,8 +33,9 @@ export class ChatDialogComponent {
       res.forEach(function (value) {
         value.response.result.fulfillment.messages.forEach(function (response) {
           // if response type is payload which holds the allocated time value
+          var allocatedTime = 0;
           if (response.type == 4) {
-            var allocatedTime = Number(response.payload.allocatedTime);
+            allocatedTime = Number(response.payload.allocatedTime);
             __this.message.allocatedTime = Observable.timer(0, __this.tick)
               .take(allocatedTime)
               .map(() => --allocatedTime);
