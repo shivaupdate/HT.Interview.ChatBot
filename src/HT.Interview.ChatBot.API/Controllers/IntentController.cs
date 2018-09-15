@@ -185,7 +185,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 Payload = new Struct()
             };
-            message.Payload.Fields.Add("AllocateTime", new Value { NumberValue = allocatedTime });
+            message.Payload.Fields.Add("allocatedTime", new Value { NumberValue = allocatedTime });
             return message;
         }
 
