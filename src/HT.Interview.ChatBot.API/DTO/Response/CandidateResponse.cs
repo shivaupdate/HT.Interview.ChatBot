@@ -18,7 +18,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
 
         public string PhotoUrl { get; set; }
 
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
 
         public string Email { get; set; }
 

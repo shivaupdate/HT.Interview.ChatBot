@@ -61,7 +61,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The Id
         /// </value> 
         [Required]
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
 
         [Required]
         public string Email { get; set; }

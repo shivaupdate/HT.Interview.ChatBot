@@ -40,6 +40,10 @@ namespace HT.Interview.ChatBot.Services
         {
             try
             {
+                candidate.GenderId = 1;
+                candidate.Mobile = "9820377007";
+                candidate.CreatedBy = candidate.Email;
+                candidate.CreatedOn = System.DateTime.Now;
                 _chatbotDataContext.Candidate.Add(candidate);
                 await _chatbotDataContext.SaveChangesAsync();
                 return Response.Ok();
@@ -80,6 +84,21 @@ namespace HT.Interview.ChatBot.Services
             IEnumerable<Candidate> Candidates = await _chatbotDataContext.Candidate.ToListAsync();
             // TODO: Search Candidates result list against search parameters
             return Response.Ok(Candidates);
+        }
+
+        public async Task<Response<IEnumerable<Candidate>>> GetCandidatesAsync()
+        {
+            try
+            {
+                IEnumerable<Candidate> Candidates = await _chatbotDataContext.Candidate.ToListAsync();
+                // TODO: Search Candidates result list against search parameters
+                return Response.Ok(Candidates);
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
         }
 
         public async Task<Response> UpdateCandidateAsync(Candidate candidate)

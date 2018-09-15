@@ -19,6 +19,8 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// <returns></returns>
         Task<Response<IEnumerable<Candidate>>> GetCandidatesAsync(Candidate candidate);
 
+        Task<Response<IEnumerable<Candidate>>> GetCandidatesAsync();
+
         /// <summary>
         /// Add Candidate async
         /// </summary>
