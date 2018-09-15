@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Google.Cloud.Dialogflow.V2;
+using Google.Protobuf.WellKnownTypes;
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
@@ -73,6 +74,11 @@ namespace HT.Interview.ChatBot.API.Controllers
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
+
+                        if (intentResponse.AllocatedTime > 0)
+                        {
+                            intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
+                        }
 
                         if (intentResponse.ParentIntentId != null)
                         {
@@ -151,7 +157,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
-        /// Add intent default
+        /// Add default intent
         /// </summary>
         /// <param name="defaultResponse"></param>
         /// <returns></returns>
@@ -159,10 +165,27 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             Text text = new Text();
             text.Text_.Add(defaultResponse);
+
             Message message = new Message()
             {
                 Text = text
             };
+
+            return message;
+        }
+
+        /// <summary>
+        /// Add custom payload
+        /// </summary>
+        /// <param name="allocatedTime"></param>
+        /// <returns></returns>
+        private Message AddCustomPayload(int allocatedTime)
+        {
+            Message message = new Message
+            {
+                Payload = new Struct()
+            };
+            message.Payload.Fields.Add("AllocateTime", new Value { NumberValue = allocatedTime });
             return message;
         }
 
