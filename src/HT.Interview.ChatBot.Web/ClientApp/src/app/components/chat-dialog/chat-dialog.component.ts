@@ -27,17 +27,17 @@ export class ChatDialogComponent {
     this.speech.started.subscribe(started => this.started = started);
     this.chat.defaultIntent();
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
-    var _this = this;
+    //var _this = this;  
 
     this.chat.conversation.subscribe(res => {
       res.forEach(function (value) {
         value.response.result.fulfillment.messages.forEach(function (response) {
           // if response type is payload which holds the allocated time value
           if (response.type == 4) {
-            var allocatedTime = Number(response.payload.allocatedTime);
-            _this.message.allocatedTime = Observable.timer(0, _this.tick)
-              .take(allocatedTime)
-              .map(() => --allocatedTime);
+            //var allocatedTime = Number(response.payload.allocatedTime);
+            //_this.message.allocatedTime = Observable.timer(0, _this.tick)
+            //  .take(allocatedTime)
+            //  .map(() => --allocatedTime);
           }
         });
       });
