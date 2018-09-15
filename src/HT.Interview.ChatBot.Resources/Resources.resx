@@ -123,8 +123,14 @@
   <data name="IntentsNotFound" xml:space="preserve">
     <value>No intent found</value>
   </data>
+  <data name="InterviewByIdNotFound" xml:space="preserve">
+    <value>Interview by specified Id not found</value>
+  </data>
   <data name="UpdateIntentRequestIsNull" xml:space="preserve">
     <value>Update intent request is null</value>
+  </data>
+  <data name="UpdateInterviewRequestIsNull" xml:space="preserve">
+    <value>Update interview request is null</value>
   </data>
   <data name="UsersNoRecordFound" xml:space="preserve">
     <value>User records not found</value>

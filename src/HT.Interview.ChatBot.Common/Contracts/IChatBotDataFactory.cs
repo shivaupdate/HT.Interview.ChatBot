@@ -113,6 +113,12 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get Employee service
         /// </summary>
         /// <returns></returns>
-        IEmployeeService GetEmployeeService(); 
+        IEmployeeService GetEmployeeService();
+
+        /// <summary>
+        /// Get interview service
+        /// </summary>
+        /// <returns></returns>
+        IInterviewService GetInterviewService(); 
     }
 }

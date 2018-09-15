@@ -28,6 +28,22 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int? ParentIntentId { get; set; }
 
         /// <summary>
+        /// Get or sets the input context
+        /// </summary>
+        /// <value>
+        /// The InputeContext
+        /// </value>  
+        public string InputContext { get; set; }
+
+        /// <summary>
+        /// Get or sets the output context
+        /// </summary>
+        /// <value>
+        /// The OutputContext
+        /// </value>  
+        public string OutputContext { get; set; }
+
+        /// <summary>
         /// Get or sets the display name
         /// </summary>
         /// <value>
@@ -52,7 +68,16 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ExpectedAnswer
         /// </value>  
         public string ExpectedAnswer { get; set; }
-         
+
+        /// <summary>
+        /// Get or sets the allocated time
+        /// </summary>
+        /// <value>
+        /// The AllocatedTime
+        /// </value> 
+
+        public int AllocatedTime { get; set; }
+
         /// <summary>
         /// Get or sets the intent competence mapping
         /// </summary>
@@ -86,11 +111,19 @@ namespace HT.Interview.ChatBot.Common.Entities
         public ICollection<IntentSuggestion> IntentSuggestion { get; set; }
 
         /// <summary>
+        /// Get or sets the dialogflow dialogflow intent id
+        /// </summary>
+        /// <value>
+        /// The DialogflowGeneratedIntentId
+        /// </value> 
+        public string DialogflowGeneratedIntentId { get; set; }
+
+        /// <summary>
         /// Get or sets the dialogflow generated name
         /// </summary>
         /// <value>
         /// The DialogFlowGeneratedName
-        /// </value> C
+        /// </value> 
         public string DialogflowGeneratedName { get; set; }
 
         /// <summary>
@@ -100,6 +133,15 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The DialogFlowGeneratedIntent
         /// </value>  
         public string DialogflowGeneratedIntent { get; set; }
+
+        /// <summary>
+        /// Get or sets the is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value> 
+        [Required]
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Get or sets the created by

@@ -192,6 +192,16 @@ namespace HT.Interview.ChatBot.Services
         public IAccessMatrixService GetAccessMatrixService()
         {
             return _dependencyResolver.Resolve<IAccessMatrixService>();
-        } 
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Interview service
+        /// </summary>
+        /// <returns></returns>
+        public IInterviewService GetInterviewService()
+        {
+            return _dependencyResolver.Resolve<IInterviewService>();
+        }
     }
 }

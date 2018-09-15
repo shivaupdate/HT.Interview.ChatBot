@@ -22,7 +22,8 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public CompetenceLevelProfile()
         { 
-            CreateMap<CompetenceLevel, CompetenceLevelResponse>(); 
+            CreateMap<CompetenceLevel, CompetenceLevelResponse>();
+            CreateMap<CompetenceLevelRequest, Model.CompetenceLevelRequest>();
         }
     }
 }

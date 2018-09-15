@@ -43,9 +43,9 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
-        public async Task<ActionResult> GetManyAsync([FromQuery] Employee employee)
+        public async Task<ActionResult> GetManyAsync([FromQuery] EmployeeRequest employeeRequest)
         {
-            return await GetResponseAsync(async () => (await _employeeService.GetEmployeesAsync(employee))
+            return await GetResponseAsync(async () => (await _employeeService.GetEmployeesAsync(_mapper.Map<Employee>(employeeRequest)))
                 .GetMappedResponse<IEnumerable<Employee>, IEnumerable<EmployeeResponse>>(_mapper));
         }
 

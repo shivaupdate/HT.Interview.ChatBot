@@ -41,11 +41,12 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get many async
         /// </summary>
+        /// <param name="accessMatrixRequest"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
-        public async Task<ActionResult> GetManyAsync([FromQuery] AccessMatrix accessMatrix)
+        public async Task<ActionResult> GetManyAsync([FromQuery] AccessMatrixRequest accessMatrixRequest)
         {
-            return await GetResponseAsync(async () => (await _accessMatrixService.GetAccessMatrixsAsync(accessMatrix))
+            return await GetResponseAsync(async () => (await _accessMatrixService.GetAccessMatrixsAsync(_mapper.Map<AccessMatrix>(accessMatrixRequest)))
                 .GetMappedResponse<IEnumerable<AccessMatrix>, IEnumerable<AccessMatrixResponse>>(_mapper));
         }
 

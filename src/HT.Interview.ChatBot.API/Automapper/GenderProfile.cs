@@ -22,7 +22,8 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public GenderProfile()
         { 
-            CreateMap<Gender, GenderResponse>(); 
+            CreateMap<Gender, GenderResponse>();
+            CreateMap<GenderRequest, Model.GenderRequest>();
         }
     }
 }

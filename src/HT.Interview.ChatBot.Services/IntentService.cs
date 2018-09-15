@@ -46,7 +46,7 @@ namespace HT.Interview.ChatBot.Services
             IEnumerable<Intent> intents = await _chatbotDataContext.Intent
                 .Include(x => x.IntentTrainingPhrase)
                 .Include(x => x.IntentParameter)
-                .Include(x => x.IntentSuggestion).AsNoTracking().ToListAsync();
+                .Include(x => x.IntentSuggestion).Where(x => x.IsActive == true).AsNoTracking().ToListAsync();
 
             if (intents.Any()) return Response.Ok(intents);
             {
@@ -69,13 +69,15 @@ namespace HT.Interview.ChatBot.Services
                     string message = _resourceService.GetString(Common.Constants.UpdateIntentRequestIsNull);
                     return Response.Fail(message, ResponseType.InvalidRequest);
                 }
-                Intent i = await GetIntentById(intent.Id);
+
+                Intent i = await GetIntentByIdAsync(intent.Id);
                 if (i == null)
                 {
                     string message = string.Format(_resourceService.GetString(Common.Constants.IntentByIdNotFound), intent.Id);
                     return Response.Fail(message, ResponseType.ResourceNotFound);
                 }
 
+                i.DialogflowGeneratedIntentId = intent.DialogflowGeneratedIntentId;
                 i.DialogflowGeneratedName = intent.DialogflowGeneratedName;
                 i.DialogflowGeneratedIntent = intent.DialogflowGeneratedIntent;
                 i.ModifiedOn = DateTime.UtcNow.Date;
@@ -93,6 +95,17 @@ namespace HT.Interview.ChatBot.Services
             }
         }
 
+        /// <summary>
+        /// Get interview by candidate id and intent id
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <param name="intentId"></param>
+        /// <returns></returns>
+        public async Task<Intent> GetIntentByDialogflowGeneratedIntentIdAsync(string dialogflowGeneratedIntentId)
+        {
+            return await _chatbotDataContext.Intent.FirstOrDefaultAsync(x => x.DialogflowGeneratedIntentId == dialogflowGeneratedIntentId);
+        }
+
         #endregion
 
         #region Private Functions
@@ -102,7 +115,7 @@ namespace HT.Interview.ChatBot.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        private async Task<Intent> GetIntentById(int id)
+        private async Task<Intent> GetIntentByIdAsync(int id)
         {
             return await _chatbotDataContext.Intent.FirstOrDefaultAsync(x => x.Id == id);
         }

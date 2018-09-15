@@ -18,29 +18,29 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the first name
+        /// Get or sets the EmployeeNo
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The EmployeeNo
         /// </value> 
         [Required]
         public int EmployeeNo { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the UserName
         /// </summary>
         /// <value>
-        /// The Id
+        /// The UserName
         /// </value> 
 
         [Required]
         public string UserName { get; set; }
 
         /// <summary>
-        /// Get or sets the id
+        /// Get or sets the RoleId
         /// </summary>
         /// <value>
-        /// The Id
+        /// The RoleId
         /// </value> 
 
         [Required]

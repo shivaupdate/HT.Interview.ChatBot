@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Google.Cloud.Dialogflow.V2;
+using Google.Protobuf.WellKnownTypes;
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
@@ -74,9 +75,24 @@ namespace HT.Interview.ChatBot.API.Controllers
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
 
+                        if (intentResponse.AllocatedTime > 0)
+                        {
+                            intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
+                        }
+
                         if (intentResponse.ParentIntentId != null)
                         {
                             intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().DialogflowGeneratedName;
+                        }
+
+                        if (intentResponse.InputContext != null)
+                        {
+                            intent.InputContextNames.Add(AddIntentInputContext(intentResponse.InputContext));
+                        }
+
+                        if (intentResponse.OutputContext != null)
+                        {
+                            intent.OutputContexts.Add(AddIntentOutputContext(intentResponse.OutputContext));
                         }
 
                         if (intentResponse.IntentTrainingPhraseResponse.Any())
@@ -97,16 +113,14 @@ namespace HT.Interview.ChatBot.API.Controllers
 
                         if (intentResponse.IntentSuggestionResponse.Any())
                         {
-                            foreach (IntentSuggestionResponse suggestion in intentResponse.IntentSuggestionResponse)
-                            {
-                                intent.Messages.Add(AddIntentSuggestion(suggestion.Title));
-                            }
+                            intent.Messages.Add(AddIntentSuggestion(intentResponse.IntentSuggestionResponse.Select(x => x.Title).ToList()));
                         }
 
                         intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
+                        intentResponse.DialogflowGeneratedIntentId = intent.IntentName.IntentId;
                         intentResponse.DialogflowGeneratedName = intent.Name;
-                        intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent); 
-                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse)); 
+                        intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent);
+                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse));
                     }
                 }
             }
@@ -117,7 +131,33 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
-        /// Add intent default
+        /// Add intent input context
+        /// </summary>
+        /// <param name="inputContextName"></param>
+        /// <returns></returns>
+        private string AddIntentInputContext(string inputContextName)
+        {
+
+            return "projects/ht-interview-chatbot/agent/sessions/-/contexts/" + inputContextName;
+        }
+
+        /// <summary>
+        /// Add intent output context
+        /// </summary>
+        /// <param name="outputContextName"></param>
+        /// <returns></returns>
+        private Context AddIntentOutputContext(string outputContextName)
+        {
+            Context context = new Context()
+            {
+                LifespanCount = 2,
+                Name = "projects/ht-interview-chatbot/agent/sessions/-/contexts/" + outputContextName
+            };
+            return context;
+        }
+
+        /// <summary>
+        /// Add default intent
         /// </summary>
         /// <param name="defaultResponse"></param>
         /// <returns></returns>
@@ -125,10 +165,27 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             Text text = new Text();
             text.Text_.Add(defaultResponse);
+
             Message message = new Message()
             {
                 Text = text
             };
+
+            return message;
+        }
+
+        /// <summary>
+        /// Add custom payload
+        /// </summary>
+        /// <param name="allocatedTime"></param>
+        /// <returns></returns>
+        private Message AddCustomPayload(int allocatedTime)
+        {
+            Message message = new Message
+            {
+                Payload = new Struct()
+            };
+            message.Payload.Fields.Add("allocatedTime", new Value { NumberValue = allocatedTime });
             return message;
         }
 
@@ -170,6 +227,33 @@ namespace HT.Interview.ChatBot.API.Controllers
                 Value = param.Value,
                 IsList = param.IsList
             };
+        }
+
+        /// <summary>
+        /// Add intent suggestion
+        /// </summary>
+        /// <param name="titles"></param>
+        /// <returns></returns>
+        private Message AddIntentSuggestion(List<string> titles)
+        {
+            Suggestions suggestions = new Suggestions();
+
+            foreach (string title in titles)
+            {
+                Suggestion suggestion = new Suggestion
+                {
+                    Title = title
+                };
+
+                suggestions.Suggestions_.Add(suggestion);
+            }
+
+            Message message = new Message()
+            {
+                Suggestions = suggestions
+            };
+
+            return message;
         }
 
         /// <summary>
