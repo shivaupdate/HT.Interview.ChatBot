@@ -23,6 +23,18 @@ export class ChatService {
     );
   }
 
+  //// Sends and receives messages via DialogFlow
+  moveToNextIntent(query: string) {
+    this.cancelSpeechSynthesis(); 
+    this.getApiAiResponse(query).subscribe(
+      response => {
+        response.result.resolvedQuery = query;
+        console.log(query);
+        this.updateConversation(response);
+      }
+    );
+  }
+
   defaultIntent() {
     this.cancelSpeechSynthesis();
     this.getApiAiResponse("Hello").subscribe(
