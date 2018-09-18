@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="container" style="height:560px; padding-top:110px;">
+
+  <div class="form-group row">
+    <img src="{{userService?.googleUser?.photoUrl}}">
+  </div>
+  <div class="form-group row">    
+    First Name: {{userService?.googleUser?.firstName}} <br>
+    Last Name: {{userService?.googleUser?.lastName}} <br>
+    E-Mail : {{ userService?.googleUser?.email}}
+  </div>
+
+<button class="btn btn-primary" (click) = "CreateUser()">Confirm</button>
+<button class="btn btn-default" (click)= "CancelUser()">Cancel</button>  
+</div>

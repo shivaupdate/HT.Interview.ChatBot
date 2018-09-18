@@ -1,0 +1,78 @@
+<!--app-header></app-header-->
+<!--div class="container" style="height:560px; padding-top:110px;">
+  <br/>
+  <br/-->
+  <!-- <div class="form-group row">
+      <div class="col-md-4">
+         <input class="form-control" placeholder="e-Mail" type="text" id="emailId" name="emailId" width="300" [(ngModel)]="emailIdOfAnalyst"/>
+      </div>
+      <div class="col-md-4"> 
+        <select class="form-control " id="roleSelection" name="roleSelection" [(ngModel)]="selectedRole.ID" (ngModelChange)="onChange($event)">
+          <option *ngFor="let role of userRolesList" [ngValue]="role.ID">
+            {{role.RoleName}}
+          </option>
+        </select>  
+     </div> 
+     <div class="col-md-4">
+        <button class="btn btn-primary" (click)="AddUser()">Add User</button> 
+    </div> 
+  </div>
+   -->
+   
+   <div class="form-group row">
+      <label>Search</label>
+      <input type="text" [(ngModel)]="searchText">      
+   </div>
+
+  <table class="table demo one table-bordered">
+    <thead>
+      <th>User</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th> Edit   
+      </th>
+      <th>Remove</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userService?.userList | searchFilter: searchText">
+        <td>{{user.email}}</td>  
+        <td>{{user.name}}</td>
+        <td>
+          <div *ngIf="user.editMode == false">{{userRolesList[user.roleId-1].RoleName}}</div>
+          <div *ngIf="user.editMode == true">
+              <select class="form-control " id="roleSelection" name="roleSelection" [(ngModel)]="editRole.ID" (ngModelChange)="onChangeRole($event)">
+                <option *ngFor="let role of userRolesList" [ngValue]="role.ID">
+                  {{role.RoleName}}
+                </option>
+              </select>
+            </div>
+        </td>
+        <td>
+          <div *ngIf="userService?.googleUser?.email != user.email">
+            <span *ngIf="user.editMode != true" class="pointer margin-right-one" title="Edit">
+                <i class="glyphicon glyphicon-pencil" (click)="editUser(user)" style="cursor:pointer">
+                </i>
+              </span>
+            <span *ngIf="user.editMode != false" class="pointer margin-right-one" title="Save">
+                <i class="glyphicon glyphicon-floppy-disk" (click)="saveUserChanges(user)" style="cursor:pointer">
+                </i>
+              </span>
+              <span *ngIf="user.editMode != false" class="pointer" title="Cancel">
+                <i class="glyphicon glyphicon-remove" (click)="cancelUserChanges(user)" style="cursor:pointer">
+                </i>
+              </span>
+            </div>
+        </td>
+        <td>
+            <div *ngIf="userService?.googleUser?.email != user.email">
+                <span title="Delete">
+                  <i class="glyphicon glyphicon-trash" style="cursor:pointer" (click)="DeleteUser(user)">
+                  </i>
+                </span>
+              </div>
+        </td>        
+      </tr>
+    </tbody>
+  </table>
+
+<!--/div-->

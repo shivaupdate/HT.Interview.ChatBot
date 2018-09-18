@@ -36,6 +36,36 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
+        public async Task<Response> AddEmployeeAsync(Employee employee)
+        {
+            try
+            {
+                _chatbotDataContext.Employee.Add(employee);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public async Task<Response> DeleteEmployeeAsync(Employee employee)
+        {
+            try
+            {
+                _chatbotDataContext.Employee.Remove(employee);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         #region Get Employees
 
         /// <summary>
@@ -50,6 +80,21 @@ namespace HT.Interview.ChatBot.Services
             IEnumerable<Employee> Employees = await _chatbotDataContext.Employee.ToListAsync();
             // TODO: Search Employees result list against search parameters
             return Response.Ok(Employees);
+        }
+
+        public async Task<Response> UpdateEmployeeAsync(Employee employee)
+        {
+            try
+            {
+                _chatbotDataContext.Employee.Update(employee);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
         }
 
         #endregion
