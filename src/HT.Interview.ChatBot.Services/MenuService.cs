@@ -36,6 +36,33 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
+        /// <summary>
+        /// Get Menus async
+        /// </summary>
+        /// <param name="menu class"></param>
+        /// <returns></returns>
+        public async Task<Response> AddMenuAsync(Menu menu)
+        {
+            try
+            {
+                _chatbotDataContext.Menu.Add(menu);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public async Task<Response> DeleteMenuAsync(Menu menu)
+        {
+            _chatbotDataContext.Menu.Remove(menu);
+            await _chatbotDataContext.SaveChangesAsync();
+            return Response.Ok();
+        }
+
         #region Get Menus
 
         /// <summary>
@@ -51,8 +78,14 @@ namespace HT.Interview.ChatBot.Services
             // TODO: Search Menu result list against search parameters
             return Response.Ok(Menus);
         }
-
         #endregion
+
+        public async Task<Response> UpdateMenuAsync(Menu menu)
+        {
+            _chatbotDataContext.Menu.Update(menu);
+            await _chatbotDataContext.SaveChangesAsync();
+            return Response.Ok();
+        }
 
         #endregion
     }

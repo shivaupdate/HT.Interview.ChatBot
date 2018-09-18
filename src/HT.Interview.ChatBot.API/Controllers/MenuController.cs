@@ -48,7 +48,24 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => (await _menuService.GetMenusAsync(id, options, createdyBy))
                 .GetMappedResponse<IEnumerable<Menu>, IEnumerable<MenuResponse>>(_mapper));
         }
-         
+
+        [HttpPost]
+        public async Task<ActionResult> AddMenu(Menu menu)
+        {
+            return await GetResponseAsync(async () => (await _menuService.AddMenuAsync(menu)));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateMenu(Menu menu)
+        {
+            return await GetResponseAsync(async () => (await _menuService.UpdateMenuAsync(menu)));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteMenu(Menu menu)
+        {
+            return await GetResponseAsync(async () => (await _menuService.DeleteMenuAsync(menu)));
+        }
         #endregion
     }
 }

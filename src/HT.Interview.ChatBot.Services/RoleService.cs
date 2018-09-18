@@ -35,6 +35,36 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
+        public async Task<Response> AddRoleAsync(Role role)
+        {
+            try
+            {
+                _chatbotDataContext.Role.Add(role);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
+        public async Task<Response> DeleteRoleAsync(Role role)
+        {
+            try
+            {
+                _chatbotDataContext.Role.Remove(role);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         #region Get Roles
 
         /// <summary>
@@ -49,6 +79,21 @@ namespace HT.Interview.ChatBot.Services
             IEnumerable<Role> roles = await _chatbotDataContext.Role.ToListAsync();
             // TODO: Search roles result list against search parameters
             return Response.Ok(roles);
+        }
+
+        public async Task<Response> UpdateRoleAsync(Role role)
+        {
+            try
+            {
+                _chatbotDataContext.Role.Update(role);
+                await _chatbotDataContext.SaveChangesAsync();
+                return Response.Ok();
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
         }
 
         #endregion

@@ -49,7 +49,24 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => (await _accessMatrixService.GetAccessMatrixsAsync(_mapper.Map<AccessMatrix>(accessMatrixRequest)))
                 .GetMappedResponse<IEnumerable<AccessMatrix>, IEnumerable<AccessMatrixResponse>>(_mapper));
         }
-         
+
+        [HttpPost]
+        public async Task<ActionResult> AddAccessMatrix(AccessMatrix accessMatrix)
+        {
+            return await GetResponseAsync(async () => (await _accessMatrixService.AddAccessMatrixAsync(accessMatrix)));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateAccessMatrix(AccessMatrix accessMatrix)
+        {
+            return await GetResponseAsync(async () => (await _accessMatrixService.UpdateAccessMatrixAsync(accessMatrix)));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteAccessMatrix(AccessMatrix accessMatrix)
+        {
+            return await GetResponseAsync(async () => (await _accessMatrixService.DeleteAccessMatrixAsync(accessMatrix)));
+        }
         #endregion
     }
 }

@@ -18,5 +18,28 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// <param name="createdBy"></param>
         /// <returns></returns>
         Task<Response<IEnumerable<Candidate>>> GetCandidatesAsync(Candidate candidate);
+
+        Task<Response<IEnumerable<Candidate>>> GetCandidatesAsync();
+
+        /// <summary>
+        /// Add Candidate async
+        /// </summary>
+        /// <param name="Candidate class"></param>      
+        /// <returns></returns>
+        Task<Response> AddCandidateAsync(Candidate candidate);
+
+        /// <summary>
+        /// Update Candidate async
+        /// </summary>
+        /// <param name="Candidate class"></param>      
+        /// <returns></returns>
+        Task<Response> UpdateCandidateAsync(Candidate candidate);
+
+        /// <summary>
+        /// Delete Candidate async
+        /// </summary>
+        /// <param name="Candidate class"></param>      
+        /// <returns></returns>
+        Task<Response> DeleteCandidateAsync(Candidate candidate);
     }
 }

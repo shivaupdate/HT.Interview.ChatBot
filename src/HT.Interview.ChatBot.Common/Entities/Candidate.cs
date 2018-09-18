@@ -5,7 +5,7 @@ namespace HT.Interview.ChatBot.Common.Entities
 {
     /// <inheritdoc />
     /// <summary>
-    /// Candidate model
+    /// User model
     /// </summary>
     public class Candidate
     {
@@ -15,7 +15,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Id
         /// </value> 
-        [Required]
+
         public int Id { get; set; }
 
         /// <summary>
@@ -28,50 +28,69 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Get or sets the LastName
+        /// Get or sets the Last Name
         /// </summary>
         /// <value>
-        /// The LastName
+        /// The Id
         /// </value> 
-
         [Required]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Get or sets the Email
+        /// Get or sets the Name
         /// </summary>
         /// <value>
-        /// The Email
+        /// The Id
         /// </value> 
+        [Required]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Get or sets the Photo ID
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value> 
+        [Required]
+        public string PhotoUrl { get; set; }
+
+        /// <summary>
+        /// Get or sets the Role ID
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value> 
+        [Required]
+        public int RoleId { get; set; }
 
         [Required]
         public string Email { get; set; }
 
         /// <summary>
-        /// Get or sets the GenderId
+        /// Get or sets the id
         /// </summary>
         /// <value>
-        /// The GenderId
+        /// The Id
         /// </value> 
 
         [Required]
         public int GenderId { get; set; }
 
         /// <summary>
-        /// Get or sets the Mobile
+        /// Get or sets the id
         /// </summary>
         /// <value>
-        /// The Mobile
+        /// The Id
         /// </value> 
 
         [Required]
         public string Mobile { get; set; }
 
         /// <summary>
-        /// Get or sets the CreatedBy
+        /// Get or sets the id
         /// </summary>
         /// <value>
-        /// The CreatedBy
+        /// The Id
         /// </value> 
 
         [Required]
