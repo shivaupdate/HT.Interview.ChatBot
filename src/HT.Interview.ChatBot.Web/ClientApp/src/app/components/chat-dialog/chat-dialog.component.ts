@@ -17,33 +17,76 @@ import 'rxjs/add/operator/take';
 export class ChatDialogComponent {
   @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
   started = false;
+  candidateId: Number;
+  sessionId: any;
   message = new Message();
   messages: Observable<Message[]>;
   query: string;
   countDown;
+  timerDelay = 0;
   tick = 1000;
+  countdownTimer: any;
+  allocatedTime = 0;
+  remainingTime = 0;
+
 
   constructor(public chat: ChatService, public speech: SpeechService) {
+    var __this = this;
+    this.message.candidateId = '1';
+    this.message.sessionId = 'Test';
+       
     this.speech.started.subscribe(started => this.started = started);
-    this.chat.defaultIntent();
+    this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
-    //var _this = this;  
 
     this.chat.conversation.subscribe(res => {
       res.forEach(function (value) {
         value.response.result.fulfillment.messages.forEach(function (response) {
-          // if response type is payload which holds the allocated time value
+
+          // if response type is payload which holds the allocated time value     
           if (response.type == 4) {
-            //var allocatedTime = Number(response.payload.allocatedTime);
-            //_this.message.allocatedTime = Observable.timer(0, _this.tick)
-            //  .take(allocatedTime)
-            //  .map(() => --allocatedTime);
+            var minutes;
+            var seconds;
+            __this.allocatedTime = Number(response.payload.allocatedTime);
+            __this.remainingTime = __this.allocatedTime;
+            if (__this.countdownTimer) {   
+              __this.message.remainingTime = '';
+              __this.countdownTimer.unsubscribe();
+            }
+
+            if (__this.remainingTime > 0) {
+
+              __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
+                minutes = Math.floor((__this.remainingTime % 3600) / 60);
+                seconds = Math.floor(__this.remainingTime % 60);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
+                __this.remainingTime = __this.remainingTime - 1;
+                
+                if (__this.remainingTime < 0) {
+                  console.log(__this.remainingTime);       
+                  __this.noReponseFromCandidate();
+                }
+              })
+            };
           }
         });
-      });
+      })
     });
   }
 
+  noReponseFromCandidate() {
+    this.remainingTime = 0;
+    this.allocatedTime = 0;
+    this.timerDelay = 5;
+    this.message.timeTaken = '';
+    this.message.query = 'Allocated time expired';
+    this.chat.moveToNextIntent(this.message);
+    this.resetControls();
+  }
 
   toggleVoiceRecognition() {
     if (!this.started) {
@@ -80,6 +123,7 @@ export class ChatDialogComponent {
 
   sendMessage() {
     this.message.query = this.query;
+    this.message.timeTaken = String(this.allocatedTime - this.remainingTime);
     this.chat.converse(this.message);
     this.query = '';
     this.resetControls();
@@ -92,6 +136,6 @@ export class ChatDialogComponent {
 
   resetControls() {
     this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollHeight - 300;
-    this.message = new Message();
+    //this.message = new Message();
   }
 }
