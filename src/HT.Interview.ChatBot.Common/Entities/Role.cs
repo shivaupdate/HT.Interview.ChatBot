@@ -14,7 +14,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The Id
         /// </value> 
 
-        [Required]
         public int Id { get; set; }
 
 

@@ -1,0 +1,123 @@
+﻿.navigation-component-container .navbar-inverse {
+    background-color: rgb(51,51,51);
+    border: none;
+    margin-bottom: 0px;
+    top: 0px;
+}
+
+.navbar {
+    padding: 0px 25px;
+}
+
+.navigation-component-container .navbar-nav {
+    font-size: 0;
+}
+
+.navigation-component-container .nav-item a {
+    border-bottom: 3px solid #333333;
+    padding: 26px 15px 14px 15px;
+    display: inline-block;
+    color: #BFBFBF!important;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer; /*remove this*/
+}
+
+.navigation-component-container .navbar-nav a:not(.disabled):hover {
+    color: #FFFFFF;
+    background-color: #191919!important;
+    border-bottom-color: #FFE600;
+}
+
+.navigation-component-container a.active-menu {
+    background-color: #191919!important;
+    border-bottom-color: #FFE600;
+    color: white;
+}
+
+.navigation-component-container a.hidden-button {
+    display: none;
+}
+
+.navigation-component-container .navbar-brand {
+    padding: 5px 15px;
+}
+
+.navigation-component-container .navbar-brand > img {
+    width: 50px;
+}
+
+.navigation-component-container {
+    background-color: #333333;  
+}
+
+.navigation-component-container .header-bar {
+    height: 30px;
+    background-color: #333333;  
+    border-bottom: 1px solid #484848;
+    margin:0 25px;
+}
+
+.navigation-component-container .header-bar  div:first-child {
+    height: 30px;
+    color: #9d9d9d;
+    padding: 8px 0px;
+    font-size: 12px;
+    display:inline-block;
+} 
+
+.navigation-component-container .header-bar .logged-user {
+    float:right;
+    color: #d3d3d3;
+    font-size: 12px;
+    height:40px;
+    padding: 8px 0px;
+
+}
+
+.navigation-component-container .header-bar .logged-user span:first-child {
+    padding-right:5px;
+}
+
+.navigation-component-container .header-bar .logged-user span:nth-child(2) {
+    cursor:pointer;
+}
+
+ .navigation-component-container .logoutBlock {
+    width: 150px;
+    position: absolute;
+    z-index: 1000;
+    right: 25px;
+    background: #000000;
+ }
+
+ .navigation-component-container .logoutBlock a {
+    color: #D3D3D3;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+ }
+
+.navigation-component-container .navbar-nav a.disabled {
+    cursor: default;
+}
+
+.msg {
+    position: relative;
+    background-color: rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    padding: 2px 10px;
+    font-size: 13px;
+    top: 20px;
+    left: 20px;
+}
+
+@keyframes ellipsis-loader {
+  to { width: 1.25em; }
+}
+
+@-webkit-keyframes ellipsis-loader {
+  to { width: 1.25em; }
+}
