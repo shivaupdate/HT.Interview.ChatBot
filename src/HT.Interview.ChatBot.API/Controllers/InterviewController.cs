@@ -75,24 +75,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
-        {
-            //QueryRequest q = new QueryRequest()
-            //{
-            //    Query = new string[] { query },
-            //    SessionId = "1",
-            //    Lang = Common.Enums.Language.English
-            //}; 
-
-            if (string.IsNullOrWhiteSpace(q.SessionId))
-            {
-                q.SessionId = "1";
-            }
-
-            if (q.CandidateId <= 0)
-            {
-                q.CandidateId = 1;
-            }
-
+        {  
             if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
             {
                 await _interviewService.UpdateInterviewAsync(q.CandidateId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken);

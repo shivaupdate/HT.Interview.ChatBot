@@ -1,22 +1,24 @@
-import { Inject, Injectable } from '@angular/core';      
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Message } from '../models/message';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';     
 
 @Injectable()
-export class ChatService {                                     
-  conversation = new BehaviorSubject<Message[]>([]);
-  dialogflowGeneratedIntentId = new Observable<string>();
-  constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }
+export class ChatService {
+  conversation = new BehaviorSubject<Message[]>([]);   
+  dialogflowGeneratedIntentId: string;
+  constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }          
+  webAPIUrl = environment.dialogflow.webAPIUrl + environment.dialogflow.interviewController + "/get?";
 
   //// Sends and receives messages via DialogFlow
-  converse(userMessage: Message) {
+  converse(message: Message) {
     this.cancelSpeechSynthesis();
-    if (userMessage.query === "C#") {
-      userMessage.query = "Csharp";
-    }                                              
-    this.getApiAiResponse(userMessage.query).subscribe(
+    if (message.query === "C#") {
+      message.query = "Csharp";
+    }
+    this.getApiAiResponse(message).subscribe(
       response => {
         this.updateConversation(response);
       }
@@ -24,20 +26,20 @@ export class ChatService {
   }
 
   //// Sends and receives messages via DialogFlow
-  moveToNextIntent(query: string) {
-    this.cancelSpeechSynthesis(); 
-    this.getApiAiResponse(query).subscribe(
+  moveToNextIntent(message: Message) {
+    this.cancelSpeechSynthesis();
+    this.getApiAiResponse(message).subscribe(
       response => {
-        response.result.resolvedQuery = query;
-        console.log(query);
+        response.result.resolvedQuery = message.query;    
         this.updateConversation(response);
       }
     );
   }
 
-  defaultIntent() {
+  defaultIntent(message: Message) {
     this.cancelSpeechSynthesis();
-    this.getApiAiResponse("Hello").subscribe(
+    message.query = 'Hello';
+    this.getApiAiResponse(message).subscribe(
       response => {
         response.result.resolvedQuery = '';
         this.updateConversation(response);
@@ -47,8 +49,8 @@ export class ChatService {
   updateConversation(response: any) {
     const message = new Message();
     message.timestamp = new Date();
-    message.response = response;
-    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;   
+    message.response = response;               
+    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
   }
@@ -69,9 +71,15 @@ export class ChatService {
     speechSynthesis.speak(botVoice);
   }
 
-  getApiAiResponse(query): Observable<any> {
-    var url = "http://localhost:50463/api/v1/interview/get?Query=" + query + "&DialogflowGeneratedIntentId=" + this.dialogflowGeneratedIntentId;
+  getApiAiResponse(message: Message): Observable<any> {
+             
+    let params = new HttpParams();
+    params = params.append('CandidateId', message.candidateId);
+    params = params.append('SessionId', message.sessionId);  
+    params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);    
+    params = params.append('Query', message.query);
+    params = params.append('TimeTaken', message.timeTaken);
     
-    return this.http.get(url, { responseType: 'json' });
-  }
+    return this.http.get(this.webAPIUrl, { params });
+  }   
 }

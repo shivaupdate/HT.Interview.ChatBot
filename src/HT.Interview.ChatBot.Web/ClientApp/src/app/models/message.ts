@@ -1,10 +1,10 @@
 export class Message {
-  candidateId: Number;
-  sessionId: any;
-  dialogflowGeneratedIntentId: any;
-  timeTaken: Number;
+  candidateId: string;
+  sessionId: any;                    
+  timeTaken: string;
   response: any;
   query: string;
   timestamp: Date;
-  allocatedTime: any;
+  allocatedTime: string;
+  remainingTime: string;
 }
