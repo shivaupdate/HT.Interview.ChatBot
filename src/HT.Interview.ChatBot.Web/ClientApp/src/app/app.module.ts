@@ -74,10 +74,10 @@ const appRoutes: Routes = [
     HelpSectionModule,
     SpeechModule,
     SocialLoginModule.initialize(config),
-    //RouterModule.forRoot(appRoutes, { enableTracing: true})
-    RouterModule.forRoot([
-      { path: 'home', component: HomePageComponent, pathMatch: 'full' }
-    ])
+    RouterModule.forRoot(appRoutes, { enableTracing: true})
+    //RouterModule.forRoot([
+      //{ path: 'home', component: HomePageComponent, pathMatch: 'full' }
+    //])
   ],
   providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
