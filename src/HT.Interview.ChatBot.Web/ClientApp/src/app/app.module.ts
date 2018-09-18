@@ -42,7 +42,8 @@ let config = new AuthServiceConfig([
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: '', component: ChatDialogComponent },
+  { path: '', component: HomePageComponent },
+  { path: 'agent', component: ChatDialogComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'socialprofile', component: SocialUserProfileComponent }
@@ -73,9 +74,10 @@ const appRoutes: Routes = [
     HelpSectionModule,
     SpeechModule,
     SocialLoginModule.initialize(config),
+    //RouterModule.forRoot(appRoutes, { enableTracing: true})
     RouterModule.forRoot([
-      { path: '', component: HomePageComponent, pathMatch: 'full' }
-    ])  
+      { path: 'home', component: HomePageComponent, pathMatch: 'full' }
+    ])
   ],
   providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]

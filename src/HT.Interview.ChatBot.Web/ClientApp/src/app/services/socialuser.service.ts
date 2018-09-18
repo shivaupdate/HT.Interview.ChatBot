@@ -10,11 +10,11 @@ import { GoogleUser } from '../models/googleuser.model';
 @Injectable()
 export class UserService {
 
-  public googleUser : GoogleUser;
+  public googleUser: GoogleUser;
   public loggedIn: boolean;
-  public userList : GoogleUser[];
-  public activeModule:string;
-  constructor(private http: Http ) {
+  public userList: GoogleUser[];
+  public activeModule: string;
+  constructor(private http: Http) {
     this.googleUser = new GoogleUser();
   }
 

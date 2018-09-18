@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../services/data.service';
-import {NavigationComponent} from '../navigation-component/navigation.component';
+import { DataService } from '../../services/data.service';
+import { NavigationComponent } from '../navigation-component/navigation.component';
 import { UserService } from '../../services/socialuser.service'
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from '../../services/socialuser.service'
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public userService : UserService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
     console.log('Active Module:' + this.userService.activeModule)
