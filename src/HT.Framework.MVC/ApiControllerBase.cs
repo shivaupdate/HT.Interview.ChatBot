@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -19,6 +20,7 @@ namespace HT.Framework.MVC
         /// <typeparam name="T"></typeparam>
         /// <param name="codeToExecute"></param>
         /// <returns></returns>
+        [EnableCors("InterviewChatBot")]
         protected async Task<ActionResult> GetApiAiResponseAsync<T>(Func<Task<T>> codeToExecute)
         {
             ActionResult result;

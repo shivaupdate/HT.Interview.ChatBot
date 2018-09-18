@@ -3,17 +3,19 @@ html {
 }
 
 #lc_chat_layout #lc_chat_header #lc_chat_title_left {
-  color: #ffffff;
+  color: #000000;
   font: bold;
   font-family: Calibri;
   float: left;
+  font-weight: bold;
 }
 
 #lc_chat_layout #lc_chat_header #lc_chat_title_right {
-  color: #ffffff;
+  color: #000000;
   font: bold;
   font-family: Calibri;
   float: right;
+  font-weight: bold;
 }
 
 #lc_chat_layout {
@@ -38,18 +40,18 @@ html {
     height: 43px;
     padding: 10px;
     cursor: pointer;
-    color: white;
-    background: #ed3e3e;
-    border-top: outset #ed3e3e !important;
-    border-left: outset #ed3e3e !important;
-    border-right: outset #ed3e3e !important;
+    color: #000000;
+    background: rgb(93, 135, 155);
+    border-top: outset rgb(93, 135, 155) !important;
+    border-left: outset rgb(93, 135, 155) !important;
+    border-right: outset rgb(93, 135, 155) !important;
   }
 
 
   #lc_chat_layout #lc_chat_container {
     min-height: 325px;
     text-align: left;
-    background-color: hsla(0,0%,100%,.9) !important;
+    background-color: hsla(0,0%,100%,.8) !important;
     /*border-top: outset #000000 !important;
     border-left: outset #000000 !important;
     border-right: outset #000000 !important;*/
@@ -134,10 +136,10 @@ textarea:focus, select:focus {
 }
 
   .message.to {
-    background-color: #9bc8f1 !important;
-    color: #000000 !important;
+    background-color: #869322 !important;
+    color: #ffffff !important;
     margin-left: 30% !important;
-    text-align: right !important;
+    text-align: left !important;
   }
 
     .message.to img {
@@ -145,8 +147,8 @@ textarea:focus, select:focus {
     }
 
   .message.from {
-    background-color: #ecbc4f !important;
-    color: #0f0f0f !important;
+    background-color: #581845 !important;
+    color: #ffffff !important;
     margin-right: 40px !important;
     display: block !important;
     line-height: normal !important;
@@ -165,9 +167,21 @@ textarea:focus, select:focus {
     }
 
 .timestamp {
-  font-size: 0.7em;
+  font-size: 0.8em;
   float: right;
   font-weight: normal;
+  margin-top: -10px;
+}
+
+.noResponse {
+  background-color:black !important;
+  color: white !important;
+  border-radius: 10px;
+  margin: 0 15px 10px;
+  padding: 15px 20px;
+  position: relative;
+  font-family: Calibri;
+  font-weight: bold;
 }
 
 .avatar {
