@@ -74,11 +74,7 @@ namespace HT.Interview.ChatBot.API.Controllers
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
-
-                        if (intentResponse.AllocatedTime > 0)
-                        {
-                            intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
-                        }
+                        intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
 
                         if (intentResponse.ParentIntentId != null)
                         {

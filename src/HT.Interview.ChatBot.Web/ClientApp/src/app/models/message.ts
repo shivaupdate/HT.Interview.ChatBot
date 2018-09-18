@@ -1,6 +1,10 @@
 export class Message {
+  candidateId: string;
+  sessionId: any;                    
+  timeTaken: string;
   response: any;
   query: string;
   timestamp: Date;
-  allocatedTime: any;
+  allocatedTime: string;
+  remainingTime: string;
 }

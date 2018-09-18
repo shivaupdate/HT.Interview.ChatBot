@@ -4,5 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dialogflow: {                        
+    interviewAgent: 'f32467d4e47245c794456f5bd1cf8e0a',
+    webAPIUrl: 'http://localhost:50463/api/v1/',
+    interviewController: 'interview'
+  }
 };
