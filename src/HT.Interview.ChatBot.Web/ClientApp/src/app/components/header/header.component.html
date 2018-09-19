@@ -25,21 +25,31 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <!--a href="/dashboard">Dashboard</a-->
-            <a (click)="EnableDashboard()" style="cursor:pointer">Candidate Evaluation</a>
+            <a (click)="EnableDashboard()" style="cursor:pointer" [style.pointer-events]="userService?.loggedIn != true && userService?.dashboardAccess != true?'none':'auto'">Candidate Evaluation</a>
           </li>
           <li>
             <!--a href="/dashboard">Dashboard</a-->
-            <a (click)="EnableAgent()" style="cursor:pointer">Start Interview</a>
+            <a (click)="EnableAgent()" style="cursor:pointer" [style.pointer-events]="userService?.loggedIn != true && userService?.chatboatAccess != true ?'none':'auto'">Start Interview</a>
           </li>
           <li>
             <!--a href="/admin">User Management</a-->
             <a (click)="EnableAdmin()" style="cursor:pointer" [style.pointer-events]="userService?.googleUser?.roleId != 1 ?'none':'auto'">Admin</a>
           </li>
           <li>
-            <div class="logged-user pull-right">
-              <span *ngIf="userService?.loggedIn != true" (click)="socialSignIn()" style="cursor:pointer; color:darkgray">Login</span>
-              <span *ngIf="userService?.googleUser?.photoUrl != undefined && userService?.googleUser?.photoUrl != ''" class="headUserImg"> <img title={{userService?.googleUser?.name}} src="{{userService?.googleUser?.photoUrl}}" class="img-circle"></span>
+            <div class="" (mouseover)="hover=true" (mouseleave)="hover=false">
+              <span *ngIf="hover == false && userService?.loggedIn != true" (click)="socialSignIn()" style="cursor:pointer; color:darkgray">Login</span>
+              <div *ngIf="hover == true && userService?.loggedIn != true">
+                <!--<span style="cursor:pointer; color:darkgray" (click)="googleSignIn()"> Google</span>
+                <span style="cursor:pointer; color:darkgray" (click)="facebookSignIn()"> Facebook</span>-->
+                <img src="../../../assets/g-logo.png" height="30" width="30" (click)="googleSignIn()" />
+                <img src="../../../assets/flogo_rgb_hex-brc-site-250.png" height="30" width="30" (click)="facebookSignIn()" />
+              </div>
+              <span *ngIf="userService?.loggedIn == true && userService?.googleUser?.photoUrl != undefined && userService?.googleUser?.photoUrl != ''" class="headUserImg"> <img title={{userService?.googleUser?.name}} src="{{userService?.googleUser?.photoUrl}}" class="img-circle"></span>
             </div>
+          </li>
+          <li>
+            <!--a href="/admin">User Management</a-->
+            <a *ngIf="userService?.loggedIn == true" (click)="Logout()" style="cursor:pointer">Logout</a>
           </li>
         </ul>
       </div>

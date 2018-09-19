@@ -19,8 +19,11 @@ export class HeaderComponent implements OnInit {
   public loggedIn: boolean;
   public googleUser: GoogleUser;
   public userList: GoogleUser[];
+  public hover: boolean;
 
-  constructor(private authService: AuthService, private http: Http, private router: Router, public userService: UserService) { }
+  constructor(private authService: AuthService, private http: Http, private router: Router, public userService: UserService) {
+    this.hover = false;
+  }
 
   ngOnInit() {
     console.log('msg:' + this.userService.loggedIn);
@@ -55,6 +58,30 @@ export class HeaderComponent implements OnInit {
                 this.userService.googleUser = userTemp;
                 console.log(this.userService.googleUser);
 
+                if (userTemp.roleId == 1) {
+                  this.userService.adminAccess = true;
+                  this.userService.chatboatAccess = true;
+                  this.userService.dashboardAccess = true;
+                }
+
+                if (userTemp.roleId == 2) {
+                  this.userService.adminAccess = true;
+                  this.userService.chatboatAccess = false;
+                  this.userService.dashboardAccess = true;
+                }
+
+                if (userTemp.roleId == 3) {
+                  this.userService.adminAccess = false;
+                  this.userService.chatboatAccess = true;
+                  this.userService.dashboardAccess = false;
+                }
+
+                if (userTemp.roleId == 4) {
+                  this.userService.adminAccess = false;
+                  this.userService.chatboatAccess = false;
+                  this.userService.dashboardAccess = true;
+                }
+
                 this.userService.loggedIn = true;
                 this.userService.userList = this.userList;
 
@@ -75,10 +102,27 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  socialSignIn() {
+  googleSignIn() {
     console.log('Social user clicked...');
     this.userService.loggedIn = true;
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    //this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  facebookSignIn() {
+    this.userService.loggedIn = true;
+    //this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+  socialSignIn() {
+
+  }
+
+  Logout() {
+    this.userService.loggedIn = false;
+    this.userService.googleUser = null;
+    this.userService.activeModule = '';
+    this.router.navigate(['home']);
   }
 
   EnableDashboard() {
