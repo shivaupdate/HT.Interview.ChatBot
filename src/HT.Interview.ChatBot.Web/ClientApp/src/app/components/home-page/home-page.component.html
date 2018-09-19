@@ -1,5 +1,9 @@
 <app-header></app-header>
 <div class="container" style="height:560px; padding-top:110px;">
+  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
+    <app-camera></app-camera>
+  </div>
+  
   <div [hidden]="userService?.activeModule !== undefined && userService?.activeModule != ''">
     <h2>
       Welcome to Hexaware (Some welcome page content has to be decided)<br>

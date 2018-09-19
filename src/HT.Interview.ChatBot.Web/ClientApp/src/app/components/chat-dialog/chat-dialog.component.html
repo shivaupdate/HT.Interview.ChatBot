@@ -1,5 +1,5 @@
 <div id="lc_chat_layout" class="bg">
-  <div id="lc_chat_header">
+    <div id="lc_chat_header">
     <span id="lc_chat_title_left">Live Chat Conversation</span>
     <span id="lc_chat_title_right">{{message.remainingTime}}</span>
   </div>
@@ -11,7 +11,7 @@
         <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
           <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
             <div class="noResponse">
-             Time allocated for the last question has expired. Bot will automatically move to the next question.
+              Time allocated for the last question has expired. Bot will automatically move to the next question.
               <br />
             </div>
           </div>
@@ -36,7 +36,7 @@
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             {{message.timestamp | date : 'h:mm:ss a' }}
           </div>
-          <img src="../../assets/images/chatbot.png" class="avatar" />   
+          <img src="../../assets/images/chatbot.png" class="avatar" />
           {{ message.response.result.fulfillment.speech }}
           <div *ngFor="let r of message.response.result.fulfillment.messages">
             <div *ngIf="r.type === 5" class="chips">
