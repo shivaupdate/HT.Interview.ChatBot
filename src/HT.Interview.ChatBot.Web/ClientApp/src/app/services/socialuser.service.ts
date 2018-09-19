@@ -14,6 +14,9 @@ export class UserService {
   public loggedIn: boolean;
   public userList: GoogleUser[];
   public activeModule: string;
+  public dashboardAccess: boolean;
+  public chatboatAccess: boolean;
+  public adminAccess: boolean;
   constructor(private http: Http) {
     this.googleUser = new GoogleUser();
   }

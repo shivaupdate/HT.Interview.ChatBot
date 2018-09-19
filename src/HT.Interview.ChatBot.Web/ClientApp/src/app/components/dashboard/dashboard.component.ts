@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "../../services/socialuser.service";
+import { GoogleUser } from "../../models/googleuser.model";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  userList: GoogleUser[];
+  userRolesList: Role[];
   public message: string;
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
-    this.message= "Your last visit was: 05-09-2018 18:26";
-  }
+    this.userRolesList = [
+      {
+        ID: 1,
+        RoleName: "Admin"
+      },
+      {
+        ID: 2,
+        RoleName: "Human Resource"
+      },
+      {
+        ID: 3,
+        RoleName: "Candidate"
+      },
+      {
+        ID: 4,
+        RoleName: "Panelist"
+      }
 
+    ];
+    this.userList = this.userService.userList;
+    this.message = "Your last visit was: 05-09-2018 18:26";
+  }
+}
+
+export class Role {
+  ID: number;
+  RoleName: string;
 }
