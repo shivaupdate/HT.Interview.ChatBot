@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { RtcMediaRecorderModule } from './components/rtc-media-recorder/rtc-media-recorder.module';
 
 import { ChatModule } from './modules/chat.module';
 import { HelpSectionModule } from './modules/help-section.module';
@@ -74,7 +75,7 @@ const appRoutes: Routes = [
     ChatModule,
     HelpSectionModule,
     SpeechModule,
-    SocialLoginModule.initialize(config),
+    SocialLoginModule.initialize(config), RtcMediaRecorderModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true})
     //RouterModule.forRoot([
       //{ path: 'home', component: HomePageComponent, pathMatch: 'full' }

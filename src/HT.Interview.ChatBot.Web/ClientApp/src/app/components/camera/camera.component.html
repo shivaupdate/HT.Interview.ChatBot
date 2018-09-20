@@ -1,5 +1,33 @@
-<div>
-<h1>
-  Camera has to come here!
-</h1>
-</div>
+
+  <!--<div style="text-align:center">
+    <div>
+      <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+              [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+              (initError)="handleInitError($event)"></webcam>
+      <br />
+      <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+      <div class="actionBtn" (click)="showNextWebcam(true);" title="Switch Camera">🔁</div>
+    </div>
+  </div>
+
+  <h4 *ngIf="errors.length > 0">Messages:</h4>
+  <ul *ngFor="let error of errors">
+    <li>{{error | json}}</li>
+  </ul>-->
+  <div class="webrtc-demo-app">
+    <div>
+      <ng-rtc-media-recorder [constrains]="constrains"
+                             (startRecording)="announceStart($event)" (fetchRecording)="handleVideoStream($event)">
+      </ng-rtc-media-recorder>
+    </div>
+    <hr>
+    <!--<div>
+      <h2> RtcMediaRecorderComponent (showVideoPlayer=false) </h2>
+      <ng-rtc-media-recorder [constrains]="constrains"
+                             [showVideoPlayer]="false"
+                             (startRecording)="announceStart($event)" (fetchRecording)="handleVideoStream($event)">
+      </ng-rtc-media-recorder>
+    </div>-->
+    <hr>
+  </div>
+
