@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
@@ -14,10 +12,8 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Id
         /// </value> 
-
         [Required]
         public int Id { get; set; }
-
 
         /// <summary>
         /// Get or sets the Type
@@ -29,6 +25,15 @@ namespace HT.Interview.ChatBot.Common.Entities
         [Required]
         public string Type { get; set; }
 
+        /// <summary>
+        /// Get or sets the description
+        /// </summary>
+        /// <value>
+        /// The Description
+        /// </value> 
+
+        [Required]
+        public string Description { get; set; }
 
         /// <summary>
         /// Get or sets the CreatedBy
@@ -40,17 +45,14 @@ namespace HT.Interview.ChatBot.Common.Entities
         [Required]
         public string CreatedBy { get; set; }
 
-
         /// <summary>
         /// Get or sets the CreatedOn
         /// </summary>
         /// <value>
         /// The CreatedOn
         /// </value> 
-
         [Required]
         public DateTime CreatedOn { get; set; }
-
 
         /// <summary>
         /// Get or sets the ModifiedBy
@@ -58,7 +60,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The ModifiedBy
         /// </value> 
-
         public string ModifiedBy { get; set; }
 
 
@@ -68,7 +69,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The ModifiedOn
         /// </value> 
-
         public DateTime? ModifiedOn { get; set; }
     }
 }
