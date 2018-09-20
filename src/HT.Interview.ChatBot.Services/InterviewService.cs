@@ -49,6 +49,7 @@ namespace HT.Interview.ChatBot.Services
             {
                 Model.Interview interview = new Model.Interview()
                 {
+                    InterviewTypeId = 1,
                     CandidateId = candidateId,
                     IntentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId),
                     CreatedBy = "RavindraK@hexaware.com",
