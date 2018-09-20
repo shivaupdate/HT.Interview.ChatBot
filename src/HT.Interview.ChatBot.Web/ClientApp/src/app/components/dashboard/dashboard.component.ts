@@ -13,6 +13,8 @@ export class DashboardComponent implements OnInit {
   userList: GoogleUser[];
   userRolesList: Role[];
   public message: string;
+  display = 'none';
+
   constructor(public userService: UserService) { }
 
   ngOnInit() {
