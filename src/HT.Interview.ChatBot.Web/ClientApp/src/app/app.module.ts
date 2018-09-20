@@ -37,6 +37,7 @@ let config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
     provider: new FacebookLoginProvider('339324976811993')
+    //provider: new FacebookLoginProvider('612560029141568')
   }
 ]);
 
@@ -74,10 +75,10 @@ const appRoutes: Routes = [
     HelpSectionModule,
     SpeechModule,
     SocialLoginModule.initialize(config),
-    //RouterModule.forRoot(appRoutes, { enableTracing: true})
-    RouterModule.forRoot([
-      { path: 'home', component: HomePageComponent, pathMatch: 'full' }
-    ])
+    RouterModule.forRoot(appRoutes, { enableTracing: true})
+    //RouterModule.forRoot([
+      //{ path: 'home', component: HomePageComponent, pathMatch: 'full' }
+    //])
   ],
   providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]

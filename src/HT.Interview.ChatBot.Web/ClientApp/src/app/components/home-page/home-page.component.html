@@ -10,13 +10,13 @@
       </h2>
     </div>
   </div>
-  <div [hidden]="userService?.activeModule!='Dashboard'">
+  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Dashboard'">
     <app-dashboard></app-dashboard>
   </div>
-  <div [hidden]="userService?.activeModule!='Admin'">
+  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Admin'">
     <app-admin></app-admin>
   </div>
-  <div [hidden]="userService?.activeModule!='ChatBot'">
+  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
     <chat-dialog></chat-dialog>
   </div>
 </div>

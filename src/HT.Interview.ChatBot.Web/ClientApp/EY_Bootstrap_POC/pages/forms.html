@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EY - RWD</title>
+
+    <!-- Common CSS -->
+    <link href="../css/ey_common_styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div id="ey_global_header"></div>
+	
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Forms Fields
+                    <small>Subheading</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a>
+                    </li>
+                    <li class="active">Forms Fields</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+			<div class="col-lg-12">
+				<h3>Forms Fields</h3>
+                <form class="form-horizontal col-lg-12">
+					<div class="form-group">
+						<label for="inputFocus">Input with focus</label>
+						<input type="email" class="form-control focusedInput" id="inputFocus">
+					</div>
+					<div class="form-group">
+						<label>Search Input</label>
+						<div class="input-group stylish-input-group">
+							<input type="text" class="form-control"  placeholder="Search" >
+							<span class="input-group-addon">
+								<button type="submit">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>  
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>This is combo box</label>
+						<select class="input-large form-control">
+						  <option value="">Select a State</option>
+						  <option value="AL" selected="selected">Alabama</option>
+						  <option value="AK">Alaska</option>
+						  <option value="AZ">Arizona</option>
+						  <option value="AR">Arkansas</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label">These are radio buttons</label>
+						<div class="">
+							<div class="radio">
+								<label> <input type="radio" name="load" id="WeekdayAverage" value="option1" checked> This is a choice </label>
+							</div>
+							<div class="radio">
+								<label> <input type="radio" name="load" id="WeekdayPeak" value="option2"> This is another choice </label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label">These are Checkboxes</label>
+						<div class="">
+							<div class="checkbox">
+								<label> <input type="checkbox"> This is a choice </label>
+							</div>
+							<div class="checkbox">
+								<label> <input type="checkbox"> This is another choice </label>
+							</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Forms required fields and validation</h3>
+				<h4>Inline validation</h4>
+				<p>Inline validation shows the user in real time if an error has occurred while filling out a form. It may be an input error such as using an incorrect character, or it could be that the field is required and was tabbed through. Using inline validation is preferred.</p>
+				<form class="form-horizontal col-lg-12">
+					<div class="form-group has-success">
+						<label class="control-label" for="inputSuccess">Username</label>
+						<div class="">
+							<input type="text" id="inputSuccess" class="form-control" placeholder="Placeholder text">
+							<span class="help-block">Username is available</span>
+						</div>
+					</div>
+					<div class="form-group has-warning">
+						<label class="control-label" for="inputWarning">Password</label>
+						<div class="">
+							<input type="password" id="inputWarning" class="form-control" placeholder="Placeholder text">
+							<span class="help-block">Password strength: Weak</span>
+						</div>
+					</div>
+					<div class="form-group has-error">
+						<label class="control-label" for="inputError">Email</label>
+						<div class="">
+							<input type="email" id="inputError" class="form-control" placeholder="Placeholder text">
+							<span class="help-block">Please enter a valid email address</span>
+						</div>
+					</div>
+					<div class="form-group has-error">
+						<label class="control-label">This is combo box</label>
+						<select class="input-large form-control">
+						  <option value="">Select a State</option>
+						  <option value="AL" selected="selected">Alabama</option>
+						  <option value="AK">Alaska</option>
+						  <option value="AZ">Arizona</option>
+						  <option value="AR">Arkansas</option>
+						</select>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+        <!-- /.row -->
+		
+		<hr>
+		
+		<!-- Content Row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h4>Post-validation</h4>
+				<p>In post-validation, the form is checked for errors after the user selects to save or submit. The page reloads, and the same visual cues are used as with inline validation. In addition, error messaging is used. Inline validation and post-validation can be combined to show errors inline and then messaging after.</p>
+				<form class="form-horizontal col-lg-12">
+					<div class="form-group has-error">
+						<label class="control-label" for="inputError">Option with error below</label>
+						<div class="">
+							<input type="email" id="inputError" class="form-control" placeholder="Placeholder text">
+							<span class="alert alert-danger col-xs-12 border-top-transparent" role="alert">
+							  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							  <span class="sr-only">Error:</span>
+							  Enter a valid email address
+							</span>
+						</div>
+					</div>
+				</form>
+				
+			</div>	
+		</div>
+        <!-- /.row -->
+		
+		<hr>
+		
+		<!-- Content Row -->
+        <div class="row">
+			<div class="col-lg-12">
+				<h4>Required fields</h4>
+				<p>Required fields are important to point out to keep users from skipping non-optional fields. When using forms that contain many required fields, we recommend using “Optional” in the form label instead of using a red asterisk on all required fields. When a form has very few required fields, we recommend adding “Required” to the label.</p>
+                <form class="form-horizontal col-lg-12">
+					<div class="form-group">
+						<label for="FieldLabel">Field label (optional)</label>
+						<input type="text" class="form-control" id="FieldLabel">
+					</div>
+				</form>
+			</div>
+		</div>	
+		<!-- /.row -->
+		
+        <!-- Footer -->
+        <div id="ey_global_footer"></div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+	
+	<!-- Script to Activate Header and Footer  -->
+	<script> 
+	$(function(){
+	  $("#ey_global_header").load("header_inner.html"); 
+	  $("#ey_global_footer").load("footer.html"); 
+	});
+	</script>
+
+</body>
+
+</html>
