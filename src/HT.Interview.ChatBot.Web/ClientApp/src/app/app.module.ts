@@ -10,7 +10,7 @@ import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
-
+import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';        
@@ -41,7 +41,7 @@ let config = new AuthServiceConfig([
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path: 'agent', component: ChatDialogComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'admin', component: AdminComponent },
@@ -51,6 +51,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    LoginComponent,
     HeaderComponent,
     AppComponent,
     FooterComponent,
