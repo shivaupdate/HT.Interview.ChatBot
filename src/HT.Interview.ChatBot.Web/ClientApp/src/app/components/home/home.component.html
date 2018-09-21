@@ -1,26 +1,27 @@
+<app-standard>
+  <div class="container">
+    <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
+      <app-camera></app-camera>
+    </div>
 
-<div class="container">
-  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
-    <app-camera></app-camera>
-  </div>
-  
-  <div [hidden]="userService?.activeModule !== undefined && userService?.activeModule != ''">
-    <h2>
-      Welcome to Hexaware (Some welcome page content has to be decided)<br>
-    </h2>
-    <div [hidden]="userService?.googleUser?.name == undefined || userService?.googleUser?.name == ''">
+    <div [hidden]="userService?.activeModule !== undefined && userService?.activeModule != ''">
       <h2>
-        Hello {{userService?.googleUser?.name}}
+        Welcome to Hexaware (Some welcome page content has to be decided)<br>
       </h2>
+      <div [hidden]="userService?.googleUser?.name == undefined || userService?.googleUser?.name == ''">
+        <h2>
+          Hello {{userService?.googleUser?.name}}
+        </h2>
+      </div>
+    </div>
+    <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Dashboard'">
+      <app-dashboard></app-dashboard>
+    </div>
+    <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Admin'">
+      <app-admin></app-admin>
+    </div>
+    <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
+      <chat-dialog></chat-dialog>
     </div>
   </div>
-  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Dashboard'">
-    <app-dashboard></app-dashboard>
-  </div>
-  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='Admin'">
-    <app-admin></app-admin>
-  </div>
-  <div [hidden]="userService?.googleUser == null || userService?.activeModule!='ChatBot'">
-    <chat-dialog></chat-dialog>
-  </div>
-</div>
+</app-standard>

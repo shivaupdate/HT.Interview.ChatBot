@@ -13,11 +13,8 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,  private router: Router, private socialAuthService: AuthService) { }
   returnUrl: string;
 
-  ngOnInit() {
-    // reset login status
-    localStorage.removeItem('currentUser');
-
-    // get return url from route parameters or default to '/'
+  ngOnInit() {                                    
+    localStorage.removeItem('currentUser');                  
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 

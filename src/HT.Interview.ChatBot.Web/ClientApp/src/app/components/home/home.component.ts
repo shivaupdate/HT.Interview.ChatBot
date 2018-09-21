@@ -10,8 +10,6 @@ export class HomeComponent implements OnInit {
 
   constructor(public userService: UserService) { }
 
-  ngOnInit() {
-    console.log('Active Module:' + this.userService.activeModule)
-  }
-
+  ngOnInit() {                    
+  }                       
 }

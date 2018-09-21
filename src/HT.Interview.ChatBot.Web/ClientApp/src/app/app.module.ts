@@ -13,6 +13,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-logi
 
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './components/login/login.component';
+import { StandardComponent } from './components/standard/standard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';        
@@ -44,17 +45,17 @@ let config = new AuthServiceConfig([
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },   
-  { path: '', component: LoginComponent },
-  { path: 'agent', component: ChatDialogComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'socialprofile', component: SocialUserProfileComponent }
+  { path: 'agent', component: ChatDialogComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  { path: 'socialprofile', component: SocialUserProfileComponent, canActivate: [AuthGuard]}
 
 ];
 
 @NgModule({
   declarations: [
     LoginComponent,
+    StandardComponent,
     HeaderComponent,
     AppComponent,
     FooterComponent,
@@ -75,7 +76,7 @@ const appRoutes: Routes = [
     ChatModule,       
     SpeechModule,
     SocialLoginModule.initialize(config), RtcMediaRecorderModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true})     
+    RouterModule.forRoot(appRoutes, { enableTracing: false})     
   ],
   providers: [AuthGuard, DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
