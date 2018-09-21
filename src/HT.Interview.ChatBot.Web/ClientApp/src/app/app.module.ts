@@ -6,19 +6,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { RtcMediaRecorderModule } from './components/rtc-media-recorder/rtc-media-recorder.module';
 
-import { ChatModule } from './modules/chat.module';
-import { HelpSectionModule } from './modules/help-section.module';
+import { ChatModule } from './modules/chat.module';          
 import { SpeechModule } from './modules/speech.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
-import { AppComponent } from './app.component';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { FooterComponent } from './components/footer-component/footer.component';
-import { NavigationComponent } from './components/navigation-component/navigation.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component';        
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { NavigationComponent } from './components/navigation-component/navigation.component';
+import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SocialUserProfileComponent } from './components/social-user-profile/social-user-profile.component';
@@ -37,8 +35,7 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('339324976811993')
-    //provider: new FacebookLoginProvider('612560029141568')
+    provider: new FacebookLoginProvider('339324976811993')    
   }
 ]);
 
@@ -54,13 +51,12 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavMenuComponent,
-    ChatDialogComponent,
-    HomePageComponent,
-    FooterComponent,
-    NavigationComponent,
     HeaderComponent,
+    AppComponent,
+    FooterComponent,
+    HomePageComponent,
+    ChatDialogComponent,
+    NavigationComponent,
     DashboardComponent,
     AdminComponent,
     SocialUserProfileComponent,
@@ -72,14 +68,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     HttpModule,
     FormsModule,
-    ChatModule,
-    HelpSectionModule,
+    ChatModule,       
     SpeechModule,
     SocialLoginModule.initialize(config), RtcMediaRecorderModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true})
-    //RouterModule.forRoot([
-      //{ path: 'home', component: HomePageComponent, pathMatch: 'full' }
-    //])
+    RouterModule.forRoot(appRoutes, { enableTracing: true})     
   ],
   providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
