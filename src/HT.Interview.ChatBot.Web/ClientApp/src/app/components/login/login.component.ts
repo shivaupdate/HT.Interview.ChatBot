@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
     } else if (socialPlatform == "google") {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-    }
-    console.log(socialPlatform);
+    }                                  
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (user) => {
         console.log(socialPlatform + " sign in data : ", user);
