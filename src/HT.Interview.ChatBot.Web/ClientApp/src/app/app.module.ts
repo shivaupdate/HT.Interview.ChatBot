@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { RtcMediaRecorderModule } from './components/rtc-media-recorder/rtc-media-recorder.module';
+
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { ChatModule } from './modules/chat.module';          
 import { SpeechModule } from './modules/speech.module';
@@ -69,7 +72,9 @@ const appRoutes: Routes = [
     CameraComponent
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    NavbarModule,
     HttpClientModule,
     HttpModule,
     FormsModule,
@@ -78,6 +83,7 @@ const appRoutes: Routes = [
     SocialLoginModule.initialize(config), RtcMediaRecorderModule,
     RouterModule.forRoot(appRoutes, { enableTracing: false})     
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthGuard, DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
