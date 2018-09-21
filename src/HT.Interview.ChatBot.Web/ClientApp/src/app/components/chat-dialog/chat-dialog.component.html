@@ -56,12 +56,8 @@
       </div>
     </div>       
     <div class="col-sm-4">
-      <div class="camera-card">
-        <div class="card-body">
-          <ng-rtc-media-recorder [constrains]="constrains"
-                                 (startRecording)="announceStart($event)" (fetchRecording)="handleVideoStream($event)">
-          </ng-rtc-media-recorder>
-        </div>
+      <div class="camera-card">     
+          <app-camera></app-camera>    
       </div>
     </div>       
   </div>

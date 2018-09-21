@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { RtcMediaRecorderModule } from './components/rtc-media-recorder/rtc-media-recorder.module';
 
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -19,8 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { StandardComponent } from './components/standard/standard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';          
-import { NavigationComponent } from './components/navigation-component/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';       
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -61,8 +59,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     AppComponent,
     FooterComponent,     
-    ChatDialogComponent,
-    NavigationComponent,
+    ChatDialogComponent,  
     DashboardComponent,
     AdminComponent,
     SocialUserProfileComponent,
@@ -78,7 +75,7 @@ const appRoutes: Routes = [
     FormsModule,
     ChatModule,       
     SpeechModule,
-    SocialLoginModule.initialize(config), RtcMediaRecorderModule,
+    SocialLoginModule.initialize(config),
     RouterModule.forRoot(appRoutes, { enableTracing: false})     
   ],
   schemas: [NO_ERRORS_SCHEMA],

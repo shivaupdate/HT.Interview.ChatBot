@@ -4,7 +4,7 @@
 }
 
 .card {
-  border-radius: 1.0rem !important;
+  border-radius: 0.7rem !important;
   background-image: url("../../../assets/images/Career.png");
   height: 100%;
   background-position: center;
@@ -17,8 +17,7 @@
 }
 
 .camera-card {
-  border-radius: 1.0rem !important;
-  height: 100%;
+  border-radius: 1.0rem !important; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,6 +25,7 @@
   box-sizing: border-box;
   overflow: hidden !important;
   margin-right: 30px;
+  border: double; 
 }
 
 #lc_chat_header #lc_chat_title_left {
