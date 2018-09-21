@@ -3,8 +3,7 @@
 }
 
 body {
-  font-family: Calibri;
-  padding: 10px;
+  font-family: Calibri; 
   background: #f1f1f1;
 }
 
@@ -16,10 +15,7 @@ body {
   background-size: cover;
 }
 /* Fake image */
-.fakeimg {
-  /*background-image: url("../images/logo.png");*/
-  /*background-color: #aaa;*/
-  /*width: 100%;*/
+.fakeimg { 
   padding: 20px;
 }
 
