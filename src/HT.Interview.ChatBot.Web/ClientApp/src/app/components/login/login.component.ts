@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, SocialUser, FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-import { concat } from 'rxjs/operator/concat';
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";    
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +10,15 @@ import { concat } from 'rxjs/operator/concat';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private socialAuthService: AuthService) { }
+  constructor(private route: ActivatedRoute,  private router: Router, private socialAuthService: AuthService) { }
+  returnUrl: string;
 
   ngOnInit() {
+    // reset login status
+    localStorage.removeItem('currentUser');
 
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   socialSignIn(socialPlatform: string) {
@@ -25,9 +30,10 @@ export class LoginComponent implements OnInit {
     }
     console.log(socialPlatform);
     this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        console.log(socialPlatform + " sign in data : ", userData);
-
+      (user) => {
+        console.log(socialPlatform + " sign in data : ", user);
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.router.navigate([this.returnUrl]);
       }
     );
   }

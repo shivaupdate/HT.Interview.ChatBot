@@ -10,6 +10,8 @@ import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+import { AuthGuard } from './_guards';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
@@ -40,7 +42,8 @@ let config = new AuthServiceConfig([
 ]);
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },   
   { path: '', component: LoginComponent },
   { path: 'agent', component: ChatDialogComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -74,7 +77,7 @@ const appRoutes: Routes = [
     SocialLoginModule.initialize(config), RtcMediaRecorderModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true})     
   ],
-  providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
+  providers: [AuthGuard, DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
