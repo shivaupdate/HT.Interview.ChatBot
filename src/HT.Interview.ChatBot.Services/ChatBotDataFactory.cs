@@ -88,8 +88,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IRoleService>();
         }
-         
-
+          
         /// <inheritdoc />
         /// <summary>
         /// Get Menu service
@@ -98,9 +97,7 @@ namespace HT.Interview.ChatBot.Services
         public IMenuService GetMenuService()
         {
             return _dependencyResolver.Resolve<IMenuService>();
-        }
-
-
+        } 
 
         /// <inheritdoc />
         /// <summary>
@@ -111,9 +108,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IInterviewTypeCompetenceMappingService>();
         }
-
-
-
+          
         /// <inheritdoc />
         /// <summary>
         /// Get InterviewType service
@@ -133,17 +128,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IGenderService>();
         }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Employee service
-        /// </summary>
-        /// <returns></returns>
-        public IEmployeeService GetEmployeeService()
-        {
-            return _dependencyResolver.Resolve<IEmployeeService>();
-        }
-         
+          
         /// <inheritdoc />
         /// <summary>
         /// Get CompetenceLevel service

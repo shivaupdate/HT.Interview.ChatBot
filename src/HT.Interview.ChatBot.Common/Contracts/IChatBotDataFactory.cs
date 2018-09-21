@@ -49,29 +49,25 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get role service
         /// </summary>
         /// <returns></returns>
-        IRoleService GetRoleService();
-         
+        IRoleService GetRoleService();         
         /// <summary>
         /// Get InterviewTypeCompetenceMapping service
         /// </summary>
         /// <returns></returns>
         IInterviewTypeCompetenceMappingService GetInterviewTypeCompetenceMappingService();
 
-
         /// <summary>
         /// Get InterviewType service
         /// </summary>
         /// <returns></returns>
         IInterviewTypeService GetInterviewTypeService();
-
-         
+                 
         /// <summary>
         /// Get Gender service
         /// </summary>
         /// <returns></returns>
         IGenderService GetGenderService();
-
-
+        
         /// <summary>
         /// Get CompetenceLevel service
         /// </summary>
@@ -107,14 +103,7 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         IMenuService GetMenuService();
-
-
-        /// <summary>
-        /// Get Employee service
-        /// </summary>
-        /// <returns></returns>
-        IEmployeeService GetEmployeeService();
-
+         
         /// <summary>
         /// Get interview service
         /// </summary>

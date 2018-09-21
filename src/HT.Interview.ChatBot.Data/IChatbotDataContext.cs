@@ -64,12 +64,7 @@ namespace HT.Interview.ChatBot.Data
         /// Gender model
         /// </summary>
         DbSet<Gender> Gender { get; set; }
-
-        /// <summary>
-        /// Employee model
-        /// </summary>
-        DbSet<Employee> Employee { get; set; }
-
+         
         /// <summary>
         /// CompetenceLevel model
         /// </summary>

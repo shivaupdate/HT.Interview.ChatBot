@@ -70,13 +70,7 @@ namespace HT.Interview.ChatBot.Data
         /// Gender entity
         /// </summary>
         public virtual DbSet<Gender> Gender { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Employee entity
-        /// </summary>
-        public virtual DbSet<Employee> Employee { get; set; }
-
+         
         /// <inheritdoc />
         /// <summary>
         /// CompetenceLevel entity
@@ -165,8 +159,7 @@ namespace HT.Interview.ChatBot.Data
             modelBuilder.Entity<InterviewTypeCompetenceMapping>().ToTable("InterviewTypeCompetenceMapping", "icb")
                 .HasKey(t => new { t.InterviewTypeId, t.CompetenceId });
 
-            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Employee>().ToTable("Employee", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id); 
             modelBuilder.Entity<CompetenceLevel>().ToTable("CompetenceLevel", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<Candidate>().ToTable("Candidate", "icb").HasKey(t => t.Id);
