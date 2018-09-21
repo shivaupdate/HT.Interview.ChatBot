@@ -26,8 +26,7 @@ export class RtcMediaRecorderComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log('creating MediaRecorder for mimeType: ' + this.format);
+  ngOnInit() {                                      
     if (this.recVideo) {
       this.video = this.recVideo.nativeElement;
     }

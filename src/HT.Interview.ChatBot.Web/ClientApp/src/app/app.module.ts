@@ -19,8 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { StandardComponent } from './components/standard/standard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';        
-import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';          
 import { NavigationComponent } from './components/navigation-component/navigation.component';
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -46,9 +45,9 @@ let config = new AuthServiceConfig([
 ]);
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },   
-  { path: 'agent', component: ChatDialogComponent, canActivate: [AuthGuard]},
+  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   { path: 'socialprofile', component: SocialUserProfileComponent, canActivate: [AuthGuard]}
@@ -61,8 +60,7 @@ const appRoutes: Routes = [
     StandardComponent,
     HeaderComponent,
     AppComponent,
-    FooterComponent,
-    HomeComponent,
+    FooterComponent,     
     ChatDialogComponent,
     NavigationComponent,
     DashboardComponent,

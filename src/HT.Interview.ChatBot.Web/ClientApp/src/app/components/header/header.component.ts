@@ -9,8 +9,7 @@ import { UserService } from '../../services/socialuser.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html' 
 })
 export class HeaderComponent implements OnInit {
 
@@ -25,8 +24,7 @@ export class HeaderComponent implements OnInit {
     this.hover = false;
   }
 
-  ngOnInit() {
-    console.log('msg:' + this.userService.loggedIn);
+  ngOnInit() {                            
     this.authService.authState.subscribe((user) => {
       if (this.userService.loggedIn == true) {
         this.socialUser = user as SocialUser;

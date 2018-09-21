@@ -1,8 +1,34 @@
-html {
-  height: 100%;
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 
-#lc_chat_layout #lc_chat_header #lc_chat_title_left {
+.card {
+  border-radius: 1.0rem !important;
+  background-image: url("../../../assets/images/Career.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsla(0,0%,100%,.8) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin-left: 10px;
+}
+
+.camera-card {
+  border-radius: 1.0rem !important;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsla(0,0%,100%,.8) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin-right: 30px;
+}
+
+#lc_chat_header #lc_chat_title_left {
   color: #000000;
   font: bold;
   font-family: Calibri;
@@ -10,7 +36,7 @@ html {
   font-weight: bold;
 }
 
-#lc_chat_layout #lc_chat_header #lc_chat_title_right {
+#lc_chat_header #lc_chat_title_right {
   color: #000000;
   font: bold;
   font-family: Calibri;
@@ -18,52 +44,30 @@ html {
   font-weight: bold;
 }
 
-#lc_chat_layout {
+#lc_chat_header {
   display: block;
-  text-align: left !important;
-  box-sizing: border-box;
-  word-break: break-word;
-  word-wrap: break-word;
-  overflow: hidden !important;
-  border-radius: 10px;
-  border: outset #000000 !important;
-  width: 95%;
-  margin-left: 45px;
-  /* width: 75%;
-  margin: 0 auto;*/
-  border-bottom: outset #000000 !important;
+  width: 100%;
+  height: 43px;
+  padding: 10px;
+  cursor: pointer;
+  color: #000000;
+  background: rgb(93, 135, 155);
 }
 
-  #lc_chat_layout #lc_chat_header {
-    display: block;
-    width: 100%;
-    height: 43px;
-    padding: 10px;
-    cursor: pointer;
-    color: #000000;
-    background: rgb(93, 135, 155);
-    border-top: outset rgb(93, 135, 155) !important;
-    border-left: outset rgb(93, 135, 155) !important;
-    border-right: outset rgb(93, 135, 155) !important;
+
+#lc_chat_container {
+  min-height: 325px;
+  text-align: left;
+  background-color: hsla(0,0%,100%,.8) !important;
+}
+
+  #lc_chat_container #lc_chat_message_window {
+    width: auto;
+    padding-bottom: 250px;
+    max-height: 325px;
+    overflow-y: scroll;
+    scrollbar-base-color: ActiveBorder
   }
-
-
-  #lc_chat_layout #lc_chat_container {
-    min-height: 325px;
-    text-align: left;
-    background-color: hsla(0,0%,100%,.8) !important;
-    /*border-top: outset #000000 !important;
-    border-left: outset #000000 !important;
-    border-right: outset #000000 !important;*/
-  }
-
-    #lc_chat_layout #lc_chat_container #lc_chat_message_window {
-      width: auto;
-      padding-bottom: 250px;
-      max-height: 325px;
-      overflow-y: scroll;
-      scrollbar-base-color: ActiveBorder
-    }
 
 
 .textarea-container {
@@ -83,10 +87,7 @@ html {
     resize: none;
     min-height: 70px;
     background-color: white;
-    margin-bottom: -5px;
-    /*border-top: outset #000000 !important;
-    border-left: outset #000000 !important;
-    border-right: outset #000000 !important;*/
+    margin-bottom: -10px;
   }
 
 
@@ -174,7 +175,7 @@ textarea:focus, select:focus {
 }
 
 .noResponse {
-  background-color:black !important;
+  background-color: black !important;
   color: white !important;
   border-radius: 10px;
   margin: 0 15px 10px;
