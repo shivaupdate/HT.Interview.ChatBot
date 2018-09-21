@@ -14,13 +14,13 @@ namespace HT.Interview.ChatBot.Test.Services
         public UserQueryServiceTests()
         {
             TestFactory testFactory = new TestFactory();
-            (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) result = testFactory.CreateMockUserClaimQueryService();
+            (Mock<UserService> mockService, Mock<DbSet<UserCreateRequest>> mockDbSet) result = testFactory.CreateMockUserClaimQueryService();
             Sut = result.mockService;
             MockDbSet = result.mockDbSet;
         }
 
         public Mock<UserService> Sut { get; }
-        public Mock<DbSet<User>> MockDbSet { get; }
+        public Mock<DbSet<UserCreateRequest>> MockDbSet { get; }
 
         [Fact]
         [Trait("Category", "Service_Query")]
@@ -30,7 +30,7 @@ namespace HT.Interview.ChatBot.Test.Services
             UserRequest uq = new UserRequest();
 
             //Act
-            Response<System.Collections.Generic.IEnumerable<User>> response = await Sut.Object.GetUsersAsync(uq);
+            Response<System.Collections.Generic.IEnumerable<UserCreateRequest>> response = await Sut.Object.GetUsersAsync(uq);
 
             //Assert
             Assert.True(response.IsSuccess);

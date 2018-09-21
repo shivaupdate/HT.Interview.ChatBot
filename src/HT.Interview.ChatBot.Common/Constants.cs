@@ -36,6 +36,16 @@
         public const string Create = "create";
 
         /// <summary>
+        /// Update
+        /// </summary>
+        public const string Update = "update";
+        
+        /// <summary>
+        /// Delete
+        /// </summary>
+        public const string Delete = "delete";
+
+        /// <summary>
         /// Get
         /// </summary>
         public const string Get = "get";

@@ -1,10 +1,10 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -36,20 +36,49 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
-        #region Get-Check User Claims
-
         /// <summary>
         /// Get users async
         /// </summary>
-        /// <param name="uq"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<User>>> GetUsersAsync(UserRequest uq)
+        public async Task<Response<IEnumerable<User>>> GetUsersAsync(User user)
         {
             IEnumerable<User> users = await _chatbotDataContext.User.ToListAsync();
             return Response.Ok(users);
         }
 
-        #endregion
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<Response> CreateUserAsync(User user)
+        {
+            user.CreatedOn = DateTime.Now;  
+            _chatbotDataContext.User.Add(user);
+            await _chatbotDataContext.SaveChangesAsync(); 
+            return Response.Ok();
+        }
+
+        /// <summary>
+        /// Update user async
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Task<Response> UpdateUserAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Delete user async
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Task<Response> DeleteUserAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

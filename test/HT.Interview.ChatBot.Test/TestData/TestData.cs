@@ -7,13 +7,13 @@ namespace HT.Interview.ChatBot.Test
 {
     public class TestData
     {
-        public IQueryable<User> User
+        public IQueryable<UserCreateRequest> User
         {
             get
             {
-                List<User> uc = new List<User>
+                List<UserCreateRequest> uc = new List<UserCreateRequest>
                 {
-                    new User
+                    new UserCreateRequest
                     {
                         Id = 1,
                         FirstName = "Ravindra",
@@ -24,7 +24,7 @@ namespace HT.Interview.ChatBot.Test
                         ModifiedBy = "",
                         ModifiedOn = null
                     },
-                    new User
+                    new UserCreateRequest
                     {
                         Id = 2,
                         FirstName = "Gourav",

@@ -18,7 +18,7 @@ namespace HT.Interview.ChatBot.Test
 {
     public class TestFactory
     {
-        public IQueryable<User> User { get; }
+        public IQueryable<UserCreateRequest> User { get; }
 
         public Mock<ILogger<UserService>> MockUserClaimLogger;
 
@@ -30,10 +30,10 @@ namespace HT.Interview.ChatBot.Test
             MockFactory = CreateMockSecurityFactory();
         }
          
-        internal (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) CreateMockUserClaimQueryService()
+        internal (Mock<UserService> mockService, Mock<DbSet<UserCreateRequest>> mockDbSet) CreateMockUserClaimQueryService()
         {
             MockFactory.Setup(x => x.GetResourceService(Constants.ResourceComponent)).Returns(new ResourceService<Resources.Resources>()); 
-            Mock<DbSet<User>> mockDbSet = MockDbSet(User);
+            Mock<DbSet<UserCreateRequest>> mockDbSet = MockDbSet(User);
             var mockContext = CreateMockContext();
             mockContext.Setup(m => m.User).Returns(mockDbSet.Object);
             return (new Mock<UserService>(MockFactory.Object, mockContext.Object), mockDbSet);
