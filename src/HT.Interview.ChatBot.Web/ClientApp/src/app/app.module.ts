@@ -14,7 +14,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-logi
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';        
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation-component/navigation.component';
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -40,8 +40,8 @@ let config = new AuthServiceConfig([
 ]);
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomePageComponent },
-  { path: '', component: HomePageComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'agent', component: ChatDialogComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'admin', component: AdminComponent },
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     AppComponent,
     FooterComponent,
-    HomePageComponent,
+    HomeComponent,
     ChatDialogComponent,
     NavigationComponent,
     DashboardComponent,
