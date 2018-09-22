@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { NavbarModule} from 'angular-bootstrap-md'
+import { NavbarModule } from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgGridModule } from 'ag-grid-angular';
 
@@ -28,9 +28,6 @@ import { ManageUserComponent } from './components/manage-user/manage-user.compon
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
-import { DataService } from './services/data.service';
-import { UserService } from './services/socialuser.service';
-import { SearchPipe } from './models/search.pipe';
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';
 
@@ -65,7 +62,6 @@ const appRoutes: Routes = [
     InterviewEvaluationComponent,
     ManageUserComponent,
     ChatDialogComponent,
-    SearchPipe,
     CameraComponent
   ],
   imports: [
@@ -82,7 +78,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: false })
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthGuard, DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
+  providers: [AuthGuard, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
