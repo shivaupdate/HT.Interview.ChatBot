@@ -27,10 +27,10 @@ namespace HT.Interview.ChatBot.Test.Services
         public async Task GetUsersAsync_ReturnsUsers_GivenUsersExist()
         {
             //Arrange
-            User uq = new User();
+            UserDetail ud = new UserDetail();
 
             //Act
-            Response<System.Collections.Generic.IEnumerable<User>> response = await Sut.Object.GetUsersAsync(uq);
+            Response<System.Collections.Generic.IEnumerable<UserDetail>> response = await Sut.Object.GetUsersAsync(ud);
 
             //Assert
             Assert.True(response.IsSuccess);

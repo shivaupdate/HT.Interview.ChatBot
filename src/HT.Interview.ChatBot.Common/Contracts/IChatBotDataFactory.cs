@@ -62,25 +62,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         IGenderService GetGenderService();
-        
-        /// <summary>
-        /// Get Competence Level service
-        /// </summary>
-        /// <returns></returns>
-        ICompetenceLevelService GetCompetenceLevelService();
-
+         
         /// <summary>
         /// Get Competence service
         /// </summary>
         /// <returns></returns>
         ICompetenceService GetCompetenceService();
-
-        /// <summary>
-        /// Get Candidate service
-        /// </summary>
-        /// <returns></returns>
-        ICandidateService GetCandidateService();
-
+         
         /// <summary>
         /// Get Attachment service
         /// </summary>

@@ -118,17 +118,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IGenderService>();
         }
-          
-        /// <inheritdoc />
-        /// <summary>
-        /// Get CompetenceLevel service
-        /// </summary>
-        /// <returns></returns>
-        public ICompetenceLevelService GetCompetenceLevelService()
-        {
-            return _dependencyResolver.Resolve<ICompetenceLevelService>();
-        } 
-
+           
         /// <inheritdoc />
         /// <summary>
         /// Get Competence service
@@ -138,17 +128,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICompetenceService>();
         }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Candidate service
-        /// </summary>
-        /// <returns></returns>
-        public ICandidateService GetCandidateService()
-        {
-            return _dependencyResolver.Resolve<ICandidateService>();
-        }
-         
+          
         /// <inheritdoc />
         /// <summary>
         /// Get Attachment service

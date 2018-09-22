@@ -84,15 +84,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The AllocatedTime
         /// </value> 
         public int AllocatedTime { get; set; }
-
-        /// <summary>
-        /// Get or sets the intent competence mapping
-        /// </summary>
-        /// <value>
-        /// The IntentCompetenceMapping
-        /// </value> 
-        public ICollection<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-
+         
         /// <summary>
         /// Get or sets the intent training phrase
         /// </summary>

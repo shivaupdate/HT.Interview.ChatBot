@@ -24,12 +24,7 @@ namespace HT.Interview.ChatBot.Data
         /// Intent model
         /// </summary>
         DbSet<Intent> Intent { get; set; }
-
-        /// <summary>
-        /// Intent model
-        /// </summary>
-        DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-
+         
         /// <summary>
         /// Intent Training Phrase model
         /// </summary>
@@ -69,22 +64,12 @@ namespace HT.Interview.ChatBot.Data
         /// Gender model
         /// </summary>
         DbSet<Gender> Gender { get; set; }
-         
-        /// <summary>
-        /// CompetenceLevel model
-        /// </summary>
-        DbSet<CompetenceLevel> CompetenceLevel { get; set; }
-
+          
         /// <summary>
         /// Competence model
         /// </summary>
         DbSet<Competence> Competence { get; set; }
-
-        /// <summary>
-        /// Candidate model
-        /// </summary>
-        DbSet<Candidate> Candidate { get; set; }
-
+         
         /// <summary>
         /// Attachment model
         /// </summary>

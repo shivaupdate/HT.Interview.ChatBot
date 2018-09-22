@@ -19,40 +19,30 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the CandidateId
+        /// Get or sets the user id
         /// </summary>
         /// <value>
-        /// The FirstName
+        /// The UserId
         /// </value> 
-        [Required]
-
-
-        public int CandidateId { get; set; }
+        [Required] 
+        public int UserId { get; set; }
 
         /// <summary>
-        /// Get or sets the ResumeFilePath
+        /// Get or sets the resume file path
         /// </summary>
         /// <value>
-        /// The Id
-        /// </value> 
-
-        [Required]
-
-
+        /// The ResumeFilePath
+        /// </value>  
+        [Required] 
         public string ResumeFilePath { get; set; }
 
         /// <summary>
-        /// Get or sets the GestureRecordingFilePath
+        /// Get or sets the recording file path
         /// </summary>
         /// <value>
-        /// The Id
-        /// </value> 
-
-        [Required]
-
-        public string GestureRecordingFilePath { get; set; }
-        
-
+        /// The RecordingFilePath
+        /// </value>   
+        public string RecordingFilePath { get; set; } 
 
         /// <summary>
         /// Get or sets the created by

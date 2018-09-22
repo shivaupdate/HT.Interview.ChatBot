@@ -43,13 +43,7 @@
     <Compile Update="Contracts\IGenderService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Contracts\ICompetenceLevelService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Update="Contracts\ICompetenceService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Contracts\ICandidateService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Contracts\IMenuService.cs">

@@ -40,11 +40,6 @@ namespace HT.Interview.ChatBot.Data
         public virtual DbSet<Intent> Intent { get; set; }
 
         /// <summary>
-        /// Intent Competence Mapping model
-        /// </summary>
-        public virtual DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-
-        /// <summary>
         /// Intent Training Phrase model
         /// </summary>
         public virtual DbSet<IntentTrainingPhrase> IntentTrainingPhrase { get; set; }
@@ -64,7 +59,7 @@ namespace HT.Interview.ChatBot.Data
         /// Role entity
         /// </summary>
         public virtual DbSet<Role> Role { get; set; }
-         
+
         /// <inheritdoc />
         /// <summary>
         /// Gender entity
@@ -73,21 +68,9 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
-        /// CompetenceLevel entity
-        /// </summary>
-        public virtual DbSet<CompetenceLevel> CompetenceLevel { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
         /// Competence entity
         /// </summary>
         public virtual DbSet<Competence> Competence { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Candidate entity
-        /// </summary>
-        public virtual DbSet<Candidate> Candidate { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -146,33 +129,27 @@ namespace HT.Interview.ChatBot.Data
             user.Property(u => u.Id).ValueGeneratedOnAdd();
 
             EntityTypeBuilder<UserDetail> userDetail = modelBuilder.Entity<UserDetail>().ToTable("VU_User", "icb");
-            userDetail.HasKey(u => u.Id); 
+            userDetail.HasKey(u => u.Id);
+
+            EntityTypeBuilder<Attachment> attachment = modelBuilder.Entity<Attachment>().ToTable("Attachment", "icb");
+            attachment.HasKey(a => a.Id);
+            attachment.Property(a => a.Id).ValueGeneratedOnAdd();
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
             intent.HasKey(i => i.Id);
             intent.Property(i => i.Id).ValueGeneratedOnAdd();
-            intent.HasMany(i => i.IntentCompetenceMapping);
             intent.HasMany(i => i.IntentTrainingPhrase);
             intent.HasMany(i => i.IntentParameter);
             intent.HasMany(i => i.IntentSuggestion);
 
-            modelBuilder.Entity<IntentCompetenceMapping>().ToTable("IntentCompetenceMapping", "icb")
-                 .HasKey(t => new { t.IntentId, t.CompetenceId, t.CompetenceLevelId });
-
 
             modelBuilder.Entity<IntentTrainingPhrase>().ToTable("IntentTrainingPhrase", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentParameter>().ToTable("IntentParameter", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id);
-
+            modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id); 
 
             modelBuilder.Entity<Role>().ToTable("Role", "icb").HasKey(t => t.Id);
-
-
-            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<CompetenceLevel>().ToTable("CompetenceLevel", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Candidate>().ToTable("Candidate", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Attachment>().ToTable("Attachment", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id); 
+            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id); 
             modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb").HasKey(t => t.Id);
 
@@ -184,7 +161,7 @@ namespace HT.Interview.ChatBot.Data
             EntityTypeBuilder<JobProfile> jobProfile = modelBuilder.Entity<JobProfile>().ToTable("JobProfile", "icb");
             jobProfile.HasKey(j => j.Id);
             jobProfile.Property(j => j.Id).ValueGeneratedOnAdd();
-            jobProfile.HasMany(j => j.JobProfileCompetenceMapping); 
+            jobProfile.HasMany(j => j.JobProfileCompetenceMapping);
 
             EntityTypeBuilder<JobProfileCompetenceMapping> jpcm =
                 modelBuilder.Entity<JobProfileCompetenceMapping>().ToTable("JobProfileCompetenceMapping", "icb");

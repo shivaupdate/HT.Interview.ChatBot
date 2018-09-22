@@ -29,10 +29,8 @@ namespace HT.Interview.ChatBot.API.DI
             builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<AccessMatrixService>().As<IAccessMatrixService>();
-            builder.RegisterType<AttachmentService>().As<IAttachmentService>();
-            builder.RegisterType<CandidateService>().As<ICandidateService>();
-            builder.RegisterType<CompetenceService>().As<ICompetenceService>();
-            builder.RegisterType<CompetenceLevelService>().As<ICompetenceLevelService>(); 
+            builder.RegisterType<AttachmentService>().As<IAttachmentService>(); 
+            builder.RegisterType<CompetenceService>().As<ICompetenceService>(); 
             builder.RegisterType<GenderService>().As<IGenderService>();
             builder.RegisterType<IntentService>().As<IIntentService>(); 
             builder.RegisterType<InterviewService>().As<IInterviewService>(); 
