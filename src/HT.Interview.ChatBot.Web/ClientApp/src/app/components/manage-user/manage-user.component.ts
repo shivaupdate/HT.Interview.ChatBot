@@ -41,7 +41,7 @@ export class ManageUserComponent implements OnInit {
         field: "mobile"
       },
       {
-        headerName: "Job Profile Type",
+        headerName: "Profile Applied For",
         field: "jobProfileType",
         suppressSizeToFit: true
       },
