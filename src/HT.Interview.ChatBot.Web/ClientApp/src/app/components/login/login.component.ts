@@ -42,8 +42,7 @@ export class LoginComponent implements OnInit {
               applicationUser.photoUrl = socialUser.photoUrl;
               applicationUser.socialAccountInfo = JSON.stringify(socialUser);
 
-              var body = JSON.stringify(applicationUser);
-              console.log(body);
+              var body = JSON.stringify(applicationUser);     
 
               var httpOptions = {
                 headers: new HttpHeaders({
