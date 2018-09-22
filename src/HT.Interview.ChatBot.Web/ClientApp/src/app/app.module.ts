@@ -5,26 +5,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import { NavbarModule} from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgGridModule } from 'ag-grid-angular';
 
-import { ChatModule } from './modules/chat.module';          
+import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './components/login/login.component';
-import { AppComponent } from './app.component';     
+import { AppComponent } from './app.component';
 import { StandardComponent } from './components/standard/standard.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+
+import { HeaderComponent } from './components/standard/header/header.component';
+import { FooterComponent } from './components/standard/footer/footer.component';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { SocialUserProfileComponent } from './components/social-user-profile/social-user-profile.component';
 import { CameraComponent } from './components/camera/camera.component';
 
 import { DataService } from './services/data.service';
@@ -40,19 +40,17 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('339324976811993')    
+    provider: new FacebookLoginProvider('339324976811993')
   }
 ]);
 
 const appRoutes: Routes = [
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
-  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard]},
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-  { path: 'socialprofile', component: SocialUserProfileComponent, canActivate: [AuthGuard]}
-
+  //{ path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
+  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -60,13 +58,11 @@ const appRoutes: Routes = [
     LoginComponent,
     StandardComponent,
     HeaderComponent,
-    FooterComponent, 
-    AppComponent,            
+    FooterComponent,
+    AppComponent,
     DashboardComponent,
     ManageUserComponent,
-    ChatDialogComponent, 
-    AdminComponent,
-    SocialUserProfileComponent,
+    ChatDialogComponent,
     SearchPipe,
     CameraComponent
   ],
@@ -78,10 +74,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     HttpModule,
     FormsModule,
-    ChatModule,       
+    ChatModule,
     SpeechModule,
     SocialLoginModule.initialize(config),
-    RouterModule.forRoot(appRoutes, { enableTracing: false})     
+    RouterModule.forRoot(appRoutes, { enableTracing: false })
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthGuard, DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],

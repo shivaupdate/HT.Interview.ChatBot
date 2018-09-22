@@ -77,8 +77,7 @@ export class ManageUserComponent implements OnInit {
 
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
-        this.rowData = data;
-        console.log(this.rowData);
+        this.rowData = data;           
       });
   }
 }    
