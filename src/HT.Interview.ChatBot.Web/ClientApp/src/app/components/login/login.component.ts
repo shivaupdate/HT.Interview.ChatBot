@@ -4,6 +4,7 @@ import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from "angular
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/user';
+import { Constants } from '../../models/constants';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,14 @@ export class LoginComponent implements OnInit {
 
   private getUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getWithParameters;
   private updateUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.update;
+  private constants = new Constants();
 
   constructor(private route: ActivatedRoute, private router: Router, private socialAuthService: AuthService, private http: HttpClient) { }
   returnUrl: string;
 
   ngOnInit() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(this.constants.applicationUser);
+    localStorage.removeItem(this.constants.socialUser);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -32,12 +35,12 @@ export class LoginComponent implements OnInit {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     }
     this.socialAuthService.signIn(socialPlatformProvider).then(
-      (socialUserAccount) => {
-        this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUserAccount.email)
+      (socialUser) => {
+        this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUser.email)
           .subscribe(
             applicationUser => {
-              applicationUser.photoUrl = socialUserAccount.photoUrl;
-              applicationUser.socialAccountInfo = JSON.stringify(socialUserAccount);
+              applicationUser.photoUrl = socialUser.photoUrl;
+              applicationUser.socialAccountInfo = JSON.stringify(socialUser);
 
               var body = JSON.stringify(applicationUser);
               console.log(body);
@@ -47,12 +50,11 @@ export class LoginComponent implements OnInit {
                   'Content-Type': 'application/json'
                 })
               };
-              //var requestOptions = new RequestOptions({ method: RequestMethod.Put, headers: headerOptions });
 
               this.http.put(this.updateUserWebAPIUrl, body, httpOptions).subscribe(data => {
-                localStorage.setItem('currentUser', JSON.stringify(socialUserAccount));    
-                this.router.navigate([this.returnUrl]);
-
+                localStorage.setItem(this.constants.applicationUser, JSON.stringify(applicationUser));
+                localStorage.setItem(this.constants.socialUser, JSON.stringify(socialUser));    
+                this.router.navigate([this.returnUrl]);  
               });
 
             },
