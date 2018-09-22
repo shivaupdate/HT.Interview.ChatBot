@@ -94,5 +94,16 @@
         /// Interview by id not found
         /// </summary>
         public const string InterviewByIdNotFound = "InterviewByIdNotFound"; 
+
+        /// <summary>
+        /// Update user request is null
+        /// </summary>
+        public const string UpdateUserRequestIsNull = "UpdateUserRequestIsNull";
+
+        /// <summary>
+        /// User by id not found
+        /// </summary>
+        public const string UserByIdNotFound = "UserByIdNotFound";
+
     }
 }

@@ -13,7 +13,7 @@ export class ManageUserComponent implements OnInit {
   private gridColumnApi;
   private columnDefs;
   private rowData: any;
-  private webAPIUrl = environment.dialogflow.webAPIUrl + environment.controller.userController + environment.action.getMany;
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
   private paginationPageSize = environment.application.pageSize;
 
   constructor(private http: HttpClient) {
@@ -30,7 +30,7 @@ export class ManageUserComponent implements OnInit {
       {
         headerName: "Name",
         field: "displayName",
-        suppressSizeToFit: true
+        suppressSizeToFit: true 
       },
       {
         headerName: "Gender",
@@ -65,8 +65,7 @@ export class ManageUserComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
+  }      
 
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
@@ -81,5 +80,5 @@ export class ManageUserComponent implements OnInit {
         this.rowData = data;
         console.log(this.rowData);
       });
-  }     
+  }
 }    

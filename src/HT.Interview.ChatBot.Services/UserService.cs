@@ -44,7 +44,7 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<User>> GetUserByEmailAsync(string email)
         {
-            User user = await _chatbotDataContext.User.Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
+            User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
             return Response.Ok(user);
         }
 
@@ -55,7 +55,7 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<IEnumerable<UserDetail>>> GetUsersAsync(UserDetail userDetail)
         {
-            IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.ToListAsync();
+            IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.AsNoTracking().ToListAsync();
             return Response.Ok(userDetails);
         }
 
@@ -77,9 +77,30 @@ namespace HT.Interview.ChatBot.Services
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Task<Response> UpdateUserAsync(User user)
+        public async Task<Response> UpdateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+            {
+                string message = _resourceService.GetString(Common.Constants.UpdateUserRequestIsNull);
+                return Response.Fail(message, ResponseType.InvalidRequest);
+            }
+
+            User u = await GetUserByIdAsync(user.Id);
+            if (u == null)
+            {
+                string message = string.Format(_resourceService.GetString(Common.Constants.UserByIdNotFound), u.Id);
+                return Response.Fail(message, ResponseType.ResourceNotFound);
+            }
+
+            u.PhotoUrl = user.PhotoUrl;
+            u.SocialAccountInfo = user.SocialAccountInfo;
+            u.ModifiedOn = DateTime.UtcNow.Date;
+            u.ModifiedBy = user.Email;
+
+            _chatbotDataContext.User.Attach(u);
+            await _chatbotDataContext.SaveChangesAsync();
+
+            return Response.Ok();
         }
 
         /// <summary>
@@ -90,6 +111,21 @@ namespace HT.Interview.ChatBot.Services
         public Task<Response> DeleteUserAsync(int id)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+        #region Private Functions
+
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task<User> GetUserByIdAsync(int id)
+        {
+            return await _chatbotDataContext.User.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         #endregion

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";    
+import { HttpClient, HttpHeaders } from "@angular/common/http";           
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +13,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,  private router: Router, private socialAuthService: AuthService) { }
+  private getUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getWithParameters;
+  private updateUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.update;
+
+  constructor(private route: ActivatedRoute, private router: Router, private socialAuthService: AuthService, private http: HttpClient) { }
   returnUrl: string;
 
-  ngOnInit() {                                    
-    localStorage.removeItem('currentUser');                  
+  ngOnInit() {
+    localStorage.removeItem('currentUser');
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -24,12 +30,35 @@ export class LoginComponent implements OnInit {
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
     } else if (socialPlatform == "google") {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-    }                                  
+    }
     this.socialAuthService.signIn(socialPlatformProvider).then(
-      (user) => {
-        console.log(socialPlatform + " sign in data : ", user);
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.router.navigate([this.returnUrl]);
+      (socialUserAccount) => {
+        this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUserAccount.email)
+          .subscribe(
+            applicationUser => {
+              applicationUser.photoUrl = socialUserAccount.photoUrl;
+              applicationUser.socialAccountInfo = JSON.stringify(socialUserAccount);
+
+              var body = JSON.stringify(applicationUser);
+              console.log(body);
+
+              var httpOptions = {
+                headers: new HttpHeaders({
+                  'Content-Type': 'application/json'
+                })
+              };
+              //var requestOptions = new RequestOptions({ method: RequestMethod.Put, headers: headerOptions });
+
+              this.http.put(this.updateUserWebAPIUrl, body, httpOptions).subscribe(data => {
+                localStorage.setItem('currentUser', JSON.stringify(socialUserAccount));    
+                this.router.navigate([this.returnUrl]);
+
+              });
+
+            },
+            error => {
+              console.log(error)
+            });
       }
     );
   }

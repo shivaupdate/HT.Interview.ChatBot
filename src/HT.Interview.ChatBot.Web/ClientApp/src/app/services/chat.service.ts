@@ -10,7 +10,7 @@ export class ChatService {
   conversation = new BehaviorSubject<Message[]>([]);   
   dialogflowGeneratedIntentId: string;
   constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }          
-  webAPIUrl = environment.dialogflow.webAPIUrl + environment.dialogflow.interviewController + "/get?";
+  webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
 
   //// Sends and receives messages via DialogFlow
   converse(message: Message) {

@@ -6,9 +6,10 @@
                    [rowData]="rowData"
                    [columnDefs]="columnDefs"
                    (firstDataRendered)="onFirstDataRendered($event)"
-                   (gridReady)="onGridReady($event)"        
-                   [pagination]="true"               
-                   [paginationPageSize]="paginationPageSize"     
-                   rowSelection='single'>
+                   (gridReady)="onGridReady($event)"
+                   [pagination]="true"
+                   [paginationPageSize]="paginationPageSize"
+                   rowSelection='single'
+                   [autoHeight]=true>
   </ag-grid-angular>
-</app-standard> 
+</app-standard>

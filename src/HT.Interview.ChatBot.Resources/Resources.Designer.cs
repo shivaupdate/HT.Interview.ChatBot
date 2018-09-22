@@ -106,6 +106,24 @@ namespace HT.Interview.ChatBot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update user request is null.
+        /// </summary>
+        public static string UpdateUserRequestIsNull {
+            get {
+                return ResourceManager.GetString("UpdateUserRequestIsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User by specified id not found.
+        /// </summary>
+        public static string UserByIdNotFound {
+            get {
+                return ResourceManager.GetString("UserByIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User records not found.
         /// </summary>
         public static string UsersNoRecordFound {
