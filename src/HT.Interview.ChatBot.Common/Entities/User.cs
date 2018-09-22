@@ -22,7 +22,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// Get or sets the role id
         /// </summary>
         /// <value>
-        /// The Id
+        /// The RoleId
         /// </value> 
         [Required]
         public int RoleId { get; set; }
@@ -55,21 +55,11 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string LastName { get; set; }
 
         /// <summary>
-        /// Get or sets the name
-        /// </summary>
-        /// <value>
-        /// The Name
-        /// </value> 
-        [Required]
-        public string Name { get; set; }
-
-        /// <summary>
         /// Get or sets the gender id
         /// </summary>
         /// <value>
         /// The GenderId
         /// </value> 
-
         [Required]
         public int GenderId { get; set; }
 
@@ -79,9 +69,24 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Mobile
         /// </value> 
-
         [Required]
         public string Mobile { get; set; }
+
+        /// <summary>
+        /// Get or sets the job profile id
+        /// </summary>
+        /// <value>
+        /// The JobProfileId
+        /// </value>  
+        public int? JobProfileId { get; set; }
+
+        /// <summary>
+        /// Get or sets the social account info
+        /// </summary>
+        /// <value>
+        /// The SocialAccountInfo
+        /// </value>  
+        public string SocialAccountInfo { get; set; }
 
         /// <summary>
         /// Get or sets the photo url
@@ -90,6 +95,24 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The PhotoUrl
         /// </value>  
         public string PhotoUrl { get; set; }
+
+        /// <summary>
+        /// Get or sets the provider
+        /// </summary>
+        /// <value>
+        /// The SocialAccouProviderntInfo
+        /// </value>  
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// Get or sets is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value> 
+
+        [Required]
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Get or sets the created by

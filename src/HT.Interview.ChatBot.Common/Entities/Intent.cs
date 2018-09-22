@@ -20,6 +20,14 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
+        /// Get or sets the JPC mapping id
+        /// </summary>
+        /// <value>
+        /// The JPCMappingId
+        /// </value>  
+        public int? JPCMappingId { get; set; }
+
+        /// <summary>
         /// Get or sets the parent intent id
         /// </summary>
         /// <value>
@@ -75,7 +83,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The AllocatedTime
         /// </value> 
-
         public int AllocatedTime { get; set; }
 
         /// <summary>

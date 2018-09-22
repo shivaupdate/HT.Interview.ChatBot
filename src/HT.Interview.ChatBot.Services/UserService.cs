@@ -6,6 +6,7 @@ using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Services
@@ -37,14 +38,25 @@ namespace HT.Interview.ChatBot.Services
         }
 
         /// <summary>
+        /// Get user by email async
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public async Task<Response<User>> GetUserByEmailAsync(string email)
+        {
+            User user = await _chatbotDataContext.User.Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
+            return Response.Ok(user);
+        }
+
+        /// <summary>
         /// Get users async
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="userDetail"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<User>>> GetUsersAsync(User user)
+        public async Task<Response<IEnumerable<UserDetail>>> GetUsersAsync(UserDetail userDetail)
         {
-            IEnumerable<User> users = await _chatbotDataContext.User.ToListAsync();
-            return Response.Ok(users);
+            IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.ToListAsync();
+            return Response.Ok(userDetails);
         }
 
         /// <summary>
@@ -54,9 +66,9 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response> CreateUserAsync(User user)
         {
-            user.CreatedOn = DateTime.Now;  
+            user.CreatedOn = DateTime.Now;
             _chatbotDataContext.User.Add(user);
-            await _chatbotDataContext.SaveChangesAsync(); 
+            await _chatbotDataContext.SaveChangesAsync();
             return Response.Ok();
         }
 

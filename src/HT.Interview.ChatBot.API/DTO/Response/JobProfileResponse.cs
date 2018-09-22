@@ -1,18 +1,19 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
-namespace HT.Interview.ChatBot.Common.Entities
+namespace HT.Interview.ChatBot.API.DTO.Response
 {
-    public class InterviewType
+    /// <summary>
+    /// JobProfile response
+    /// </summary>
+    public class JobProfileResponse
     {
-
         /// <summary>
         /// Get or sets the id
         /// </summary>
         /// <value>
         /// The Id
-        /// </value> 
-        [Required]
+        /// </value>  
         public int Id { get; set; }
 
         /// <summary>
@@ -20,9 +21,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The Type
-        /// </value> 
-
-        [Required]
+        /// </value>   
         public string Type { get; set; }
 
         /// <summary>
@@ -30,19 +29,39 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The Description
-        /// </value> 
-
-        [Required]
+        /// </value>   
         public string Description { get; set; }
+
+        /// <summary>
+        /// Get or sets the min experience
+        /// </summary>
+        /// <value>
+        /// The MinExperience
+        /// </value>   
+        public int MinExperience { get; set; }
+
+        /// <summary>
+        /// Get or sets the max experience
+        /// </summary>
+        /// <value>
+        /// The MaxExperience
+        /// </value>   
+        public int MaxExperience { get; set; }
+
+        /// <summary>
+        /// Get or sets the is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value>  
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Get or sets the CreatedBy
         /// </summary>
         /// <value>
         /// The CreatedBy
-        /// </value> 
-
-        [Required]
+        /// </value>  
         public string CreatedBy { get; set; }
 
         /// <summary>
@@ -50,8 +69,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The CreatedOn
-        /// </value> 
-        [Required]
+        /// </value>  
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
@@ -62,13 +80,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         public string ModifiedBy { get; set; }
 
-
         /// <summary>
         /// Get or sets the ModifiedOn
         /// </summary>
         /// <value>
         /// The ModifiedOn
         /// </value> 
-        public DateTime? ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; } 
     }
 }

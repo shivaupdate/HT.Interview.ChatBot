@@ -11,6 +11,16 @@ namespace HT.Interview.ChatBot.Data
     public interface IChatBotDataContext : IDbContext
     {
         /// <summary>
+        /// User model
+        /// </summary>
+        DbSet<User> User { get; set; }
+
+        /// <summary>
+        /// User model
+        /// </summary>
+        DbSet<UserDetail> UserDetail { get; set; }
+
+        /// <summary>
         /// Intent model
         /// </summary>
         DbSet<Intent> Intent { get; set; }
@@ -36,11 +46,6 @@ namespace HT.Interview.ChatBot.Data
         DbSet<IntentSuggestion> IntentSuggestion { get; set; }
 
         /// <summary>
-        /// User model
-        /// </summary>
-        DbSet<User> User { get; set; }
-
-        /// <summary>
         /// Role model
         /// </summary>
         DbSet<Role> Role { get; set; }
@@ -51,14 +56,14 @@ namespace HT.Interview.ChatBot.Data
         DbSet<Menu> Menu { get; set; }
 
         /// <summary>
-        /// InterviewTypeCompetenceMapping model
+        /// JobProfileCompetenceMapping model
         /// </summary>
-        DbSet<InterviewTypeCompetenceMapping> InterviewTypeCompetenceMapping { get; set; }
+        DbSet<JobProfileCompetenceMapping> JobProfileCompetenceMapping { get; set; }
 
         /// <summary>
-        /// InterviewType model
+        /// JobProfile model
         /// </summary>
-        DbSet<InterviewType> InterviewType { get; set; }
+        DbSet<JobProfile> JobProfile { get; set; }
 
         /// <summary>
         /// Gender model

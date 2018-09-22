@@ -97,26 +97,16 @@ namespace HT.Interview.ChatBot.Services
         public IMenuService GetMenuService()
         {
             return _dependencyResolver.Resolve<IMenuService>();
-        } 
+        }
 
         /// <inheritdoc />
         /// <summary>
-        /// Get InterviewTypeCompetenceMapping service
+        /// Get Job Profile service
         /// </summary>
         /// <returns></returns>
-        public IInterviewTypeCompetenceMappingService GetInterviewTypeCompetenceMappingService()
+        public IJobProfileService GetJobProfileService()
         {
-            return _dependencyResolver.Resolve<IInterviewTypeCompetenceMappingService>();
-        }
-          
-        /// <inheritdoc />
-        /// <summary>
-        /// Get InterviewType service
-        /// </summary>
-        /// <returns></returns>
-        public IInterviewTypeService GetInterviewTypeService()
-        {
-            return _dependencyResolver.Resolve<IInterviewTypeService>();
+            return _dependencyResolver.Resolve<IJobProfileService>();
         }
           
         /// <inheritdoc />

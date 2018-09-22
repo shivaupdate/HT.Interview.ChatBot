@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ChatModule } from './modules/chat.module';          
 import { SpeechModule } from './modules/speech.module';
@@ -15,12 +16,13 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-logi
 
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './components/login/login.component';
+import { AppComponent } from './app.component';     
 import { StandardComponent } from './components/standard/standard.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';       
-import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SocialUserProfileComponent } from './components/social-user-profile/social-user-profile.component';
 import { CameraComponent } from './components/camera/camera.component';
@@ -44,9 +46,10 @@ let config = new AuthServiceConfig([
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },   
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
   { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard]},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   { path: 'socialprofile', component: SocialUserProfileComponent, canActivate: [AuthGuard]}
 
@@ -57,10 +60,11 @@ const appRoutes: Routes = [
     LoginComponent,
     StandardComponent,
     HeaderComponent,
-    AppComponent,
-    FooterComponent,     
-    ChatDialogComponent,  
+    FooterComponent, 
+    AppComponent,            
     DashboardComponent,
+    ManageUserComponent,
+    ChatDialogComponent, 
     AdminComponent,
     SocialUserProfileComponent,
     SearchPipe,
@@ -70,6 +74,7 @@ const appRoutes: Routes = [
     MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
+    AgGridModule.withComponents([]),
     HttpClientModule,
     HttpModule,
     FormsModule,

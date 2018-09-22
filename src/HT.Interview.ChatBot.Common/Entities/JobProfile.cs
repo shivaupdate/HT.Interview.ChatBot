@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
-    /// <inheritdoc />
     /// <summary>
-    /// Interview model
+    /// Job Profile model
     /// </summary>
-    public class Interview
+    public class JobProfile
     {
         /// <summary>
         /// Get or sets the id
@@ -19,42 +19,52 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the user id
+        /// Get or sets the Type
         /// </summary>
         /// <value>
-        /// The UserId
+        /// The Type
         /// </value>  
         [Required]
-        public int UserId { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// Get or sets the intent id
+        /// Get or sets the description
         /// </summary>
         /// <value>
-        /// The IntentId
+        /// The Description
         /// </value>  
         [Required]
-        public int IntentId { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Get or sets the output context
+        /// Get or sets the min experience
         /// </summary>
         /// <value>
-        /// The OutputContext
+        /// The MinExperience
         /// </value>  
         [Required]
-        public string GivenAnswer { get; set; }
+        public int MinExperience { get; set; }
 
         /// <summary>
-        /// Get or sets the timen taken
+        /// Get or sets the max experience
         /// </summary>
         /// <value>
-        /// The TimeTaken
+        /// The MaxExperience
         /// </value>  
-        public int? TimeTaken { get; set; }
-          
+        [Required]
+        public int MaxExperience { get; set; }
+
         /// <summary>
-        /// Get or sets the created by
+        /// Get or sets the is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value> 
+        [Required]
+        public bool IsActive { get; set; }
+
+        /// <summary>
+        /// Get or sets the CreatedBy
         /// </summary>
         /// <value>
         /// The CreatedBy
@@ -63,7 +73,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string CreatedBy { get; set; }
 
         /// <summary>
-        /// Get or sets the created on
+        /// Get or sets the CreatedOn
         /// </summary>
         /// <value>
         /// The CreatedOn
@@ -72,19 +82,28 @@ namespace HT.Interview.ChatBot.Common.Entities
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
-        /// Get or sets the modified by
+        /// Get or sets the ModifiedBy
         /// </summary>
         /// <value>
         /// The ModifiedBy
-        /// </value>  
+        /// </value> 
         public string ModifiedBy { get; set; }
 
         /// <summary>
-        /// Get or sets the modified on
+        /// Get or sets the ModifiedOn
         /// </summary>
         /// <value>
         /// The ModifiedOn
-        /// </value>  
+        /// </value> 
         public DateTime? ModifiedOn { get; set; }
+
+        /// <summary>
+        /// Get or sets the job profile competence mapping
+        /// </summary>
+        /// <value>
+        /// The JobProfileCompetenceMapping
+        /// </value> 
+        public ICollection<JobProfileCompetenceMapping> JobProfileCompetenceMapping { get; set; }
+
     }
 }

@@ -11,10 +11,16 @@ namespace HT.Interview.ChatBot.Common.Contracts
     public interface IUserService
     {
         /// <summary>
+        /// Get user by email async
+        /// </summary>
+        /// <param name="email"></param>
+        Task<Response<User>> GetUserByEmailAsync(string email);
+
+        /// <summary>
         /// Get users async
         /// </summary>
-        /// <param name="user"></param>
-        Task<Response<IEnumerable<User>>> GetUsersAsync(User user);
+        /// <param name="userDetail"></param>
+        Task<Response<IEnumerable<UserDetail>>> GetUsersAsync(UserDetail userDetail);
 
         /// <summary>
         /// Create user async

@@ -40,17 +40,16 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Add interview async
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <returns></returns>
-        public async Task<Response> AddInterviewAsync(int candidateId, string dialogflowGeneratedIntentId)
+        public async Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId)
         {
             try
             {
                 Model.Interview interview = new Model.Interview()
-                {
-                    InterviewTypeId = 1,
-                    CandidateId = candidateId,
+                { 
+                    UserId = userId,
                     IntentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId),
                     CreatedBy = "RavindraK@hexaware.com",
                     CreatedOn = DateTime.Now
@@ -72,17 +71,17 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Update interview async
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <param name="givenAnswer"></param>
         /// <param name="timeTaken"></param>
         /// <returns></returns>
-        public async Task<Response> UpdateInterviewAsync(int candidateId, string dialogflowGeneratedIntentId, string givenAnswer, int? timeTaken)
+        public async Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string givenAnswer, int? timeTaken)
         {
             try
             { 
                 int intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId); 
-                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(candidateId, intentId); 
+                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(userId, intentId); 
                 i.GivenAnswer = givenAnswer;
                 if (timeTaken.HasValue)
                 {
@@ -122,12 +121,12 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Get interview by candidate id and intent id
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="intentId"></param>
         /// <returns></returns>
-        private async Task<Model.Interview> GetInterviewByCandidateIdAndIntentIdAsync(int candidateId, int intentId)
+        private async Task<Model.Interview> GetInterviewByCandidateIdAndIntentIdAsync(int userId, int intentId)
         {
-            return await _chatbotDataContext.Interview.FirstOrDefaultAsync(x => x.CandidateId == candidateId && x.IntentId == intentId);
+            return await _chatbotDataContext.Interview.FirstOrDefaultAsync(x => x.UserId == userId && x.IntentId == intentId);
         }
 
         #endregion

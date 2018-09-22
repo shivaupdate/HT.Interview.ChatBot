@@ -38,29 +38,40 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
+        /// Get user by email async
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet(Common.Constants.Get)]
+        public async Task<ActionResult> GetUserByEmailAsync([FromQuery] string email)
+        {
+            return await GetResponseAsync(async () => (await _userService.GetUserByEmailAsync(email))
+                .GetMappedResponse<User, UserResponse>(_mapper));
+        }
+
+        /// <summary>
         /// Get many async
         /// </summary>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)] 
         public async Task<ActionResult> GetManyAsync([FromQuery] UserRequest u)
         {
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<User>(u)))
-                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper));
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(new UserDetail()))
+                .GetMappedResponse<IEnumerable<UserDetail>, IEnumerable<UserDetail>>(_mapper));
         }
 
-        /// <summary>
-        /// Get many as pageable async
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet(Common.Constants.GetManyAsPageable)] 
-        public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserRequest u)
-        {
-            return await GetResponseAsync(async () =>
-            {
-                return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<User>(u)))
-                .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), u.CurrentPage, u.PageSize);
-            });
-        }
+        ///// <summary>
+        ///// Get many as pageable async
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpGet(Common.Constants.GetManyAsPageable)] 
+        //public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserRequest u)
+        //{
+        //    return await GetResponseAsync(async () =>
+        //    {
+        //        return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<User>(u)))
+        //        .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), u.CurrentPage, u.PageSize);
+        //    });
+        //}
          
         /// <summary>
         /// Create user async

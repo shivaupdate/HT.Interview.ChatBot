@@ -36,8 +36,7 @@ namespace HT.Interview.ChatBot.API.DI
             builder.RegisterType<GenderService>().As<IGenderService>();
             builder.RegisterType<IntentService>().As<IIntentService>(); 
             builder.RegisterType<InterviewService>().As<IInterviewService>(); 
-            builder.RegisterType<InterviewTypeService>().As<IInterviewTypeService>();
-            builder.RegisterType<InterviewTypeCompetenceMappingService>().As<IInterviewTypeCompetenceMappingService>();
+            builder.RegisterType<JobProfileService>().As<IJobProfileService>(); 
             builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<RoleService>().As<IRoleService>();  
             builder.RegisterType<ApiAiHttpClient>().As<IHttpClient>(); 

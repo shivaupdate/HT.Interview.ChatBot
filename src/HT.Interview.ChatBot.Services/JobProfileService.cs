@@ -1,7 +1,6 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +11,9 @@ namespace HT.Interview.ChatBot.Services
 {
     /// <inheritdoc />
     /// <summary>
-    /// Role Service
+    /// Job Profile Service
     /// </summary>
-    public class InterviewTypeService : IInterviewTypeService
+    public class JobProfileService : IJobProfileService
     {
         #region Fields
 
@@ -30,7 +29,7 @@ namespace HT.Interview.ChatBot.Services
         /// </summary>
         /// <param name="factory"></param>
         /// <param name="chatbotDataContext"></param>
-        public InterviewTypeService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
+        public JobProfileService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
         {
             _chatbotDataContext = chatbotDataContext;
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
@@ -39,17 +38,14 @@ namespace HT.Interview.ChatBot.Services
         #region Get InterviewTypes
 
         /// <summary>
-        /// Get InterviewTypes async
+        /// Get job profiles async
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="createdBy"></param>
+        /// <param name="jobProfile"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<InterviewType>>> GetInterviewTypesAsync(int? id, string name, string createdBy)
+        public async Task<Response<IEnumerable<JobProfile>>> GetJobProfilesAsync(JobProfile jobProfile)
         {
-            IEnumerable<InterviewType> InterviewTypes = await _chatbotDataContext.InterviewType.ToListAsync();
-            // TODO: Search InterviewTypes result list against search parameters
-            return Response.Ok(InterviewTypes);
+            IEnumerable<JobProfile> jobProfiles = await _chatbotDataContext.JobProfile.ToListAsync(); 
+            return Response.Ok(jobProfiles);
         }
 
         #endregion

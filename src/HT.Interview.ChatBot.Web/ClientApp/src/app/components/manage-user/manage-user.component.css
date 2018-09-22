@@ -1,0 +1,16 @@
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button !important;
+}
+
+
+
+.ag-theme-blue .ag-paging-panel element.style {
+}
+
+.ag-theme-blue .ag-paging-panel > span {
+  visibility: hidden !important;
+}
+
+.ag-paging-row-summary-panel {
+  visibility: hidden !important;
+}

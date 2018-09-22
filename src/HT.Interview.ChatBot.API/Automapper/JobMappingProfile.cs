@@ -8,21 +8,21 @@ namespace HT.Interview.ChatBot.API
 {
     /// <inheritdoc />
     /// <summary>
-    /// InterviewType Profile
+    /// Job Profile
     /// </summary>
-    public class InterviewTypeProfile : Profile
+    public class JobMappingProfile : Profile
     {
         /// <summary>
         /// Profile name
         /// </summary>
-        public override string ProfileName => "InterviewTypeProfile";
+        public override string ProfileName => "JobMappingProfile";
 
         /// <summary>
         /// Configure auto mapper 
         /// </summary>
-        public InterviewTypeProfile()
+        public JobMappingProfile()
         { 
-            CreateMap<InterviewType, InterviewTypeResponse>();
+            CreateMap<JobProfile, JobProfileResponse>();
             CreateMap<InterviewTypeRequest, Model.InterviewTypeRequest>();
         }
     }
