@@ -1,16 +1,5 @@
-button, html [type="button"], [type="reset"], [type="submit"] {
-  -webkit-appearance: button !important;
-}
-
-
-
-.ag-theme-blue .ag-paging-panel element.style {
-}
-
-.ag-theme-blue .ag-paging-panel > span {
-  visibility: hidden !important;
-}
-
-.ag-paging-row-summary-panel {
-  visibility: hidden !important;
+.main-title {
+  padding-left: 30px;
+  font-weight: bold;
+  color: darkgreen;
 }

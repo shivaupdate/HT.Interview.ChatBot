@@ -1,3 +1,9 @@
+.main-title {
+  padding-left: 30px;
+  font-weight: bold;
+  color: darkgreen;
+}
+
 .row {
   margin-left: 0px !important;
   margin-right: 0px !important;

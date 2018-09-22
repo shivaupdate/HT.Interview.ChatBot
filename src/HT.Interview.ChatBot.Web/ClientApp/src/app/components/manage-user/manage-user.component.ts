@@ -23,27 +23,22 @@ export class ManageUserComponent implements OnInit {
         field: "roleName"
       },
       {
-        headerName: "Email",
-        field: "email",
-        suppressSizeToFit: true
-      },
-      {
         headerName: "Name",
         field: "displayName",
         suppressSizeToFit: true 
       },
       {
-        headerName: "Gender",
-        field: "genderName"
+        headerName: "Email",
+        field: "email",
+        suppressSizeToFit: true
       },
       {
         headerName: "Mobile",
         field: "mobile"
       },
       {
-        headerName: "Profile Applied For",
-        field: "jobProfileType",
-        suppressSizeToFit: true
+        headerName: "Gender",
+        field: "genderName"
       },
       {
         headerName: "Provider",

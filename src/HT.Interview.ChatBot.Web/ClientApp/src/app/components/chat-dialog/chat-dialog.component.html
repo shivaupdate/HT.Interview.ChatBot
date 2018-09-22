@@ -1,64 +1,65 @@
 <app-standard>
-  <div class="row">    
+  <h3 class="main-title">Your virtual interview assistant - Laura!!</h3>
+  <div class="row">
     <div class="col-sm-8">
-      <div class="card">        
-          <div id="lc_chat_header">  
-            <span id="lc_chat_title_left">Live Chat Conversation</span>
-            <span id="lc_chat_title_right">{{message.remainingTime}}</span>
-          </div>            
-          <div id="lc_chat_container">
-            <div #divChatWindow id="lc_chat_message_window">
-              <br />
-              <ng-container *ngFor="let message of messages | async">
-                <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
-                  <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
-                    <div class="noResponse">
-                      Time allocated for the last question has expired. Bot will automatically move to the next question.
-                      <br />
-                    </div>
-                  </div>
-                </ng-container>
-                <ng-template #responseRecorded>
-                  <div *ngIf="message.response.result.resolvedQuery !== ''" class="bubble bot">
-                    <div class="message to">
-                      <span class="timestamp">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        {{message.timestamp | date : 'h:mm:ss a' }}
-                      </span>
-                      <img src="../../assets/images/user.png" class="avatar" />
-                      {{ message.response.result.resolvedQuery }}
-                      <br />
-                    </div>
-                  </div>
-                </ng-template>    
-                <div class="message from">
-                  <div class="timestamp">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    {{message.timestamp | date : 'h:mm:ss a' }}
-                  </div>
-                  <img src="../../assets/images/chatbot.png" class="avatar" />
-                  {{ message.response.result.fulfillment.speech }}
-                  <div *ngFor="let r of message.response.result.fulfillment.messages">
-                    <div *ngIf="r.type === 5" class="chips">
-                      <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
-                        {{s.title}}
-                      </div>
-                    </div>
+      <div class="card">
+        <div id="lc_chat_header">
+          <span id="lc_chat_title_left">Live Chat Conversation</span>
+          <span id="lc_chat_title_right">{{message.remainingTime}}</span>
+        </div>
+        <div id="lc_chat_container">
+          <div #divChatWindow id="lc_chat_message_window">
+            <br />
+            <ng-container *ngFor="let message of messages | async">
+              <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
+                <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
+                  <div class="noResponse">
+                    Time allocated for the last question has expired. Bot will automatically move to the next question.
+                    <br />
                   </div>
                 </div>
               </ng-container>
-            </div>
+              <ng-template #responseRecorded>
+                <div *ngIf="message.response.result.resolvedQuery !== ''" class="bubble bot">
+                  <div class="message to">
+                    <span class="timestamp">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      {{message.timestamp | date : 'h:mm:ss a' }}
+                    </span>
+                    <img src="../../assets/images/user.png" class="avatar" />
+                    {{ message.response.result.resolvedQuery }}
+                    <br />
+                  </div>
+                </div>
+              </ng-template>
+              <div class="message from">
+                <div class="timestamp">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  {{message.timestamp | date : 'h:mm:ss a' }}
+                </div>
+                <img src="../../assets/images/chatbot.png" class="avatar" />
+                {{ message.response.result.fulfillment.speech }}
+                <div *ngFor="let r of message.response.result.fulfillment.messages">
+                  <div *ngIf="r.type === 5" class="chips">
+                    <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
+                      {{s.title}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
           </div>
-          <div class="textarea-container">
-            <textarea [(ngModel)]="query" (keyup.enter)="sendMessage()"></textarea>
-            <button [ngClass]="getMicStyle()" (click)="toggleVoiceRecognition()" aria-hidden="true"></button>
-          </div>
+        </div>
+        <div class="textarea-container">
+          <textarea [(ngModel)]="query" (keyup.enter)="sendMessage()"></textarea>
+          <button [ngClass]="getMicStyle()" (click)="toggleVoiceRecognition()" aria-hidden="true"></button>
+        </div>
       </div>
-    </div>       
+    </div>
     <div class="col-sm-4">
-      <div class="camera-card">     
-          <app-camera></app-camera>    
+      <div class="camera-card">
+        <app-camera></app-camera>
       </div>
-    </div>       
+    </div>
   </div>
 </app-standard>
