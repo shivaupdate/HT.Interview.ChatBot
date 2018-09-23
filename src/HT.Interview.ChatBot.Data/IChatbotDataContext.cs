@@ -11,15 +11,20 @@ namespace HT.Interview.ChatBot.Data
     public interface IChatBotDataContext : IDbContext
     {
         /// <summary>
-        /// Intent model
+        /// User model
         /// </summary>
-        DbSet<Intent> Intent { get; set; }
+        DbSet<User> User { get; set; }
+
+        /// <summary>
+        /// User model
+        /// </summary>
+        DbSet<UserDetail> UserDetail { get; set; }
 
         /// <summary>
         /// Intent model
         /// </summary>
-        DbSet<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-
+        DbSet<Intent> Intent { get; set; }
+         
         /// <summary>
         /// Intent Training Phrase model
         /// </summary>
@@ -36,11 +41,6 @@ namespace HT.Interview.ChatBot.Data
         DbSet<IntentSuggestion> IntentSuggestion { get; set; }
 
         /// <summary>
-        /// User model
-        /// </summary>
-        DbSet<User> User { get; set; }
-
-        /// <summary>
         /// Role model
         /// </summary>
         DbSet<Role> Role { get; set; }
@@ -51,40 +51,25 @@ namespace HT.Interview.ChatBot.Data
         DbSet<Menu> Menu { get; set; }
 
         /// <summary>
-        /// InterviewTypeCompetenceMapping model
+        /// JobProfileCompetenceMapping model
         /// </summary>
-        DbSet<InterviewTypeCompetenceMapping> InterviewTypeCompetenceMapping { get; set; }
+        DbSet<JobProfileCompetenceMapping> JobProfileCompetenceMapping { get; set; }
 
         /// <summary>
-        /// InterviewType model
+        /// JobProfile model
         /// </summary>
-        DbSet<InterviewType> InterviewType { get; set; }
+        DbSet<JobProfile> JobProfile { get; set; }
 
         /// <summary>
         /// Gender model
         /// </summary>
         DbSet<Gender> Gender { get; set; }
-
-        /// <summary>
-        /// Employee model
-        /// </summary>
-        DbSet<Employee> Employee { get; set; }
-
-        /// <summary>
-        /// CompetenceLevel model
-        /// </summary>
-        DbSet<CompetenceLevel> CompetenceLevel { get; set; }
-
+          
         /// <summary>
         /// Competence model
         /// </summary>
         DbSet<Competence> Competence { get; set; }
-
-        /// <summary>
-        /// Candidate model
-        /// </summary>
-        DbSet<Candidate> Candidate { get; set; }
-
+         
         /// <summary>
         /// Attachment model
         /// </summary>

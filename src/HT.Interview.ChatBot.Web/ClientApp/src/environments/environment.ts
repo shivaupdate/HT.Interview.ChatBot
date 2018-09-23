@@ -5,9 +5,25 @@
 
 export const environment = {
   production: false,
-  dialogflow: {                        
-    interviewAgent: 'f32467d4e47245c794456f5bd1cf8e0a',
-    webAPIUrl: 'http://localhost:50463/api/v1/',
+  dialogflow: {
+    interviewAgent: 'f32467d4e47245c794456f5bd1cf8e0a'
+  },
+  action: {
+    get: '/get',
+    getWithParameters: '/get?',
+    getMany: '/get-many',
+    getManyWithParameters: '/get-many?',
+    create: '/create',
+    update: '/update',
+    delete: '/delete',
+    deleteWithParameters: '/delete?'
+  },
+  controller: {
+    userController: 'user',
     interviewController: 'interview'
+  },
+  application: {
+    webAPIUrl: 'http://localhost:50463/api/v1/',
+    pageSize: 10
   }
 };

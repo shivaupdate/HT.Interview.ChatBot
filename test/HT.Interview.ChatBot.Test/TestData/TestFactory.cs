@@ -30,7 +30,7 @@ namespace HT.Interview.ChatBot.Test
             MockFactory = CreateMockSecurityFactory();
         }
          
-        internal (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) CreateMockUserClaimQueryService()
+        internal (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) CreateMockUserQueryService()
         {
             MockFactory.Setup(x => x.GetResourceService(Constants.ResourceComponent)).Returns(new ResourceService<Resources.Resources>()); 
             Mock<DbSet<User>> mockDbSet = MockDbSet(User);

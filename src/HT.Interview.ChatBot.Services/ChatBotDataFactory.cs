@@ -88,8 +88,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IRoleService>();
         }
-         
-
+          
         /// <inheritdoc />
         /// <summary>
         /// Get Menu service
@@ -100,28 +99,14 @@ namespace HT.Interview.ChatBot.Services
             return _dependencyResolver.Resolve<IMenuService>();
         }
 
-
-
         /// <inheritdoc />
         /// <summary>
-        /// Get InterviewTypeCompetenceMapping service
+        /// Get Job Profile service
         /// </summary>
         /// <returns></returns>
-        public IInterviewTypeCompetenceMappingService GetInterviewTypeCompetenceMappingService()
+        public IJobProfileService GetJobProfileService()
         {
-            return _dependencyResolver.Resolve<IInterviewTypeCompetenceMappingService>();
-        }
-
-
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Get InterviewType service
-        /// </summary>
-        /// <returns></returns>
-        public IInterviewTypeService GetInterviewTypeService()
-        {
-            return _dependencyResolver.Resolve<IInterviewTypeService>();
+            return _dependencyResolver.Resolve<IJobProfileService>();
         }
           
         /// <inheritdoc />
@@ -133,27 +118,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IGenderService>();
         }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Employee service
-        /// </summary>
-        /// <returns></returns>
-        public IEmployeeService GetEmployeeService()
-        {
-            return _dependencyResolver.Resolve<IEmployeeService>();
-        }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Get CompetenceLevel service
-        /// </summary>
-        /// <returns></returns>
-        public ICompetenceLevelService GetCompetenceLevelService()
-        {
-            return _dependencyResolver.Resolve<ICompetenceLevelService>();
-        } 
-
+           
         /// <inheritdoc />
         /// <summary>
         /// Get Competence service
@@ -163,17 +128,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICompetenceService>();
         }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Candidate service
-        /// </summary>
-        /// <returns></returns>
-        public ICandidateService GetCandidateService()
-        {
-            return _dependencyResolver.Resolve<ICandidateService>();
-        }
-         
+          
         /// <inheritdoc />
         /// <summary>
         /// Get Attachment service

@@ -7,4 +7,6 @@ export class Message {
   timestamp: Date;
   allocatedTime: string;
   remainingTime: string;
+  userName: string;
+  photoUrl: string;
 }

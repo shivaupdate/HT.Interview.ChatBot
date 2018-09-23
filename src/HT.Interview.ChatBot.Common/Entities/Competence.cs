@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
@@ -13,7 +11,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Id
         /// </value> 
-
         [Required]
         public int Id { get; set; }
 
@@ -26,14 +23,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         [Required]
         public string Name { get; set; }
 
-
         /// <summary>
         /// Get or sets the  CreatedBy
         /// </summary>
         /// <value>
         /// The CreatedBy
         /// </value> 
-
         [Required]
         public string CreatedBy { get; set; }
 

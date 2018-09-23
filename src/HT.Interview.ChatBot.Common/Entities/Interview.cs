@@ -19,23 +19,13 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the interview type id
+        /// Get or sets the user id
         /// </summary>
         /// <value>
-        /// The InterviewTypeId
+        /// The UserId
         /// </value>  
         [Required]
-        public int InterviewTypeId { get; set; }
-
-        
-        /// <summary>
-        /// Get or sets the candidate id
-        /// </summary>
-        /// <value>
-        /// The CandidateId
-        /// </value>  
-        [Required]
-        public int CandidateId { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Get or sets the intent id

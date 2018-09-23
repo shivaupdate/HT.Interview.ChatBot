@@ -34,10 +34,7 @@
     <Compile Update="Contracts\IQuestionarieService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Contracts\IInterviewTypeCompetenceMappingService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Contracts\IInterviewTypeService.cs">
+    <Compile Update="Contracts\IJobProfileService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Contracts\IInterviewDetailService.cs">
@@ -46,16 +43,7 @@
     <Compile Update="Contracts\IGenderService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Contracts\IEmployeeService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Contracts\ICompetenceLevelService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Update="Contracts\ICompetenceService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Contracts\ICandidateService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Contracts\IMenuService.cs">
@@ -70,10 +58,10 @@
     <Compile Update="Contracts\IRoleService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Entities\InterviewTypeCompetenceMapping.cs">
+    <Compile Update="Entities\JobProfileCompetenceMapping.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Entities\InterviewType.cs">
+    <Compile Update="Entities\JobProfile.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Entities\Menu.cs">
