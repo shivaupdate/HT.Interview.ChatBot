@@ -24,35 +24,43 @@ export class InterviewEvaluationComponent implements OnInit {
       {
         headerName: "Profile Applied For",
         field: "jobProfileType",
-        suppressSizeToFit: true
-      },
+        suppressSizeToFit: true,
+        filter: 'agTextColumnFilter'   
+      }, 
       {
-        headerName: "Applied Date",
-        suppressSizeToFit: false
+        headerName: "Interview Date",
+        field: "interviewDate",
+        suppressSizeToFit: false,
+        filter: 'agDateColumnFilter' 
       },
       {
         headerName: "Name",
         field: "displayName",
-        suppressSizeToFit: false
+        suppressSizeToFit: false,
+        filter: 'agTextColumnFilter' 
       },
       {
         headerName: "Resume",
-        suppressSizeToFit: false,
+        suppressSizeToFit: false,     
         cellRenderer: params => {
           return `<div style="text-align:center;"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>`;
         }
       },
       {
-        headerName: "Q & A",
+        headerName: "Q & A",    
         cellRenderer: params => {
           return `<div style="text-align:center;"><i class="fa fa-eye" style="color:black; cursor: pointer;"></i></div>`;
         }
       },
       {
-        headerName: "Remark"
+        headerName: "Remark",
+        filter: 'agTextColumnFilter',
+        field: "remark"
       },
       {
-        headerName: "End Result"
+        headerName: "End Result",
+        filter: 'agTextColumnFilter',
+        field: "endResult"
       }
     ];
   }
@@ -73,4 +81,5 @@ export class InterviewEvaluationComponent implements OnInit {
         this.rowData = data;
       });
   }
+
 }    

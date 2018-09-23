@@ -140,6 +140,22 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string EndResult { get; set; }
 
         /// <summary>
+        /// Get or sets the resume file path
+        /// </summary>
+        /// <value>
+        /// The ResumeFilePath
+        /// </value>  
+        public string ResumeFilePath { get; set; }
+
+        /// <summary>
+        /// Get or sets the recording file path
+        /// </summary>
+        /// <value>
+        /// The RecordingFilePath
+        /// </value>  
+        public string RecordingFilePath { get; set; }
+
+        /// <summary>
         /// Get or sets the photo url
         /// </summary>
         /// <value>

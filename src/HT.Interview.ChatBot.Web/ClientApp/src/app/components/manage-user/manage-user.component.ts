@@ -20,29 +20,35 @@ export class ManageUserComponent implements OnInit {
     this.columnDefs = [
       {
         headerName: "Role",
-        field: "roleName"
+        field: "roleName",
+        filter: 'agTextColumnFilter'
       },
       {
         headerName: "Name",
         field: "displayName",
-        suppressSizeToFit: true 
+        suppressSizeToFit: true,
+        filter: 'agTextColumnFilter'
       },
       {
         headerName: "Email",
         field: "email",
-        suppressSizeToFit: true
+        suppressSizeToFit: true,
+        filter: 'agDateColumnFilter'
       },
       {
         headerName: "Mobile",
-        field: "mobile"
+        field: "mobile",
+        filter: 'agTextColumnFilter'
       },
       {
         headerName: "Gender",
-        field: "genderName"
+        field: "genderName",
+        filter: 'agDateColumnFilter'
       },
       {
         headerName: "Provider",
-        field: "provider"
+        field: "provider",
+        filter: 'agTextColumnFilter'
       },
       {
         headerName: "Is Active",
