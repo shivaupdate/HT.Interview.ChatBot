@@ -3,6 +3,8 @@ import { Message } from '../../models/message';
 import { ChatService } from '../../services/chat.service';
 import { SpeechService } from '../../services/speech.service';
 import { Observable } from 'rxjs/Observable';
+import { Constants } from '../../models/constants';
+
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
@@ -27,14 +29,18 @@ export class ChatDialogComponent {
   tick = 1000;
   countdownTimer: any;
   allocatedTime = 0;
-  remainingTime = 0;
-
+  remainingTime = 0;         
+  private constants = new Constants();  
+  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private userName = this.user.firstName;
+  private photoUrl = this.user.photoUrl;
 
   constructor(public chat: ChatService, public speech: SpeechService) {
     var __this = this;
+
     this.message.candidateId = '1';
-    this.message.sessionId = 'Test';
-       
+    this.message.sessionId = 'Test';        
+
     this.speech.started.subscribe(started => this.started = started);
     this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
@@ -49,7 +55,7 @@ export class ChatDialogComponent {
             var seconds;
             __this.allocatedTime = Number(response.payload.allocatedTime);
             __this.remainingTime = __this.allocatedTime;
-            if (__this.countdownTimer) {   
+            if (__this.countdownTimer) {
               __this.message.remainingTime = '';
               __this.countdownTimer.unsubscribe();
             }
@@ -65,8 +71,8 @@ export class ChatDialogComponent {
 
                 __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
                 __this.remainingTime = __this.remainingTime - 1;
-                
-                if (__this.remainingTime < 0) {           
+
+                if (__this.remainingTime < 0) {
                   __this.noReponseFromCandidate();
                 }
               })
@@ -133,7 +139,7 @@ export class ChatDialogComponent {
     this.sendMessage();
   }
 
-  resetControls() {                                                    
-    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollTop + 200;  
-  }
+  resetControls() {
+    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollTop + 200;
+  }          
 }
