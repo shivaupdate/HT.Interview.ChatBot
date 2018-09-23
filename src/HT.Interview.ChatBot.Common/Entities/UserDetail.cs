@@ -114,7 +114,31 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The JobProfileType
         /// </value>  
         public string JobProfileType { get; set; }
-        
+
+        /// <summary>
+        /// Get or sets the interview date
+        /// </summary>
+        /// <value>
+        /// The InterviewDate
+        /// </value>  
+        public DateTime? InterviewDate { get; set; }
+
+        /// <summary>
+        /// Get or sets the remark
+        /// </summary>
+        /// <value>
+        /// The Remark
+        /// </value>  
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// Get or sets the end result
+        /// </summary>
+        /// <value>
+        /// The EndResult
+        /// </value>  
+        public string EndResult { get; set; }
+
         /// <summary>
         /// Get or sets the photo url
         /// </summary>
@@ -137,7 +161,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The IsActive
         /// </value> 
-
         [Required]
         public bool IsActive { get; set; } 
     }

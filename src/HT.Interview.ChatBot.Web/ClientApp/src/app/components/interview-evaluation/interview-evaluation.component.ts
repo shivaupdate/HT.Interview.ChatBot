@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { User } from '../../models/user';
+import { Role } from '../../models/enums';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -13,8 +15,9 @@ export class InterviewEvaluationComponent implements OnInit {
   private gridColumnApi;
   private columnDefs;
   private rowData: any;
-  private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + '/get-candidate-many';
   private paginationPageSize = environment.application.pageSize;
+  private user = new User();
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
@@ -24,7 +27,7 @@ export class InterviewEvaluationComponent implements OnInit {
         suppressSizeToFit: true
       },
       {
-        headerName: "Applied Date",   
+        headerName: "Applied Date",
         suppressSizeToFit: false
       },
       {
@@ -33,7 +36,7 @@ export class InterviewEvaluationComponent implements OnInit {
         suppressSizeToFit: false
       },
       {
-        headerName: "Resume",  
+        headerName: "Resume",
         suppressSizeToFit: false,
         cellRenderer: params => {
           return `<div style="text-align:center;"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>`;
@@ -46,10 +49,10 @@ export class InterviewEvaluationComponent implements OnInit {
         }
       },
       {
-        headerName: "Remark" 
+        headerName: "Remark"
       },
       {
-        headerName: "End Result" 
+        headerName: "End Result"
       }
     ];
   }
@@ -65,7 +68,7 @@ export class InterviewEvaluationComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.http.get(this.webAPIUrl)
+    this.http.get(this.webAPIUrl + '?roleId = 2')
       .subscribe(data => {
         this.rowData = data;
       });

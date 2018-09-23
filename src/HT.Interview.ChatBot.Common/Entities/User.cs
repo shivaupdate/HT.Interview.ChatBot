@@ -81,6 +81,30 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int? JobProfileId { get; set; }
 
         /// <summary>
+        /// Get or sets the interview date
+        /// </summary>
+        /// <value>
+        /// The InterviewDate
+        /// </value>  
+        public DateTime? InterviewDate { get; set; }
+
+        /// <summary>
+        /// Get or sets the remark
+        /// </summary>
+        /// <value>
+        /// The Remark
+        /// </value>  
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// Get or sets the end result
+        /// </summary>
+        /// <value>
+        /// The EndResult
+        /// </value>  
+        public string EndResult { get; set; } 
+
+        /// <summary>
         /// Get or sets the social account info
         /// </summary>
         /// <value>

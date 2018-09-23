@@ -38,8 +38,9 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
-        /// Get user by email async
+        ///  Get user by email async
         /// </summary>
+        /// <param name="email"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetUserByEmailAsync([FromQuery] string email)
@@ -51,28 +52,28 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get many async
         /// </summary>
+        /// <param name="ud"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)] 
-        public async Task<ActionResult> GetManyAsync([FromQuery] UserRequest u)
+        public async Task<ActionResult> GetManyAsync([FromQuery] UserDetail ud)
         {
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(new UserDetail()))
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<UserDetail>(ud)))
                 .GetMappedResponse<IEnumerable<UserDetail>, IEnumerable<UserDetail>>(_mapper));
         }
 
-        ///// <summary>
-        ///// Get many as pageable async
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpGet(Common.Constants.GetManyAsPageable)] 
-        //public async Task<ActionResult> GetManyAsPageableAsync([FromQuery] UserRequest u)
-        //{
-        //    return await GetResponseAsync(async () =>
-        //    {
-        //        return Pageable<UserResponse>.Paginate((await _userService.GetUsersAsync(_mapper.Map<User>(u)))
-        //        .GetMappedResponse<IEnumerable<User>, IEnumerable<UserResponse>>(_mapper), u.CurrentPage, u.PageSize);
-        //    });
-        //}
-         
+        /// <summary>
+        /// Get many async
+        /// </summary>
+        /// <param name="ud"></param>
+        /// <returns></returns>
+        [HttpGet(Common.Constants.GetCandidateMany)]
+        public async Task<ActionResult> GetCandidateManyAsync([FromQuery] UserDetail ud)
+        {
+            ud.RoleId = 1;
+            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<UserDetail>(ud)))
+                .GetMappedResponse<IEnumerable<UserDetail>, IEnumerable<UserDetail>>(_mapper));
+        }
+
         /// <summary>
         /// Create user async
         /// </summary>

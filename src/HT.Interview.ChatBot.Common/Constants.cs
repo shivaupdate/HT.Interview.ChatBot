@@ -61,6 +61,11 @@
         public const string GetMany = "get-many";
 
         /// <summary>
+        /// Get many
+        /// </summary>
+        public const string GetCandidateMany = "get-candidate-many";
+
+        /// <summary>
         /// Get many as pageable
         /// </summary>
         public const string GetManyAsPageable = "get-many-as-pageable";
