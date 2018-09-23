@@ -1,32 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { RtcMediaRecorderModule } from './components/rtc-media-recorder/rtc-media-recorder.module';
+
+import { NavbarModule } from 'angular-bootstrap-md'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ChatModule } from './modules/chat.module';
-import { HelpSectionModule } from './modules/help-section.module';
 import { SpeechModule } from './modules/speech.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
+import { AuthGuard } from './_guards';
+import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { FooterComponent } from './components/footer-component/footer.component';
-import { NavigationComponent } from './components/navigation-component/navigation.component';
-import { HeaderComponent } from './components/header/header.component';
+import { StandardComponent } from './components/standard/standard.component';
+
+import { HeaderComponent } from './components/standard/header/header.component';
+import { FooterComponent } from './components/standard/footer/footer.component';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { SocialUserProfileComponent } from './components/social-user-profile/social-user-profile.component';
+import { InterviewEvaluationComponent } from './components/interview-evaluation/interview-evaluation.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import { InterviewInstructionComponent } from './components/interview-instruction/interview-instruction.component';
+import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
-import { DataService } from './services/data.service';
-import { UserService } from './services/socialuser.service';
-import { SearchPipe } from './models/search.pipe';
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';
 
@@ -38,50 +40,48 @@ let config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
     provider: new FacebookLoginProvider('339324976811993')
-    //provider: new FacebookLoginProvider('612560029141568')
   }
 ]);
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomePageComponent },
-  { path: '', component: HomePageComponent },
-  { path: 'agent', component: ChatDialogComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'socialprofile', component: SocialUserProfileComponent }
-
+  { path: 'login', component: LoginComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'interview-evaluation', component: InterviewEvaluationComponent, canActivate: [AuthGuard] },
+  { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
+  { path: 'interview-instruction', component: InterviewInstructionComponent, canActivate: [AuthGuard] },
+  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavMenuComponent,
-    ChatDialogComponent,
-    HomePageComponent,
-    FooterComponent,
-    NavigationComponent,
+    LoginComponent,
+    StandardComponent,
     HeaderComponent,
+    FooterComponent,
+    AppComponent,
     DashboardComponent,
-    AdminComponent,
-    SocialUserProfileComponent,
-    SearchPipe,
+    InterviewEvaluationComponent,
+    ManageUserComponent,
+    InterviewInstructionComponent,
+    ChatDialogComponent,
     CameraComponent
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    NavbarModule,
+    AgGridModule.withComponents([]),
     HttpClientModule,
     HttpModule,
     FormsModule,
     ChatModule,
-    HelpSectionModule,
     SpeechModule,
-    SocialLoginModule.initialize(config), RtcMediaRecorderModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true})
-    //RouterModule.forRoot([
-      //{ path: 'home', component: HomePageComponent, pathMatch: 'full' }
-    //])
+    SocialLoginModule.initialize(config),
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload', enableTracing: false })
   ],
-  providers: [DataService, UserService, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
+  schemas: [NO_ERRORS_SCHEMA],
+  providers: [AuthGuard, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

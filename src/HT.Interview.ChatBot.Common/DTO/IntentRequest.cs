@@ -55,15 +55,7 @@ namespace HT.Interview.ChatBot.Common.DTO
         /// </value> 
         
         public string Text { get; set; }
-
-        /// <summary>
-        /// Get or sets the intent competence mapping
-        /// </summary>
-        /// <value>
-        /// The IntentCompetenceMapping
-        /// </value> 
-        public ICollection<IntentCompetenceMapping> IntentCompetenceMapping { get; set; }
-
+         
         /// <summary>
         /// Get or sets the intent training phrase
         /// </summary>

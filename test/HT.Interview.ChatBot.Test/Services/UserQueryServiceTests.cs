@@ -14,7 +14,7 @@ namespace HT.Interview.ChatBot.Test.Services
         public UserQueryServiceTests()
         {
             TestFactory testFactory = new TestFactory();
-            (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) result = testFactory.CreateMockUserClaimQueryService();
+            (Mock<UserService> mockService, Mock<DbSet<User>> mockDbSet) result = testFactory.CreateMockUserQueryService();
             Sut = result.mockService;
             MockDbSet = result.mockDbSet;
         }
@@ -27,10 +27,10 @@ namespace HT.Interview.ChatBot.Test.Services
         public async Task GetUsersAsync_ReturnsUsers_GivenUsersExist()
         {
             //Arrange
-            UserRequest uq = new UserRequest();
+            UserDetail ud = new UserDetail();
 
             //Act
-            Response<System.Collections.Generic.IEnumerable<User>> response = await Sut.Object.GetUsersAsync(uq);
+            Response<System.Collections.Generic.IEnumerable<UserDetail>> response = await Sut.Object.GetUsersAsync(ud);
 
             //Assert
             Assert.True(response.IsSuccess);

@@ -1,0 +1,16 @@
+<app-standard>
+  <h3 class="main-title">Interview Evaluation</h3>
+  <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
+                   class="ag-theme-blue"
+                   [enableSorting]="true"
+                   [rowData]="rowData"
+                   [columnDefs]="columnDefs"
+                   (firstDataRendered)="onFirstDataRendered($event)"
+                   (gridReady)="onGridReady($event)"
+                   [pagination]="true"
+                   [paginationPageSize]="paginationPageSize"
+                   rowSelection='single'
+                   [autoHeight]=true
+                   [enableFilter]="true">
+  </ag-grid-angular>
+</app-standard>

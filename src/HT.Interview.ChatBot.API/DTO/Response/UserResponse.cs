@@ -12,8 +12,24 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// </summary>
         /// <value>
         /// The Id
-        /// </value>
+        /// </value>  
         public int Id { get; set; }
+
+        /// <summary>
+        /// Get or sets the role id
+        /// </summary>
+        /// <value>
+        /// The Id
+        /// </value>  
+        public int RoleId { get; set; }
+
+        /// <summary>
+        /// Get or sets the email
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value>  
+        public string Email { get; set; }
 
         /// <summary>
         /// Get or sets the first name
@@ -30,14 +46,55 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The LastName
         /// </value>  
         public string LastName { get; set; }
-
+         
         /// <summary>
-        /// Get or sets the email
+        /// Get or sets the gender id
         /// </summary>
         /// <value>
-        /// The Email
+        /// The GenderId
         /// </value>  
-        public string Email { get; set; }
+        public int GenderId { get; set; }
+
+        /// <summary>
+        /// Get or sets mobile
+        /// </summary>
+        /// <value>
+        /// The Mobile
+        /// </value>  
+        public string Mobile { get; set; }
+
+
+        /// <summary>
+        /// Get or sets the social account info
+        /// </summary>
+        /// <value>
+        /// The SocialAccountInfo
+        /// </value>  
+        public string SocialAccountInfo { get; set; }
+
+        /// <summary>
+        /// Get or sets the photo url
+        /// </summary>
+        /// <value>
+        /// The PhotoUrl
+        /// </value>  
+        public string PhotoUrl { get; set; }
+
+        /// <summary>
+        /// Get or sets the provider
+        /// </summary>
+        /// <value>
+        /// The SocialAccouProviderntInfo
+        /// </value>  
+        public string Provider { get; set; } 
+
+        /// <summary>
+        /// Get or sets is active
+        /// </summary>
+        /// <value>
+        /// The IsActive
+        /// </value>  
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Get or sets the created by
@@ -70,6 +127,5 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// The ModifiedOn
         /// </value>  
         public DateTime? ModifiedOn { get; set; }
-
     }
 }
