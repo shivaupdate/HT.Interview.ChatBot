@@ -25,6 +25,7 @@ import { FooterComponent } from './components/standard/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InterviewEvaluationComponent } from './components/interview-evaluation/interview-evaluation.component';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import { InterviewInstructionComponent } from './components/interview-instruction/interview-instruction.component';
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'interview-evaluation', component: InterviewEvaluationComponent, canActivate: [AuthGuard] },
   { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
+  { path: 'interview-instruction', component: InterviewInstructionComponent, canActivate: [AuthGuard] },
   { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard] }
 ];
 
@@ -61,6 +63,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     InterviewEvaluationComponent,
     ManageUserComponent,
+    InterviewInstructionComponent,
     ChatDialogComponent,
     CameraComponent
   ],
