@@ -78,7 +78,7 @@ const appRoutes: Routes = [
     ChatModule,
     SpeechModule,
     SocialLoginModule.initialize(config),
-    RouterModule.forRoot(appRoutes, { enableTracing: false })
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload', enableTracing: false })
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthGuard, ChatService, SpeechService, { provide: 'SPEECH_LANG', useValue: 'en-GB' }],

@@ -66,8 +66,7 @@ export class ChatDialogComponent {
                 __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
                 __this.remainingTime = __this.remainingTime - 1;
                 
-                if (__this.remainingTime < 0) {
-                  console.log(__this.remainingTime);       
+                if (__this.remainingTime < 0) {           
                   __this.noReponseFromCandidate();
                 }
               })
@@ -115,7 +114,7 @@ export class ChatDialogComponent {
 
   getMicStyle() {
     if (this.started) {
-      return 'fas fa-microphone-alt fa-2x';
+      return 'fa fa-microphone-slash fa-2x';
     } else {
       return 'fa fa-microphone fa-2x';
     }
@@ -134,8 +133,7 @@ export class ChatDialogComponent {
     this.sendMessage();
   }
 
-  resetControls() {
-    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollHeight - 300;
-    //this.message = new Message();
+  resetControls() {                                                    
+    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollTop + 200;  
   }
 }
