@@ -65,9 +65,10 @@
 .login100-form-title {
   display: block;
   width: 100%;
-  font-family: Poppins-Bold;
+  font-family: Calibri;
+  font-weight: bold;
   font-size: 39px;
-  color: #333333;
+  color: black;
   line-height: 1.2;
   text-align: center;
 }
@@ -167,6 +168,8 @@
   position: relative;
   z-index: 1;
   margin-top: 10px;
+  width: 60%;
+  margin-left: 65px;
 }
 
   .btn-google::before,
@@ -193,21 +196,26 @@
   }
 
 .btn-face {
-  color: #fff;
-  background-color: #3b5998; 
+  color: #fff !important;
+  font-weight: bold !important;
+  font-family: Calibri !important;
+  background-color: #3b5998;
 }
+
   .btn-face img {
     margin: 10px
   }
 
   .btn-face i {
     font-size: 30px;
-    margin-right: 17px;
+    margin-right: 15px;
     padding-bottom: 3px;
   }
 
 .btn-google {
-  color: #555555;
+  color: black !important;
+  font-weight: bold !important;
+  font-family: Calibri !important;
   background-color: #fff;
 }
 
