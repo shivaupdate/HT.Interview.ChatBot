@@ -14,8 +14,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The Id
-        /// </value> 
-        [Required]
+        /// </value>  
         public int Id { get; set; }
 
         /// <summary>
@@ -23,8 +22,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The RoleId
-        /// </value> 
-        [Required]
+        /// </value>  
         public int RoleId { get; set; }
 
         /// <summary>
@@ -32,8 +30,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The RoleName
-        /// </value> 
-        [Required]
+        /// </value>  
         public string RoleName { get; set; }
 
         /// <summary>
@@ -41,8 +38,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The Email
-        /// </value> 
-        [Required]
+        /// </value>  
         public string Email { get; set; }
 
         /// <summary>
@@ -50,8 +46,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The FirstName
-        /// </value> 
-        [Required]
+        /// </value>  
         public string FirstName { get; set; } 
 
         /// <summary>
@@ -59,8 +54,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The LastName
-        /// </value> 
-        [Required]
+        /// </value>  
         public string LastName { get; set; }
 
         /// <summary>
@@ -68,8 +62,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The DisplayName
-        /// </value> 
-        [Required]
+        /// </value>  
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -77,8 +70,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The GenderId
-        /// </value> 
-        [Required]
+        /// </value>  
         public int GenderId { get; set; }
 
         /// <summary>
@@ -86,8 +78,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The GenderName
-        /// </value> 
-        [Required]
+        /// </value>  
         public string GenderName { get; set; }
 
         /// <summary>
@@ -95,8 +86,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The Mobile
-        /// </value> 
-        [Required]
+        /// </value>  
         public string Mobile { get; set; }
 
         /// <summary>
@@ -108,13 +98,29 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int? JobProfileId { get; set; }
 
         /// <summary>
-        /// Get or sets the job profile type
+        /// Get or sets the profile name
         /// </summary>
         /// <value>
-        /// The JobProfileType
+        /// The ProfileName
         /// </value>  
-        public string JobProfileType { get; set; }
+        public string ProfileName { get; set; }
 
+        /// <summary>
+        /// Get or sets the technology stack name
+        /// </summary>
+        /// <value>
+        /// The TechnologyStackName
+        /// </value>  
+        public string TechnologyStackName { get; set; }
+
+        /// <summary>
+        /// Get or sets the technology stack display name
+        /// </summary>
+        /// <value>
+        /// The TechnologyStackDisplayName
+        /// </value>  
+        public string TechnologyStackDisplayName { get; set; }
+         
         /// <summary>
         /// Get or sets the interview date
         /// </summary>
@@ -176,8 +182,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The IsActive
-        /// </value> 
-        [Required]
+        /// </value>  
         public bool IsActive { get; set; } 
     }
 }

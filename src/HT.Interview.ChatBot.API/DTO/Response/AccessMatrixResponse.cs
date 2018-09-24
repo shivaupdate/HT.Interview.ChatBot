@@ -21,7 +21,6 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// <value>
         /// The RoleId
         /// </value>  
-
         public int RoleId { get; set; }
 
         /// <summary>
@@ -30,9 +29,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// <value>
         /// The MenuId
         /// </value>  
-
         public int MenuId { get; set; }
-
 
         /// <summary>
         /// Get or sets the created by
