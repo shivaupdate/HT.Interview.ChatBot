@@ -145,13 +145,16 @@ namespace HT.Interview.ChatBot.Data
 
             modelBuilder.Entity<IntentTrainingPhrase>().ToTable("IntentTrainingPhrase", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<IntentParameter>().ToTable("IntentParameter", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id); 
+            modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id);
 
             modelBuilder.Entity<Role>().ToTable("Role", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id); 
-            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id); 
+            modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
+            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb").HasKey(t => t.Id);
+
+            EntityTypeBuilder<AccessMatrix> accessMatrix = modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb");
+            accessMatrix.HasKey(a => a.Id);
+            accessMatrix.Property(a => a.Id).ValueGeneratedOnAdd(); 
 
             EntityTypeBuilder<Model.Interview> interview = modelBuilder.Entity<Model.Interview>().ToTable("Interview", "icb");
             interview.HasKey(t => t.Id);
@@ -162,6 +165,8 @@ namespace HT.Interview.ChatBot.Data
             jobProfile.HasKey(j => j.Id);
             jobProfile.Property(j => j.Id).ValueGeneratedOnAdd();
             jobProfile.HasMany(j => j.JobProfileCompetenceMapping);
+            intent.HasMany(i => i.IntentTrainingPhrase);
+            intent.HasMany(i => i.IntentTrainingPhrase);
 
             EntityTypeBuilder<JobProfileCompetenceMapping> jpcm =
                 modelBuilder.Entity<JobProfileCompetenceMapping>().ToTable("JobProfileCompetenceMapping", "icb");

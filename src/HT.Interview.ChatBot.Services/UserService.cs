@@ -55,13 +55,21 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<IEnumerable<UserDetail>>> GetUsersAsync(UserDetail ud)
         {
-            IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.AsNoTracking().ToListAsync();
-
-            if (ud.RoleId > 0)
+            try
             {
-                return Response.Ok(userDetails.Where(x => x.RoleId == ud.RoleId));
+                IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.AsNoTracking().ToListAsync();
+
+                if (ud.RoleId > 0)
+                {
+                    return Response.Ok(userDetails.Where(x => x.RoleId == ud.RoleId));
+                }
+                return Response.Ok(userDetails);
             }
-            return Response.Ok(userDetails);
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                return null;
+            }
         }
 
         /// <summary>

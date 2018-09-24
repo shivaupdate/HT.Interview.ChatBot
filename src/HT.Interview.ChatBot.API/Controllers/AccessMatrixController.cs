@@ -41,32 +41,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <summary>
         /// Get many async
         /// </summary>
-        /// <param name="accessMatrixRequest"></param>
+        /// <param name="roleId"></param>
         /// <returns></returns>
         [HttpGet(Common.Constants.GetMany)]
-        public async Task<ActionResult> GetManyAsync([FromQuery] AccessMatrixRequest accessMatrixRequest)
+        public async Task<ActionResult> GetManyAsync([FromQuery] int roleId)
         {
-            return await GetResponseAsync(async () => (await _accessMatrixService.GetAccessMatrixsAsync(_mapper.Map<AccessMatrix>(accessMatrixRequest)))
+            return await GetResponseAsync(async () => (await _accessMatrixService.GetAccessMatrixByRoleIdAsync(roleId))
                 .GetMappedResponse<IEnumerable<AccessMatrix>, IEnumerable<AccessMatrixResponse>>(_mapper));
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> AddAccessMatrix(AccessMatrix accessMatrix)
-        {
-            return await GetResponseAsync(async () => (await _accessMatrixService.AddAccessMatrixAsync(accessMatrix)));
-        }
-
-        [HttpPut]
-        public async Task<ActionResult> UpdateAccessMatrix(AccessMatrix accessMatrix)
-        {
-            return await GetResponseAsync(async () => (await _accessMatrixService.UpdateAccessMatrixAsync(accessMatrix)));
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult> DeleteAccessMatrix(AccessMatrix accessMatrix)
-        {
-            return await GetResponseAsync(async () => (await _accessMatrixService.DeleteAccessMatrixAsync(accessMatrix)));
-        }
+        } 
         #endregion
     }
 }
