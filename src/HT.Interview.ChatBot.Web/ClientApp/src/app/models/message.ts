@@ -1,5 +1,5 @@
 export class Message {
-  candidateId: string;
+  userId: string;
   sessionId: any;                    
   timeTaken: string;
   response: any;

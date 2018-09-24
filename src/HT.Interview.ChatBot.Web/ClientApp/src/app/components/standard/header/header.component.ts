@@ -10,8 +10,13 @@ import { Constants } from '../../../models/constants';
 export class HeaderComponent {
 
   private constants = new Constants();
+  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
 
   constructor(private router: Router) {
+
+    //this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUser.email)
+    //  .subscribe(
+    //    accessMatrix => { });
   }
 
 
