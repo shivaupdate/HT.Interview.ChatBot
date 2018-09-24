@@ -78,14 +78,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         {  
             if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
             {
-                await _interviewService.UpdateInterviewAsync(q.CandidateId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken);
+                await _interviewService.UpdateInterviewAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken);
             }
 
             QueryResponse queryResponse = await _httpClient.GetAsync<QueryResponse>(q.ToQueryString());
             queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
             if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
             {
-                await _interviewService.AddInterviewAsync(q.CandidateId, queryResponse.Result.DialogflowGeneratedIntentId);
+                await _interviewService.AddInterviewAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId);
             }
 
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));

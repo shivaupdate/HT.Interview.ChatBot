@@ -74,7 +74,7 @@ export class ChatService {
   getApiAiResponse(message: Message): Observable<any> {
              
     let params = new HttpParams();
-    params = params.append('CandidateId', message.userId);
+    params = params.append('UserId', message.userId);
     params = params.append('SessionId', message.sessionId);  
     params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);    
     params = params.append('Query', message.query);

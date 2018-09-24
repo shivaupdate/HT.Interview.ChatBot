@@ -16,9 +16,9 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         }
 
         /// <summary>
-        /// Candidate Id
+        /// User Id
         /// </summary>
-        public int CandidateId { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Dialogflow generated intent id
