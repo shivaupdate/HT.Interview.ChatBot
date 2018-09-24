@@ -19,13 +19,22 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the Type
+        /// Get or sets the technology stack id
         /// </summary>
         /// <value>
-        /// The Type
+        /// The TechnologyStackId
         /// </value>  
         [Required]
-        public string Type { get; set; }
+        public int TechnologyStackId { get; set; }
+
+        /// <summary>
+        /// Get or sets the profile name
+        /// </summary>
+        /// <value>
+        /// The ProfileName
+        /// </value>  
+        [Required]
+        public string ProfileName { get; set; }
 
         /// <summary>
         /// Get or sets the description

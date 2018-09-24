@@ -22,8 +22,8 @@ export class InterviewEvaluationComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.columnDefs = [
       {
-        headerName: "Profile Applied For",
-        field: "jobProfileType",
+        headerName: "Profile Name",
+        field: "profileName",
         suppressSizeToFit: true,
         filter: 'agTextColumnFilter'   
       }, 

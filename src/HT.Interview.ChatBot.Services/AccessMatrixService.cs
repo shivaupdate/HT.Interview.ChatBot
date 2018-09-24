@@ -1,11 +1,11 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Services
@@ -36,68 +36,16 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
-        public async Task<Response> AddAccessMatrixAsync(AccessMatrix accessMatrix)
-        {
-            try
-            {
-                _chatbotDataContext.AccessMatrix.Add(accessMatrix);
-                await _chatbotDataContext.SaveChangesAsync();
-                return Response.Ok();
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
-        }
-
-        public async Task<Response> DeleteAccessMatrixAsync(AccessMatrix accessMatrix)
-        {
-            try
-            {
-                _chatbotDataContext.AccessMatrix.Remove(accessMatrix);
-                await _chatbotDataContext.SaveChangesAsync();
-                return Response.Ok();
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
-        }
-
-        #region Get AccessMatrixs
-
         /// <summary>
-        /// Get AccessMatrixs async
+        /// Get access matrix async
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="createdBy"></param>
+        /// <param name="roleId"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<AccessMatrix>>> GetAccessMatrixsAsync(AccessMatrix accessMatrix)
+        public async Task<Response<IEnumerable<AccessMatrix>>> GetAccessMatrixByRoleIdAsync(int roleId)
         {
-            IEnumerable<AccessMatrix> AccessMatrixs = await _chatbotDataContext.AccessMatrix.ToListAsync();
-            // TODO: Search AccessMatrixs result list against search parameters
+            IEnumerable<AccessMatrix> AccessMatrixs = await _chatbotDataContext.AccessMatrix.Where(x => x.RoleId == roleId).ToListAsync();
             return Response.Ok(AccessMatrixs);
         }
-
-        public async Task<Response> UpdateAccessMatrixAsync(AccessMatrix accessMatrix)
-        {
-            try
-            {
-                _chatbotDataContext.AccessMatrix.Update(accessMatrix);
-                await _chatbotDataContext.SaveChangesAsync();
-                return Response.Ok();
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
-        }
-
-        #endregion
 
         #endregion
     }

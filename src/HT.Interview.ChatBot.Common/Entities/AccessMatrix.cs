@@ -22,10 +22,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The roleId
-        /// </value> 
-
-
-
+        /// </value>  
         [Required]
         public int RoleId { get; set; }
 
@@ -34,14 +31,9 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </summary>
         /// <value>
         /// The menuId
-        /// </value> 
-
+        /// </value>  
         [Required]
         public int MenuId { get; set; }
-
-
-
-
 
         /// <summary>
         /// Get or sets the created by
