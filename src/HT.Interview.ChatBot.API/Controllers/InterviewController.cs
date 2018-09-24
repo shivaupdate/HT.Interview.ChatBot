@@ -38,36 +38,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             _interviewService = factory.GetInterviewService();
             _mapper = factory.GetMapperService();
         }
-
-        ///// <summary>
-        ///// Get many async
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpGet(Common.Constants.Get)]
-        //public async Task<ActionResult> GetAsync([FromQuery] string text)
-        //{
-        //    // return await GetResponseAsync(async () => await _httpClient.GetAsync<QueryResponse>(q.ToQueryString()));
-        //    // string projectId = "ht-interview-chatbot";
-        //    // string sessionId = "1";
-        //    // string languageCode = "en-US";
-
-        //    // SessionsClient client = SessionsClient.Create();
-        //    // var result = (await client.DetectIntentAsync(
-        //    //    session: new SessionName(projectId, sessionId),
-        //    //    queryInput: new QueryInput()
-        //    //    {
-        //    //        Text = new TextInput()
-        //    //        {
-        //    //            Text = text,
-        //    //            LanguageCode = languageCode
-        //    //        }
-        //    //    }
-        //    //));
-
-        //    // return await GetResponseAsync(async () => await Task.FromResult(result.QueryResult));
-        //    return null;
-        //}
-
+         
         /// <summary>
         /// Get async
         /// </summary>
@@ -78,14 +49,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         {  
             if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
             {
-                await _interviewService.UpdateInterviewAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken);
+                await _interviewService.UpdateInterviewAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
             }
 
             QueryResponse queryResponse = await _httpClient.GetAsync<QueryResponse>(q.ToQueryString());
             queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
             if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
             {
-                await _interviewService.AddInterviewAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId);
+                await _interviewService.AddInterviewAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.Email);
             }
 
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));

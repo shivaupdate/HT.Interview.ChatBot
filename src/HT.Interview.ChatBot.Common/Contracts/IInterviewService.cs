@@ -13,17 +13,20 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
+        /// <param name="botResponse"></param>
+        /// <param name="createdBy"></param>
         /// <returns></returns>
-        Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId);
+        Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy);
 
         /// <summary>
         /// Update interview async
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
-        /// <param name="givenAnswer"></param>
+        /// <param name="userResponse"></param>
         /// <param name="timeTaken"></param>
+        /// <param name="modifiedBy"></param>
         /// <returns></returns>
-        Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string givenAnswer, int? timeTaken);
+        Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy);
     }
 }

@@ -11,10 +11,12 @@ export class ChatService {
   private constants = new Constants();
   private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
   private userId = this.user.id;
-  private sessionId = this.user.sessionId;     
-  private conversation = new BehaviorSubject<Message[]>([]);
+  private sessionId = this.user.sessionId;
+  private email = this.user.email;
+
   private dialogflowGeneratedIntentId: string;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
+  conversation = new BehaviorSubject<Message[]>([]);
 
   constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }
 
@@ -85,6 +87,7 @@ export class ChatService {
     params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);
     params = params.append('Query', message.query);
     params = params.append('TimeTaken', message.timeTaken);
+    params = params.append('Email', this.email);
 
     return this.http.get(this.webAPIUrl, { params });
   }

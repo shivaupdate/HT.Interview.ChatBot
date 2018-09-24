@@ -21,6 +21,11 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         public int UserId { get; set; }
 
         /// <summary>
+        /// Email
+        /// </summary>
+        public string Email { get; set; }
+
+        /// <summary>
         /// Dialogflow generated intent id
         /// </summary>
         public string DialogflowGeneratedIntentId { get; set; }
