@@ -77,10 +77,7 @@ export class ChatService {
     speechSynthesis.speak(botVoice);
   }
 
-  getApiAiResponse(message: Message): Observable<any> {
-
-    console.log(this.userId);
-    console.log(this.sessionId);
+  getApiAiResponse(message: Message): Observable<any> {      
 
     let params = new HttpParams();
     params = params.append('UserId', this.userId);
