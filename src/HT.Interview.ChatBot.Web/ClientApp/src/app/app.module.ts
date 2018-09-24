@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { NavbarModule } from 'angular-bootstrap-md'
+import { NavbarModule, ChartsModule } from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgGridModule } from 'ag-grid-angular';
 
@@ -71,6 +71,7 @@ const appRoutes: Routes = [
     MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
+    ChartsModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
     HttpModule,

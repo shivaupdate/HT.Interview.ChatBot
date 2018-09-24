@@ -1,11 +1,29 @@
-<app-standard>       
-  <div class="main-title">
-    <h2>Report Widget</h2>
-    <p>Pie charts</p>
-    <p>Graphs</p>
-    <p>Percentage</p>
-    <p>Summary</p>
-    <p>Ratio</p>
-    <p>Overall result</p>
+<app-standard>
+  <div class="container">
+    <div class="row wow fadeIn mt-5">
+      <div class="col-md-9 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div style="display: block">
+              <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
+                      [legend]="true"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card mb-4">
+          <div class="card-header text-center">
+            Pie chart
+          </div>
+          <div class="card-body">
+            <div style="display: block">
+              <canvas mdbChart [chartType]="chart2Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
+                      [legend]="true"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </app-standard>
