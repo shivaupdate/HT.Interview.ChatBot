@@ -23,8 +23,7 @@ export class HeaderComponent {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem(this.constants.applicationUser);
-    localStorage.removeItem(this.constants.socialUser);
+    localStorage.removeItem(this.constants.applicationUser);        
     this.router.navigate(['login']);
   }
 }

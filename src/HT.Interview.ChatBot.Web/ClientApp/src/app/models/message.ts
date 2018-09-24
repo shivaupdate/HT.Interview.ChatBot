@@ -1,6 +1,4 @@
-export class Message {
-  userId: string;
-  sessionId: any;                    
+export class Message {               
   timeTaken: string;
   response: any;
   query: string;

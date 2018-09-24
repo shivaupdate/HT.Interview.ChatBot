@@ -32,16 +32,11 @@ export class ChatDialogComponent {
   private constants = new Constants();  
   private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
   private userName = this.user.firstName;
-  private photoUrl = this.user.photoUrl;
-  private userId = this.user.id;
+  private photoUrl = this.user.photoUrl;     
 
   constructor(public chat: ChatService, public speech: SpeechService) {
     var __this = this;
-
-    this.message.userId = this.userId;
-    console.log(this.userId);
-    this.message.sessionId = 'Test';        
-
+                                     
     this.speech.started.subscribe(started => this.started = started);
     this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
