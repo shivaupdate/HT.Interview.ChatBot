@@ -1,7 +1,6 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
@@ -22,9 +21,7 @@ namespace HT.Interview.ChatBot.Services
         private readonly IContentService _resourceService;
 
         #endregion
-
-        #region Public Functions
-
+         
         /// <summary>
         /// Constructor
         /// </summary>
@@ -38,55 +35,11 @@ namespace HT.Interview.ChatBot.Services
 
         /// <summary>
         /// Get Menus async
-        /// </summary>
-        /// <param name="menu class"></param>
-        /// <returns></returns>
-        public async Task<Response> AddMenuAsync(Menu menu)
+        /// </summary>   
+        public async Task<Response<IEnumerable<Menu>>> GetMenusAsync()
         {
-            try
-            {
-                _chatbotDataContext.Menu.Add(menu);
-                await _chatbotDataContext.SaveChangesAsync();
-                return Response.Ok();
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
-        }
-
-        public async Task<Response> DeleteMenuAsync(Menu menu)
-        {
-            _chatbotDataContext.Menu.Remove(menu);
-            await _chatbotDataContext.SaveChangesAsync();
-            return Response.Ok();
-        }
-
-        #region Get Menus
-
-        /// <summary>
-        /// Get Menus async
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="options"></param>
-        /// <param name="createdBy"></param>
-        /// <returns></returns>
-        public async Task<Response<IEnumerable<Menu>>> GetMenusAsync(int? id, string options, string createdBy)
-        {
-            IEnumerable<Menu> Menus = await _chatbotDataContext.Menu.ToListAsync();
-            // TODO: Search Menu result list against search parameters
+            IEnumerable<Menu> Menus = await _chatbotDataContext.Menu.ToListAsync(); 
             return Response.Ok(Menus);
         }
-        #endregion
-
-        public async Task<Response> UpdateMenuAsync(Menu menu)
-        {
-            _chatbotDataContext.Menu.Update(menu);
-            await _chatbotDataContext.SaveChangesAsync();
-            return Response.Ok();
-        }
-
-        #endregion
     }
 }

@@ -33,17 +33,23 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The IntentId
         /// </value>  
-        [Required]
-        public int IntentId { get; set; }
+        public int? IntentId { get; set; }
 
         /// <summary>
-        /// Get or sets the output context
+        /// Get or sets the bot response
         /// </summary>
         /// <value>
-        /// The OutputContext
-        /// </value>  
-        [Required]
-        public string GivenAnswer { get; set; }
+        /// The BotResponse
+        /// </value>   
+        public string BotResponse { get; set; }
+
+        /// <summary>
+        /// Get or sets the user response
+        /// </summary>
+        /// <value>
+        /// The UserResponse
+        /// </value>   
+        public string UserResponse { get; set; }
 
         /// <summary>
         /// Get or sets the timen taken

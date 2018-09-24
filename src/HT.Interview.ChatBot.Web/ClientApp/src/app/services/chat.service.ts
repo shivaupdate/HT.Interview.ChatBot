@@ -3,14 +3,22 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Message } from '../models/message';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
-import { environment } from '../../environments/environment';     
+import { Constants } from '../models/constants';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ChatService {
-  conversation = new BehaviorSubject<Message[]>([]);   
-  dialogflowGeneratedIntentId: string;
-  constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }          
-  webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
+  private constants = new Constants();
+  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private userId = this.user.id;
+  private sessionId = this.user.sessionId;
+  private email = this.user.email;
+
+  private dialogflowGeneratedIntentId: string;
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
+  conversation = new BehaviorSubject<Message[]>([]);
+
+  constructor(private http: HttpClient, @Inject('SPEECH_LANG') public lang: string) { }
 
   //// Sends and receives messages via DialogFlow
   converse(message: Message) {
@@ -30,7 +38,7 @@ export class ChatService {
     this.cancelSpeechSynthesis();
     this.getApiAiResponse(message).subscribe(
       response => {
-        response.result.resolvedQuery = message.query;    
+        response.result.resolvedQuery = message.query;
         this.updateConversation(response);
       }
     );
@@ -49,7 +57,7 @@ export class ChatService {
   updateConversation(response: any) {
     const message = new Message();
     message.timestamp = new Date();
-    message.response = response;               
+    message.response = response;
     this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
@@ -71,15 +79,16 @@ export class ChatService {
     speechSynthesis.speak(botVoice);
   }
 
-  getApiAiResponse(message: Message): Observable<any> {
-             
+  getApiAiResponse(message: Message): Observable<any> {      
+
     let params = new HttpParams();
-    params = params.append('CandidateId', message.candidateId);
-    params = params.append('SessionId', message.sessionId);  
-    params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);    
+    params = params.append('UserId', this.userId);
+    params = params.append('SessionId', this.sessionId);
+    params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);
     params = params.append('Query', message.query);
     params = params.append('TimeTaken', message.timeTaken);
-    
+    params = params.append('Email', this.email);
+
     return this.http.get(this.webAPIUrl, { params });
-  }   
+  }
 }

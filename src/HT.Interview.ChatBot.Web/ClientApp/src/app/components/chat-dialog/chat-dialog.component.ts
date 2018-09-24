@@ -18,8 +18,7 @@ import 'rxjs/add/operator/take';
 
 export class ChatDialogComponent {
   @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
-  started = false;
-  candidateId: Number;
+  started = false;       
   sessionId: any;
   message = new Message();
   messages: Observable<Message[]>;
@@ -33,14 +32,11 @@ export class ChatDialogComponent {
   private constants = new Constants();  
   private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
   private userName = this.user.firstName;
-  private photoUrl = this.user.photoUrl;
+  private photoUrl = this.user.photoUrl;     
 
   constructor(public chat: ChatService, public speech: SpeechService) {
     var __this = this;
-
-    this.message.candidateId = '1';
-    this.message.sessionId = 'Test';        
-
+                                     
     this.speech.started.subscribe(started => this.started = started);
     this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));

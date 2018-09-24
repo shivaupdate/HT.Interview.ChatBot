@@ -13,6 +13,7 @@ export const environment = {
     getWithParameters: '/get?',
     getMany: '/get-many',
     getManyWithParameters: '/get-many?',
+    getManyByRoleId: "/get-many-by-role-id",
     create: '/create',
     update: '/update',
     delete: '/delete',
