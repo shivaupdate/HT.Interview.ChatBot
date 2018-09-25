@@ -115,5 +115,10 @@
         /// </summary>
         public const string UserByIdNotFound = "UserByIdNotFound";
 
+        /// <summary>
+        /// Interview Detail
+        /// </summary>
+        public const string InterviewDetail = "interview-detail";
+
     }
 }

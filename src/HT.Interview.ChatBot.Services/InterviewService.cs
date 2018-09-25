@@ -1,11 +1,14 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
+using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Model = HT.Interview.ChatBot.Common.Entities;
+using System.Linq;
 
 namespace HT.Interview.ChatBot.Services
 {
@@ -75,6 +78,26 @@ namespace HT.Interview.ChatBot.Services
             {
                 return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
 
+            }
+        }
+
+        /// <summary>
+        /// Add interview async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="dialogflowGeneratedIntentId"></param>
+        /// <returns></returns>
+        public async Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int candidateId)
+        {
+            try
+            {
+                IEnumerable<InterviewDetail> interviewDetails = await _chatbotDataContext.InterviewDetail.Where(x => x.CandidateId == candidateId).ToListAsync();
+                return Response.Ok(interviewDetails);
+            }
+            catch (System.Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
             }
         }
 

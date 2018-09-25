@@ -62,6 +62,11 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
         }
 
+        [HttpGet(Common.Constants.InterviewDetail)]
+        public async Task<ActionResult> GetInterviewDetail(int candidateId)
+        {
+            return await GetResponseAsync(async () => await Task.FromResult(_interviewService.GetInterviewDetail(candidateId)));
+        }
         #endregion
     }
 }

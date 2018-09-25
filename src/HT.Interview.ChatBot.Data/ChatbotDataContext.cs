@@ -71,7 +71,7 @@ namespace HT.Interview.ChatBot.Data
         /// Competence entity
         /// </summary>
         public virtual DbSet<Competence> Competence { get; set; }
-         
+
         /// <inheritdoc />
         /// <summary>
         /// Menu entity
@@ -102,6 +102,10 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         public virtual DbSet<Model.Interview> Interview { get; set; }
 
+        public virtual DbSet<InterviewDetail> InterviewDetail { get; }
+
+        public virtual DbSet<DashboardData> DashboardData { get; }
+
         /// <inheritdoc />
         /// <summary>
         /// On configuring
@@ -124,7 +128,13 @@ namespace HT.Interview.ChatBot.Data
 
             EntityTypeBuilder<UserDetail> userDetail = modelBuilder.Entity<UserDetail>().ToTable("VU_User", "icb");
             userDetail.HasKey(u => u.Id);
-             
+
+            EntityTypeBuilder<InterviewDetail> interviewDetail = modelBuilder.Entity<InterviewDetail>().ToTable("VU_InterviewDetail", "icb");
+            interviewDetail.HasKey(u => u.Id);
+
+            EntityTypeBuilder<DashboardData> dashboardData = modelBuilder.Entity<DashboardData>().ToTable("VU_DashboardData", "icb");
+            dashboardData.HasKey(u => u.Id);
+
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
             intent.HasKey(i => i.Id);
             intent.Property(i => i.Id).ValueGeneratedOnAdd();
@@ -144,7 +154,7 @@ namespace HT.Interview.ChatBot.Data
 
             EntityTypeBuilder<AccessMatrix> accessMatrix = modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb");
             accessMatrix.HasKey(a => a.Id);
-            accessMatrix.Property(a => a.Id).ValueGeneratedOnAdd(); 
+            accessMatrix.Property(a => a.Id).ValueGeneratedOnAdd();
 
             EntityTypeBuilder<Model.Interview> interview = modelBuilder.Entity<Model.Interview>().ToTable("Interview", "icb");
             interview.HasKey(t => t.Id);
