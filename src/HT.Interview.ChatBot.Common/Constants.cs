@@ -118,7 +118,7 @@
         /// <summary>
         /// Interview Detail
         /// </summary>
-        public const string InterviewDetail = "interview-detail";
+        public const string InterviewDetail = "get-interview-detail-by-user-id";
 
     }
 }

@@ -15,28 +15,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         public int Id { get; set; }
 
         /// <summary>
-        /// Get or sets the CandidateId
+        /// Get or sets the user id
         /// </summary>
         /// <value>
-        /// The CandidateId
+        /// The UserId
         /// </value> 
-        public int CandidateId { get; set; }
-
-        /// <summary>
-        /// Get or sets the CandidateName
-        /// </summary>
-        /// <value>
-        /// The CandidateName
-        /// </value> 
-        public string CandidateName { get; set; }
-
-        /// <summary>
-        /// Get or sets the ProfileAppliedFor
-        /// </summary>
-        /// <value>
-        /// The ProfileAppliedFor
-        /// </value> 
-        public string ProfileAppliedFor { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Get or sets the BotResponse
@@ -47,12 +31,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string BotResponse { get; set; }
 
         /// <summary>
-        /// Get or sets the CandidateReponse
+        /// Get or sets the user response
         /// </summary>
         /// <value>
-        /// The CandidateReponse
+        /// The UserRseponse
         /// </value> 
-        public string CandidateReponse { get; set; }
+        public string UserResponse { get; set; }
 
         /// <summary>
         /// Get or sets the ExpectedAnswer
@@ -77,13 +61,5 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The TimeTaken
         /// </value> 
         public int TimeTaken { get; set; }
-
-        /// <summary>
-        /// Get or sets the Remark
-        /// </summary>
-        /// <value>
-        /// The Remark
-        /// </value> 
-        public string Remark { get; set; }
     }
 }

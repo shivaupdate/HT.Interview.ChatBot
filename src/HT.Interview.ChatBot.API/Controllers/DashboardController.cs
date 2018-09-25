@@ -8,6 +8,7 @@ using HT.Interview.ChatBot.Common.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HT.Framework.MVC;
+using HT.Interview.ChatBot.Common.Entities;
 
 namespace HT.Interview.ChatBot.API.Controllers
 {
@@ -17,7 +18,7 @@ namespace HT.Interview.ChatBot.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IHttpClient _httpClient;
-        private readonly IDashboardDataService _dashboardDataService;
+        private readonly IDashboardService _dashboardDataService;
 
         public DashboardController(IChatBotDataFactory factory)
         {
@@ -28,8 +29,9 @@ namespace HT.Interview.ChatBot.API.Controllers
 
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetDashboardData()
-        {
-            return await GetResponseAsync(async () => await Task.FromResult(_dashboardDataService.GetDashboardData()));
+        { 
+            return await GetResponseAsync(async () => (await _dashboardDataService.GetDashboardData())
+                .GetMappedResponse<IEnumerable<Dashboard>, IEnumerable<Dashboard>>(_mapper));
         }
     }
 }

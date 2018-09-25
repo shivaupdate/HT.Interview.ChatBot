@@ -13,9 +13,9 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// <summary>
         /// Get interview detail
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <returns></returns>
-        Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int candidateId);
+        Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId);
 
         /// <summary>
         /// Add interview async

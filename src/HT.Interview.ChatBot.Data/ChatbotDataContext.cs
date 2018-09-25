@@ -102,9 +102,9 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         public virtual DbSet<Model.Interview> Interview { get; set; }
 
-        public virtual DbSet<InterviewDetail> InterviewDetail { get; }
+        public virtual DbSet<InterviewDetail> InterviewDetail { get; set; }
 
-        public virtual DbSet<DashboardData> DashboardData { get; }
+        public virtual DbSet<Dashboard> DashboardData { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -132,7 +132,7 @@ namespace HT.Interview.ChatBot.Data
             EntityTypeBuilder<InterviewDetail> interviewDetail = modelBuilder.Entity<InterviewDetail>().ToTable("VU_InterviewDetail", "icb");
             interviewDetail.HasKey(u => u.Id);
 
-            EntityTypeBuilder<DashboardData> dashboardData = modelBuilder.Entity<DashboardData>().ToTable("VU_DashboardData", "icb");
+            EntityTypeBuilder<Dashboard> dashboardData = modelBuilder.Entity<Dashboard>().ToTable("VU_DashboardData", "icb");
             dashboardData.HasKey(u => u.Id);
 
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");

@@ -85,8 +85,8 @@ namespace HT.Interview.ChatBot.Data
         /// <summary>
         /// Interview entity
         /// </summary>
-        DbSet<InterviewDetail> InterviewDetail { get; }
+        DbSet<InterviewDetail> InterviewDetail { get; set; }
 
-        DbSet<DashboardData> DashboardData { get; }
+        DbSet<Dashboard> DashboardData { get; set; }
     }
 }

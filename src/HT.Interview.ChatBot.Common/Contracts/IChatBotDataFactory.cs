@@ -91,6 +91,6 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get GetDashboard service
         /// </summary>
         /// <returns></returns>
-        IDashboardDataService GetDashboardService();
+        IDashboardService GetDashboardService();
     }
 }

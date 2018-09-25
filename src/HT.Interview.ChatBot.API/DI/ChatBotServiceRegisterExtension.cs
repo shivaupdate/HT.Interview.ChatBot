@@ -37,7 +37,7 @@ namespace HT.Interview.ChatBot.API.DI
             builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<RoleService>().As<IRoleService>();  
             builder.RegisterType<ApiAiHttpClient>().As<IHttpClient>();
-            builder.RegisterType<DashboardDataServices>().As<IDashboardDataService>();
+            builder.RegisterType<DashboardService>().As<IDashboardService>();
 
             builder.AddResourceService<Resources.Resources>(Common.Constants.ResourceComponent);
         }

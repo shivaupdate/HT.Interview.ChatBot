@@ -20,7 +20,7 @@ namespace HT.Interview.ChatBot.API.Automapper
         /// </summary>
         public DashboardDataProfile()
         {
-            CreateMap<DashboardData, DashboardDataResponse>();
+            CreateMap<Dashboard, DashboardResponse>();
         }
     }
 }

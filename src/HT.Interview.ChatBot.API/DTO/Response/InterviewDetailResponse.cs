@@ -21,15 +21,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// <value>
         /// The CandidateId
         /// </value> 
-        public int CandidateId { get; set; }
-
-        /// <summary>
-        /// Get or sets the CandidateName
-        /// </summary>
-        /// <value>
-        /// The CandidateName
-        /// </value> 
-        public string CandidateName { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
         /// Get or sets the ProfileAppliedFor
@@ -53,7 +45,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// <value>
         /// The CandidateReponse
         /// </value> 
-        public string CandidateReponse { get; set; }
+        public string UserResponse { get; set; }
 
         /// <summary>
         /// Get or sets the ExpectedAnswer

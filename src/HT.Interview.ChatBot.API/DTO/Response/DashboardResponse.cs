@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.API.DTO.Response
 {
-    public class DashboardDataResponse
+    public class DashboardResponse
     {
         public class DashboardData
         {
