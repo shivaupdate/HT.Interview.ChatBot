@@ -47,6 +47,17 @@ namespace HT.Interview.ChatBot.API.Controllers
                 .GetMappedResponse<IEnumerable<Role>, IEnumerable<RoleResponse>>(_mapper));
         }
 
+        /// <summary>
+        /// Get many by role id async
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet(Common.Constants.GetManyByRoleId)]
+        public async Task<ActionResult> GetManyByRoleIdAsync([FromQuery]int roleId)
+        {
+            return await GetResponseAsync(async () => (await _roleService.GetRoleClaimDetailByRoleIdAsync(roleId))
+                .GetMappedResponse<IEnumerable<RoleClaimDetail>, IEnumerable<RoleClaimDetail>>(_mapper));
+        }
+
         #endregion
     }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Constants } from '../../../models/constants';
+import { forEach } from '@angular/router/src/utils/collection';
+import { retry } from 'rxjs/operator/retry';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +12,30 @@ import { Constants } from '../../../models/constants';
 export class HeaderComponent {
 
   private constants = new Constants();
-  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
 
   constructor(private router: Router) {
 
-    //this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUser.email)
-    //  .subscribe(
-    //    accessMatrix => { });
   }
 
-
+  hasAccess(claimName) {   
+    let userClaims = this.user.claims;
+    console.log(userClaims);
+    let hasAccess = false;
+    userClaims.forEach(function (userClaim) {  
+      if (userClaim.claimName === claimName) {
+        if (userClaim.value === 'True') {
+          hasAccess = true;
+        }              
+      }   
+    });  
+    return hasAccess;
+  }
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem(this.constants.applicationUser);        
+    sessionStorage.removeItem(this.constants.applicationUser);
+    sessionStorage.clear();
     this.router.navigate(['login']);
   }
 }
