@@ -7,14 +7,14 @@
         <span class="d-none d-lg-inline-block mr-1">Dashboard</span>
         <i class="fa fa-tachometer"></i>
       </a>
+      <a [routerLink]='["/manage-users"]' class="btn btn-info btn-sm my-0 ml-3 waves-effect cyan darken-3" *ngIf="hasAccess('ManageUsers')">
+        <span class="d-none d-lg-inline-block mr-1">Manage Users</span>
+        <i class="fa fa-user"></i>
+      </a>
       <a [routerLink]='["/interview-evaluation"]' class="btn btn-info btn-sm my-0 ml-3 waves-effect cyan darken-3" *ngIf="hasAccess('InterviewEvaluation')">
         <span class="d-none d-lg-inline-block mr-1">Interview Evaluation</span>
         <i class="fa fa-graduation-cap"></i>
       </a>
-      <a [routerLink]='["/manage-users"]' class="btn btn-info btn-sm my-0 ml-3 waves-effect cyan darken-3" *ngIf="hasAccess('ManageUsers')">
-        <span class="d-none d-lg-inline-block mr-1">Manage Users</span>
-        <i class="fa fa-user"></i>
-      </a>         
       <a [routerLink]='["/interview-instruction"]' class="btn btn-unique btn-sm my-0 ml-3" *ngIf="hasAccess('TalkToLaura')">
         <span class="d-none d-lg-inline-block mr-1">Talk to Laura</span>
         <i class="fa fa-android"></i>

@@ -24,7 +24,7 @@ export class HeaderComponent {
     let hasAccess = false;
     userClaims.forEach(function (userClaim) {  
       if (userClaim.claimName === claimName) {
-        if (userClaim.value === 'true') {
+        if (userClaim.value === 'True') {
           hasAccess = true;
         }              
       }   
