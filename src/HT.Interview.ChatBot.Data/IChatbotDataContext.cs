@@ -49,12 +49,7 @@ namespace HT.Interview.ChatBot.Data
         /// Role Claim Detail model
         /// </summary>
         DbSet<RoleClaimDetail> RoleClaimDetail { get; set; }
-
-        /// <summary>
-        /// Menu model
-        /// </summary>
-        DbSet<Menu> Menu { get; set; }
-
+         
         /// <summary>
         /// JobProfileCompetenceMapping model
         /// </summary>
@@ -74,12 +69,7 @@ namespace HT.Interview.ChatBot.Data
         /// Competence model
         /// </summary>
         DbSet<Competence> Competence { get; set; }
-          
-        /// <summary>
-        /// AccessMatrix model
-        /// </summary>
-        DbSet<AccessMatrix> AccessMatrix { get; set; }
-
+           
         /// <inheritdoc />
         /// <summary>
         /// Interview entity

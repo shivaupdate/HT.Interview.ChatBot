@@ -77,13 +77,7 @@ namespace HT.Interview.ChatBot.Data
         /// Competence entity
         /// </summary>
         public virtual DbSet<Competence> Competence { get; set; }
-         
-        /// <inheritdoc />
-        /// <summary>
-        /// Menu entity
-        /// </summary>
-        public virtual DbSet<Menu> Menu { get; set; }
-
+          
         /// <inheritdoc />
         /// <summary>
         /// JobProfile entity
@@ -95,13 +89,7 @@ namespace HT.Interview.ChatBot.Data
         /// JobProfileCompetenceMapping entity
         /// </summary>
         public virtual DbSet<JobProfileCompetenceMapping> JobProfileCompetenceMapping { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// AccessMatrix entity
-        /// </summary>
-        public virtual DbSet<AccessMatrix> AccessMatrix { get; set; }
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Interview entity
@@ -148,12 +136,7 @@ namespace HT.Interview.ChatBot.Data
             modelBuilder.Entity<RoleClaimDetail>().ToTable("VU_RoleClaim", "icb").HasKey(t => t.Id);
 
             modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
-            modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);
-
-            EntityTypeBuilder<AccessMatrix> accessMatrix = modelBuilder.Entity<AccessMatrix>().ToTable("AccessMatrix", "icb");
-            accessMatrix.HasKey(a => a.Id);
-            accessMatrix.Property(a => a.Id).ValueGeneratedOnAdd(); 
+            modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id); 
 
             EntityTypeBuilder<Model.Interview> interview = modelBuilder.Entity<Model.Interview>().ToTable("Interview", "icb");
             interview.HasKey(t => t.Id);
