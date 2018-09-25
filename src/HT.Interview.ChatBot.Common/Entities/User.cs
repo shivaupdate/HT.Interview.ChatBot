@@ -7,7 +7,7 @@ namespace HT.Interview.ChatBot.Common.Entities
     /// <summary>
     /// User model
     /// </summary>
-    public class User 
+    public class User
     {
         /// <summary>
         /// Get or sets the id
@@ -43,7 +43,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The FirstName
         /// </value> 
         [Required]
-        public string FirstName { get; set; } 
+        public string FirstName { get; set; }
 
         /// <summary>
         /// Get or sets the last name
@@ -102,7 +102,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The EndResult
         /// </value>  
-        public string EndResult { get; set; } 
+        public string EndResult { get; set; }
 
         /// <summary>
         /// Get or sets the social account info
@@ -127,6 +127,22 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The SocialAccouProviderntInfo
         /// </value>  
         public string Provider { get; set; }
+
+        /// <summary>
+        /// Get or sets is resume file path
+        /// </summary>
+        /// <value>
+        /// The ResumeFilePath
+        /// </value>  
+        public string ResumeFilePath { get; set; }
+
+        /// <summary>
+        /// Get or sets is recording file path
+        /// </summary>
+        /// <value>
+        /// The RecordingFilePath
+        /// </value>  
+        public string RecordingFilePath { get; set; }
 
         /// <summary>
         /// Get or sets is active

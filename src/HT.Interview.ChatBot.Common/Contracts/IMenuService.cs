@@ -12,32 +12,8 @@ namespace HT.Interview.ChatBot.Common.Contracts
     {
         /// <summary>
         /// Get menus async
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="options"></param>
-        /// <param name="createdBy"></param>
+        /// </summary> 
         /// <returns></returns>
-        Task<Response<IEnumerable<Menu>>> GetMenusAsync(int? id, string options, string createdBy);
-
-        /// <summary>
-        /// Add Menu async
-        /// </summary>
-        /// <param name="menu class"></param>      
-        /// <returns></returns>
-        Task<Response> AddMenuAsync(Menu menu);
-
-        /// <summary>
-        /// Update Menu async
-        /// </summary>
-        /// <param name="menu class"></param>      
-        /// <returns></returns>
-        Task<Response> UpdateMenuAsync(Menu menu);
-
-        /// <summary>
-        /// Delete Menu async
-        /// </summary>
-        /// <param name="Menu class"></param>      
-        /// <returns></returns>
-        Task<Response> DeleteMenuAsync(Menu menu);
+        Task<Response<IEnumerable<Menu>>> GetMenusAsync(); 
     }
 }

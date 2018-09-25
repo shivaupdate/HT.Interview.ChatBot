@@ -68,13 +68,7 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         ICompetenceService GetCompetenceService();
-         
-        /// <summary>
-        /// Get Attachment service
-        /// </summary>
-        /// <returns></returns>
-        IAttachmentService GetAttachmentService();
-
+          
         /// <summary>
         /// Get AccessMatrix service
         /// </summary>

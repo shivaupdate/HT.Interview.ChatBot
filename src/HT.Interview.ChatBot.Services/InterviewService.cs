@@ -43,15 +43,26 @@ namespace HT.Interview.ChatBot.Services
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <returns></returns>
-        public async Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId)
+        public async Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy)
         {
             try
             {
+                int? intentId = null;
+                try
+                {
+                    intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId);
+                }
+                catch (Exception)
+                {
+
+                }
+
                 Model.Interview interview = new Model.Interview()
-                { 
+                {
                     UserId = userId,
-                    IntentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId),
-                    CreatedBy = "RavindraK@hexaware.com",
+                    IntentId = intentId,
+                    BotResponse = botResponse,
+                    CreatedBy = createdBy,
                     CreatedOn = DateTime.Now
                 };
 
@@ -60,10 +71,10 @@ namespace HT.Interview.ChatBot.Services
 
                 return Response.Ok();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                string test = ex.Message;
-                return null;
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+
             }
         }
 
@@ -76,19 +87,19 @@ namespace HT.Interview.ChatBot.Services
         /// <param name="givenAnswer"></param>
         /// <param name="timeTaken"></param>
         /// <returns></returns>
-        public async Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string givenAnswer, int? timeTaken)
+        public async Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy)
         {
             try
-            { 
-                int intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId); 
-                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(userId, intentId); 
-                i.GivenAnswer = givenAnswer;
+            {
+                int intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId);
+                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(userId, intentId);
+                i.UserResponse = userResponse;
                 if (timeTaken.HasValue)
                 {
                     i.TimeTaken = timeTaken.Value;
                 }
                 i.ModifiedOn = DateTime.UtcNow.Date;
-                i.ModifiedBy = "RavindraK@hexaware.com";
+                i.ModifiedBy = modifiedBy;
 
                 _chatbotDataContext.Interview.Attach(i);
                 await _chatbotDataContext.SaveChangesAsync();
@@ -97,8 +108,7 @@ namespace HT.Interview.ChatBot.Services
             }
             catch (Exception ex)
             {
-                string test = ex.Message;
-                return null;
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
             }
         }
 

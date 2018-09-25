@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/user';
 import { Constants } from '../../models/constants';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'app-login',
@@ -38,11 +39,12 @@ export class LoginComponent implements OnInit {
       (socialUser) => {
         this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUser.email)
           .subscribe(
-            applicationUser => {
-              applicationUser.photoUrl = socialUser.photoUrl;
-              applicationUser.socialAccountInfo = JSON.stringify(socialUser);
+            user => {
+              user.photoUrl = socialUser.photoUrl;
+              user.socialAccountInfo = JSON.stringify(socialUser);   
+              user.sessionId = String(Guid.create());
 
-              var body = JSON.stringify(applicationUser);     
+              var body = JSON.stringify(user);     
 
               var httpOptions = {
                 headers: new HttpHeaders({
@@ -51,8 +53,7 @@ export class LoginComponent implements OnInit {
               };
 
               this.http.put(this.updateUserWebAPIUrl, body, httpOptions).subscribe(data => {
-                localStorage.setItem(this.constants.applicationUser, JSON.stringify(applicationUser));
-                localStorage.setItem(this.constants.socialUser, JSON.stringify(socialUser));    
+                localStorage.setItem(this.constants.applicationUser, JSON.stringify(user));  
                 this.router.navigate([this.returnUrl]);  
               });
 

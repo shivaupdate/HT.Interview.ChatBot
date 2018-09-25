@@ -62,15 +62,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         }
 
         /// <summary>
-        /// Get many async
+        /// Get many by role id async
         /// </summary>
-        /// <param name="ud"></param>
+        /// <param name="roleId"></param>
         /// <returns></returns>
-        [HttpGet(Common.Constants.GetCandidateMany)]
-        public async Task<ActionResult> GetCandidateManyAsync([FromQuery] UserDetail ud)
-        {
-            ud.RoleId = 1;
-            return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<UserDetail>(ud)))
+        [HttpGet(Common.Constants.GetManyByRoleId)]
+        public async Task<ActionResult> GetManyByRoleIdAsync([FromQuery] int roleId)
+        { 
+            return await GetResponseAsync(async () => (await _userService.GetUsersByRoleIdAsync(roleId))
                 .GetMappedResponse<IEnumerable<UserDetail>, IEnumerable<UserDetail>>(_mapper));
         }
 
@@ -80,7 +79,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost(Common.Constants.Create)]
-        public async Task<ActionResult> AddCandidateAsync([FromBody]User user)
+        public async Task<ActionResult> CreateUserAsync([FromBody]User user)
         {
             return await GetResponseAsync(async () => (await _userService.CreateUserAsync(user)));
         }
@@ -91,7 +90,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPut(Common.Constants.Update)]
-        public async Task<ActionResult> UpdateCandidateAsync([FromBody]User user)
+        public async Task<ActionResult> UpdateUserAsync([FromBody]User user)
         {
             return await GetResponseAsync(async () => (await _userService.UpdateUserAsync(user)));
         }
@@ -102,7 +101,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete(Common.Constants.Delete)]
-        public async Task<ActionResult> DeleteCandidateAsync([FromQuery] int id)
+        public async Task<ActionResult> DeleteUserAsync([FromQuery] int id)
         {
             return await GetResponseAsync(async () => (await _userService.DeleteUserAsync(id)));
         }

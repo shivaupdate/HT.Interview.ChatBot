@@ -15,7 +15,7 @@ export class InterviewEvaluationComponent implements OnInit {
   private gridColumnApi;
   private columnDefs;
   private rowData: any;
-  private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + '/get-candidate-many';
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + Role.Candidate;
   private paginationPageSize = environment.application.pageSize;
   private user = new User();
 
@@ -76,7 +76,7 @@ export class InterviewEvaluationComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.http.get(this.webAPIUrl + '?roleId = 2')
+    this.http.get(this.webAPIUrl)
       .subscribe(data => {
         this.rowData = data;
       });

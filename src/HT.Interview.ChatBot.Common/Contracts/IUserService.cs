@@ -22,6 +22,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// <param name="userDetail"></param>
         Task<Response<IEnumerable<UserDetail>>> GetUsersAsync(UserDetail userDetail);
 
+       /// <summary>
+       /// Get users by role id async
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
+        Task<Response<IEnumerable<UserDetail>>> GetUsersByRoleIdAsync(int roleId);
+
         /// <summary>
         /// Create user async
         /// </summary>

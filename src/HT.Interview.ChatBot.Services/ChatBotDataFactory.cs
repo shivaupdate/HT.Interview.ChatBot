@@ -128,17 +128,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICompetenceService>();
         }
-          
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Attachment service
-        /// </summary>
-        /// <returns></returns>
-        public IAttachmentService GetAttachmentService()
-        {
-            return _dependencyResolver.Resolve<IAttachmentService>();
-        }
-         
+            
         /// <inheritdoc />
         /// <summary>
         /// Get AccessMatrix service
