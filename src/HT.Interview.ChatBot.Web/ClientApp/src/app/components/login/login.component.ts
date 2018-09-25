@@ -17,14 +17,15 @@ export class LoginComponent implements OnInit {
 
   private getUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getWithParameters;
   private updateUserWebAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.update;
+  private getUserClaimsWebAPIUrl = environment.application.webAPIUrl + environment.controller.roleController + environment.action.getManyByRoleId;
   private constants = new Constants();
 
   constructor(private route: ActivatedRoute, private router: Router, private socialAuthService: AuthService, private http: HttpClient) { }
   returnUrl: string;
 
   ngOnInit() {
-    localStorage.removeItem(this.constants.applicationUser);
-    localStorage.removeItem(this.constants.socialUser);
+    sessionStorage.removeItem(this.constants.applicationUser);
+    sessionStorage.clear();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -53,8 +54,12 @@ export class LoginComponent implements OnInit {
               };
 
               this.http.put(this.updateUserWebAPIUrl, body, httpOptions).subscribe(data => {
-                localStorage.setItem(this.constants.applicationUser, JSON.stringify(user));  
-                this.router.navigate([this.returnUrl]);  
+                this.http.get(this.getUserClaimsWebAPIUrl + '?roleId=' + user.roleId).subscribe(
+                  userClaims => {
+                    user.claims = userClaims;
+                    sessionStorage.setItem(this.constants.applicationUser, JSON.stringify(user));  
+                    this.router.navigate([this.returnUrl]);  
+                  });
               });
 
             },

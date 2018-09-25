@@ -20,8 +20,7 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// </summary>
         /// <value>
         /// The Name
-        /// </value> 
-
+        /// </value>  
         public string Name { get; set; }
 
         /// <summary>
