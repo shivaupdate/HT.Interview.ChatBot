@@ -69,12 +69,7 @@ namespace HT.Interview.ChatBot.Data
         /// Competence model
         /// </summary>
         DbSet<Competence> Competence { get; set; }
-         
-        /// <summary>
-        /// Attachment model
-        /// </summary>
-        DbSet<Attachment> Attachment { get; set; }
-
+          
         /// <summary>
         /// AccessMatrix model
         /// </summary>

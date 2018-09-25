@@ -49,9 +49,6 @@
     <Compile Update="Contracts\IMenuService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Contracts\IAttachmentService.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Update="Contracts\IAccessMatrixService.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
