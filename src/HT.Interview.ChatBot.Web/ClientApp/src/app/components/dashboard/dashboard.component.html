@@ -1,27 +1,29 @@
-<div class="form-group row">
-  <h2>Candidate List</h2>
-</div>
-
-<div class="form-group row">
-  <label>Search</label>
-  <input type="text" [(ngModel)]="searchText">
-</div>
-
-<div class="form-group row">
-  <table class="table demo one table-bordered">
-    <thead>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>View Result</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of userService?.userList | searchFilter: searchText">
-        <td>{{user.id}}</td>
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td><a href="#" (click)="openModalDialog()">View</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<app-standard>
+  <div class="container">
+    <div class="row wow fadeIn mt-5">
+      <div class="col-md-9 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div style="display: block">
+              <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
+                      [legend]="true"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card mb-4">
+          <div class="card-header text-center">
+            Pie chart
+          </div>
+          <div class="card-body">
+            <div style="display: block">
+              <canvas mdbChart [chartType]="chart2Type" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions"
+                      [legend]="true"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-standard>

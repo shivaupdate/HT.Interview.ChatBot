@@ -32,6 +32,53 @@ namespace HT.Interview.ChatBot.Common
         }
 
         /// <summary>
+        /// Role type
+        /// </summary>
+        public enum Role
+        {
+            /// <summary>
+            /// Candidate
+            /// </summary>
+            Candidate = 1,
+
+            /// <summary>
+            /// Admin
+            /// </summary>
+            Admin = 2,
+
+            /// <summary>
+            /// HR
+            /// </summary>
+            HR = 3,
+
+            /// <summary>
+            /// Panel
+            /// </summary>
+            Panel = 4
+        }
+
+        /// <summary>
+        /// Gender
+        /// </summary>
+        public enum Gender
+        {
+            /// <summary>
+            /// Unknown
+            /// </summary>
+            Unknown = 1,
+
+            /// <summary>
+            /// Male
+            /// </summary>
+            Male = 2,
+
+            /// <summary>
+            /// Female
+            /// </summary>
+            Female = 3
+        }
+
+        /// <summary>
         /// Request type
         /// </summary>
         public enum RequestType

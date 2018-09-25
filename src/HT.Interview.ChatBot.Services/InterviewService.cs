@@ -40,18 +40,29 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Add interview async
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <returns></returns>
-        public async Task<Response> AddInterviewAsync(int candidateId, string dialogflowGeneratedIntentId)
+        public async Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy)
         {
             try
             {
+                int? intentId = null;
+                try
+                {
+                    intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId);
+                }
+                catch (Exception)
+                {
+
+                }
+
                 Model.Interview interview = new Model.Interview()
                 {
-                    CandidateId = candidateId,
-                    IntentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId),
-                    CreatedBy = "RavindraK@hexaware.com",
+                    UserId = userId,
+                    IntentId = intentId,
+                    BotResponse = botResponse,
+                    CreatedBy = createdBy,
                     CreatedOn = DateTime.Now
                 };
 
@@ -60,10 +71,10 @@ namespace HT.Interview.ChatBot.Services
 
                 return Response.Ok();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                string test = ex.Message;
-                return null;
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+
             }
         }
 
@@ -71,24 +82,24 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Update interview async
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <param name="givenAnswer"></param>
         /// <param name="timeTaken"></param>
         /// <returns></returns>
-        public async Task<Response> UpdateInterviewAsync(int candidateId, string dialogflowGeneratedIntentId, string givenAnswer, int? timeTaken)
+        public async Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy)
         {
             try
-            { 
-                int intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId); 
-                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(candidateId, intentId); 
-                i.GivenAnswer = givenAnswer;
+            {
+                int intentId = await GetIntentIdByDialogflowGeneratedIntentIdAsync(dialogflowGeneratedIntentId);
+                Model.Interview i = await GetInterviewByCandidateIdAndIntentIdAsync(userId, intentId);
+                i.UserResponse = userResponse;
                 if (timeTaken.HasValue)
                 {
                     i.TimeTaken = timeTaken.Value;
                 }
                 i.ModifiedOn = DateTime.UtcNow.Date;
-                i.ModifiedBy = "RavindraK@hexaware.com";
+                i.ModifiedBy = modifiedBy;
 
                 _chatbotDataContext.Interview.Attach(i);
                 await _chatbotDataContext.SaveChangesAsync();
@@ -97,8 +108,7 @@ namespace HT.Interview.ChatBot.Services
             }
             catch (Exception ex)
             {
-                string test = ex.Message;
-                return null;
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
             }
         }
 
@@ -121,12 +131,12 @@ namespace HT.Interview.ChatBot.Services
         /// <summary>
         /// Get interview by candidate id and intent id
         /// </summary>
-        /// <param name="candidateId"></param>
+        /// <param name="userId"></param>
         /// <param name="intentId"></param>
         /// <returns></returns>
-        private async Task<Model.Interview> GetInterviewByCandidateIdAndIntentIdAsync(int candidateId, int intentId)
+        private async Task<Model.Interview> GetInterviewByCandidateIdAndIntentIdAsync(int userId, int intentId)
         {
-            return await _chatbotDataContext.Interview.FirstOrDefaultAsync(x => x.CandidateId == candidateId && x.IntentId == intentId);
+            return await _chatbotDataContext.Interview.FirstOrDefaultAsync(x => x.UserId == userId && x.IntentId == intentId);
         }
 
         #endregion

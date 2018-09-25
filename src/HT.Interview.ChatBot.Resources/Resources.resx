@@ -132,6 +132,12 @@
   <data name="UpdateInterviewRequestIsNull" xml:space="preserve">
     <value>Update interview request is null</value>
   </data>
+  <data name="UpdateUserRequestIsNull" xml:space="preserve">
+    <value>Update user request is null</value>
+  </data>
+  <data name="UserByIdNotFound" xml:space="preserve">
+    <value>User by specified id not found</value>
+  </data>
   <data name="UsersNoRecordFound" xml:space="preserve">
     <value>User records not found</value>
   </data>

@@ -22,12 +22,10 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public IntentProfile()
         {
-            CreateMap<Intent, IntentResponse>()
-                .ForMember(dest => dest.IntentCompetenceMappingResponse, opt => opt.MapFrom(src => src.IntentCompetenceMapping))
+            CreateMap<Intent, IntentResponse>() 
                 .ForMember(dest => dest.IntentTrainingPhraseResponse, opt => opt.MapFrom(src => src.IntentTrainingPhrase))
                 .ForMember(dest => dest.IntentParameterResponse, opt => opt.MapFrom(src => src.IntentParameter))
-                .ForMember(dest => dest.IntentSuggestionResponse, opt => opt.MapFrom(src => src.IntentSuggestion));
-            CreateMap<IntentCompetenceMapping, IntentCompetenceMappingResponse>(); 
+                .ForMember(dest => dest.IntentSuggestionResponse, opt => opt.MapFrom(src => src.IntentSuggestion)); 
             CreateMap<IntentTrainingPhrase, IntentTrainingPhraseResponse>();
             CreateMap<IntentParameter, IntentParameterResponse>();
             CreateMap<IntentSuggestion, IntentSuggestionResponse>(); 

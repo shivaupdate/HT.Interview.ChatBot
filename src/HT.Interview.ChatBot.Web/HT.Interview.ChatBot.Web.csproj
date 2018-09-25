@@ -23,8 +23,21 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\assets\fonts\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\assets\fonts\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\assets\fonts\**" />
+    <None Remove="ClientApp\src\assets\fonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

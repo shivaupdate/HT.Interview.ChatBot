@@ -36,6 +36,16 @@
         public const string Create = "create";
 
         /// <summary>
+        /// Update
+        /// </summary>
+        public const string Update = "update";
+        
+        /// <summary>
+        /// Delete
+        /// </summary>
+        public const string Delete = "delete";
+
+        /// <summary>
         /// Get
         /// </summary>
         public const string Get = "get";
@@ -49,6 +59,16 @@
         /// Get many
         /// </summary>
         public const string GetMany = "get-many";
+
+        /// <summary>
+        /// Get many by id
+        /// </summary>
+        public const string GetManyById = "get-many-by-id";
+
+        /// <summary>
+        /// Get many by role id
+        /// </summary>
+        public const string GetManyByRoleId = "get-many-by-role-id";
 
         /// <summary>
         /// Get many as pageable
@@ -84,5 +104,16 @@
         /// Interview by id not found
         /// </summary>
         public const string InterviewByIdNotFound = "InterviewByIdNotFound"; 
+
+        /// <summary>
+        /// Update user request is null
+        /// </summary>
+        public const string UpdateUserRequestIsNull = "UpdateUserRequestIsNull";
+
+        /// <summary>
+        /// User by id not found
+        /// </summary>
+        public const string UserByIdNotFound = "UserByIdNotFound";
+
     }
 }
