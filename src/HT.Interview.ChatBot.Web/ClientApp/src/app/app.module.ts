@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 
 import { NavbarModule, ChartsModule } from 'angular-bootstrap-md'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { AgGridModule } from 'ag-grid-angular';
+import { AgGridModule } from 'ag-grid-angular';                       
 
 import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
