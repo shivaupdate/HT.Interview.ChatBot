@@ -62,6 +62,12 @@ namespace HT.Interview.ChatBot.Data
 
         /// <inheritdoc />
         /// <summary>
+        /// Role Claim Detail entity
+        /// </summary>
+        public virtual DbSet<RoleClaimDetail> RoleClaimDetail { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Gender entity
         /// </summary>
         public virtual DbSet<Gender> Gender { get; set; }
@@ -138,6 +144,9 @@ namespace HT.Interview.ChatBot.Data
             modelBuilder.Entity<IntentSuggestion>().ToTable("IntentSuggestion", "icb").HasKey(t => t.Id);
 
             modelBuilder.Entity<Role>().ToTable("Role", "icb").HasKey(t => t.Id);
+
+            modelBuilder.Entity<RoleClaimDetail>().ToTable("VU_RoleClaim", "icb").HasKey(t => t.Id);
+
             modelBuilder.Entity<Gender>().ToTable("Gender", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<Competence>().ToTable("Competence", "icb").HasKey(t => t.Id);
             modelBuilder.Entity<Menu>().ToTable("Menu", "icb").HasKey(t => t.Id);

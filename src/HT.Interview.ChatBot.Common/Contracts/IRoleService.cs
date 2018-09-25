@@ -14,6 +14,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get roles async
         /// </summary>
         /// <returns></returns>
-        Task<Response<IEnumerable<Role>>> GetRolesAsync(); 
+        Task<Response<IEnumerable<Role>>> GetRolesAsync();
+
+        /// <summary>
+        /// Get roles detail by role id async
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        Task<Response<IEnumerable<RoleClaimDetail>>> GetRoleClaimDetailByRoleIdAsync(int roleId);
     }
 }

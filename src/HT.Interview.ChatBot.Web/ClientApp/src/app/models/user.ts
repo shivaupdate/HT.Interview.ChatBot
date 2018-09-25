@@ -14,4 +14,5 @@ export class User {
   socialAccountInfo: string
   photoUrl: string
   provider: string
+  claims: any
 }

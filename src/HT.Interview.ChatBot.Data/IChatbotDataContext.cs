@@ -46,6 +46,11 @@ namespace HT.Interview.ChatBot.Data
         DbSet<Role> Role { get; set; }
 
         /// <summary>
+        /// Role Claim Detail model
+        /// </summary>
+        DbSet<RoleClaimDetail> RoleClaimDetail { get; set; }
+
+        /// <summary>
         /// Menu model
         /// </summary>
         DbSet<Menu> Menu { get; set; }
