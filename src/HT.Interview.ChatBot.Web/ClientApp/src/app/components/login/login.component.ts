@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   ngOnInit() {
-    localStorage.removeItem(this.constants.applicationUser);
-    localStorage.removeItem(this.constants.socialUser);
+    sessionStorage.clear();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -53,7 +52,7 @@ export class LoginComponent implements OnInit {
               };
 
               this.http.put(this.updateUserWebAPIUrl, body, httpOptions).subscribe(data => {
-                localStorage.setItem(this.constants.applicationUser, JSON.stringify(user));  
+                sessionStorage.setItem(this.constants.applicationUser, JSON.stringify(user));  
                 this.router.navigate([this.returnUrl]);  
               });
 

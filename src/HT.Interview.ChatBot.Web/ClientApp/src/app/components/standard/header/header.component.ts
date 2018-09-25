@@ -10,20 +10,17 @@ import { Constants } from '../../../models/constants';
 export class HeaderComponent {
 
   private constants = new Constants();
-  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
 
   constructor(private router: Router) {
-
-    //this.http.get<User>(this.getUserWebAPIUrl + 'email=' + socialUser.email)
-    //  .subscribe(
-    //    accessMatrix => { });
+          
   }
 
 
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem(this.constants.applicationUser);        
+    sessionStorage.clear(); 
     this.router.navigate(['login']);
   }
 }
