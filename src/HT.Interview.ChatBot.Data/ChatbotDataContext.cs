@@ -71,13 +71,7 @@ namespace HT.Interview.ChatBot.Data
         /// Competence entity
         /// </summary>
         public virtual DbSet<Competence> Competence { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Attachment entity
-        /// </summary>
-        public virtual DbSet<Attachment> Attachment { get; set; }
-
+         
         /// <inheritdoc />
         /// <summary>
         /// Menu entity
@@ -130,11 +124,7 @@ namespace HT.Interview.ChatBot.Data
 
             EntityTypeBuilder<UserDetail> userDetail = modelBuilder.Entity<UserDetail>().ToTable("VU_User", "icb");
             userDetail.HasKey(u => u.Id);
-
-            EntityTypeBuilder<Attachment> attachment = modelBuilder.Entity<Attachment>().ToTable("Attachment", "icb");
-            attachment.HasKey(a => a.Id);
-            attachment.Property(a => a.Id).ValueGeneratedOnAdd();
-
+             
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
             intent.HasKey(i => i.Id);
             intent.Property(i => i.Id).ValueGeneratedOnAdd();

@@ -86,7 +86,23 @@ namespace HT.Interview.ChatBot.API.DTO.Response
         /// <value>
         /// The SocialAccouProviderntInfo
         /// </value>  
-        public string Provider { get; set; } 
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// Get or sets is resume file path
+        /// </summary>
+        /// <value>
+        /// The ResumeFilePath
+        /// </value>  
+        public string ResumeFilePath { get; set; }
+
+        /// <summary>
+        /// Get or sets is recording file path
+        /// </summary>
+        /// <value>
+        /// The RecordingFilePath
+        /// </value>  
+        public string RecordingFilePath { get; set; }
 
         /// <summary>
         /// Get or sets is active

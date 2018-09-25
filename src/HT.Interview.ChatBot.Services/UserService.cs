@@ -44,8 +44,16 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<User>> GetUserByEmailAsync(string email)
         {
-            User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
-            return Response.Ok(user);
+            try
+            {
+                User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
+                return Response.Ok(user);
+            }
+            catch (Exception ex)
+            {
+                string mesage = ex.Message;
+                return null;
+            }
         }
 
         /// <summary>
