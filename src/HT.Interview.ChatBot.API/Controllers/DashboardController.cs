@@ -12,6 +12,10 @@ using HT.Interview.ChatBot.Common.Entities;
 
 namespace HT.Interview.ChatBot.API.Controllers
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Dashboard Controller
+    /// </summary>
     [Route("api/v1/dashboard")]
     [ApiController]
     public class DashboardController : ApiControllerBase
@@ -20,6 +24,11 @@ namespace HT.Interview.ChatBot.API.Controllers
         private readonly IHttpClient _httpClient;
         private readonly IDashboardService _dashboardDataService;
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="factory"></param>
         public DashboardController(IChatBotDataFactory factory)
         {
             _httpClient = factory.GetHttpClient();
@@ -27,8 +36,13 @@ namespace HT.Interview.ChatBot.API.Controllers
             _dashboardDataService = factory.GetDashboardService();
         }
 
+        /// <summary>
+        /// Get Dashboard Data Async
+        /// </summary>
+        /// <param name=""></param>
+        /// <returns>Dashboard Data Collection for graph</returns>
         [HttpGet(Common.Constants.Get)]
-        public async Task<ActionResult> GetDashboardData()
+        public async Task<ActionResult> GetDashboardDataAsync()
         { 
             return await GetResponseAsync(async () => (await _dashboardDataService.GetDashboardData())
                 .GetMappedResponse<IEnumerable<Dashboard>, IEnumerable<Dashboard>>(_mapper));

@@ -14,7 +14,7 @@ namespace HT.Interview.ChatBot.API.Controllers
 {
     /// <inheritdoc />
     /// <summary>
-    /// Intent Controller
+    /// Interview Controller
     /// </summary>
     [Route("api/v1/interview")]
     public class InterviewController : ApiControllerBase
@@ -64,8 +64,13 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
         }
 
+        /// <summary>
+        /// Get Interview Detail Async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>Interview Detail Collection</returns>
         [HttpGet(Common.Constants.InterviewDetail)]
-        public async Task<ActionResult> GetInterviewDetail(int userId)
+        public async Task<ActionResult> GetInterviewDetailAsync(int userId)
         {
             return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
