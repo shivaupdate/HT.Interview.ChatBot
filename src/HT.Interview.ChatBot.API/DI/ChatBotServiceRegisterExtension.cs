@@ -27,14 +27,12 @@ namespace HT.Interview.ChatBot.API.DI
                 WithParameter(new NamedParameter("connectionString", configuration["ConnectionStrings:ChatBotConnectionString"]));
 
             builder.RegisterType<ChatBotDataFactory>().As<IChatBotDataFactory>();
-            builder.RegisterType<UserService>().As<IUserService>();
-            builder.RegisterType<AccessMatrixService>().As<IAccessMatrixService>(); 
+            builder.RegisterType<UserService>().As<IUserService>(); 
             builder.RegisterType<CompetenceService>().As<ICompetenceService>(); 
             builder.RegisterType<GenderService>().As<IGenderService>();
             builder.RegisterType<IntentService>().As<IIntentService>(); 
             builder.RegisterType<InterviewService>().As<IInterviewService>(); 
-            builder.RegisterType<JobProfileService>().As<IJobProfileService>(); 
-            builder.RegisterType<MenuService>().As<IMenuService>();
+            builder.RegisterType<JobProfileService>().As<IJobProfileService>();  
             builder.RegisterType<RoleService>().As<IRoleService>();  
             builder.RegisterType<ApiAiHttpClient>().As<IHttpClient>();
             builder.RegisterType<DashboardService>().As<IDashboardService>();

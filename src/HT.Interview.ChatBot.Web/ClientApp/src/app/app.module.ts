@@ -5,9 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { NavbarModule, ChartsModule } from 'angular-bootstrap-md'
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { AgGridModule } from 'ag-grid-angular';
+import { NavbarModule, ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AgGridModule } from 'ag-grid-angular';                       
 
 import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';

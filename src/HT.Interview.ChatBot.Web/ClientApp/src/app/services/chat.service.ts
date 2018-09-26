@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ChatService {
   private constants = new Constants();
-  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private userId = this.user.id;
   private sessionId = this.user.sessionId;
   private email = this.user.email;

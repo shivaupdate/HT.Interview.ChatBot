@@ -5,6 +5,7 @@ using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Services
@@ -21,7 +22,7 @@ namespace HT.Interview.ChatBot.Services
         private readonly IContentService _resourceService;
 
         #endregion
-         
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -40,8 +41,17 @@ namespace HT.Interview.ChatBot.Services
         public async Task<Response<IEnumerable<Role>>> GetRolesAsync()
         {
             IEnumerable<Role> roles = await _chatbotDataContext.Role.ToListAsync();
-            // TODO: Search roles result list against search parameters
             return Response.Ok(roles);
-        } 
+        }
+
+        /// Get roles detail by role id async
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        public async Task<Response<IEnumerable<RoleClaimDetail>>> GetRoleClaimDetailByRoleIdAsync(int roleId)
+        {
+            IEnumerable<RoleClaimDetail> roleClaims = await _chatbotDataContext.RoleClaimDetail.Where(x => x.RoleId == roleId).ToListAsync();
+            return Response.Ok(roleClaims);
+        }
     }
 }

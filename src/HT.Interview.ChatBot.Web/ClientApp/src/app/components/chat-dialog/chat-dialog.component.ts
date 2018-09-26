@@ -30,7 +30,7 @@ export class ChatDialogComponent {
   allocatedTime = 0;
   remainingTime = 0;         
   private constants = new Constants();  
-  private user = JSON.parse(localStorage.getItem(this.constants.applicationUser));
+  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private userName = this.user.firstName;
   private photoUrl = this.user.photoUrl;     
 

@@ -87,17 +87,7 @@ namespace HT.Interview.ChatBot.Services
         public IRoleService GetRoleService()
         {
             return _dependencyResolver.Resolve<IRoleService>();
-        }
-          
-        /// <inheritdoc />
-        /// <summary>
-        /// Get Menu service
-        /// </summary>
-        /// <returns></returns>
-        public IMenuService GetMenuService()
-        {
-            return _dependencyResolver.Resolve<IMenuService>();
-        }
+        } 
 
         /// <inheritdoc />
         /// <summary>
@@ -128,17 +118,7 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<ICompetenceService>();
         }
-            
-        /// <inheritdoc />
-        /// <summary>
-        /// Get AccessMatrix service
-        /// </summary>
-        /// <returns></returns>
-        public IAccessMatrixService GetAccessMatrixService()
-        {
-            return _dependencyResolver.Resolve<IAccessMatrixService>();
-        }
-
+             
         /// <inheritdoc />
         /// <summary>
         /// Get Interview service

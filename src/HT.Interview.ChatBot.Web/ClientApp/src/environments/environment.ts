@@ -21,7 +21,8 @@ export const environment = {
   },
   controller: {
     userController: 'user',
-    interviewController: 'interview'
+    interviewController: 'interview',
+    roleController: 'role'
   },
   application: {
     webAPIUrl: 'http://localhost:50463/api/v1/',

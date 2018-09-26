@@ -68,19 +68,7 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// </summary>
         /// <returns></returns>
         ICompetenceService GetCompetenceService();
-          
-        /// <summary>
-        /// Get AccessMatrix service
-        /// </summary>
-        /// <returns></returns>
-        IAccessMatrixService GetAccessMatrixService();
-
-        /// <summary>
-        /// Get Menu service
-        /// </summary>
-        /// <returns></returns>
-        IMenuService GetMenuService();
-         
+            
         /// <summary>
         /// Get interview service
         /// </summary>
