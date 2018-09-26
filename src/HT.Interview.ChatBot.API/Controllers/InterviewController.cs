@@ -4,7 +4,9 @@ using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Request;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
+using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,7 +40,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             _interviewService = factory.GetInterviewService();
             _mapper = factory.GetMapperService();
         }
-         
+
         /// <summary>
         /// Get async
         /// </summary>
@@ -46,7 +48,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
-        {  
+        {
             if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
             {
                 await _interviewService.UpdateInterviewAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
@@ -62,6 +64,12 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
         }
 
+        [HttpGet(Common.Constants.InterviewDetail)]
+        public async Task<ActionResult> GetInterviewDetail(int userId)
+        {
+            return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
+            .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
+        }
         #endregion
     }
 }
