@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Common.Contracts
 {
+    /// <summary>
+    /// IDashboardService
+    /// </summary>
     public interface IDashboardService
     {
-        Task<Response<IEnumerable<Dashboard>>> GetDashboardData();
+        /// <summary>
+        /// Get Dashboard Data
+        /// </summary>
+        /// <param name=""></param>
+        /// <returns></returns>
+        Task<Response<IEnumerable<Dashboard>>> GetDashboardDataAsync();
     }
 }

@@ -72,7 +72,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpGet(Common.Constants.InterviewDetail)]
         public async Task<ActionResult> GetInterviewDetailAsync(int userId)
         {
-            return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
+            return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetailAsync(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
         }
         #endregion

@@ -87,18 +87,10 @@ namespace HT.Interview.ChatBot.Services
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId)
+        public async Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetailAsync(int userId)
         {
-            try
-            {
-                IEnumerable<InterviewDetail> interviewDetails = await _chatbotDataContext.InterviewDetail.Where(x => x.UserId == userId).ToListAsync();
-                return Response.Ok(interviewDetails);
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
+            IEnumerable<InterviewDetail> interviewDetails = await _chatbotDataContext.InterviewDetail.Where(x => x.UserId == userId).ToListAsync();
+            return Response.Ok(interviewDetails);
         }
 
 

@@ -17,7 +17,6 @@ namespace HT.Interview.ChatBot.API.Controllers
     /// Dashboard Controller
     /// </summary>
     [Route("api/v1/dashboard")]
-    [ApiController]
     public class DashboardController : ApiControllerBase
     {
         private readonly IMapper _mapper;
@@ -44,7 +43,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetDashboardDataAsync()
         { 
-            return await GetResponseAsync(async () => (await _dashboardDataService.GetDashboardData())
+            return await GetResponseAsync(async () => (await _dashboardDataService.GetDashboardDataAsync())
                 .GetMappedResponse<IEnumerable<Dashboard>, IEnumerable<Dashboard>>(_mapper));
         }
     }

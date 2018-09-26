@@ -129,6 +129,11 @@ namespace HT.Interview.ChatBot.Services
             return _dependencyResolver.Resolve<IInterviewService>();
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Get Dashboard service
+        /// </summary>
+        /// <returns></returns>
         public IDashboardService GetDashboardService()
         {
             return _dependencyResolver.Resolve<IDashboardService>();

@@ -12,10 +12,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HT.Interview.ChatBot.Services
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Dashboard Service
+    /// </summary>
     public class DashboardService : IDashboardService
     {
         private readonly IChatBotDataContext _chatbotDataContext;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="factory"></param>
+        /// <param name="chatbotDataContext"></param>
         public DashboardService(IChatBotDataFactory factory, IChatBotDataContext chatbotDataContext)
         {
             _chatbotDataContext = chatbotDataContext;
@@ -27,18 +36,10 @@ namespace HT.Interview.ChatBot.Services
         /// <param name=""></param>
         /// <param name=""></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<Dashboard>>> GetDashboardData()
+        public async Task<Response<IEnumerable<Dashboard>>> GetDashboardDataAsync()
         {
-            try
-            {
-                IEnumerable<Dashboard> dashboardData = await _chatbotDataContext.DashboardData.ToListAsync();
-                return Response.Ok(dashboardData);
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
+            IEnumerable<Dashboard> dashboardData = await _chatbotDataContext.DashboardData.ToListAsync();
+            return Response.Ok(dashboardData);
         }
     }
 }
