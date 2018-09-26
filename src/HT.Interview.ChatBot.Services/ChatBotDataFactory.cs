@@ -128,5 +128,10 @@ namespace HT.Interview.ChatBot.Services
         {
             return _dependencyResolver.Resolve<IInterviewService>();
         }
+
+        public IDashboardService GetDashboardService()
+        {
+            return _dependencyResolver.Resolve<IDashboardService>();
+        }
     }
 }

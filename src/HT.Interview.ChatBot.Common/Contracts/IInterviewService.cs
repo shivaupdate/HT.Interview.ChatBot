@@ -1,4 +1,6 @@
 ﻿using HT.Framework;
+using HT.Interview.ChatBot.Common.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.Common.Contracts
@@ -8,6 +10,13 @@ namespace HT.Interview.ChatBot.Common.Contracts
     /// </summary>
     public interface IInterviewService
     {
+        /// <summary>
+        /// Get interview detail
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId);
+
         /// <summary>
         /// Add interview async
         /// </summary>

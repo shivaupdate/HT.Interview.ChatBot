@@ -24,7 +24,7 @@ namespace HT.Interview.ChatBot.Data
         /// Intent model
         /// </summary>
         DbSet<Intent> Intent { get; set; }
-         
+
         /// <summary>
         /// Intent Training Phrase model
         /// </summary>
@@ -64,7 +64,7 @@ namespace HT.Interview.ChatBot.Data
         /// Gender model
         /// </summary>
         DbSet<Gender> Gender { get; set; }
-          
+
         /// <summary>
         /// Competence model
         /// </summary>
@@ -74,6 +74,14 @@ namespace HT.Interview.ChatBot.Data
         /// <summary>
         /// Interview entity
         /// </summary>
-        DbSet<Model.Interview> Interview { get; set; } 
+        DbSet<Model.Interview> Interview { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Interview entity
+        /// </summary>
+        DbSet<InterviewDetail> InterviewDetail { get; set; }
+
+        DbSet<Dashboard> DashboardData { get; set; }
     }
 }
