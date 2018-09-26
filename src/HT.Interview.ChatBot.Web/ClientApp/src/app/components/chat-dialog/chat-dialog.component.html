@@ -1,81 +1,90 @@
 <app-standard>
-  <mdb-card class="chat-room main-container">
-    <mdb-card-body class="child-container">
-      <div class="row px-lg-1 px-0">
-        <div class="col-md-6 col-xl-12 pl-md-3 px-lg-auto px-0" style="padding-left:0 !important;">
-          <div class="chat-message">
-            <ul #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue">
-              <ng-container *ngFor="let message of messages | async">
-                <li class="d-flex justify-content-between mb-4">
-                  <div>
-                    <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
-                      <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
-                        <div class="noResponse">
-                          Time allocated for the last question has expired. Bot will automatically move to the next question.
-                        </div>
-                      </div>
-                    </ng-container>
-                    <ng-template #responseRecorded>
-                      <div *ngIf="message.response.result.resolvedQuery !== ''">
-                        <div class="chat-body white p-3 z-depth-1 message-from-user">
-                          <div class="row message-wrapper">
-                            <div class="message-header">
-                              <img src="{{photoUrl}}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1" />
-                            </div>
-                            <div class="message-content" style="color:white;">
-                              <strong class="primary-font"><label>{{userName}}</label></strong>
-                              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
-
-                              <hr class="w-100">
-                              <p class="mb-0">
-                                {{ message.response.result.resolvedQuery }}
-                              </p>
-                            </div>
-                            <div class="cleared"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </div>
-                </li>
-                <li class="d-flex justify-content-between mb-4">
-                  <div class="chat-body p-3 z-depth-1 message-from-bot">
-                    <div class="row message-wrapper">
-                      <div class="message-header">
-                        <img src="../../../assets/images/chatbot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
-                      </div>
-
-                      <div class="message-content" style="color:white;">
-                        <strong class="primary-font">Laura</strong>
-                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
-                        <hr class="w-100">
-                        <p class="mb-0">
-                          {{ message.response.result.fulfillment.speech }}
-                        </p>
-                        <div *ngFor="let r of message.response.result.fulfillment.messages">
-                          <div *ngIf="r.type === 5" class="chips">
-                            <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
-                              {{s.title}}
+  <div class="row wow fadeIn">
+    <div class="bot-container">
+      <mdb-card class="chat-room">
+        <mdb-card-body class="card-body">
+          <div class="row px-lg-1 px-0">
+            <div class="col-md-6 col-xl-12 pl-md-3 px-lg-auto px-0" style="padding-left:0 !important;">
+              <div class="chat-message">
+                <ul #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue">
+                  <ng-container *ngFor="let message of messages | async">
+                    <li class="d-flex justify-content-between mb-4">
+                      <div>
+                        <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
+                          <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
+                            <div class="noResponse">
+                              Time allocated for the last question has expired. Bot will automatically move to the next question.
                             </div>
                           </div>
-                        </div>
+                        </ng-container>
+                        <ng-template #responseRecorded>
+                          <div *ngIf="message.response.result.resolvedQuery !== ''">
+                            <div class="chat-body white p-3 z-depth-1 message-from-user">
+                              <div class="row message-wrapper">
+                                <div class="message-header">
+                                  <img src="{{photoUrl}}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1" />
+                                </div>
+                                <div class="message-content" style="color:white;">
+                                  <strong class="primary-font"><label>{{userName}}</label></strong>
+                                  <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
 
+                                  <hr class="w-100">
+                                  <p class="mb-0">
+                                    {{ message.response.result.resolvedQuery }}
+                                  </p>
+                                </div>
+                                <div class="cleared"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
                       </div>
-                      <div class="cleared"></div>
-                    </div>
-                  </div>
-                </li>
-              </ng-container>
-            </ul>
+                    </li>
+                    <li class="d-flex justify-content-between mb-4">
+                      <div class="chat-body p-3 z-depth-1 message-from-bot">
+                        <div class="row message-wrapper">
+                          <div class="message-header">
+                            <img src="../../../assets/images/chatbot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                          </div>
+
+                          <div class="message-content" style="color:white;">
+                            <strong class="primary-font">Laura</strong>
+                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+                            <hr class="w-100">
+                            <p class="mb-0">
+                              {{ message.response.result.fulfillment.speech }}
+                            </p>
+                            <div *ngFor="let r of message.response.result.fulfillment.messages">
+                              <div *ngIf="r.type === 5" class="chips">
+                                <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
+                                  {{s.title}}
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="cleared"></div>
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <div style="color:black; background-color:transparent !important">
+                {{message.remainingTime}}
+              </div>
+              <textarea [(ngModel)]="query" class="textarea" style="resize:none" rows="3" placeholder="Type your message here..."></textarea>
+              <a id="mic" (click)="toggleVoiceRecognition()" [ngClass]="getMicStyle()" aria-hidden="true"></a>
+              <button (click)="sendMessage()" class="btn btn-outline-pink btn-rounded btn-sm waves-effect waves-dark float-right btnSend" type="button">Send</button>
+
+            </div>
           </div>
-          <div style="color:black; background-color:transparent !important">
-            {{message.remainingTime}}
-          </div>
-          <textarea [(ngModel)]="query" class="textarea" style="resize:none" rows="3" placeholder="Type your message here..."></textarea>
-          <a id="mic" (click)="toggleVoiceRecognition()" [ngClass]="getMicStyle()" aria-hidden="true"></a>
-          <button (click)="sendMessage()" class="btn btn-outline-pink btn-rounded btn-sm waves-effect waves-dark float-right btnSend" type="button">Send</button>
-        </div>
-      </div>
-    </mdb-card-body>
-  </mdb-card>
+        </mdb-card-body>
+
+      </mdb-card>
+    </div>
+    <div class="camera-card">          
+        <app-camera></app-camera>    
+    </div>
+  </div>
 </app-standard>

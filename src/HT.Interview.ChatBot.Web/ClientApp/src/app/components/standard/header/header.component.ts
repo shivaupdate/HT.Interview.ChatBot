@@ -19,8 +19,7 @@ export class HeaderComponent {
   }
 
   hasAccess(claimName) {   
-    let userClaims = this.user.claims;
-    console.log(userClaims);
+    let userClaims = this.user.claims;    
     let hasAccess = false;
     userClaims.forEach(function (userClaim) {  
       if (userClaim.claimName === claimName) {
