@@ -27,12 +27,38 @@ namespace HT.Interview.ChatBot.Services
         /// <param name=""></param>
         /// <param name=""></param>
         /// <returns></returns>
-        public async Task<Response<IEnumerable<Dashboard>>> GetDashboardData()
+        public async Task<Response<List<DashboardData>>> GetDashboardData()
         {
             try
             {
                 IEnumerable<Dashboard> dashboardData = await _chatbotDataContext.DashboardData.ToListAsync();
-                return Response.Ok(dashboardData);
+                List<DashboardData> dashboard = new List<DashboardData>();
+ 
+                foreach (string CompetenceList in dashboardData.Select(x => x.Competence).Distinct())
+                {
+                    DashboardData obj = new DashboardData();
+                    obj.label = CompetenceList;
+
+                    foreach (Dashboard dasobj in dashboardData.Where(x => x.Competence == CompetenceList))
+                    {
+                        foreach(string month in dashboardData.Select(x => x.Month).Distinct())
+                        {
+                            if(!dashboardData.Any(x => x.Competence == CompetenceList & x.Month == month))
+                            {
+                                obj.data.Add(0);
+                            }
+                            else { obj.data.Add(dasobj.Count); }
+                           
+
+                        }
+                    
+                        //obj.month.Add(dasobj.Month);
+
+                    }
+                    dashboard.Add(obj);
+                }
+                dashboard.FirstOrDefault().month.AddRange(dashboardData.Select(x => x.Month).Distinct());
+                return Response.Ok(dashboard);
             }
             catch (System.Exception ex)
             {
