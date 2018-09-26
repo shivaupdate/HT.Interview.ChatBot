@@ -96,6 +96,10 @@ namespace HT.Interview.ChatBot.Data
         /// </summary>
         public virtual DbSet<Model.Interview> Interview { get; set; }
 
+        public virtual DbSet<InterviewDetail> InterviewDetail { get; set; }
+
+        public virtual DbSet<Dashboard> DashboardData { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// On configuring
@@ -118,7 +122,13 @@ namespace HT.Interview.ChatBot.Data
 
             EntityTypeBuilder<UserDetail> userDetail = modelBuilder.Entity<UserDetail>().ToTable("VU_User", "icb");
             userDetail.HasKey(u => u.Id);
-             
+
+            EntityTypeBuilder<InterviewDetail> interviewDetail = modelBuilder.Entity<InterviewDetail>().ToTable("VU_InterviewDetail", "icb");
+            interviewDetail.HasKey(u => u.Id);
+
+            EntityTypeBuilder<Dashboard> dashboardData = modelBuilder.Entity<Dashboard>().ToTable("VU_DashboardData", "icb");
+            dashboardData.HasKey(u => u.Id);
+
             EntityTypeBuilder<Intent> intent = modelBuilder.Entity<Intent>().ToTable("Intent", "icb");
             intent.HasKey(i => i.Id);
             intent.Property(i => i.Id).ValueGeneratedOnAdd();
