@@ -15,7 +15,7 @@ export class ManageUserComponent implements OnInit {
   private columnDefs;
   private rowData: any;      
   private operationMode: boolean;
-  private roleSelect: Role[];
+  private roleSelect: Role[];        
   private genderSelect: Gender[];
   private user: User;
 
@@ -76,12 +76,9 @@ export class ManageUserComponent implements OnInit {
     ];
 
     this.roleSelect = [
-      { id: 1, name: "Candidate" },
-      { id: 2, name: "Admin" },
-      { id: 3, name: "HR" },
-      { id: 4, name: "Panel" }
+      { id: 1, name: "Candidate" } 
     ];;
-
+                
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
         this.operationMode = false;

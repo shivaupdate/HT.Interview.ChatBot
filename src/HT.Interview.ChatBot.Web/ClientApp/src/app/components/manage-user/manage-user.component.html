@@ -3,7 +3,7 @@
     <h3 class="main-title" style="padding-left:30px; width:80%">Manage Users</h3>
     <a class="btn btn-info btn-sm my-0 waves-effect btn-add-user" (click)="addUser()">
       <i class="fa fa-plus"></i>
-      Add
+      Add Candidate
     </a>
     <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
                      class="ag-theme-blue"
@@ -26,52 +26,60 @@
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-user-circle-o prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName">
+          <input mdbInputDirective type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" required data-error="First name is required">
           <label for="firstName" class="label">First Name</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-user-circle-o prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName">
+          <input mdbInputDirective type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" required data-error="Last name is required">
           <label for="lastName" class="label">Last Name</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-envelope prefix icon"></i>
-          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required  data-error="Email is required">
           <label for="email" class="label">Email</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-mobile prefix icon"></i>
-          <input mdbInputDirective type="number" max="10" maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile">
-          <label for="mobile" class="label">Mobile</label>
+          <input mdbInputDirective type="number"  maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile" required data-error="Mobile number is required">
+          <label for="mobile" class="label">Mobile Number</label>
         </div>
       </div>
       <br />
     </div>
     <div class="form-row">
       <div class="col-md-3">
-        <i class="fa fa-neuter prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Gender</label>
-        <select class="form-control " id="genderSelect" name="genderSelect" [(ngModel)]="user.genderId">
-          <option *ngFor="let gender of genderSelect" [ngValue]="gender.id">
-            {{gender.name}}
-          </option>
-        </select>
+        <div class="md-form form-group">
+          <i class="fa fa-neuter prefix icon"></i>
+          <select mdbInputDirective class="form-control select-control" id="genderSelect" name="genderSelect" [(ngModel)]="user.genderId" required data-error="Gender is required">
+            <option *ngFor="let gender of genderSelect" [ngValue]="gender.id">
+              {{gender.name}}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="col-md-3">
-        <i class="fa fa-id-card prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Role</label>
-        <select class="form-control " id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId">
-          <option *ngFor="let role of roleSelect" [ngValue]="role.id">
-            {{role.name}}
-          </option>
-        </select>
-      </div>
+        <div class="md-form form-group">
+          <i class="fa fa-id-card prefix icon"></i>
+          <select mdbInputDirective class="form-control select-control" id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId" required data-error="Role is required">            
+            <option *ngFor="let role of roleSelect" [ngValue]="role.id">
+              {{role.name}}
+            </option>
+          </select>
+        </div>
+      </div>     
       <div class="col-md-3">
-        <i class="fa fa-id-card prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Resume</label>
+        <div class="md-form form-group">
+          <i class="fa fa fa-file prefix icon"></i>
+          <input mdbInputDirective type="text" class="form-control" id="resume" name="resume" required data-error="Resume is required">
+          <label for="resume" class="label">Resume</label>
+        </div>
       </div>
     </div>
     <br />
