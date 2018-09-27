@@ -47,7 +47,7 @@ namespace HT.Interview.ChatBot.Services
                             {
                                 obj.data.Add(0);
                             }
-                            else { obj.data.Add(dasobj.Count); }
+                            else { obj.data.Add(dasobj.Count);break; }
                            
 
                         }
