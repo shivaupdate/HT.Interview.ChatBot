@@ -15,4 +15,6 @@ export class User {
   photoUrl: string
   provider: string
   claims: any
+  isActive: boolean
+  createdBy: string
 }

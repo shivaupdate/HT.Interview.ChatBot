@@ -1,7 +1,7 @@
 <app-standard>
-  <div *ngIf="addUser != true">
+  <div *ngIf="operationMode != true">
     <h3 class="main-title" style="padding-left:30px; width:80%">Manage Users</h3>
-    <a class="btn btn-info btn-sm my-0 waves-effect btn-add-user" (click)="AddUser()">
+    <a class="btn btn-info btn-sm my-0 waves-effect btn-add-user" (click)="addUser()">
       <i class="fa fa-plus"></i>
       Add
     </a>
@@ -19,73 +19,72 @@
                      [enableFilter]="true">
     </ag-grid-angular>
   </div>
-  <div *ngIf="addUser==true" style="height:250px; padding-left:30px; padding-right:30px;">
+  <div *ngIf="operationMode == true" class="add-section">
+    <br /><br />
     <h3 style="font-weight:bold; color:darkgreen;">Add User</h3>
-    <div class="form-row" style="background-color:#e1faeb;">
-      <div class="col-md-3">
-        <div class="md-form form-group">
-          <i class="fa fa-envelope prefix icon"></i>
-          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
-          <label for="email" class="label">Email</label>
-        </div>
-      </div>
+    <div class="form-row">
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-user-circle-o prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName">
+          <input mdbInputDirective type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName">
           <label for="firstName" class="label">First Name</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-user-circle-o prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName">
+          <input mdbInputDirective type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName">
           <label for="lastName" class="label">Last Name</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
+          <i class="fa fa-envelope prefix icon"></i>
+          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+          <label for="email" class="label">Email</label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">
           <i class="fa fa-mobile prefix icon"></i>
-          <input mdbInputDirective type="number" max="10" maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile">
+          <input mdbInputDirective type="number" max="10" maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile">
           <label for="mobile" class="label">Mobile</label>
         </div>
       </div>
       <br />
     </div>
-    <div class="form-row" style="background-color:#e1faeb;">
+    <div class="form-row">
       <div class="col-md-3">
         <i class="fa fa-neuter prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Gender</label>
-          <select class="form-control " id="genderSelect" name="genderSelect">
-          <option *ngFor="let gender of genderSelect" [ngValue]="gender.Id">
-            {{gender.Name}}
+        <select class="form-control " id="genderSelect" name="genderSelect" [(ngModel)]="user.genderId">
+          <option *ngFor="let gender of genderSelect" [ngValue]="gender.id">
+            {{gender.name}}
           </option>
         </select>
       </div>
       <div class="col-md-3">
         <i class="fa fa-id-card prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Role</label>
-        <select class="form-control " id="roleSelection" name="roleSelection" [(ngModel)]="addRole.Id" (ngModelChange)="onChange($event)">
-          <option *ngFor="let role of userRolesList" [ngValue]="role.Id">
-            {{role.RoleName}}
+        <select class="form-control " id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId">
+          <option *ngFor="let role of roleSelect" [ngValue]="role.id">
+            {{role.name}}
           </option>
         </select>
       </div>
       <div class="col-md-3">
         <i class="fa fa-id-card prefix icon"></i><label for="mobile" class="label">&nbsp;&nbsp; Resume</label>
-        <!--<select class="form-control " id="genderSelect" name="genderSelect">
-          <option *ngFor="let gender of genderSelect">
-            {{gender.Name}}
-          </option>
-        </select>-->
       </div>
     </div>
-    <div class="form-row" style="background-color:#e1faeb;">
-      <div>
-        <br /><br />
-        <button class="btn btn-primary" (click)="OnOK()">OK</button>
-        <button class="btn btn-default" (click)="OnCancel()">Cancel</button>
-        <br /><br />
+    <br />
+    <div class="form-row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary" (click)="onSave()">Save</button>
+        <button class="btn btn-default" (click)="onCancel()">Cancel</button>
+      </div> <div class="col-md-4">
       </div>
     </div>
+    <br />
   </div>
   <br /><br />
 </app-standard>
