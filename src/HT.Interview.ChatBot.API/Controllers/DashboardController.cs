@@ -31,7 +31,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> GetDashboardData()
         { 
             return await GetResponseAsync(async () => (await _dashboardDataService.GetDashboardData())
-                .GetMappedResponse<IEnumerable<Dashboard>, IEnumerable<Dashboard>>(_mapper));
+                .GetMappedResponse<List<DashboardData>, List<DashboardData>>(_mapper));
         }
     }
 }

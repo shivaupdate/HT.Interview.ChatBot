@@ -9,6 +9,6 @@ namespace HT.Interview.ChatBot.Common.Contracts
 {
     public interface IDashboardService
     {
-        Task<Response<IEnumerable<Dashboard>>> GetDashboardData();
+        Task<Response<List<DashboardData>>> GetDashboardData();
     }
 }

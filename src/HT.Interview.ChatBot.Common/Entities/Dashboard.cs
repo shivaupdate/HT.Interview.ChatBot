@@ -12,4 +12,12 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string Competence { get; set; }
         public int Count { get; set; }
     }
+    public class DashboardData
+    {
+        public string label { get; set; }
+
+        public List<int> data { get; set; } = new List<int>();
+        public List<string> month { get; set; } = new List<string>();
+
+    }
 }
