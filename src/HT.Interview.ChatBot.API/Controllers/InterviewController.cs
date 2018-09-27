@@ -70,6 +70,18 @@ namespace HT.Interview.ChatBot.API.Controllers
             return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
         }
+
+        [HttpPut("upload-video")]
+        public async Task<ActionResult> UploadVideo([FromBody]object recording)
+        {
+            ActionResult testdd = await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(0))
+               .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
+            object test = recording;
+            return null;
+
+        }
+
+
         #endregion
     }
 }

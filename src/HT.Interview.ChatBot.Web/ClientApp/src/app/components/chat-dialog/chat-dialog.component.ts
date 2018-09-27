@@ -4,11 +4,15 @@ import { ChatService } from '../../services/chat.service';
 import { SpeechService } from '../../services/speech.service';
 import { Observable } from 'rxjs/Observable';
 import { Constants } from '../../models/constants';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+
+import { environment } from '../../../environments/environment';
 
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import { ComponentSource } from 'ag-grid-community/dist/lib/components/framework/componentResolver';
 
 @Component({
   selector: 'chat-dialog',
@@ -18,7 +22,7 @@ import 'rxjs/add/operator/take';
 
 export class ChatDialogComponent {
   @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
-  started = false;       
+  started = false;
   sessionId: any;
   message = new Message();
   messages: Observable<Message[]>;
@@ -28,15 +32,16 @@ export class ChatDialogComponent {
   tick = 1000;
   countdownTimer: any;
   allocatedTime = 0;
-  remainingTime = 0;         
-  private constants = new Constants();  
+  remainingTime = 0;
+  private constants = new Constants();
   private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private userName = this.user.firstName;
-  private photoUrl = this.user.photoUrl;     
+  private photoUrl = this.user.photoUrl;
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
 
-  constructor(public chat: ChatService, public speech: SpeechService) {
+  constructor(private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
     var __this = this;
-                                     
+
     this.speech.started.subscribe(started => this.started = started);
     this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
@@ -137,5 +142,28 @@ export class ChatDialogComponent {
 
   resetControls() {
     this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollTop + 200;
-  }          
+  }
+
+
+  handleVideoStream(blob) {
+    let params = new HttpParams();
+    params = params.append('recording', blob);
+
+    var body = blob;
+
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'video/webm'
+      })
+
+
+    };
+    this.http.put(this.webAPIUrl, body).subscribe(data => {
+      console.log('result' + data);
+    });
+
+   
+    console.log('do something with the recording' + blob);
+  }
+
 }

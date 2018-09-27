@@ -84,7 +84,7 @@
       </mdb-card>
     </div>
     <div class="camera-card">          
-        <app-camera></app-camera>    
+        <app-camera  (fetchRecording)="handleVideoStream($event)"></app-camera>    
     </div>
   </div>
 </app-standard>

@@ -96,7 +96,12 @@ export class CameraComponent implements OnInit {
       this.video.controls = true;
     }
   }
-       
+
+  handleVideoStream(blob) {
+    // can send it to a server or play in another video player etc..
+    console.log('do something with the recording' + blob);
+  }
+
   public download() {
     console.log('download recorded stream');
     const timestamp = new Date().getUTCMilliseconds();
@@ -107,7 +112,8 @@ export class CameraComponent implements OnInit {
     a.href = url;
     a.download = timestamp + '__' + this.fileName + '.webm';
     document.body.appendChild(a);
-    a.click();
+    console.log(blob);                                
+    //a.click();
     setTimeout(() => {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
