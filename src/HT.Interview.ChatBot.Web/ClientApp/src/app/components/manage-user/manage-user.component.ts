@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Role } from '../../models/role';
 import { Gender } from '../../models/gender';
+import { Profile } from '../../models/profile';
 import { RoleEnum } from '../../models/enums';
-import { environment } from '../../../environments/environment';
-import { concat } from 'rxjs/operators';
+import { GenderEnum } from '../../models/enums';
+import { environment } from '../../../environments/environment';      
 
 @Component({
   selector: 'app-manage-user',
@@ -19,12 +20,16 @@ export class ManageUserComponent implements OnInit {
   private operationMode: boolean;
   private roleSelect: Role[];
   private genderSelect: Gender[];
+  private profileSelect: any; 
   private user: User;
   formData: FormData = new FormData();
 
   private paginationPageSize = environment.application.pageSize;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
   private webAPICreateUserUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.create;
+  private webAPIGetRoleUrl = environment.application.webAPIUrl + environment.controller.roleController + environment.action.getMany;
+  private webAPIGetGenderUrl = environment.application.webAPIUrl + environment.controller.genderController + environment.action.getMany;
+  private webAPIGetProfileUrl = environment.application.webAPIUrl + environment.controller.profileController + environment.action.getMany;
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
@@ -54,6 +59,12 @@ export class ManageUserComponent implements OnInit {
     this.roleSelect = [
       { id: 1, name: "Candidate" }
     ];;
+          
+    this.http.get(this.webAPIGetProfileUrl)
+      .subscribe(data => {
+        this.profileSelect = data;
+        console.log(this.profileSelect);
+      });
 
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
@@ -73,7 +84,9 @@ export class ManageUserComponent implements OnInit {
   }
 
   addUser() {
+    this.user.genderId = GenderEnum.Unknown;
     this.user.roleId = RoleEnum.Candidate;
+    this.user.jobProfileId = 1;
     this.operationMode = true;
   }
 
@@ -92,6 +105,7 @@ export class ManageUserComponent implements OnInit {
     this.formData.append('mobile', String(this.user.mobile));
     this.formData.append('genderId', String(this.user.genderId));
     this.formData.append('roleId', String(this.user.roleId));
+    this.formData.append('jobProfileId', String(this.user.jobProfileId));
     this.formData.append('isActive', String(true));
     this.formData.append('createdBy', 'RavindraK@hexaware.com');
 

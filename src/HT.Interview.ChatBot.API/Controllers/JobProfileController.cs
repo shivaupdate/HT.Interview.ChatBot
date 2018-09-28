@@ -44,7 +44,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> GetManyAsync()
         {
             return await GetResponseAsync(async () => (await _jobProfileService.GetJobProfilesAsync(new JobProfile()))
-                .GetMappedResponse<IEnumerable<JobProfile>, IEnumerable<JobProfileResponse>>(_mapper));
+                .GetMappedResponse<IEnumerable<JobProfile>, IEnumerable<JobProfile>>(_mapper));
         }
 
         #endregion

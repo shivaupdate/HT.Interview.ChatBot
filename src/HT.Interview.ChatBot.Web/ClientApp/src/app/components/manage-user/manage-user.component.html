@@ -55,7 +55,7 @@
     </div>
     <div class="form-row">
       <div class="col-md-3">
-        <div class="md-form form-group">
+        <div class="md-form form-group">       
           <i class="fa fa-neuter prefix icon"></i>
           <select mdbInputDirective class="form-control select-control" id="genderSelect" name="genderSelect" [(ngModel)]="user.genderId" required data-error="Gender is required">
             <option *ngFor="let gender of genderSelect" [ngValue]="gender.id">
@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="md-form form-group">
+        <div class="md-form form-group">       
           <i class="fa fa-id-card prefix icon"></i>
           <select mdbInputDirective class="form-control select-control" id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId" required data-error="Role is required">
             <option *ngFor="let role of roleSelect" [ngValue]="role.id">
@@ -75,12 +75,22 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="md-form form-group">
+        <div class="md-form form-group">             
+          <i class="fa fa-user-plus prefix icon"></i>
+          <select mdbInputDirective class="form-control select-control" id="profileSelect" name="profileSelect" [(ngModel)]="user.jobProfileId" required data-error="Job Profile is required">
+            <option *ngFor="let profile of profileSelect" [ngValue]="profile.id">
+              {{profile.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">    
           <i class="fa fa-file prefix icon"></i>
           <input type="file" class="file-upload" id="resumeFileName" name="resumeFileName"
-                 (change)="uploadFile($event)" accept=".pdf,.doc,.docx">           
+                 (change)="uploadFile($event)" accept=".pdf,.doc,.docx">
         </div>
-      </div> 
+      </div>     
     </div>
     <br />
     <div class="form-row">

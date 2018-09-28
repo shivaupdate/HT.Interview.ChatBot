@@ -23,7 +23,9 @@ export const environment = {
     userController: 'user',
     interviewController: 'interview',
     roleController: 'role',
-    dashboardController: 'dashboard'
+    dashboardController: 'dashboard',
+    genderController: 'gender',
+    profileController: 'jobprofile',
   },
   application: {
     webAPIUrl: 'http://localhost:50463/api/v1/',
