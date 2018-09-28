@@ -23,9 +23,9 @@
 }
 
 .camera-card {
-  border-radius: 1.0rem !important; 
+  border-radius: 1.0rem !important;
   width: 25%;
-  margin:2% 5% 2% 12%; 
+  margin: 5% 0% -5% 2%;
 }
 
 .textarea {
@@ -131,7 +131,15 @@ hr[_ngcontent-c4] {
   border-color: #ffffff !important;
 }
 
-.text-muted[_ngcontent-c4] {
+.hr-white {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+  border: black;
+  border-style: double;
+  border-color: #ffffff !important;
+}
+
+.text-muted-white {
   color: #f2f4f5 !important;
 }
 

@@ -26,9 +26,9 @@
                                 </div>
                                 <div class="message-content" style="color:white;">
                                   <strong class="primary-font"><label>{{userName}}</label></strong>
-                                  <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+                                  <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
 
-                                  <hr class="w-100">
+                                  <hr class="w-100" hr-white>
                                   <p class="mb-0">
                                     {{ message.response.result.resolvedQuery }}
                                   </p>
@@ -49,8 +49,8 @@
 
                           <div class="message-content" style="color:white;">
                             <strong class="primary-font">Laura</strong>
-                            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
-                            <hr class="w-100">
+                            <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+                            <hr class="w-100 hr-white">
                             <p class="mb-0">
                               {{ message.response.result.fulfillment.speech }}
                             </p>
@@ -79,8 +79,7 @@
 
             </div>
           </div>
-        </mdb-card-body>
-
+        </mdb-card-body>    
       </mdb-card>
     </div>
     <div class="camera-card">          
