@@ -19,7 +19,7 @@ export const environment = {
     update: '/update',
     updateUserInterviewResult:"/update-user-interview-result",
     delete: '/delete',
-    deleteWithParameters: '/delete?'
+    deleteWithParameters: '/delete?' 
   },
   controller: {
     userController: 'user',
@@ -28,6 +28,7 @@ export const environment = {
     dashboardController: 'dashboard',
     genderController: 'gender',
     profileController: 'jobprofile',
+    downloadController: 'download'
   },
   application: {
     webAPIUrl: 'http://localhost:50463/api/v1/',

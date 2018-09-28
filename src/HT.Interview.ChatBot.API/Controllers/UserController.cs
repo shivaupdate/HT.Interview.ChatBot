@@ -81,55 +81,54 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpPost(Common.Constants.Create)]
         public async Task<ActionResult> CreateUserAsync([FromForm]User user)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app-data/user/" + user.FirstName + user.LastName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\app-data\user\" + user.FirstName + user.LastName);
             if (!(Directory.Exists(path)))
             {
                 Directory.CreateDirectory(path);
             }
             string fileExtension = Path.GetExtension(user.ResumeFile.FileName);
-            path = path + "/" + "Resume_" + user.FirstName + "_" + user.LastName + "_" + fileExtension;
-             
-            FileStream stream = new FileStream(path, FileMode.Create);
-            await user.ResumeFile.CopyToAsync(stream);
-            stream.Close();
-            stream.Dispose();
-
+            path = path + @"\" + "Resume_" + user.FirstName + "_" + user.LastName + "_" + fileExtension;
+            user.ResumeFilePath = path;
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await user.ResumeFile.CopyToAsync(stream); 
+            }
             return await GetResponseAsync(async () => (await _userService.CreateUserAsync(user)));
         }
 
-        /// <summary>
-        /// Update user async
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        [HttpPut(Common.Constants.Update)]
-        public async Task<ActionResult> UpdateUserAsync([FromBody]User user)
-        {
-            return await GetResponseAsync(async () => (await _userService.UpdateUserAsync(user)));
-        }
-
-        /// <summary>
-        /// Delete user async
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpDelete(Common.Constants.Delete)]
-        public async Task<ActionResult> DeleteUserAsync([FromQuery] int id)
-        {
-            return await GetResponseAsync(async () => (await _userService.DeleteUserAsync(id)));
-        }
-
-        /// <summary>
-        /// Update user interview result async
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        [HttpPut(Common.Constants.UpdateUserInterviewResult)]
-        public async Task<ActionResult> UpdateUserInterviewResultAsync([FromBody] User user)
-        {
-            return await GetResponseAsync(async () => (await _userService.UpdateUserInterviewResultAsync(user.Id, user.Remark, user.EndResult, user.ModifiedBy)));
-        }
-
-        #endregion
+    /// <summary>
+    /// Update user async
+    /// </summary>
+    /// <param name="user"></param>
+    /// <returns></returns>
+    [HttpPut(Common.Constants.Update)]
+    public async Task<ActionResult> UpdateUserAsync([FromBody]User user)
+    {
+        return await GetResponseAsync(async () => (await _userService.UpdateUserAsync(user)));
     }
+
+    /// <summary>
+    /// Delete user async
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete(Common.Constants.Delete)]
+    public async Task<ActionResult> DeleteUserAsync([FromQuery] int id)
+    {
+        return await GetResponseAsync(async () => (await _userService.DeleteUserAsync(id)));
+    }
+
+    /// <summary>
+    /// Update user interview result async
+    /// </summary>
+    /// <param name="user"></param>
+    /// <returns></returns>
+    [HttpPut(Common.Constants.UpdateUserInterviewResult)]
+    public async Task<ActionResult> UpdateUserInterviewResultAsync([FromBody] User user)
+    {
+        return await GetResponseAsync(async () => (await _userService.UpdateUserInterviewResultAsync(user.Id, user.Remark, user.EndResult, user.ModifiedBy)));
+    }
+
+    #endregion
+}
 }

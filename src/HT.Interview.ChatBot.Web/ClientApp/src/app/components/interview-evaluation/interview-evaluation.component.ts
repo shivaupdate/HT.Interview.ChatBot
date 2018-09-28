@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Constants } from '../../models/constants';
 import { GridButtonComponent } from '../grid-button/grid-button.component';
+import { DownloadFileComponent } from '../download-file/download-file.component';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
 import { GridOptions } from "ag-grid-community";
@@ -20,9 +21,12 @@ export class InterviewEvaluationComponent implements OnInit {
   private evaludateGridColumns;
   private viewGridData: any;
   private evaluateGridData: any;
+
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
   private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=' + 2;
   private webAPIUpdateUserInterviewResultUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.updateUserInterviewResult;
+  private webAPIDownloadResumeUrl = environment.application.webAPIUrl + environment.controller.downloadController + environment.action.getWithParameters + 'filePath=';
+
   private paginationPageSize = environment.application.pageSize;
   private user = new User();
   private constants = new Constants();
@@ -52,9 +56,7 @@ export class InterviewEvaluationComponent implements OnInit {
       {
         headerName: "Resume",
         suppressSizeToFit: false,
-        cellRenderer: params => {
-          return `<div style="text-align:center;"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>`;
-        },
+        cellRendererFramework: DownloadFileComponent,
         width: 100
       },
       { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", width: 300 },
@@ -124,6 +126,20 @@ export class InterviewEvaluationComponent implements OnInit {
     }
     this.user.remark = remark;
     this.operationMode = OperationMode.Edit;
+  }
+
+  downloadFile(filePath) {
+    console.log(filePath);
+    const file = this.http.get<Blob>(this.webAPIDownloadResumeUrl + filePath, { responseType: 'blob' as 'json' })   
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = this.webAPIDownloadResumeUrl + filePath;
+    a.download = "test";
+    document.body.appendChild(a);     
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);       
+    }, 100);       
   }
 
   onSave() {

@@ -3,9 +3,9 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
 
 @Component({
   selector: 'app-grid-button',
-  template: `<div style="text-align:center;" (click)="invokeParentMethod()"><i class="fa fa-trophy" style="color:black; cursor: pointer;"></i></div>` 
+  template: `<div style="text-align:center;" (click)="invokeParentMethod()"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>` 
 })
-export class GridButtonComponent implements
+export class DownloadFileComponent implements
 
   ICellRendererAngularComp {
   public params: any;
@@ -15,10 +15,10 @@ export class GridButtonComponent implements
   }
 
   public invokeParentMethod() {       
-    this.params.context.componentParent.showEvaluateGrid(this.params.data.id, this.params.data.remark, this.params.data.endResult);
+    this.params.context.componentParent.downloadFile(this.params.data.resumeFilePath);
   }
 
   refresh(): boolean {
     return false;
-  }          
+  }                         
 }

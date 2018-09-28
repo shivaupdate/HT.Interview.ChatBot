@@ -29,6 +29,7 @@ import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.compon
 import { CameraComponent } from './components/camera/camera.component';
 
 import { GridButtonComponent } from './components/grid-button/grid-button.component';
+import { DownloadFileComponent } from './components/download-file/download-file.component';
 
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';
@@ -67,14 +68,15 @@ const appRoutes: Routes = [
     InterviewInstructionComponent,
     ChatDialogComponent,
     CameraComponent,
-    GridButtonComponent
+    GridButtonComponent,
+    DownloadFileComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
     ChartsModule,
-    AgGridModule.withComponents([GridButtonComponent]),
+    AgGridModule.withComponents([GridButtonComponent, DownloadFileComponent]),
     HttpClientModule,
     HttpModule,
     FormsModule,
