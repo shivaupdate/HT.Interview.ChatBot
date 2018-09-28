@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Role } from '../../models/role';
-import { Gender } from '../../models/gender';    
+import { Gender } from '../../models/gender';
+import { RoleEnum } from '../../models/enums';
 import { environment } from '../../../environments/environment';
+import { concat } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage-user',
@@ -13,11 +15,12 @@ import { environment } from '../../../environments/environment';
 export class ManageUserComponent implements OnInit {
 
   private columnDefs;
-  private rowData: any;      
+  private rowData: any;
   private operationMode: boolean;
-  private roleSelect: Role[];        
+  private roleSelect: Role[];
   private genderSelect: Gender[];
   private user: User;
+  formData: FormData = new FormData();
 
   private paginationPageSize = environment.application.pageSize;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
@@ -25,41 +28,14 @@ export class ManageUserComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
+      { headerName: "Role", field: "roleName", filter: 'agTextColumnFilter' },
+      { headerName: "Name", field: "displayName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
+      { headerName: "Email", field: "email", suppressSizeToFit: true, filter: 'agDateColumnFilter' },
+      { headerName: "Mobile", field: "mobile", filter: 'agTextColumnFilter' },
+      { headerName: "Gender", field: "genderName", filter: 'agDateColumnFilter' },
+      { headerName: "Provider", field: "provider", filter: 'agTextColumnFilter' },
       {
-        headerName: "Role",
-        field: "roleName",
-        filter: 'agTextColumnFilter'
-      },
-      {
-        headerName: "Name",
-        field: "displayName",
-        suppressSizeToFit: true,
-        filter: 'agTextColumnFilter'
-      },
-      {
-        headerName: "Email",
-        field: "email",
-        suppressSizeToFit: true,
-        filter: 'agDateColumnFilter'
-      },
-      {
-        headerName: "Mobile",
-        field: "mobile",
-        filter: 'agTextColumnFilter'
-      },
-      {
-        headerName: "Gender",
-        field: "genderName",
-        filter: 'agDateColumnFilter'
-      },
-      {
-        headerName: "Provider",
-        field: "provider",
-        filter: 'agTextColumnFilter'
-      },
-      {
-        headerName: "Is Active",
-        field: "isActive",
+        headerName: "Is Active", field: "isActive",
         cellRenderer: params => {
           return `<div style='text-align:center;'><input disabled type='checkbox' ${params.value ? 'checked' : ''} /></div>`;
         }
@@ -67,7 +43,7 @@ export class ManageUserComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {             
+  ngOnInit() {
     this.user = new User();
     this.genderSelect = [
       { id: 1, name: 'Unknown' },
@@ -76,9 +52,9 @@ export class ManageUserComponent implements OnInit {
     ];
 
     this.roleSelect = [
-      { id: 1, name: "Candidate" } 
+      { id: 1, name: "Candidate" }
     ];;
-                
+
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
         this.operationMode = false;
@@ -96,18 +72,30 @@ export class ManageUserComponent implements OnInit {
       });
   }
 
+  addUser() {
+    this.user.roleId = RoleEnum.Candidate;
+    this.operationMode = true;
+  }
+
+  uploadFile(event) {
+    let files = event.target.files;
+    if (files.length > 0) {
+      for (let file of files)
+        this.formData.append('resumeFile', file, file.name);
+    }
+  }
+
   onSave() {
-    this.user.isActive = true;
-    this.user.createdBy = "RavindraK@hexaware.com";
-    var body = JSON.stringify(this.user);
-    console.log(this.webAPICreateUserUrl);
-    console.log(body);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    this.http.post(this.webAPICreateUserUrl, body, httpOptions).subscribe(data => {
+    this.formData.append('firstName', this.user.firstName);
+    this.formData.append('lastName', this.user.lastName);
+    this.formData.append('email', this.user.email);
+    this.formData.append('mobile', String(this.user.mobile));
+    this.formData.append('genderId', String(this.user.genderId));
+    this.formData.append('roleId', String(this.user.roleId));
+    this.formData.append('isActive', String(true));
+    this.formData.append('createdBy', 'RavindraK@hexaware.com');
+
+    this.http.post(this.webAPICreateUserUrl, this.formData).subscribe(data => {
       this.user = new User();
       this.operationMode = false;
     })
@@ -115,9 +103,5 @@ export class ManageUserComponent implements OnInit {
 
   onCancel() {
     this.operationMode = false;
-  }
-
-  addUser() {
-    this.operationMode = true;
   }
 }             

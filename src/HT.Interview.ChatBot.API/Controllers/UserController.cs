@@ -4,6 +4,7 @@ using HT.Interview.ChatBot.API.DTO.Request;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -79,11 +80,11 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost(Common.Constants.Create)]
-        public async Task<ActionResult> CreateUserAsync([FromBody]User user)
-        {
+        public async Task<ActionResult> CreateUserAsync([FromForm]User user)
+        { 
             return await GetResponseAsync(async () => (await _userService.CreateUserAsync(user)));
         }
-
+         
         /// <summary>
         /// Update user async
         /// </summary>

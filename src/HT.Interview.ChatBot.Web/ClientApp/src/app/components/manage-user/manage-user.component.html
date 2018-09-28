@@ -40,14 +40,14 @@
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-envelope prefix icon"></i>
-          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required  data-error="Email is required">
+          <input mdbInputDirective type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required data-error="Email is required">
           <label for="email" class="label">Email</label>
         </div>
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-mobile prefix icon"></i>
-          <input mdbInputDirective type="number"  maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile" required data-error="Mobile number is required">
+          <input mdbInputDirective type="number" maxlength="10" class="form-control" id="mobile" name="mobile" [(ngModel)]="user.mobile" required data-error="Mobile number is required">
           <label for="mobile" class="label">Mobile Number</label>
         </div>
       </div>
@@ -67,29 +67,30 @@
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-id-card prefix icon"></i>
-          <select mdbInputDirective class="form-control select-control" id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId" required data-error="Role is required">            
+          <select mdbInputDirective class="form-control select-control" id="roleSelection" name="roleSelection" [(ngModel)]="user.roleId" required data-error="Role is required">
             <option *ngFor="let role of roleSelect" [ngValue]="role.id">
               {{role.name}}
             </option>
           </select>
         </div>
-      </div>     
+      </div>
       <div class="col-md-3">
         <div class="md-form form-group">
-          <i class="fa fa fa-file prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="resume" name="resume" required data-error="Resume is required">
-          <label for="resume" class="label">Resume</label>
+          <i class="fa fa-file prefix icon"></i>
+          <input type="file" class="file-upload" id="resumeFileName" name="resumeFileName"
+                 (change)="uploadFile($event)" accept=".pdf,.doc,.docx">           
         </div>
-      </div>
+      </div> 
     </div>
     <br />
     <div class="form-row">
       <div class="col-md-4">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 md-form form-group">
         <button class="btn btn-primary" (click)="onSave()">Save</button>
         <button class="btn btn-default" (click)="onCancel()">Cancel</button>
-      </div> <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
       </div>
     </div>
     <br />
