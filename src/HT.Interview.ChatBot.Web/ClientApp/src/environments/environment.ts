@@ -14,6 +14,7 @@ export const environment = {
     getMany: '/get-many',
     getManyWithParameters: '/get-many?',
     getManyByRoleId: "/get-many-by-role-id",
+    getInterviewDetailByUserId:'/get-interview-detail-by-user-id',
     create: '/create',
     update: '/update',
     delete: '/delete',

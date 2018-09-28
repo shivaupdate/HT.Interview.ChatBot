@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { User } from '../../models/user';
 import { RoleEnum } from '../../models/enums';
+import { OperationMode } from '../../models/enums';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -11,16 +12,18 @@ import { environment } from '../../../environments/environment';
 })
 export class InterviewEvaluationComponent implements OnInit {
 
-  private gridApi;
-  private gridColumnApi;
-  private columnDefs;
-  private rowData: any;
+  private viewGridColumns;
+  private evaludateGridColumns;
+  private viewGridData: any;
+  private evaluateGridData: any;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
+  private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=' + 2;
   private paginationPageSize = environment.application.pageSize;
   private user = new User();
+  private operationMode: OperationMode = OperationMode.Edit;
 
   constructor(private http: HttpClient) {
-    this.columnDefs = [
+    this.viewGridColumns = [
       { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
@@ -45,6 +48,15 @@ export class InterviewEvaluationComponent implements OnInit {
         }
       }
     ];
+
+    this.evaludateGridColumns = [
+      { headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 60 },
+      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 500  },
+      { headerName: "User Reponse", field: "userResponse", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 500  },
+      { headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 },
+      { headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 },
+      { headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 }
+    ];
   }
 
   ngOnInit() {
@@ -54,14 +66,17 @@ export class InterviewEvaluationComponent implements OnInit {
     params.api.sizeColumnsToFit();
   }
 
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-
+  onViewGridReady() {
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
-        this.rowData = data;
+        this.viewGridData = data;
       });
   }
 
+  onEvaluateGridReady() {
+    this.http.get(this.webAPIGetInterviewDetailUrl)
+      .subscribe(data => {
+        this.evaluateGridData = data;
+      });
+  }
 }    

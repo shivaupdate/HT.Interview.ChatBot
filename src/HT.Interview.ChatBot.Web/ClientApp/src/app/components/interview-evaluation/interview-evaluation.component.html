@@ -1,16 +1,33 @@
 <app-standard>
-  <h3 class="main-title">Interview Evaluation</h3>
-  <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                   class="ag-theme-blue"
-                   [enableSorting]="true"
-                   [rowData]="rowData"
-                   [columnDefs]="columnDefs"
-                   (firstDataRendered)="onFirstDataRendered($event)"
-                   (gridReady)="onGridReady($event)"
-                   [pagination]="true"
-                   [paginationPageSize]="paginationPageSize"
-                   rowSelection='single'
-                   [autoHeight]=true
-                   [enableFilter]="true">
-  </ag-grid-angular>
+  <div *ngIf="operationMode == 1">
+    <h3 class="main-title">Interview Evaluation</h3>
+    <ag-grid-angular id="resultGrid" style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
+                     class="ag-theme-blue"
+                     [enableSorting]="true"
+                     [rowData]="viewGridData"
+                     [columnDefs]="viewGridColumns"
+                     (firstDataRendered)="onFirstDataRendered($event)"
+                     (gridReady)="onViewGridReady($event)"
+                     [pagination]="true"
+                     [paginationPageSize]="paginationPageSize"
+                     rowSelection='single'
+                     [autoHeight]=true
+                     [enableFilter]="true">
+    </ag-grid-angular>
+  </div>
+  <div *ngIf="operationMode == 3">
+    <h3 class="main-title">Evaluate</h3>
+    <ag-grid-angular id="evaludateGrid" style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
+                     class="ag-theme-blue"
+                     [enableSorting]="true"
+                     [rowData]="evaluateGridData"
+                     [columnDefs]="evaludateGridColumns"                
+                     (gridReady)="onEvaluateGridReady($event)"
+                     [pagination]="true"
+                     [paginationPageSize]="paginationPageSize"
+                     rowSelection='single'
+                     [autoHeight]=true
+                     [enableFilter]="true">
+    </ag-grid-angular>
+  </div>
 </app-standard>

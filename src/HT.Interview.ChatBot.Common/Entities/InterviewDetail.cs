@@ -7,6 +7,14 @@ namespace HT.Interview.ChatBot.Common.Entities
     public class InterviewDetail
     {
         /// <summary>
+        /// Get or sets the row number
+        /// </summary>
+        /// <value>
+        /// The RowNumber
+        /// </value> 
+        public long RowNumber { get; set; }
+
+        /// <summary>
         /// Get or sets the ID
         /// </summary>
         /// <value>

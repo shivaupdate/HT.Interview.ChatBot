@@ -10,3 +10,10 @@ export enum GenderEnum {
   Male = 2,
   Female = 3
 }
+
+export enum OperationMode {
+  View = 1,
+  Add = 2,
+  Edit = 3,
+  Delete = 4
+}
