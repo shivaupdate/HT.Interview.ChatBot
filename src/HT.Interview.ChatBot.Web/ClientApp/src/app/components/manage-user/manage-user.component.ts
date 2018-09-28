@@ -19,10 +19,10 @@ export class ManageUserComponent implements OnInit {
   private rowData: any;
   private operationMode: boolean;
   private roleSelect: Role[];
-  private genderSelect: Gender[];
+  private genderSelect: any;
   private profileSelect: any; 
   private user: User;
-  formData: FormData = new FormData();
+  private formData: FormData = new FormData();
 
   private paginationPageSize = environment.application.pageSize;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
@@ -50,20 +50,20 @@ export class ManageUserComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this.genderSelect = [
-      { id: 1, name: 'Unknown' },
-      { id: 2, name: 'Male' },
-      { id: 3, name: 'Female' }
-    ];
+    
 
     this.roleSelect = [
       { id: 1, name: "Candidate" }
     ];;
-          
+
+    this.http.get(this.webAPIGetGenderUrl)
+      .subscribe(data => {
+        this.genderSelect = data;          
+      });
+
     this.http.get(this.webAPIGetProfileUrl)
       .subscribe(data => {
-        this.profileSelect = data;
-        console.log(this.profileSelect);
+        this.profileSelect = data;         
       });
 
     this.http.get(this.webAPIUrl)
