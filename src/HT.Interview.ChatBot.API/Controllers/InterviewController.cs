@@ -3,6 +3,7 @@ using HT.Framework.Contracts;
 using HT.Framework.MVC;
 using HT.Interview.ChatBot.API.DTO.Request;
 using HT.Interview.ChatBot.API.DTO.Response;
+using HT.Interview.ChatBot.API.DTO.Response.Message;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -58,7 +59,15 @@ namespace HT.Interview.ChatBot.API.Controllers
             queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
             if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
             {
-                await _interviewService.AddResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.Email);
+                string botResponse = string.Empty;
+                try
+                {
+                    botResponse = ((SimpleResponse)queryResponse.Result.Fulfillment.Messages[0]).TextToSpeech;
+                }
+                catch
+                {
+                }
+                await _interviewService.AddResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, botResponse, q.Email);
             }
 
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
@@ -74,7 +83,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
-        } 
+        }
 
         #endregion
     }

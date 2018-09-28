@@ -5,6 +5,7 @@ using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace HT.Interview.ChatBot.API.Controllers
@@ -80,6 +81,19 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpPost(Common.Constants.Create)]
         public async Task<ActionResult> CreateUserAsync([FromForm]User user)
         {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app-data/user/" + user.FirstName + user.LastName);
+            if (!(Directory.Exists(path)))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string fileExtension = Path.GetExtension(user.ResumeFile.FileName);
+            path = path + "/" + "Resume_" + user.FirstName + "_" + user.LastName + "_" + fileExtension;
+             
+            FileStream stream = new FileStream(path, FileMode.Create);
+            await user.ResumeFile.CopyToAsync(stream);
+            stream.Close();
+            stream.Dispose();
+
             return await GetResponseAsync(async () => (await _userService.CreateUserAsync(user)));
         }
 
