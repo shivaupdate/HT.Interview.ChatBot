@@ -17,6 +17,7 @@ export const environment = {
     getInterviewDetailByUserId:'/get-interview-detail-by-user-id',
     create: '/create',
     update: '/update',
+    updateUserInterviewResult:"/update-user-interview-result",
     delete: '/delete',
     deleteWithParameters: '/delete?'
   },

@@ -133,6 +133,35 @@ namespace HT.Interview.ChatBot.Services
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Update user interview result async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="remark"></param>
+        /// <param name="endResult"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        public async Task<Response> UpdateUserInterviewResultAsync(int userId, string remark, string endResult, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.Remark = remark;
+                u.EndResult = endResult;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
         #endregion
 
 

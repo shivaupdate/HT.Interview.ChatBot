@@ -6,9 +6,9 @@ using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Model = HT.Interview.ChatBot.Common.Entities;
-using System.Linq;
 
 namespace HT.Interview.ChatBot.Services
 {
@@ -46,7 +46,19 @@ namespace HT.Interview.ChatBot.Services
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <returns></returns>
-        public async Task<Response> AddInterviewAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy)
+        public async Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId)
+        {
+            IEnumerable<InterviewDetail> interviewDetails = await _chatbotDataContext.InterviewDetail.Where(x => x.UserId == userId).ToListAsync();
+            return Response.Ok(interviewDetails);
+        }
+
+        /// <summary>
+        /// Add interview async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="dialogflowGeneratedIntentId"></param>
+        /// <returns></returns>
+        public async Task<Response> AddResponseAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy)
         {
             try
             {
@@ -82,27 +94,6 @@ namespace HT.Interview.ChatBot.Services
         }
 
         /// <summary>
-        /// Add interview async
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="dialogflowGeneratedIntentId"></param>
-        /// <returns></returns>
-        public async Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId)
-        {
-            try
-            {
-                IEnumerable<InterviewDetail> interviewDetails = await _chatbotDataContext.InterviewDetail.Where(x => x.UserId == userId).ToListAsync();
-                return Response.Ok(interviewDetails);
-            }
-            catch (System.Exception ex)
-            {
-                ex.Message.ToString();
-                return null;
-            }
-        }
-
-
-        /// <summary>
         /// Update interview async
         /// </summary>
         /// <param name="userId"></param>
@@ -110,7 +101,7 @@ namespace HT.Interview.ChatBot.Services
         /// <param name="givenAnswer"></param>
         /// <param name="timeTaken"></param>
         /// <returns></returns>
-        public async Task<Response> UpdateInterviewAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy)
+        public async Task<Response> UpdateResponseAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy)
         {
             try
             {
@@ -129,7 +120,7 @@ namespace HT.Interview.ChatBot.Services
 
                 return Response.Ok();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
             }

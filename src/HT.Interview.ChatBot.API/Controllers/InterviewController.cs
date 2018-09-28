@@ -51,14 +51,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
             {
-                await _interviewService.UpdateInterviewAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
+                await _interviewService.UpdateResponseAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
             }
 
             QueryResponse queryResponse = await _httpClient.GetAsync<QueryResponse>(q.ToQueryString());
             queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
             if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
             {
-                await _interviewService.AddInterviewAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.Email);
+                await _interviewService.AddResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.Email);
             }
 
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));
@@ -74,18 +74,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
-        }
-
-        [HttpPut("upload-video")]
-        public async Task<ActionResult> UploadVideo([FromBody]object recording)
-        {
-            ActionResult testdd = await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(0))
-               .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
-            object test = recording;
-            return null;
-
-        }
-
+        } 
 
         #endregion
     }

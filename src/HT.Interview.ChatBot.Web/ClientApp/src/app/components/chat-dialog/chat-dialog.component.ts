@@ -34,9 +34,9 @@ export class ChatDialogComponent {
   allocatedTime = 0;
   remainingTime = 0;
   private constants = new Constants();
-  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
-  private userName = this.user.firstName;
-  private photoUrl = this.user.photoUrl;
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
+  private userName = this.loggedInUser.firstName;
+  private photoUrl = this.loggedInUser.photoUrl;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
 
   constructor(private http: HttpClient, public chat: ChatService, public speech: SpeechService) {

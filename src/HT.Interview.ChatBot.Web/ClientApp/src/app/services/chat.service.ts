@@ -9,10 +9,10 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ChatService {
   private constants = new Constants();
-  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
-  private userId = this.user.id;
-  private sessionId = this.user.sessionId;
-  private email = this.user.email;
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
+  private userId = this.loggedInUser.id;
+  private sessionId = this.loggedInUser.sessionId;
+  private email = this.loggedInUser.email;
 
   private dialogflowGeneratedIntentId: string;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;

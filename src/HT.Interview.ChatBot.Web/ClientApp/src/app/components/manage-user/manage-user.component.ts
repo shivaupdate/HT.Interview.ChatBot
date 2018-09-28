@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Role } from '../../models/role';
 import { Gender } from '../../models/gender';
-import { Profile } from '../../models/profile';
+import { Constants } from '../../models/constants';
 import { RoleEnum } from '../../models/enums';
 import { GenderEnum } from '../../models/enums';
-import { environment } from '../../../environments/environment';      
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-manage-user',
@@ -20,8 +20,10 @@ export class ManageUserComponent implements OnInit {
   private operationMode: boolean;
   private roleSelect: Role[];
   private genderSelect: any;
-  private profileSelect: any; 
+  private profileSelect: any;
   private user: User;
+  private constants = new Constants();
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private formData: FormData = new FormData();
 
   private paginationPageSize = environment.application.pageSize;
@@ -50,7 +52,7 @@ export class ManageUserComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    
+
 
     this.roleSelect = [
       { id: 1, name: "Candidate" }
@@ -58,12 +60,12 @@ export class ManageUserComponent implements OnInit {
 
     this.http.get(this.webAPIGetGenderUrl)
       .subscribe(data => {
-        this.genderSelect = data;          
+        this.genderSelect = data;
       });
 
     this.http.get(this.webAPIGetProfileUrl)
       .subscribe(data => {
-        this.profileSelect = data;         
+        this.profileSelect = data;
       });
 
     this.http.get(this.webAPIUrl)
@@ -107,7 +109,7 @@ export class ManageUserComponent implements OnInit {
     this.formData.append('roleId', String(this.user.roleId));
     this.formData.append('jobProfileId', String(this.user.jobProfileId));
     this.formData.append('isActive', String(true));
-    this.formData.append('createdBy', 'RavindraK@hexaware.com');
+    this.formData.append('createdBy', this.loggedInUser.email);
 
     this.http.post(this.webAPICreateUserUrl, this.formData).subscribe(data => {
       this.user = new User();

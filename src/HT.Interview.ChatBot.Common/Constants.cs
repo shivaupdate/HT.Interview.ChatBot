@@ -120,5 +120,10 @@
         /// </summary>
         public const string GetInterviewDetailByUserId = "get-interview-detail-by-user-id";
 
+        /// <summary>
+        /// Update user interview result
+        /// </summary>
+        public const string UpdateUserInterviewResult = "update-user-interview-result";
+
     }
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
+import { Constants } from '../../models/constants';
+import { GridButtonComponent } from '../grid-button/grid-button.component';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
-import { environment } from '../../../environments/environment';
-import { GridButtonComponent } from '../grid-button/grid-button.component';
 import { GridOptions } from "ag-grid-community";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-interview-evaluation',
@@ -21,43 +22,47 @@ export class InterviewEvaluationComponent implements OnInit {
   private evaluateGridData: any;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
   private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=' + 2;
+  private webAPIUpdateUserInterviewResultUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.updateUserInterviewResult;
   private paginationPageSize = environment.application.pageSize;
   private user = new User();
+  private constants = new Constants();
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private operationMode: OperationMode = OperationMode.View;
+  private endResultSelect: any;
 
   constructor(private http: HttpClient) {
 
-    this.viewGridOptions = <GridOptions>{        
+    this.viewGridOptions = <GridOptions>{
       columnDefs: this.viewGridColumns,
       context: {
         componentParent: this
-      } 
+      }
     };
 
     this.viewGridColumns = [
-      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
+      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 187 },
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
         cellRenderer: (data) => {
           return data.value ? (new Date(data.value)).toLocaleDateString() : '';
-        }
+        },
+        width: 130
       },
-      { headerName: "Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
+      { headerName: "Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 200 },
       {
         headerName: "Resume",
         suppressSizeToFit: false,
         cellRenderer: params => {
           return `<div style="text-align:center;"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>`;
-        }
+        },
+        width: 100
       },
-      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark" },
-      { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult" },
+      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", width: 300 },
+      { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", width: 200 },
       {
         headerName: "Evaluate",
-        cellRendererFramework: GridButtonComponent
-        //cellRenderer: params => {
-        //  return `<div style="text-align:center;"><i class="fa fa-trophy" style="color:black; cursor: pointer;"></i></div>`;
-        //}
+        cellRendererFramework: GridButtonComponent,
+        width: 100
       }
     ];
 
@@ -81,11 +86,18 @@ export class InterviewEvaluationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new User();
 
+    this.endResultSelect = [
+      { id: "Selected", name: "Selected" },
+      { id: "Not Selected", name: "Not Selected" },
+      { id: "On Hold", name: "On Hold" },
+      { id: "Required further evaluation", name: "Required Further Evaluation" }
+    ];;
   }
 
   onFirstDataRendered(params) {
-    params.api.sizeColumnsToFit();
+    //params.api.sizeColumnsToFit();
   }
 
   onViewGridReady() {
@@ -102,14 +114,33 @@ export class InterviewEvaluationComponent implements OnInit {
       });
   }
 
-  showEvaluateGrid(userId) {      
+  showEvaluateGrid(userId, remark, endResult) {
+    this.user.id = userId;         
+    if (endResult == null) {
+      this.user.endResult = "On Hold";
+    }
+    else {
+      this.user.endResult = endResult;
+    }
+    this.user.remark = remark;
     this.operationMode = OperationMode.Edit;
   }
 
   onSave() {
-    this.operationMode = OperationMode.View;
+    this.user.modifiedBy = this.loggedInUser.email;
+    var body = JSON.stringify(this.user);
+
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    this.http.put(this.webAPIUpdateUserInterviewResultUrl, body, httpOptions).subscribe(data => {
+      this.operationMode = OperationMode.View;
+    });
   }
-  
+
   onCancel() {
     this.operationMode = OperationMode.View;
   }

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using HT.Framework.MVC;
-using HT.Interview.ChatBot.API.DTO.Request;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,7 +13,7 @@ namespace HT.Interview.ChatBot.API.Controllers
     /// <summary>
     /// User Controller
     /// </summary>
-    [Route("api/v1/user")] 
+    [Route("api/v1/user")]
     public class UserController : ApiControllerBase
     {
         #region Fields
@@ -55,7 +53,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// </summary>
         /// <param name="ud"></param>
         /// <returns></returns>
-        [HttpGet(Common.Constants.GetMany)] 
+        [HttpGet(Common.Constants.GetMany)]
         public async Task<ActionResult> GetManyAsync([FromQuery] UserDetail ud)
         {
             return await GetResponseAsync(async () => (await _userService.GetUsersAsync(_mapper.Map<UserDetail>(ud)))
@@ -69,7 +67,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpGet(Common.Constants.GetManyByRoleId)]
         public async Task<ActionResult> GetManyByRoleIdAsync([FromQuery] int roleId)
-        { 
+        {
             return await GetResponseAsync(async () => (await _userService.GetUsersByRoleIdAsync(roleId))
                 .GetMappedResponse<IEnumerable<UserDetail>, IEnumerable<UserDetail>>(_mapper));
         }
@@ -81,10 +79,10 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// <returns></returns>
         [HttpPost(Common.Constants.Create)]
         public async Task<ActionResult> CreateUserAsync([FromForm]User user)
-        { 
+        {
             return await GetResponseAsync(async () => (await _userService.CreateUserAsync(user)));
         }
-         
+
         /// <summary>
         /// Update user async
         /// </summary>
@@ -105,6 +103,17 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> DeleteUserAsync([FromQuery] int id)
         {
             return await GetResponseAsync(async () => (await _userService.DeleteUserAsync(id)));
+        }
+
+        /// <summary>
+        /// Update user interview result async
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPut(Common.Constants.UpdateUserInterviewResult)]
+        public async Task<ActionResult> UpdateUserInterviewResultAsync([FromBody] User user)
+        {
+            return await GetResponseAsync(async () => (await _userService.UpdateUserInterviewResultAsync(user.Id, user.Remark, user.EndResult, user.ModifiedBy)));
         }
 
         #endregion

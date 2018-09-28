@@ -29,8 +29,11 @@
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa-pencil-square-o prefix icon"></i>
-          <input mdbInputDirective type="text" class="form-control" id="endResult" name="endResult" [(ngModel)]="user.endResult" required data-error="End Result is required">
-          <label for="endResult" class="label">End Result</label>
+          <select mdbInputDirective class="form-control select-control" id="endResultSelect" name="endResultSelect" [(ngModel)]="user.endResult" required data-error="Gender is required">
+            <option *ngFor="let endResult of endResultSelect" [ngValue]="endResult.id">
+              {{endResult.name}}
+            </option>
+          </select>
         </div>
       </div>
       <div class="col-md-3">

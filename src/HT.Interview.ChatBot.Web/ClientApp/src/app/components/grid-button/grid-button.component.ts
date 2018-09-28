@@ -15,7 +15,7 @@ export class GridButtonComponent implements
   }
 
   public invokeParentMethod() {       
-    this.params.context.componentParent.showEvaluateGrid(this.params.data.id);
+    this.params.context.componentParent.showEvaluateGrid(this.params.data.id, this.params.data.remark, this.params.data.endResult);
   }
 
   refresh(): boolean {

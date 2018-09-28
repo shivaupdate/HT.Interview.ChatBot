@@ -16,5 +16,6 @@ export class User {
   provider: string
   claims: any
   isActive: boolean
-  createdBy: string     
+  createdBy: string
+  modifiedBy: string
 }

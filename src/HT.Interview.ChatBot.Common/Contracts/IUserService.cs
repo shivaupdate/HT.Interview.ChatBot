@@ -49,5 +49,15 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// <param name="id"></param>
         /// <returns></returns>
         Task<Response> DeleteUserAsync(int id);
+
+        /// <summary>
+        /// Update user interview result async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="remark"></param>
+        /// <param name="endResult"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        Task<Response> UpdateUserInterviewResultAsync(int userId, string remark, string endResult, string modifiedBy);
     }
 }
