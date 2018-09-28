@@ -22,10 +22,16 @@ export class InterviewEvaluationComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.columnDefs = [
       { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
-      { headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter' },
+      {
+        headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
+        cellRenderer: (data) => {
+          return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+        }
+      },
       { headerName: "Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
       {
-        headerName: "Resume", suppressSizeToFit: false,
+        headerName: "Resume",
+        suppressSizeToFit: false,
         cellRenderer: params => {
           return `<div style="text-align:center;"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>`;
         }
