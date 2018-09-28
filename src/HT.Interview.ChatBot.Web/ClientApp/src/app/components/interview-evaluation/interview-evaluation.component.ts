@@ -4,6 +4,8 @@ import { User } from '../../models/user';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
 import { environment } from '../../../environments/environment';
+import { GridButtonComponent } from '../grid-button/grid-button.component';
+import { GridOptions } from "ag-grid-community";
 
 @Component({
   selector: 'app-interview-evaluation',
@@ -12,6 +14,7 @@ import { environment } from '../../../environments/environment';
 })
 export class InterviewEvaluationComponent implements OnInit {
 
+  private viewGridOptions: GridOptions;
   private viewGridColumns;
   private evaludateGridColumns;
   private viewGridData: any;
@@ -20,9 +23,17 @@ export class InterviewEvaluationComponent implements OnInit {
   private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=' + 2;
   private paginationPageSize = environment.application.pageSize;
   private user = new User();
-  private operationMode: OperationMode = OperationMode.Edit;
+  private operationMode: OperationMode = OperationMode.View;
 
   constructor(private http: HttpClient) {
+
+    this.viewGridOptions = <GridOptions>{        
+      columnDefs: this.viewGridColumns,
+      context: {
+        componentParent: this
+      } 
+    };
+
     this.viewGridColumns = [
       { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
       {
@@ -43,23 +54,34 @@ export class InterviewEvaluationComponent implements OnInit {
       { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult" },
       {
         headerName: "Evaluate",
-        cellRenderer: params => {
-          return `<div style="text-align:center;"><i class="fa fa-trophy" style="color:black; cursor: pointer;"></i></div>`;
-        }
+        cellRendererFramework: GridButtonComponent
+        //cellRenderer: params => {
+        //  return `<div style="text-align:center;"><i class="fa fa-trophy" style="color:black; cursor: pointer;"></i></div>`;
+        //}
       }
     ];
 
     this.evaludateGridColumns = [
-      { headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 60 },
-      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 500  },
-      { headerName: "User Reponse", field: "userResponse", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 500  },
+      {
+        headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 60,
+        cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
+      },
+      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 500 },
+      { headerName: "User Reponse", field: "userResponse", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 500 },
       { headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 },
-      { headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 },
-      { headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 }
+      {
+        headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150,
+        cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
+      },
+      {
+        headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150,
+        cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
+      }
     ];
   }
 
   ngOnInit() {
+
   }
 
   onFirstDataRendered(params) {
@@ -78,5 +100,17 @@ export class InterviewEvaluationComponent implements OnInit {
       .subscribe(data => {
         this.evaluateGridData = data;
       });
+  }
+
+  showEvaluateGrid(userId) {      
+    this.operationMode = OperationMode.Edit;
+  }
+
+  onSave() {
+    this.operationMode = OperationMode.View;
+  }
+  
+  onCancel() {
+    this.operationMode = OperationMode.View;
   }
 }    

@@ -28,6 +28,8 @@ import { InterviewInstructionComponent } from './components/interview-instructio
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
+import { GridButtonComponent } from './components/grid-button/grid-button.component';
+
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';
 
@@ -64,14 +66,15 @@ const appRoutes: Routes = [
     ManageUserComponent,
     InterviewInstructionComponent,
     ChatDialogComponent,
-    CameraComponent
+    CameraComponent,
+    GridButtonComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
     ChartsModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([GridButtonComponent]),
     HttpClientModule,
     HttpModule,
     FormsModule,

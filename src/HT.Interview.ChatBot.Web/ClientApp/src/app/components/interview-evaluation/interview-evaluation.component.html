@@ -12,16 +12,40 @@
                      [paginationPageSize]="paginationPageSize"
                      rowSelection='single'
                      [autoHeight]=true
-                     [enableFilter]="true">
+                     [enableFilter]="true"        
+                     [gridOptions]="viewGridOptions">
     </ag-grid-angular>
   </div>
   <div *ngIf="operationMode == 3">
     <h3 class="main-title">Evaluate</h3>
+    <div class="form-row" style="padding-left: 30px;">
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <i class="fa fa fa-comments-o prefix icon"></i>
+          <input mdbInputDirective type="text" class="form-control" id="remark" name="remark" [(ngModel)]="user.Remark">
+          <label for="remark" class="label">Remark</label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <i class="fa fa-pencil-square-o prefix icon"></i>
+          <input mdbInputDirective type="text" class="form-control" id="endResult" name="endResult" [(ngModel)]="user.endResult" required data-error="End Result is required">
+          <label for="endResult" class="label">End Result</label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <button class="btn btn-primary" (click)="onSave()">Save</button>
+          <button class="btn btn-default" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <br />
+    </div>
     <ag-grid-angular id="evaludateGrid" style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
                      class="ag-theme-blue"
                      [enableSorting]="true"
                      [rowData]="evaluateGridData"
-                     [columnDefs]="evaludateGridColumns"                
+                     [columnDefs]="evaludateGridColumns"
                      (gridReady)="onEvaluateGridReady($event)"
                      [pagination]="true"
                      [paginationPageSize]="paginationPageSize"
