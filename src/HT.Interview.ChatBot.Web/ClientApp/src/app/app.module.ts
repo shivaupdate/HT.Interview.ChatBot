@@ -28,7 +28,7 @@ import { InterviewInstructionComponent } from './components/interview-instructio
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
-import { GridButtonComponent } from './components/grid-button/grid-button.component';
+import { GridAddButtonComponent } from './components/grid-add-button/grid-add-button.component';
 import { DownloadFileComponent } from './components/download-file/download-file.component';
 
 import { ChatService } from './services/chat.service';
@@ -68,7 +68,7 @@ const appRoutes: Routes = [
     InterviewInstructionComponent,
     ChatDialogComponent,
     CameraComponent,
-    GridButtonComponent,
+    GridAddButtonComponent,
     DownloadFileComponent
   ],
   imports: [
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
     ChartsModule,
-    AgGridModule.withComponents([GridButtonComponent, DownloadFileComponent]),
+    AgGridModule.withComponents([GridAddButtonComponent, DownloadFileComponent]),
     HttpClientModule,
     HttpModule,
     FormsModule,

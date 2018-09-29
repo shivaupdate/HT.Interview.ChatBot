@@ -6,16 +6,16 @@
       Add Candidate
     </a>
     <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                     class="ag-theme-blue"
+                     class="ag-theme-blue"   
+                     [enableColResize] = "true"
                      [enableSorting]="true"
                      [rowData]="rowData"
                      [columnDefs]="columnDefs"
                      (firstDataRendered)="onFirstDataRendered($event)"
                      (gridReady)="onGridReady($event)"
                      [pagination]="true"
-                     [paginationPageSize]="paginationPageSize"
-                     rowSelection='single'
-                     [autoHeight]=true
+                     [paginationPageSize]="paginationPageSize"   
+                     [rowSelection]='single'       
                      [enableFilter]="true">
     </ag-grid-angular>
   </div>

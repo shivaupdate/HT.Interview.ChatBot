@@ -5,6 +5,7 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
   selector: 'app-grid-button',
   template: `<div style="text-align:center;" (click)="invokeParentMethod()"><i class="fa fa-file" style="color:black; cursor: pointer;"></i></div>` 
 })
+
 export class DownloadFileComponent implements
 
   ICellRendererAngularComp {
@@ -15,7 +16,7 @@ export class DownloadFileComponent implements
   }
 
   public invokeParentMethod() {       
-    this.params.context.componentParent.downloadFile(this.params.data.resumeFilePath);
+    this.params.context.componentParent.downloadFile(this.params.data);
   }
 
   refresh(): boolean {

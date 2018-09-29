@@ -1,17 +1,16 @@
 <app-standard>
   <div *ngIf="operationMode == 1">
     <h3 class="main-title">Interview Evaluation</h3>
-    <ag-grid-angular id="resultGrid" style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
+    <ag-grid-angular id="resultGrid" style="padding-left:30px; padding-right:30px; background-color:transparent; height:300px"
                      class="ag-theme-blue"
+                     [enableColResize] = "true"
                      [enableSorting]="true"
                      [rowData]="viewGridData"
-                     [columnDefs]="viewGridColumns"
-                     (firstDataRendered)="onFirstDataRendered($event)"
+                     [columnDefs]="viewGridColumns"                        
                      (gridReady)="onViewGridReady($event)"
                      [pagination]="true"
-                     [paginationPageSize]="paginationPageSize"
-                     rowSelection='single'
-                     [autoHeight]=true
+                     [paginationPageSize]="paginationPageSize"  
+                     [rowSelection]='single'  
                      [enableFilter]="true"        
                      [gridOptions]="viewGridOptions">
     </ag-grid-angular>
@@ -45,15 +44,15 @@
       <br />
     </div>
     <ag-grid-angular id="evaludateGrid" style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                     class="ag-theme-blue"
+                     class="ag-theme-blue"      
+                     [enableColResize]="true"
                      [enableSorting]="true"
                      [rowData]="evaluateGridData"
                      [columnDefs]="evaludateGridColumns"
                      (gridReady)="onEvaluateGridReady($event)"
                      [pagination]="true"
                      [paginationPageSize]="paginationPageSize"
-                     rowSelection='single'
-                     [autoHeight]=true
+                     [rowSelection]='single'      
                      [enableFilter]="true">
     </ag-grid-angular>
   </div>

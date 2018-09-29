@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Constants } from '../../models/constants';
-import { GridButtonComponent } from '../grid-button/grid-button.component';
+import { GridAddButtonComponent } from '../grid-add-button/grid-add-button.component';
 import { DownloadFileComponent } from '../download-file/download-file.component';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
@@ -23,7 +23,7 @@ export class InterviewEvaluationComponent implements OnInit {
   private evaluateGridData: any;
 
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
-  private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=' + 2;
+  private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=';
   private webAPIUpdateUserInterviewResultUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.updateUserInterviewResult;
   private webAPIDownloadResumeUrl = environment.application.webAPIUrl + environment.controller.downloadController + environment.action.getWithParameters + 'filePath=';
 
@@ -40,17 +40,17 @@ export class InterviewEvaluationComponent implements OnInit {
       columnDefs: this.viewGridColumns,
       context: {
         componentParent: this
-      }
+      },
     };
 
     this.viewGridColumns = [
-      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 187 },
+      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 180 },
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
         cellRenderer: (data) => {
           return data.value ? (new Date(data.value)).toLocaleDateString() : '';
         },
-        width: 130
+        width: 120
       },
       { headerName: "Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 200 },
       {
@@ -63,7 +63,7 @@ export class InterviewEvaluationComponent implements OnInit {
       { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", width: 200 },
       {
         headerName: "Evaluate",
-        cellRendererFramework: GridButtonComponent,
+        cellRendererFramework: GridAddButtonComponent,
         width: 100
       }
     ];
@@ -98,10 +98,6 @@ export class InterviewEvaluationComponent implements OnInit {
     ];;
   }
 
-  onFirstDataRendered(params) {
-    //params.api.sizeColumnsToFit();
-  }
-
   onViewGridReady() {
     this.http.get(this.webAPIUrl)
       .subscribe(data => {
@@ -109,37 +105,38 @@ export class InterviewEvaluationComponent implements OnInit {
       });
   }
 
-  onEvaluateGridReady() {
-    this.http.get(this.webAPIGetInterviewDetailUrl)
+  onEvaluateGridReady($event): any {
+    this.http.get(this.webAPIGetInterviewDetailUrl + this.user.id)
       .subscribe(data => {
         this.evaluateGridData = data;
       });
   }
 
-  showEvaluateGrid(userId, remark, endResult) {
-    this.user.id = userId;         
-    if (endResult == null) {
+  gridAddButtonClick(data) {
+    this.user.id = data.id;
+      if(data.endResult == null) {
       this.user.endResult = "On Hold";
     }
     else {
-      this.user.endResult = endResult;
+      this.user.endResult = data.endResult;
     }
-    this.user.remark = remark;
+    this.user.remark = data.remark;
     this.operationMode = OperationMode.Edit;
+
+   // this.viewGridOptions.api.setDatasource(this.onEvaluateGridLoad());
   }
 
-  downloadFile(filePath) {
-    console.log(filePath);
-    const file = this.http.get<Blob>(this.webAPIDownloadResumeUrl + filePath, { responseType: 'blob' as 'json' })   
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = this.webAPIDownloadResumeUrl + filePath;
-    a.download = "test";
-    document.body.appendChild(a);     
-    a.click();
-    setTimeout(() => {
-      document.body.removeChild(a);       
-    }, 100);       
+  downloadFile(data) {
+    if (data.resumeFilePath != null) {
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = this.webAPIDownloadResumeUrl + data.resumeFilePath;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+      }, 100);
+    }
   }
 
   onSave() {
