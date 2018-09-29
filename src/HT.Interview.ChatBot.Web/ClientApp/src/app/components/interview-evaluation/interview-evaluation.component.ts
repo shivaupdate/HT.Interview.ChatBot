@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
 import { Constants } from '../../models/constants';
-import { GridAddButtonComponent } from '../grid-add-button/grid-add-button.component';
-import { DownloadFileComponent } from '../download-file/download-file.component';
+import { GridAddButtonComponent } from '../custom/grid-add-button/grid-add-button.component';
+import { DownloadFileComponent } from '../custom/download-file/download-file.component';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
 import { GridOptions } from "ag-grid-community";
@@ -17,8 +17,9 @@ import { environment } from '../../../environments/environment';
 export class InterviewEvaluationComponent implements OnInit {
 
   private viewGridOptions: GridOptions;
+  private evaluateGridOptions: GridOptions;
   private viewGridColumns;
-  private evaludateGridColumns;
+  private evaluateGridColumns;
   private viewGridData: any;
   private evaluateGridData: any;
 
@@ -36,30 +37,38 @@ export class InterviewEvaluationComponent implements OnInit {
 
   constructor(private http: HttpClient) {
 
+    var timeCellRenderer = function (): any {
+    };
+
     this.viewGridOptions = <GridOptions>{
-      columnDefs: this.viewGridColumns,
       context: {
         componentParent: this
-      },
+      }
+    };
+
+    this.evaluateGridOptions = <GridOptions>{
+      components: {
+        'TimeCellRenderer': timeCellRenderer
+      }
     };
 
     this.viewGridColumns = [
-      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 180 },
+      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 200 },
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
         cellRenderer: (data) => {
           return data.value ? (new Date(data.value)).toLocaleDateString() : '';
         },
-        width: 120
+        width: 150
       },
-      { headerName: "Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 200 },
+      { headerName: "Candidate Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 280 },
       {
         headerName: "Resume",
         suppressSizeToFit: false,
         cellRendererFramework: DownloadFileComponent,
         width: 100
       },
-      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", width: 300 },
+      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", width: 500 },
       { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", width: 200 },
       {
         headerName: "Evaluate",
@@ -68,21 +77,22 @@ export class InterviewEvaluationComponent implements OnInit {
       }
     ];
 
-    this.evaludateGridColumns = [
+    this.evaluateGridColumns = [
       {
         headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 60,
         cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
       },
-      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 500 },
+      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 530 },
       { headerName: "User Reponse", field: "userResponse", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 500 },
-      { headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150 },
+      { headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 180 },
       {
-        headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150,
-        cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
+        headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 120,
+        valueFormatter: this.timeFormatter     
       },
       {
-        headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 150,
-        cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
+        headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 120,
+        valueFormatter: this.timeFormatter,
+        cellClass: ['time-cell']     
       }
     ];
   }
@@ -105,7 +115,7 @@ export class InterviewEvaluationComponent implements OnInit {
       });
   }
 
-  onEvaluateGridReady($event): any {
+  onEvaluateGridReady() {
     this.http.get(this.webAPIGetInterviewDetailUrl + this.user.id)
       .subscribe(data => {
         this.evaluateGridData = data;
@@ -114,7 +124,7 @@ export class InterviewEvaluationComponent implements OnInit {
 
   gridAddButtonClick(data) {
     this.user.id = data.id;
-      if(data.endResult == null) {
+    if (data.endResult == null) {
       this.user.endResult = "On Hold";
     }
     else {
@@ -123,7 +133,7 @@ export class InterviewEvaluationComponent implements OnInit {
     this.user.remark = data.remark;
     this.operationMode = OperationMode.Edit;
 
-   // this.viewGridOptions.api.setDatasource(this.onEvaluateGridLoad());
+    // this.viewGridOptions.api.setDatasource(this.onEvaluateGridLoad());
   }
 
   downloadFile(data) {
@@ -157,4 +167,14 @@ export class InterviewEvaluationComponent implements OnInit {
   onCancel() {
     this.operationMode = OperationMode.View;
   }
+
+  // time formatter
+  timeFormatter(params): string {
+    if (params.value === 0 || params.value === "" || params.value === undefined || params.value === null) {
+      return '';
+    }
+    else {
+      return String(params.value) + ' sec';
+    }
+  }   
 }    

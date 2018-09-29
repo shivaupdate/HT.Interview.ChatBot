@@ -28,8 +28,8 @@ import { InterviewInstructionComponent } from './components/interview-instructio
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
 import { CameraComponent } from './components/camera/camera.component';
 
-import { GridAddButtonComponent } from './components/grid-add-button/grid-add-button.component';
-import { DownloadFileComponent } from './components/download-file/download-file.component';
+import { GridAddButtonComponent } from './components/custom/grid-add-button/grid-add-button.component';
+import { DownloadFileComponent } from './components/custom/download-file/download-file.component';
 
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';

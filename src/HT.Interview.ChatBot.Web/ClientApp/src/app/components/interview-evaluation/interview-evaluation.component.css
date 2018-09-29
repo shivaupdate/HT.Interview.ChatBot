@@ -12,4 +12,6 @@
   height: auto;
   width: 250px;
 }
-
+.time-cell{
+  text-align:center;
+}
