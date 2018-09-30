@@ -10,8 +10,7 @@
 }
 
 .card {
-  border-radius: 0.7rem !important;
-  background-image: url("../../../assets/images/career.png");
+  border-radius: 0.7rem !important; 
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -161,7 +160,7 @@ hr[_ngcontent-c4] {
 
 .message-from-user {
   border-radius: 10px;
-  margin: 0 0 0 140px;
+  margin: 0 0 0 200px;
   width: 190%;
   font-family: Calibri;
   font-weight: bold;

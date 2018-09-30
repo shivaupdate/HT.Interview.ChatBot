@@ -11,8 +11,7 @@ import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
-import { ComponentSource } from 'ag-grid-community/dist/lib/components/framework/componentResolver';
+import 'rxjs/add/operator/take';                                                 
 
 @Component({
   selector: 'chat-dialog',
@@ -140,8 +139,8 @@ export class ChatDialogComponent {
     this.sendMessage();
   }
 
-  resetControls() {
-    this.divChatWindow.nativeElement.scrollTop = this.divChatWindow.nativeElement.scrollTop + 200;
+  resetControls() {                    
+    this.divChatWindow.nativeElement.scrollTop -= 300;;
   }
 
 

@@ -28,7 +28,7 @@
                                   <strong class="primary-font"><label>{{userName}}</label></strong>
                                   <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
 
-                                  <hr class="w-100" hr-white>
+                                  <hr class="w-100  hr-white">
                                   <p class="mb-0">
                                     {{ message.response.result.resolvedQuery }}
                                   </p>
@@ -70,7 +70,7 @@
                   </ng-container>
                 </ul>
               </div>
-              <div style="color:black; background-color:transparent !important">
+              <div style="color:#ff0000; background-color:transparent !important; font-weight:bold">
                 {{message.remainingTime}}
               </div>
               <textarea [(ngModel)]="query" class="textarea" style="resize:none" rows="3" placeholder="Type your message here..."></textarea>
@@ -79,11 +79,11 @@
 
             </div>
           </div>
-        </mdb-card-body>    
+        </mdb-card-body>
       </mdb-card>
     </div>
-    <div class="camera-card">          
-        <app-camera  (fetchRecording)="handleVideoStream($event)"></app-camera>    
+    <div class="camera-card">
+      <app-camera (fetchRecording)="handleVideoStream($event)"></app-camera>
     </div>
   </div>
 </app-standard>
