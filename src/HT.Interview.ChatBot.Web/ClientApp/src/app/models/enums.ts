@@ -17,3 +17,9 @@ export enum OperationMode {
   Edit = 3,
   Delete = 4
 }
+
+export enum InterviewState {
+  ShowInstruction = 1,
+  ConversationStarted = 2,
+  EndConversation = 3                   
+}

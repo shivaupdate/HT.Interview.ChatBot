@@ -5,13 +5,14 @@ import { SpeechService } from '../../services/speech.service';
 import { Observable } from 'rxjs/Observable';
 import { Constants } from '../../models/constants';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { InterviewState } from '../../models/enums';
 
 import { environment } from '../../../environments/environment';
 
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';                                                 
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'chat-dialog',
@@ -19,16 +20,16 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./chat-dialog.component.css']
 })
 
-export class ChatDialogComponent {
+export class ChatDialogComponent implements OnInit {
   @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
-  private  started = false;
-  private  sessionId: any;
-  private  message = new Message();
+  private started = false;
+  private sessionId: any;
+  private message = new Message();
   private messages: Observable<Message[]>;
   private query: string;
-  private  countDown;
-  private  timerDelay = 0;
-  private  tick = 1000;
+  private countDown;
+  private timerDelay = 0;
+  private tick = 1000;
   private countdownTimer: any;
   private allocatedTime = 0;
   private remainingTime = 0;
@@ -37,9 +38,18 @@ export class ChatDialogComponent {
   private userName = this.loggedInUser.firstName;
   private photoUrl = this.loggedInUser.photoUrl;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
-  private endConversation = false;
+  private interviewState: InterviewState;
+
+  ngOnInit() {
+    this.interviewState = InterviewState.ShowInstruction;
+  }
 
   constructor(private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
+    
+  }
+
+  startInterview() {
+    this.interviewState = InterviewState.ConversationStarted;
     var __this = this;
 
     this.speech.started.subscribe(started => this.started = started);
@@ -48,39 +58,42 @@ export class ChatDialogComponent {
 
     this.chat.conversation.subscribe(res => {
       res.forEach(function (value) {
-        console.log(value.response.result.metadata.endConversation);
-        __this.endConversation = value.response.result.metadata.endConversation;
-        value.response.result.fulfillment.messages.forEach(function (response) {
-          // if response type is payload which holds the allocated time value     
-          if (response.type == 4) {
-            var minutes;
-            var seconds;
-            __this.allocatedTime = Number(response.payload.allocatedTime);
-            __this.remainingTime = __this.allocatedTime;
-            if (__this.countdownTimer) {
-              __this.message.remainingTime = '';
-              __this.countdownTimer.unsubscribe();
+        if (value.response.result.metadata.endConversation) {
+          __this.interviewState = InterviewState.EndConversation;
+        }
+        else {
+          value.response.result.fulfillment.messages.forEach(function (response) {
+            // if response type is payload which holds the allocated time value     
+            if (response.type == 4) {
+              var minutes;
+              var seconds;
+              __this.allocatedTime = Number(response.payload.allocatedTime);
+              __this.remainingTime = __this.allocatedTime;
+              if (__this.countdownTimer) {
+                __this.message.remainingTime = '';
+                __this.countdownTimer.unsubscribe();
+              }
+
+              if (__this.remainingTime > 0) {
+
+                __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
+                  minutes = Math.floor((__this.remainingTime % 3600) / 60);
+                  seconds = Math.floor(__this.remainingTime % 60);
+
+                  minutes = minutes < 10 ? "0" + minutes : minutes;
+                  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                  __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
+                  __this.remainingTime = __this.remainingTime - 1;
+
+                  if (__this.remainingTime < 0) {
+                    __this.noReponseFromCandidate();
+                  }
+                })
+              };
             }
-
-            if (__this.remainingTime > 0) {
-
-              __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
-                minutes = Math.floor((__this.remainingTime % 3600) / 60);
-                seconds = Math.floor(__this.remainingTime % 60);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
-                __this.remainingTime = __this.remainingTime - 1;
-
-                if (__this.remainingTime < 0) {
-                  __this.noReponseFromCandidate();
-                }
-              })
-            };
-          }
-        });
+          });
+        }
       })
     });
   }
@@ -141,7 +154,7 @@ export class ChatDialogComponent {
     this.sendMessage();
   }
 
-  resetControls() {                    
+  resetControls() {
     this.divChatWindow.nativeElement.scrollTop -= 300;;
   }
 
@@ -163,7 +176,7 @@ export class ChatDialogComponent {
       console.log('result' + data);
     });
 
-   
+
     console.log('do something with the recording' + blob);
   }
 

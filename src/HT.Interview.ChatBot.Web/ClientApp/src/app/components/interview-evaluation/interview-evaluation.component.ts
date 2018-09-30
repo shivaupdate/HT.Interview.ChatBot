@@ -35,6 +35,16 @@ export class InterviewEvaluationComponent implements OnInit {
   private operationMode: OperationMode = OperationMode.View;
   private endResultSelect: any;
 
+  ngOnInit() {
+    this.user = new User();
+    this.endResultSelect = [
+      { id: "Selected", name: "Selected" },
+      { id: "Not Selected", name: "Not Selected" },
+      { id: "On Hold", name: "On Hold" },
+      { id: "Required further evaluation", name: "Required Further Evaluation" }
+    ];;
+  }
+
   constructor(private http: HttpClient) {
 
     var timeCellRenderer = function (): any {
@@ -95,17 +105,6 @@ export class InterviewEvaluationComponent implements OnInit {
         cellClass: ['time-cell']     
       }
     ];
-  }
-
-  ngOnInit() {
-    this.user = new User();
-
-    this.endResultSelect = [
-      { id: "Selected", name: "Selected" },
-      { id: "Not Selected", name: "Not Selected" },
-      { id: "On Hold", name: "On Hold" },
-      { id: "Required further evaluation", name: "Required Further Evaluation" }
-    ];;
   }
 
   onViewGridReady() {
