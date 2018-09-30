@@ -21,22 +21,23 @@ import 'rxjs/add/operator/take';
 
 export class ChatDialogComponent {
   @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
-  started = false;
-  sessionId: any;
-  message = new Message();
-  messages: Observable<Message[]>;
-  query: string;
-  countDown;
-  timerDelay = 0;
-  tick = 1000;
-  countdownTimer: any;
-  allocatedTime = 0;
-  remainingTime = 0;
+  private  started = false;
+  private  sessionId: any;
+  private  message = new Message();
+  private messages: Observable<Message[]>;
+  private query: string;
+  private  countDown;
+  private  timerDelay = 0;
+  private  tick = 1000;
+  private countdownTimer: any;
+  private allocatedTime = 0;
+  private remainingTime = 0;
   private constants = new Constants();
   private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private userName = this.loggedInUser.firstName;
   private photoUrl = this.loggedInUser.photoUrl;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
+  private endConversation = false;
 
   constructor(private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
     var __this = this;
@@ -47,8 +48,9 @@ export class ChatDialogComponent {
 
     this.chat.conversation.subscribe(res => {
       res.forEach(function (value) {
+        console.log(value.response.result.metadata.endConversation);
+        __this.endConversation = value.response.result.metadata.endConversation;
         value.response.result.fulfillment.messages.forEach(function (response) {
-
           // if response type is payload which holds the allocated time value     
           if (response.type == 4) {
             var minutes;

@@ -260,3 +260,13 @@ hr[_ngcontent-c4] {
   background-color: black !important;
   color: white !important;
 }
+
+.end-coversation {
+  background-color: #93d9af !important;
+}
+
+.end-coversation-message {
+  font-weight: bold;
+  font-size: x-large;
+  color:black !important;
+} 
