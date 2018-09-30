@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Constants } from '../../../models/constants';
-import { forEach } from '@angular/router/src/utils/collection';
-import { retry } from 'rxjs/operator/retry';
 
 @Component({
   selector: 'app-header',

@@ -7,4 +7,5 @@ export class Message {
   remainingTime: string;
   userName: string;
   photoUrl: string;
+  firstRequest: boolean = false;
 }

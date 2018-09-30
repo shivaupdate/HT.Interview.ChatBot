@@ -47,11 +47,13 @@ export class ChatService {
   defaultIntent(message: Message) {
     this.cancelSpeechSynthesis();
     message.query = 'Hello';
+    message.firstRequest = true;
     this.getApiAiResponse(message).subscribe(
       response => {
         response.result.resolvedQuery = '';
         this.updateConversation(response);
       });
+    message.firstRequest = false;
   }
 
   updateConversation(response: any) {
@@ -87,6 +89,7 @@ export class ChatService {
     params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);
     params = params.append('Query', message.query);
     params = params.append('TimeTaken', message.timeTaken);
+    params = params.append('FirstRequest', String(message.firstRequest));
     params = params.append('Email', this.email);
 
     return this.http.get(this.webAPIUrl, { params });

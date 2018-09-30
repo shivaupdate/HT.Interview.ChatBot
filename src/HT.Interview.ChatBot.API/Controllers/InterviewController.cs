@@ -23,6 +23,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         #region Fields
 
         private readonly IInterviewService _interviewService;
+        private readonly IUserService _userService;
         private readonly IMapper _mapper;
         private readonly IHttpClient _httpClient;
 
@@ -39,6 +40,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             _httpClient = factory.GetHttpClient();
             _interviewService = factory.GetInterviewService();
+            _userService = factory.GetUserService();
             _mapper = factory.GetMapperService();
         }
 
@@ -68,6 +70,14 @@ namespace HT.Interview.ChatBot.API.Controllers
                 {
                 }
                 await _interviewService.AddResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, botResponse, q.Email);
+            }
+            if (q.FirstRequest)
+            {
+                await _userService.UpdateUserInterviewDateAsync(q.UserId, q.Email);
+            }
+            if (queryResponse.Result.Metadata.EndConversation)
+            {
+                await _userService.UpdateUserInterviewCompletedAsync(q.UserId, q.Email);
             }
 
             return await GetResponseAsync(async () => await Task.FromResult(queryResponse));

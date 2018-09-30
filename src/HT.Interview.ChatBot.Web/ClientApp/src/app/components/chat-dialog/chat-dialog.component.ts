@@ -5,6 +5,7 @@ import { SpeechService } from '../../services/speech.service';
 import { Observable } from 'rxjs/Observable';
 import { Constants } from '../../models/constants';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 import { InterviewState } from '../../models/enums';
 
 import { environment } from '../../../environments/environment';
@@ -44,7 +45,7 @@ export class ChatDialogComponent implements OnInit {
     this.interviewState = InterviewState.ShowInstruction;
   }
 
-  constructor(private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
+  constructor(private router: Router, private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
     
   }
 
@@ -60,6 +61,7 @@ export class ChatDialogComponent implements OnInit {
       res.forEach(function (value) {
         if (value.response.result.metadata.endConversation) {
           __this.interviewState = InterviewState.EndConversation;
+          __this.router.navigate(["/end-interview"]);  
         }
         else {
           value.response.result.fulfillment.messages.forEach(function (response) {
@@ -172,12 +174,9 @@ export class ChatDialogComponent implements OnInit {
 
 
     };
-    this.http.put(this.webAPIUrl, body).subscribe(data => {
-      console.log('result' + data);
+    this.http.put(this.webAPIUrl, body).subscribe(data => {         
     });
-
-
-    console.log('do something with the recording' + blob);
+                                                               
   }
 
 }

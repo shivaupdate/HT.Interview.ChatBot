@@ -15,6 +15,7 @@ export class User {
   photoUrl: string
   provider: string
   claims: any
+  isInterviewCompleted : boolean
   isActive: boolean
   createdBy: string
   modifiedBy: string

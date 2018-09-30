@@ -46,7 +46,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> GetUserByEmailAsync([FromQuery] string email)
         {
             return await GetResponseAsync(async () => (await _userService.GetUserByEmailAsync(email))
-                .GetMappedResponse<User, UserResponse>(_mapper));
+                .GetMappedResponse<User, User>(_mapper));
         }
 
         /// <summary>

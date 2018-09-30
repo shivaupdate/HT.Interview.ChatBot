@@ -26,6 +26,11 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         public string Email { get; set; }
 
         /// <summary>
+        /// A string token up to 36 symbols long, used to identify the client and to manage sessions parameters (including contexts) per client.
+        /// </summary>
+        public string SessionId { get; set; }
+
+        /// <summary>
         /// Dialogflow generated intent id
         /// </summary>
         public string DialogflowGeneratedIntentId { get; set; }
@@ -47,43 +52,43 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         public float[] Confidence { get; set; }
 
         /// <summary>
-        /// A string token up to 36 symbols long, used to identify the client and to manage sessions parameters (including contexts) per client.
-        /// </summary>
-        public string SessionId { get; set; }
-
-        /// <summary>
         /// Language
         /// </summary>
         public Language Language { get; set; }
 
         /// <summary>
-        /// Array of additional input context objects.
+        /// First request
         /// </summary>
-        public Context[] Contexts { get; set; }
+        public bool FirstRequest { get; set; }
 
-        /// <summary>
-        /// If true, all current contexts in a session will be reset before the new ones are set. False by default.
-        /// </summary>
-        public bool ResetContexts { get; set; }
+        ///// <summary>
+        ///// Array of additional input context objects.
+        ///// </summary>
+        //public Context[] Contexts { get; set; }
 
-        /// <summary>
-        /// Array of entities that replace developer defined entities for this request only. The entity(ies) need to exist in the developer console
-        /// </summary>
-        public Entity[] Entities { get; set; }
+        ///// <summary>
+        ///// If true, all current contexts in a session will be reset before the new ones are set. False by default.
+        ///// </summary>
+        //public bool ResetContexts { get; set; }
 
-        /// <summary>
-        /// Time zone from IANA Time Zone Database. 
-        /// </summary>
-        public string Timezone { get; set; }
+        ///// <summary>
+        ///// Array of entities that replace developer defined entities for this request only. The entity(ies) need to exist in the developer console
+        ///// </summary>
+        //public Entity[] Entities { get; set; }
 
-        /// <summary>
-        /// Latitude and longitude values.
-        /// </summary>
-        public LocationRequest Location { get; set; }
+        ///// <summary>
+        ///// Time zone from IANA Time Zone Database. 
+        ///// </summary>
+        //public string Timezone { get; set; }
 
-        /// <summary>
-        /// Full request coming from the integrated platform (Facebook Messenger, Slack, etc.) 
-        /// </summary>
-        public OriginalRequest OriginalRequest { get; set; }
+        ///// <summary>
+        ///// Latitude and longitude values.
+        ///// </summary>
+        //public LocationRequest Location { get; set; }
+
+        ///// <summary>
+        ///// Full request coming from the integrated platform (Facebook Messenger, Slack, etc.) 
+        ///// </summary>
+        //public OriginalRequest OriginalRequest { get; set; }
     }
 }

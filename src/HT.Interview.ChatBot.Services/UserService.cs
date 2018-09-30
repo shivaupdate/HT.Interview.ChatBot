@@ -44,16 +44,8 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<User>> GetUserByEmailAsync(string email)
         {
-            try
-            {
-                User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
-                return Response.Ok(user);
-            }
-            catch (Exception ex)
-            {
-                string mesage = ex.Message;
-                return null;
-            }
+            User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
+            return Response.Ok(user);
         }
 
         /// <summary>
@@ -124,13 +116,53 @@ namespace HT.Interview.ChatBot.Services
         }
 
         /// <summary>
-        /// Delete user async
+        /// Update user interview date async
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="userId"></param> 
         /// <returns></returns>
-        public Task<Response> DeleteUserAsync(int id)
+        public async Task<Response> UpdateUserInterviewDateAsync(int userId, string modifiedBy)
         {
-            throw new NotImplementedException();
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.InterviewDate = DateTime.UtcNow.Date;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
+        /// <summary>
+        /// Update user interview date async
+        /// </summary>
+        /// <param name="userId"></param> 
+        /// <returns></returns>
+        public async Task<Response> UpdateUserInterviewCompletedAsync(int userId, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.IsInterviewCompleted = true;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
         }
 
         /// <summary>
@@ -160,6 +192,16 @@ namespace HT.Interview.ChatBot.Services
             {
                 return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
             }
+        }
+
+        /// <summary>
+        /// Delete user async
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Task<Response> DeleteUserAsync(int id)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
