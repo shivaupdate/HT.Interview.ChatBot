@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { Message } from '../../models/message';
 import { ChatService } from '../../services/chat.service';
 import { SpeechService } from '../../services/speech.service';
@@ -21,8 +21,8 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./chat-dialog.component.css']
 })
 
-export class ChatDialogComponent implements OnInit {
-  @ViewChild('divChatWindow', { read: ElementRef }) public divChatWindow;
+export class ChatDialogComponent implements OnInit, AfterViewChecked {
+  @ViewChild('divChatWindow') public divChatWindow: ElementRef;
   private started = false;
   private sessionId: any;
   private message = new Message();
@@ -45,8 +45,12 @@ export class ChatDialogComponent implements OnInit {
     this.interviewState = InterviewState.ShowInstruction;
   }
 
+  ngAfterViewChecked() {
+    this.resetControls();
+  }
+
   constructor(private router: Router, private http: HttpClient, public chat: ChatService, public speech: SpeechService) {
-    
+
   }
 
   startInterview() {
@@ -57,45 +61,46 @@ export class ChatDialogComponent implements OnInit {
     this.chat.defaultIntent(this.message);
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
 
-    this.chat.conversation.subscribe(res => {
+    this.chat.conversation.subscribe(res => {                                  
       res.forEach(function (value) {
         if (value.response.result.metadata.endConversation) {
+          __this.started = false;
+          __this.message = new Message();
+          __this.messages = new Observable<Message[]>();
           __this.interviewState = InterviewState.EndConversation;
-          __this.router.navigate(["/end-interview"]);  
+          __this.router.navigate(["/end-interview"]);
         }
-        else {
-          value.response.result.fulfillment.messages.forEach(function (response) {
-            // if response type is payload which holds the allocated time value     
-            if (response.type == 4) {
-              var minutes;
-              var seconds;
-              __this.allocatedTime = Number(response.payload.allocatedTime);
-              __this.remainingTime = __this.allocatedTime;
-              if (__this.countdownTimer) {
-                __this.message.remainingTime = '';
-                __this.countdownTimer.unsubscribe();
-              }
-
-              if (__this.remainingTime > 0) {
-
-                __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
-                  minutes = Math.floor((__this.remainingTime % 3600) / 60);
-                  seconds = Math.floor(__this.remainingTime % 60);
-
-                  minutes = minutes < 10 ? "0" + minutes : minutes;
-                  seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                  __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
-                  __this.remainingTime = __this.remainingTime - 1;
-
-                  if (__this.remainingTime < 0) {
-                    __this.noReponseFromCandidate();
-                  }
-                })
-              };
+        value.response.result.fulfillment.messages.forEach(function (response) {
+          // if response type is payload which holds the allocated time value     
+          if (response.type == 4) {
+            var minutes;
+            var seconds;
+            __this.allocatedTime = Number(response.payload.allocatedTime);
+            __this.remainingTime = __this.allocatedTime;
+            if (__this.countdownTimer) {
+              __this.message.remainingTime = '';
+              __this.countdownTimer.unsubscribe();
             }
-          });
-        }
+
+            if (__this.remainingTime > 0) {
+
+              __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
+                minutes = Math.floor((__this.remainingTime % 3600) / 60);
+                seconds = Math.floor(__this.remainingTime % 60);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
+                __this.remainingTime = __this.remainingTime - 1;
+
+                if (__this.remainingTime < 0) {
+                  __this.noReponseFromCandidate();
+                }
+              })
+            };
+          }
+        });     
       })
     });
   }
@@ -107,7 +112,7 @@ export class ChatDialogComponent implements OnInit {
     this.message.timeTaken = '';
     this.message.query = 'Allocated time expired';
     this.chat.moveToNextIntent(this.message);
-    this.resetControls();
+    //this.resetControls();
   }
 
   toggleVoiceRecognition() {
@@ -148,7 +153,7 @@ export class ChatDialogComponent implements OnInit {
     this.message.timeTaken = String(this.allocatedTime - this.remainingTime);
     this.chat.converse(this.message);
     this.query = '';
-    this.resetControls();
+   // this.resetControls();
   }
 
   autoSendMessage(query: string) {
@@ -156,10 +161,12 @@ export class ChatDialogComponent implements OnInit {
     this.sendMessage();
   }
 
-  resetControls() {
-    this.divChatWindow.nativeElement.scrollTop -= 300;;
+  resetControls() {                                          
+    this.divChatWindow.nativeElement.scrollTop += 80;    
   }
 
+  onScroll() {           
+  }
 
   handleVideoStream(blob) {
     let params = new HttpParams();
@@ -174,9 +181,9 @@ export class ChatDialogComponent implements OnInit {
 
 
     };
-    this.http.put(this.webAPIUrl, body).subscribe(data => {         
+    this.http.put(this.webAPIUrl, body).subscribe(data => {
     });
-                                                               
+
   }
 
 }

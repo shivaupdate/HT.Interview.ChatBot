@@ -135,69 +135,71 @@
           <div class="row px-lg-1 px-0">
             <div class="col-md-6 col-xl-12 pl-md-3 px-lg-auto px-0" style="padding-left:0 !important;">
               <div class="chat-message">
-                <ul #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue">
-                  <ng-container *ngFor="let message of messages | async">
-                    <li class="d-flex justify-content-between mb-4">
-                      <div>
-                        <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
-                          <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
-                            <div class="noResponse">
-                              Time allocated for the last question has expired. Bot will automatically move to the next question.
-                            </div>
-                          </div>
-                        </ng-container>
-                        <ng-template #responseRecorded>
-                          <div *ngIf="message.response.result.resolvedQuery !== ''">
-                            <div class="chat-body white p-3 z-depth-1 message-from-user">
-                              <div class="row message-wrapper">
-                                <div class="message-header">
-                                  <img src="{{photoUrl}}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1" />
-                                </div>
-                                <div class="message-content" style="color:white;">
-                                  <strong class="primary-font"><label>{{userName}}</label></strong>
-                                  <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
-
-                                  <hr class="w-100  hr-white">
-                                  <p class="mb-0">
-                                    {{ message.response.result.resolvedQuery }}
-                                  </p>
-                                </div>
-                                <div class="cleared"></div>
+                <div #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue" (scroll) ="onScroll()">
+                  <ul>
+                    <ng-container *ngFor="let message of messages | async">
+                      <li class="d-flex justify-content-between mb-4">
+                        <div>
+                          <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
+                            <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
+                              <div class="noResponse">
+                                Time allocated for the last question has expired. Bot will automatically move to the next question.
                               </div>
                             </div>
-                          </div>
-                        </ng-template>
-                      </div>
-                    </li>
-                    <li class="d-flex justify-content-between mb-4">
-                      <div class="chat-body p-3 z-depth-1 message-from-bot">
-                        <div class="row message-wrapper">
-                          <div class="message-header">
-                            <img src="../../../assets/images/chatbot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
-                          </div>
+                          </ng-container>
+                          <ng-template #responseRecorded>
+                            <div *ngIf="message.response.result.resolvedQuery !== ''">
+                              <div class="chat-body white p-3 z-depth-1 message-from-user">
+                                <div class="row message-wrapper">
+                                  <div class="message-header">
+                                    <img src="{{photoUrl}}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1" />
+                                  </div>
+                                  <div class="message-content" style="color:white;">
+                                    <strong class="primary-font"><label>{{userName}}</label></strong>
+                                    <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
 
-                          <div class="message-content" style="color:white;">
-                            <strong class="primary-font">Laura</strong>
-                            <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
-                            <hr class="w-100 hr-white">
-                            <p class="mb-0">
-                              {{ message.response.result.fulfillment.speech }}
-                            </p>
-                            <div *ngFor="let r of message.response.result.fulfillment.messages">
-                              <div *ngIf="r.type === 5" class="chips">
-                                <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
-                                  {{s.title}}
+                                    <hr class="w-100  hr-white">
+                                    <p class="mb-0">
+                                      {{ message.response.result.resolvedQuery }}
+                                    </p>
+                                  </div>
+                                  <div class="cleared"></div>
                                 </div>
                               </div>
                             </div>
-
-                          </div>
-                          <div class="cleared"></div>
+                          </ng-template>
                         </div>
-                      </div>
-                    </li>
-                  </ng-container>
-                </ul>
+                      </li>
+                      <li class="d-flex justify-content-between mb-4">
+                        <div class="chat-body p-3 z-depth-1 message-from-bot">
+                          <div class="row message-wrapper">
+                            <div class="message-header">
+                              <img src="../../../assets/images/chatbot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                            </div>
+
+                            <div class="message-content" style="color:white;">
+                              <strong class="primary-font">Laura</strong>
+                              <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+                              <hr class="w-100 hr-white">
+                              <p class="mb-0">
+                                {{ message.response.result.fulfillment.speech }}
+                              </p>
+                              <div *ngFor="let r of message.response.result.fulfillment.messages">
+                                <div *ngIf="r.type === 5" class="chips">
+                                  <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
+                                    {{s.title}}
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="cleared"></div>
+                          </div>
+                        </div>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
               </div>
               <div style="color:#ff0000; background-color:transparent !important; font-weight:bold">
                 {{message.remainingTime}}
