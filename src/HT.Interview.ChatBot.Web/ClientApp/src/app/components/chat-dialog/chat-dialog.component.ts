@@ -161,8 +161,10 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
     this.sendMessage();
   }
 
-  resetControls() {                                          
-    this.divChatWindow.nativeElement.scrollTop += 80;    
+  resetControls() {
+    if (this.divChatWindow != undefined) {
+      this.divChatWindow.nativeElement.scrollTop += 80;
+    }
   }
 
   onScroll() {           
