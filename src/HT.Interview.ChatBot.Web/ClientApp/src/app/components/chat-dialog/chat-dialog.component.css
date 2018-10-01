@@ -1,5 +1,4 @@
-.main-title {
-  padding-left: 30px;
+.main-title { 
   font-weight: bold;
   color: darkgreen;
 }
@@ -189,7 +188,7 @@ hr[_ngcontent-c4] {
 }
 
 .card.chat-room .chat-1 {
-  height: 350px;
+  height: 550px;
 }
 
 .card.chat-room .friend-list li {
@@ -259,4 +258,12 @@ hr[_ngcontent-c4] {
   height: 37px;
   background-color: black !important;
   color: white !important;
+}
+.section{
+  min-width: 400px !important;
+  max-width: 400px !important;
+}
+.section-instruction {
+  min-width: 400px !important;
+  max-width: 676px !important;
 }

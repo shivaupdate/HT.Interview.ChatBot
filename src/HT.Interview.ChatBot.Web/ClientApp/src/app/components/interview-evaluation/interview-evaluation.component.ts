@@ -92,7 +92,7 @@ export class InterviewEvaluationComponent implements OnInit {
         headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 60,
         cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; }
       },
-      { headerName: "Bot Response", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 530 },
+      { headerName: "Bot Response/Question", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 530 },
       { headerName: "Candidate Reponse", field: "userResponse", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 500 },
       { headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: false, filter: 'agTextColumnFilter', width: 180 },
       {
