@@ -2,7 +2,6 @@
 using HT.Interview.ChatBot.API.DTO.Request;
 using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Entities;
-using Model = HT.Interview.ChatBot.Common.DTO;
 
 namespace HT.Interview.ChatBot.API
 {
@@ -22,8 +21,7 @@ namespace HT.Interview.ChatBot.API
         /// </summary>
         public JobMappingProfile()
         { 
-            CreateMap<JobProfile, JobProfileResponse>();
-            CreateMap<InterviewTypeRequest, Model.InterviewTypeRequest>();
+            CreateMap<JobProfile, JobProfileResponse>(); 
         }
     }
 }

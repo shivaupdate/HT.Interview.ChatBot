@@ -1,7 +1,6 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +35,7 @@ namespace HT.Interview.ChatBot.Services
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
 
-        #region Get Competences
+        #region Public functions
 
         /// <summary>
         /// Get Competences async
@@ -47,8 +46,7 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<IEnumerable<Competence>>> GetCompetencesAsync(int? id, string name, string createdBy)
         {
-            IEnumerable<Competence> Competences = await _chatbotDataContext.Competence.ToListAsync();
-            // TODO: Search Competences result list against search parameters
+            IEnumerable<Competence> Competences = await _chatbotDataContext.Competence.ToListAsync(); 
             return Response.Ok(Competences);
         }
 

@@ -1,5 +1,4 @@
 ﻿using HT.Framework;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Services;
 using Microsoft.EntityFrameworkCore;
