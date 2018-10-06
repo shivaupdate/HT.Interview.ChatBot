@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
-import { Role } from '../../models/role';
-import { Gender } from '../../models/gender';
+import { Role } from '../../models/role';          
 import { Constants } from '../../models/constants';
 import { RoleEnum } from '../../models/enums';
 import { GenderEnum } from '../../models/enums';
+import { PaginationInstance } from 'ngx-pagination';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -25,6 +25,27 @@ export class ManageUserComponent implements OnInit {
   private constants = new Constants();
   private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private formData: FormData = new FormData();
+  private domLayout = "autoHeight";
+
+  private maxSize: number = 10;
+  private directionLinks: boolean = true;
+  private autoHide: boolean = false;
+  private responsive: boolean = false;
+
+  private config: PaginationInstance = {
+    id: 'advanced',
+    itemsPerPage: environment.application.pageSize,
+    currentPage: 1
+  };
+
+  private labels: any = {
+    previousLabel: 'Previous',
+    nextLabel: 'Next',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`
+  };
+
 
   private paginationPageSize = environment.application.pageSize;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getMany;
@@ -120,4 +141,8 @@ export class ManageUserComponent implements OnInit {
   onCancel() {
     this.operationMode = false;
   }
+
+  onPageChange(number: number) {
+    this.config.currentPage = number;
+  }   
 }             

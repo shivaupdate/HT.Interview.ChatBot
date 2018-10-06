@@ -44,6 +44,7 @@ export class InterviewEvaluationComponent implements OnInit {
   private directionLinks: boolean = true;
   private autoHide: boolean = false;
   private responsive: boolean = false;
+  private domLayout = "autoHeight";
 
   private config: PaginationInstance = {
     id: 'advanced',

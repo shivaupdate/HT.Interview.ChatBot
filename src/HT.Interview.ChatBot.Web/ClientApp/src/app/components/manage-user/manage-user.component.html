@@ -6,18 +6,31 @@
       Add Candidate
     </a>
     <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                     class="ag-theme-blue"   
-                     [enableColResize] = "true"
+                     class="ag-theme-blue"
+                     [enableColResize]="true"
                      [enableSorting]="true"
-                     [rowData]="rowData"
+                     [rowData]="rowData | paginate: config"
                      [columnDefs]="columnDefs"
                      (firstDataRendered)="onFirstDataRendered($event)"
                      (gridReady)="onGridReady($event)"
-                     [pagination]="true"
-                     [paginationPageSize]="paginationPageSize"   
-                     [rowSelection]='single'       
+                     [rowSelection]='single'
+                     [domLayout]="domLayout"
                      [enableFilter]="true">
-    </ag-grid-angular>
+    </ag-grid-angular>    
+    <div class="pagination-theme">
+      <pagination-controls [id]="config.id"
+                           [maxSize]="maxSize"
+                           [directionLinks]="directionLinks"
+                           [autoHide]="autoHide"
+                           [responsive]="responsive"
+                           [previousLabel]="labels.previousLabel"
+                           [nextLabel]="labels.nextLabel"
+                           [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                           [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                           [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                           (pageChange)="onPageChange($event)">
+      </pagination-controls>
+    </div>
   </div>
   <div *ngIf="operationMode == true" class="add-section">
     <br /><br />
