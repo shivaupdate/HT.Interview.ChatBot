@@ -4,10 +4,13 @@
 }
 
 .ag-theme-blue .ag-header-cell-label {
-  color: black !important;
+  color: #ffffff !important;
   font-weight: bold !important;
 }
 
+.ag-theme-blue .ag-cell {
+  font-weight: bold;
+}
 
 .pagination-theme {
   text-align: center;

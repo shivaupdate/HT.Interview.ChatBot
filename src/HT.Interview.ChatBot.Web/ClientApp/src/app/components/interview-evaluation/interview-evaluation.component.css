@@ -17,14 +17,4 @@
 .time-cell {
   text-align: center !important;
   font-weight: bold !important;
-}
-
-.interview-selected { 
-  color: darkgreen; 
-  font-weight: bold;
-}
-
-.interview-not-selected {
-  color: red;
-  font-weight: bold;
-}
+} 

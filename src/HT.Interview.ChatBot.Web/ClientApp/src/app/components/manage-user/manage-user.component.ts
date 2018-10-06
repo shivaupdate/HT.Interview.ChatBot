@@ -61,7 +61,7 @@ export class ManageUserComponent implements OnInit {
       { headerName: "Email", field: "email", suppressSizeToFit: true, filter: 'agDateColumnFilter' },
       { headerName: "Mobile", field: "mobile", filter: 'agTextColumnFilter' },
       { headerName: "Gender", field: "genderName", filter: 'agDateColumnFilter' },
-      { headerName: "Provider", field: "provider", filter: 'agTextColumnFilter' },
+      { headerName: "Logged in using", field: "provider", filter: 'agTextColumnFilter' },
       {
         headerName: "Is Active", field: "isActive",
         cellRenderer: params => {

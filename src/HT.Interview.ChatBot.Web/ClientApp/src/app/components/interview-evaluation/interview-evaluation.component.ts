@@ -1,13 +1,14 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { User } from '../../models/user';
-import { Constants } from '../../models/constants';
-import { GridAddButtonComponent } from '../custom/grid-add-button/grid-add-button.component';
-import { DownloadFileComponent } from '../custom/download-file/download-file.component';
-import { RoleEnum } from '../../models/enums';
-import { OperationMode } from '../../models/enums';
 import { GridOptions } from "ag-grid-community";
 import { PaginationInstance } from 'ngx-pagination';
+import * as moment from 'moment';
+import { GridAddButtonComponent } from '../custom/grid-add-button/grid-add-button.component';
+import { DownloadFileComponent } from '../custom/download-file/download-file.component';
+import { User } from '../../models/user';
+import { Constants } from '../../models/constants';
+import { RoleEnum } from '../../models/enums';
+import { OperationMode } from '../../models/enums';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -39,7 +40,7 @@ export class InterviewEvaluationComponent implements OnInit {
   private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private operationMode: OperationMode = OperationMode.View;
   private endResultSelect: any;
-                                
+
   private maxSize: number = 10;
   private directionLinks: boolean = true;
   private autoHide: boolean = false;
@@ -90,20 +91,36 @@ export class InterviewEvaluationComponent implements OnInit {
     this.viewGridColumns = [
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
-        cellRenderer: (data) => { return data.value ? (new Date(data.value)).toLocaleDateString() : ''; }
+        cellRenderer: (data) => { return data.value ? (moment(data.value).format('DD/MM/YYYY')) : ''; }
       },
-      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
+      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
       { headerName: "Candidate Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
       {
         headerName: "Resume",
         suppressSizeToFit: false,
         cellRendererFramework: DownloadFileComponent
       },
-      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark" },
-      { headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult" },
+      {
+        headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", suppressSizeToFit: false},
+      {
+        headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", suppressSizeToFit: false,
+        cellStyle: function (params) {
+          if (params.value == 'Selected') {
+            return { color: 'darkgreen', 'font-weight': 'bold' };
+          } else if (params.value == 'Not Selected') {
+            return { color: 'darkred', 'font-weight': 'bold' };
+          } else if (params.value == 'On Hold') {
+            return { color: 'darkblue', 'font-weight': 'bold' };
+          } else if (params.value == 'Required further evaluation') {
+            return { color: 'darkorange', 'font-weight': 'bold' };
+          }
+          return null;
+        }
+      },
       {
         headerName: "Evaluate",
-        cellRendererFramework: GridAddButtonComponent
+        cellRendererFramework: GridAddButtonComponent,
+        suppressSizeToFit: false
       }
     ];
 
@@ -128,6 +145,7 @@ export class InterviewEvaluationComponent implements OnInit {
         valueFormatter: this.timeFormatter, cellClass: 'grid-time-cell', width: 120, maxWidth: 120
       }
     ];
+
   }
 
   onFirstDataRendered(params) {
@@ -157,7 +175,7 @@ export class InterviewEvaluationComponent implements OnInit {
       this.user.endResult = data.endResult;
     }
     this.user.remark = data.remark;
-    this.operationMode = OperationMode.Edit;                  
+    this.operationMode = OperationMode.Edit;
   }
 
   downloadFile(data) {
@@ -201,8 +219,8 @@ export class InterviewEvaluationComponent implements OnInit {
       return String(params.value) + ' sec';
     }
   }
-         
+
   onPageChange(number: number) {
     this.config.currentPage = number;
-  }     
+  }
 }    

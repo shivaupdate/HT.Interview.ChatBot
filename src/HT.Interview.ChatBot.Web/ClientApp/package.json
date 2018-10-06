@@ -38,6 +38,7 @@
     "core-js": "^2.5.7",
     "font-awesome": "^4.7.0",
     "guid-typescript": "^1.0.7",
+    "moment": "^2.22.2",
     "ngx-pagination": "^3.2.1",
     "rxjs": "^5.5.12",
     "zone.js": "^0.8.26"
