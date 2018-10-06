@@ -1,15 +1,14 @@
-import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter, AfterViewChecked, ElementRef } from '@angular/core';
 import { Inject } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Message } from '../../models/message';
 import { ChatService } from '../../services/chat.service';
 import { SpeechService } from '../../services/speech.service';
-import { Observable } from 'rxjs/Observable';
 import { Constants } from '../../models/constants';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { InterviewState } from '../../models/enums';
-
+import { InterviewState } from '../../models/enums';                   
 import { environment } from '../../../environments/environment';
 
 import 'rxjs/add/operator/scan';
@@ -18,13 +17,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 
 @Component({
-  selector: 'chat-dialog',
-  templateUrl: './chat-dialog.component.html',
-  styleUrls: ['./chat-dialog.component.css']
+  selector: 'app-talk-to-laura',
+  templateUrl: './talk-to-laura.component.html',
+  styleUrls: ['./talk-to-laura.component.css']
 })
 
-export class ChatDialogComponent implements OnInit, AfterViewChecked {
+export class TalkToLauraComponent implements OnInit, AfterViewChecked {
   @ViewChild('divChatWindow') public divChatWindow: ElementRef;
+  @ViewChild('videoElement') videoElement: any;
+
   private started = false;
   private sessionId: any;
   private message = new Message();
@@ -44,8 +45,31 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   private interviewState: InterviewState;
   private formData: FormData = new FormData();
 
+  @Input() constrains = { video: true, audio: false };
+  @Input() fileName = 'my_recording';
+  @Input() showVideoPlayer = true;
+  @Input() showControls = false;
+
+  @Output() startRecording = new EventEmitter();
+  @Output() downloadRecording = new EventEmitter();
+  @Output() fetchRecording = new EventEmitter();
+
+  format = 'video/webm';
+  _navigator = <any>navigator;
+  localStream;
+  video;
+  mediaRecorder;
+  recordedBlobs = null;
+  hideStopBtn = true;
+
   ngOnInit() {
     this.interviewState = InterviewState.ShowInstruction;
+
+    this._navigator.getUserMedia = (this._navigator.getUserMedia
+      || this._navigator.webkitGetUserMedia
+      || this._navigator.mozGetUserMedia
+      || this._navigator.msGetUserMedia);
+
   }
 
   ngAfterViewChecked() {
@@ -57,6 +81,9 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   startInterview() {
+    this.video = this.videoElement.nativeElement;
+
+    this.start();
     this.document.body.scrollTop = 0;
     console.log(this.document.body.scrollTop);
     this.interviewState = InterviewState.ConversationStarted;
@@ -180,18 +207,98 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
   }
 
-  handleVideoStream(blob) {
+  private initStream(constrains, navigator) {
+    return navigator.mediaDevices.getUserMedia(constrains)
+      .then((stream) => {
+        this.localStream = stream;
+        return window.URL ? window.URL.createObjectURL(stream) : stream;
+      })
+      .catch(err => err);
+  }
+  private stopStream() {
+    const tracks = this.localStream.getTracks();
+    tracks.forEach((track) => {
+      track.stop();
+    });
+  }
 
-    var fileType = 'video'; // or "audio"
-    var fileName = 'ABCDEF.webm';  // or "wav"
+  public start() {
+    console.log('start recording');
+    this.recordedBlobs = [];
+    this.initStream(this.constrains, this._navigator)
+      .then((stream) => {
+        if (!window['MediaRecorder'].isTypeSupported(this.format)) {
+          console.log(this.format + ' is not Supported');
+          return;
+        }
+        try {
+          this.mediaRecorder = new window['MediaRecorder'](this.localStream, { mimeType: this.format });
+          if (this.video) {
+            this.video.src = stream;
+          }
+          this.startRecording.emit(stream);
+        } catch (e) {
+          console.error('Exception while creating MediaRecorder: ' + e);
+          return;
+        }
+        console.log('Created MediaRecorder', this.mediaRecorder, 'with options', this.format);
+        this.hideStopBtn = false;
+        this.mediaRecorder.ondataavailable =
+          (event) => {
+            if (event.data && event.data.size > 0) {
+              this.recordedBlobs.push(event.data);
+            }
+          };
+        this.mediaRecorder.start(10); // collect 10ms of data
+      });
+  }
+
+  public stop() {
+    console.log('stop recording');
+    this.hideStopBtn = true;
+
+    this.stopStream();
+    this.mediaRecorder.stop();
+    this.fetchRecording.emit(this.recordedBlobs);
+    if (this.video) {
+      this.video.controls = true;
+    }
+    this.download();
+  }
+
+  handleVideoStream(blob) {
+    // can send it to a server or play in another video player etc..
+    console.log('do something with the recording' + blob);
+  }
+
+  public download() {
+    console.log('download recorded stream');
+    const timestamp = new Date().getUTCMilliseconds();
+    const blob = new Blob(this.recordedBlobs, { type: this.format });
+    var formData = new FormData();
+    var fileName = 'ABCDEF.webm';
+    formData.append('firstName', "test");
+    formData.append('lastName', "test");
+    formData.append('email', "test");
+    formData.append('mobile', "test");
+    formData.append('recordingFile', blob, fileName);
+    this.http.post(this.webAPIUrl, formData).subscribe(data => { });
+
+
+
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = timestamp + '__' + this.fileName + '.webm';
+    document.body.appendChild(a);
     console.log(blob);
-    //var blobFile = new Blob([blob], { type: 'video/webm' });     
-    //this.formData.append('firstName', "test");
-    //this.formData.append('lastName', "test");
-    //this.formData.append('email', "test");
-    //this.formData.append('mobile', "test");
-    //this.formData.append('recordingFile', blobFile, fileName);    
-    //this.http.post(this.webAPIUrl, this.formData).subscribe(data => { });
+    //a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      this.downloadRecording.emit();
+    }, 100);
   }
 
 }

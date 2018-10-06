@@ -1,0 +1,196 @@
+<app-standard>
+  <div class="container" style="margin-left:-10px" *ngIf="interviewState == 1">
+    <section style="width: 1500px !important;">
+      <div class="row wow fadeIn">
+        <div class="col-lg-4 col-xl-4 mb-4 section">
+          <div class="row wow fadeIn">
+            <div class="mb-4">
+              <div class="card">
+                <div class="view overlay">
+                  <img class="card-img-top" src="../../../assets/images/speech-recognition.png" alt="Speech Recognition" />
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Speech Recognition</h4>
+                  <p class="card-text"><strong>Bot supports the speech recognition thus enabling the candidate to interact using voice</strong></p>
+                  <p class="card-text">
+                    <strong>Just click microphone icon to start speech recognition and record your response</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row wow fadeIn">
+            <div class="mb-4">
+              <div class="card">
+                <div class="view overlay">
+                  <img class="card-img-top" src="../../../assets/images/camera-recognition.png" alt="Video Recording" style="height:192px;">
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Camera Recording</h4>
+                  <p class="card-text"> <strong>The bot also capture the video of the entire interview process for evaluation purposes</strong></p>
+                  <p class="card-text">
+                    <strong>When browser asked for camera permission, click allow and continue</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 col-xl-6 mb-4 section-instruction">
+          <h3 class="main-title">Before you start, know how:</h3>
+          <br />
+          <h3 class="mb-3 font-weight-bold dark-grey-text">
+            <strong>Points To Remember:</strong>
+          </h3>
+          <ol>
+            <li>
+              <p>
+                <strong>The bot will conduct the first level of interview</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Based on the Job profile you applied for, bot will ask questions related to different skills required for the that profile for example skills like C#, Angular, SQL or Java, Angular, Oracle etc.</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Bot will present all the required skills and option to select one skill at a time, once selected will start asking questions related to that skill</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Once all the questions for the selected skill are asked the bot will present the option to select next skill. This process will continue till all the skill questions are attempted</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>The interview will consist of mixed of objective and descriptive type of questions</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>For few questions, bot may present the different options to select from</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>On finishing all the required sections, bot will save all interview details and send it to Panel for review</strong>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Panel will review the questions and answers and provide feedback to HR. HR would get in touch with you for further proceedings</strong>
+              </p>
+            </li>
+          </ol>
+          <a class="btn btn-primary btn-md" (click)="startInterview()">
+            Start interview
+            <i class="fa fa-play ml-2"></i>
+          </a>
+        </div>
+        <div class="col-lg-4 col-xl-4 mb-4 section">
+          <div class="row wow fadeIn">
+            <div class="card">
+              <div class="view overlay">
+                <img src="../../../assets/images/timer.png" class="card-img-top" style="height:192px;" alt="Timer">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Timed Based Process</h4>
+                <p class="card-text"><strong>For each technical question bot assigns the time-limit within which the candidate has to record the answer else bot will automatically moves to next question</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="row wow fadeIn" *ngIf="interviewState == 2">
+    <div class="bot-container">
+      <mdb-card class="chat-room">
+        <mdb-card-body class="card-body">
+          <div class="row px-lg-1 px-0">
+            <div class="col-md-6 col-xl-12 pl-md-3 px-lg-auto px-0" style="padding-left:0 !important;">
+              <div class="chat-message">
+                <div #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue" (scroll)="onScroll()">
+                  <ul>
+                    <ng-container *ngFor="let message of messages | async">
+                      <li class="d-flex justify-content-between mb-4" style="margin-left: -100px; width: 42%;">
+                        <div>
+                          <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
+                            <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
+                              <div class="noResponse">
+                                Time allocated for the last question has expired. Bot will automatically move to the next question.
+                              </div>
+                            </div>
+                          </ng-container>
+                          <ng-template #responseRecorded>
+                            <div *ngIf="message.response.result.resolvedQuery !== ''">
+                              <div class="chat-body white p-3 z-depth-1 message-from-user">
+                                <div class="row message-wrapper">
+                                  <div class="message-header">
+                                    <img src="{{photoUrl}}" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1" />
+                                  </div>
+                                  <div class="message-content" style="color:white;">
+                                    <strong class="primary-font"><label>{{userName}}</label></strong>
+                                    <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+
+                                    <hr class="w-100  hr-white">
+                                    <p class="mb-0">
+                                      {{ message.response.result.resolvedQuery }}
+                                    </p>
+                                  </div>
+                                  <div class="cleared"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-template>
+                        </div>
+                      </li>
+                      <li class="d-flex justify-content-between mb-4" style="margin-left: -30px;">
+                        <div class="chat-body p-3 z-depth-1 message-from-bot">
+                          <div class="row message-wrapper">
+                            <div class="message-header">
+                              <img src="../../../assets/images/chatbot.png" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                            </div>
+
+                            <div class="message-content" style="color:white;">
+                              <strong class="primary-font">Laura</strong>
+                              <small class="pull-right text-muted text-muted-white"><i class="fa fa-clock-o"></i> {{message.timestamp | date : 'h:mm:ss a' }}</small>
+                              <hr class="w-100 hr-white">
+                              <p class="mb-0">
+                                {{ message.response.result.fulfillment.speech }}
+                              </p>
+                              <div *ngFor="let r of message.response.result.fulfillment.messages">
+                                <div *ngIf="r.type === 5" class="chips">
+                                  <div class="suggestion" *ngFor="let s of r.suggestions" (click)="autoSendMessage(s.title)">
+                                    {{s.title}}
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="cleared"></div>
+                          </div>
+                        </div>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+              </div>
+              <div style="color:#ff0000; background-color:transparent !important; font-weight:bold">
+                {{message.remainingTime}}
+              </div>
+              <textarea [(ngModel)]="query" class="textarea" style="resize:none" rows="3" placeholder="Type your message here..."></textarea>
+              <a id="mic" (click)="toggleVoiceRecognition()" [ngClass]="getMicStyle()" aria-hidden="true"></a>
+              <button (click)="sendMessage()" class="btn btn-outline-pink btn-rounded btn-sm waves-effect waves-dark float-right btnSend" type="button">Send</button>
+            </div>
+          </div>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+  <div class="camera-card">
+    <video #videoElement class="video-rec" autoplay muted></video>
+  </div>
+</app-standard>

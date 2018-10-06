@@ -25,6 +25,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InterviewEvaluationComponent } from './components/interview-evaluation/interview-evaluation.component';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
+import { TalkToLauraComponent } from './components/talk-to-laura/talk-to-laura.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { EndInterviewComponent } from './components/end-interview/end-interview.component';
 
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'interview-evaluation', component: InterviewEvaluationComponent, canActivate: [AuthGuard] },
   { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
-  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard] },   
+  { path: 'talk-to-laura', component: TalkToLauraComponent, canActivate: [AuthGuard] },   
   { path: 'end-interview', component: EndInterviewComponent, canActivate: [AuthGuard] }
 ];
 
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
     InterviewEvaluationComponent,
     ManageUserComponent,
     ChatDialogComponent,
+    TalkToLauraComponent,
     CameraComponent,
     EndInterviewComponent,
     GridAddButtonComponent,
