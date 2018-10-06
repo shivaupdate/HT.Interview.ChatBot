@@ -56,7 +56,7 @@ namespace HT.Interview.ChatBot.Services
         public async Task<Response<IEnumerable<UserDetail>>> GetUsersByRoleIdAsync(int roleId)
         {
             IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.AsNoTracking()
-               .Where(x => x.RoleId == roleId).ToListAsync();
+               .Where(x => x.RoleId == roleId && x.InterviewDate != null).OrderByDescending(x=> x.InterviewDate).ToListAsync();
             return Response.Ok(userDetails);
         }
 

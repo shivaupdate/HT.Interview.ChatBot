@@ -3,17 +3,32 @@
     <h3 class="main-title">Interview Evaluation</h3>
     <ag-grid-angular id="resultGrid" style="padding-left:30px; padding-right:30px; background-color:transparent; height:300px"
                      class="ag-theme-blue"
-                     [enableColResize] = "true"
+                     [enableColResize]="true"
                      [enableSorting]="true"
-                     [rowData]="viewGridData"
-                     [columnDefs]="viewGridColumns"                        
+                     [rowData]="viewGridData | paginate: config"
+                     [columnDefs]="viewGridColumns"
+                     (firstDataRendered)="onFirstDataRendered($event)"
                      (gridReady)="onViewGridReady($event)"
-                     [pagination]="true"
-                     [paginationPageSize]="paginationPageSize"  
-                     [rowSelection]='single'  
-                     [enableFilter]="true"        
+                     [pagination]="false"                   
+                     [rowSelection]='single'
+                     [enableFilter]="true"
                      [gridOptions]="viewGridOptions">
     </ag-grid-angular>
+    <br/>
+    <div class="pagination-theme" style="display:block;color:black">
+      <pagination-controls [id]="config.id"
+                           [maxSize]="maxSize"
+                           [directionLinks]="directionLinks" 
+                           [autoHide]="autoHide"
+                           [responsive]="responsive"
+                           [previousLabel]="labels.previousLabel"
+                           [nextLabel]="labels.nextLabel"
+                           [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                           [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                           [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                           (pageChange)="onPageChange($event)">
+      </pagination-controls>
+    </div>
   </div>
   <div *ngIf="operationMode == 3">
     <h3 class="main-title">Evaluate</h3>
@@ -43,17 +58,20 @@
       </div>
       <br />
     </div>
-    <ag-grid-angular id="evaludateGrid" style="height: 530px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                     class="ag-theme-blue"      
-                     [enableColResize]="true"
-                     [enableSorting]="true"
-                     [rowData]="evaluateGridData"
-                     [columnDefs]="evaluateGridColumns"
-                     (gridReady)="onEvaluateGridReady($event)"
-                     [pagination]="false"               
-                     [rowSelection]='single'      
-                     [enableFilter]="true"
-                     [gridOptions]="evaluateGridOptions">
-    </ag-grid-angular>
+    <div style="width:100%; height:100%; overflow: hidden; padding-left:30px; padding-right:30px; background-color:transparent;">
+      <ag-grid-angular id="evaludateGrid" style="width:100%; height:500px;"
+                       class="ag-theme-blue"
+                       [enableColResize]="true"
+                       [enableSorting]="true"
+                       [rowData]="evaluateGridData"
+                       [columnDefs]="evaluateGridColumns"
+                       (firstDataRendered)="onFirstDataRendered($event)"
+                       (gridReady)="onEvaluateGridReady($event)"
+                       [pagination]="false"
+                       [rowSelection]='single'
+                       [enableFilter]="true"
+                       [gridOptions]="evaluateGridOptions">
+      </ag-grid-angular>       
+    </div>
   </div>
 </app-standard>

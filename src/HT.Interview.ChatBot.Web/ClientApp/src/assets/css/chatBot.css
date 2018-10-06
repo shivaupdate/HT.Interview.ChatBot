@@ -1,0 +1,15 @@
+.grid-time-cell {
+  text-align: center !important;
+  font-weight: bold !important;
+}
+
+.ag-theme-blue .ag-header-cell-label {
+  color: black !important;
+  font-weight: bold !important; 
+}
+
+.pagination-theme {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}

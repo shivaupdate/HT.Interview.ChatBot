@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';    
 
 import { NavbarModule, ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
-import { AgGridModule } from 'ag-grid-angular';                       
+import { AgGridModule } from 'ag-grid-angular';             
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
@@ -77,8 +77,8 @@ const appRoutes: Routes = [
     NavbarModule,
     ChartsModule,
     AgGridModule.withComponents([GridAddButtonComponent, DownloadFileComponent]),
-    HttpClientModule,
-    HttpModule,
+    NgxPaginationModule, 
+    HttpClientModule,       
     FormsModule,
     ChatModule,
     SpeechModule,
