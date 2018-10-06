@@ -67,7 +67,7 @@ export class InterviewEvaluationComponent implements OnInit {
       { id: "Selected", name: "Selected" },
       { id: "Not Selected", name: "Not Selected" },
       { id: "On Hold", name: "On Hold" },
-      { id: "Required further evaluation", name: "Required Further Evaluation" }
+      { id: "Require further evaluation", name: "Require Further Evaluation" }
     ];;
   }
 
@@ -101,18 +101,19 @@ export class InterviewEvaluationComponent implements OnInit {
         cellRendererFramework: DownloadFileComponent
       },
       {
-        headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", suppressSizeToFit: false},
+        headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", suppressSizeToFit: false
+      },
       {
         headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", suppressSizeToFit: false,
         cellStyle: function (params) {
           if (params.value == 'Selected') {
-            return { color: 'darkgreen', 'font-weight': 'bold' };
+            return { color: 'darkgreen' };
           } else if (params.value == 'Not Selected') {
-            return { color: 'darkred', 'font-weight': 'bold' };
+            return { color: 'red' };
           } else if (params.value == 'On Hold') {
-            return { color: 'darkblue', 'font-weight': 'bold' };
-          } else if (params.value == 'Required further evaluation') {
-            return { color: 'darkorange', 'font-weight': 'bold' };
+            return { color: 'darkblue' };
+          } else if (params.value == 'Require further evaluation') {
+            return { color: 'darkorange' };
           }
           return null;
         }

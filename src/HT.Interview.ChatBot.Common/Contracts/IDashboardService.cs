@@ -14,12 +14,6 @@ namespace HT.Interview.ChatBot.Common.Contracts
         /// Get Dashboard data async
         /// </summary>
         /// <returns></returns>
-        Task<Response<List<DashboardResponse>>> GetDashboardDataAsync();
-
-        ///// <summary>
-        ///// Get Dashboard data async
-        ///// </summary>
-        ///// <returns></returns>
-        //Task<Response<List<DashboardData>>> GetDashboardDataAsync();
+        Task<Response<List<DashboardResponse>>> GetDashboardDataAsync(); 
     }
 }

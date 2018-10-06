@@ -33,7 +33,7 @@
   </div>
   <div *ngIf="operationMode == 3">
     <h3 class="main-title">Evaluate</h3>
-    <div class="form-row" style="padding-left: 30px;">
+    <div class="form-row" style="padding-left: 30px;height: 80px;margin-top: -20px;">
       <div class="col-md-3">
         <div class="md-form form-group">
           <i class="fa fa fa-comments-o prefix icon"></i>
@@ -53,11 +53,10 @@
       </div>
       <div class="col-md-3">
         <div class="md-form form-group">
-          <button class="btn btn-primary" (click)="onSave()">Save</button>
-          <button class="btn btn-default" (click)="onCancel()">Cancel</button>
+          <button class="btn btn-primary" (click)="onSave()" style="margin-top: -5px">Save</button>
+          <button class="btn btn-default" (click)="onCancel()" style="margin-top: -5px">Cancel</button>
         </div>
-      </div>
-      <br />
+      </div>   
     </div>
     <div style="width:100%; height:100%; overflow: hidden; padding-left:30px; padding-right:30px; background-color:transparent;">
       <ag-grid-angular id="evaludateGrid" style="width:100%; height:500px;"

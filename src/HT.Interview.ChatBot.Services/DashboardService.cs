@@ -45,7 +45,7 @@ namespace HT.Interview.ChatBot.Services
         {
             try
             {
-                IEnumerable<Dashboard> dashboard = await _chatbotDataContext.Dashboard.FromSql("icb.usp_DashboardGetReportData_V2").ToListAsync();
+                IEnumerable<Dashboard> dashboard = await _chatbotDataContext.Dashboard.FromSql("icb.usp_DashboardGetReportData").ToListAsync();
                 DashboardResponse dashboardResponse = new DashboardResponse();
                 IEnumerable<string> chartLabels = dashboard.Select(x => x.InterviewMonth).Distinct();
                 dashboardResponse.ChartLabel.AddRange(chartLabels);
@@ -74,55 +74,7 @@ namespace HT.Interview.ChatBot.Services
             {
                 return Response.Fail<List<DashboardResponse>>("Something went wrong", ResponseType.GenericError);
             }
-        }
-
-        ///// <summary>
-        ///// Get Dashboard Data async
-        ///// </summary>
-        ///// <param name=""></param>
-        ///// <param name=""></param>
-        ///// <returns></returns>
-        //public async Task<Response<List<DashboardData>>> GetDashboardDataAsync()
-        //{
-        //    try
-        //    {
-        //        IEnumerable<Dashboard> dashboardData = await _chatbotDataContext.Dashboard.ToListAsync();
-        //        List<DashboardData> dashboard = new List<DashboardData>();
-
-        //        foreach (string CompetenceList in dashboardData.Select(x => x.Competence).Distinct())
-        //        {
-        //            DashboardData obj = new DashboardData
-        //            {
-        //                label = CompetenceList
-        //            };
-
-        //            foreach (Dashboard dasobj in dashboardData.Where(x => x.Competence == CompetenceList))
-        //            {
-        //                foreach (string month in dashboardData.Select(x => x.Month).Distinct())
-        //                {
-        //                    if (!dashboardData.Any(x => x.Competence == CompetenceList & x.Month == month))
-        //                    {
-        //                        obj.data.Add(0);
-        //                    }
-        //                    else { obj.data.Add(dasobj.Count); break; }
-
-
-        //                }
-
-        //                //obj.month.Add(dasobj.Month);
-
-        //            }
-        //            dashboard.Add(obj);
-        //        }
-        //        dashboard.FirstOrDefault().month.AddRange(dashboardData.Select(x => x.Month).Distinct());
-        //        return Response.Ok(dashboard);
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        ex.Message.ToString();
-        //        return null;
-        //    }
-        //}
+        } 
 
         #endregion
     }

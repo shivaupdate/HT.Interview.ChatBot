@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using HT.Framework.MVC; 
+using HT.Framework.MVC;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.DTO;
-using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -66,7 +66,7 @@ export class ManageUserComponent implements OnInit {
         headerName: "Is Active", field: "isActive",
         cellRenderer: params => {
           return `<div style='text-align:center;'><input disabled type='checkbox' ${params.value ? 'checked' : ''} /></div>`;
-        }
+        } 
       }
     ];
   }

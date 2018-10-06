@@ -3,7 +3,7 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
 
 @Component({
   selector: 'app-grid-button',
-  template: `<div style="text-align:center;" (click)="invokeParentMethod()"><i class="fa fa-file" style="color: darkcyan; cursor: pointer;"></i></div>` 
+  template: `<div style="text-align:center;" (click)="invokeParentMethod()"><img src="../../../assets/images/resume.png" style="cursor: pointer;height: 20px;width: 20px;"/></div>` 
 })
 
 export class DownloadFileComponent implements

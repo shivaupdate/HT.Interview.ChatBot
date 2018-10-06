@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
+    /// <summary>
+    /// Gender model
+    /// </summary>
     public class Gender
     {
         /// <summary>
@@ -13,7 +14,6 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// <value>
         /// The Id
         /// </value> 
-
         [Required]
         public int Id { get; set; }
 
@@ -59,6 +59,5 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ModifiedOn
         /// </value>  
         public DateTime? ModifiedOn { get; set; }
-
     }
 }

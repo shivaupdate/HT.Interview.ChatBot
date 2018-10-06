@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using HT.Framework.MVC;
-using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
