@@ -21,13 +21,15 @@ export class InterviewEvaluationComponent implements OnInit {
 
   @Input('data') meals: string[] = [];
 
+  private evaluateGridApi;
   private evaluateGridOptions: GridOptions;
-  private evaluateResultGridOptions: GridOptions;
   private evaluateGridColumns;
-  private evaluateResultGridColumns;
   private evaluateGridData: any;
-  private evaluateResultGridData: any;
+
   private evaluateResultGridApi;
+  private evaluateResultGridOptions: GridOptions;
+  private evaluateResultGridData: any;
+  private evaluateResultGridColumns;
 
   private webAPIGetCandidatesUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
   private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=';
@@ -97,21 +99,16 @@ export class InterviewEvaluationComponent implements OnInit {
 
     this.evaluateGridColumns = [
       {
-        headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
-        cellRenderer: (data) => { return data.value ? (moment(data.value).format('DD/MM/YYYY')) : ''; }
+        headerName: "Interview Date", field: "interviewDate", filter: 'agDateColumnFilter',
+        cellRenderer: (data) => { return data.value ? (moment(data.value).format('DD/MM/YYYY')) : ''; },
+        cellClass: "ag-grid-cell-text-center", width: 130
       },
-      { headerName: "Profile Name", field: "profileName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
-      { headerName: "Candidate Name", field: "displayName", suppressSizeToFit: false, filter: 'agTextColumnFilter' },
+      { headerName: "Profile Name", field: "profileName", filter: 'agTextColumnFilter' },
+      { headerName: "Candidate Name", field: "displayName", filter: 'agTextColumnFilter' },
+      { headerName: "Resume", cellRendererFramework: DownloadFileComponent, width: 100 },
+      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 250 },
       {
-        headerName: "Resume",
-        suppressSizeToFit: false,
-        cellRendererFramework: DownloadFileComponent
-      },
-      {
-        headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", suppressSizeToFit: false
-      },
-      {
-        headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult", suppressSizeToFit: false,
+        headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult",
         cellStyle: function (params) {
           if (params.value == 'Selected') {
             return { color: 'darkgreen' };
@@ -125,54 +122,55 @@ export class InterviewEvaluationComponent implements OnInit {
           return null;
         }
       },
-      {
-        headerName: "Evaluate",
-        cellRendererFramework: GridAddButtonComponent,
-        suppressSizeToFit: false
-      }
+      { headerName: "Evaluate", cellRendererFramework: GridAddButtonComponent, width: 100 }
     ];
 
     this.evaluateResultGridColumns = [
       {
-        headerName: "", field: "rowNumber", filter: 'agTextColumnFilter',
+        headerName: "", field: "rowNumber", filter: 'agTextColumnFilter', autoHeight: false, width: 40,
         cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; },
-        autoHeight: false, width: 40, maxWidth: 40
       },
       {
         headerName: "Bot Response/Question", field: "botResponse", filter: 'agTextColumnFilter',
-        cellClass: "cell-wrap-text", autoHeight: true, width: 400 
+        cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 400
       },
       {
         headerName: "Candidate Reponse", field: "userResponse", filter: 'agTextColumnFilter',
-        cellClass: "cell-wrap-text", autoHeight: true, width: 300
+        cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 300
       },
       {
         headerName: "Expected Answer", field: "expectedAnswer", filter: 'agTextColumnFilter',
-        cellClass: "cell-wrap-text", autoHeight: true
+        cellClass: "ag-grid-cell-wrap-text", autoHeight: true
       },
       {
         headerName: "Allocated Time", field: "allocatedTime", filter: 'agTextColumnFilter', valueFormatter: this.timeFormatter,
-        cellClass: 'grid-time-cell', autoHeight: false, width: 120, maxWidth: 120
+        cellClass: 'ag-grid-cell-text-center', autoHeight: false, width: 120
       },
       {
         headerName: "Time Taken", field: "timeTaken", filter: 'agTextColumnFilter', valueFormatter: this.timeFormatter,
-        cellClass: 'grid-time-cell', autoHeight: false, width: 120, maxWidth: 120
+        cellClass: 'ag-grid-cell-text-center', autoHeight: false, width: 120
       }
     ];
 
   }
 
-  onEvaluateGridReady() {
+  onEvaluateGridReady(params) {
+    this.evaluateGridApi = params.api;
     this.http.get(this.webAPIGetCandidatesUrl)
       .subscribe(data => {
         this.evaluateGridData = data;
-      });
+      });                             
+    setTimeout(function () {
+      params.api.resetRowHeights();
+    }, 500);
+  }
+       
+  onEvaluateGridColumnResized(event) {
+    if (event.finished) {
+      this.evaluateGridApi.resetRowHeights();
+    }
   }
 
-  onEvaluateGridFirstDataRendered(params) {
-    params.api.sizeColumnsToFit();
-  }
-          
   onEvaluateGridPageChange(number: number) {
     this.evaluateGridPagingConfig.currentPage = number;
   }

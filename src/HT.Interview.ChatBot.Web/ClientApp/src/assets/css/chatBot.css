@@ -1,7 +1,3 @@
-.grid-time-cell {
-  text-align: center !important;
-  font-weight: bold !important;
-}
 
 .ag-theme-blue .ag-header-cell-label {
   color: #ffffff !important;
@@ -12,11 +8,16 @@
   font-weight: bold;
 }
 
+.ag-grid-cell-wrap-text {
+  white-space: normal !important;
+}
+
+.ag-grid-cell-text-center {
+  text-align: center !important;
+}
+
 .pagination-theme {
   text-align: center;
   color: black;
   font-weight: bold;
-}
-.cell-wrap-text {
-  white-space: normal !important;
 }

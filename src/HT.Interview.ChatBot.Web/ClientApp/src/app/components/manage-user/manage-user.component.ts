@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from '../../models/user';
-import { Role } from '../../models/role';          
+import { Role } from '../../models/role';
 import { Constants } from '../../models/constants';
 import { RoleEnum } from '../../models/enums';
 import { GenderEnum } from '../../models/enums';
@@ -56,17 +56,17 @@ export class ManageUserComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
-      { headerName: "Role", field: "roleName", filter: 'agTextColumnFilter' },
-      { headerName: "Name", field: "displayName", suppressSizeToFit: true, filter: 'agTextColumnFilter' },
-      { headerName: "Email", field: "email", suppressSizeToFit: true, filter: 'agDateColumnFilter' },
-      { headerName: "Mobile", field: "mobile", filter: 'agTextColumnFilter' },
-      { headerName: "Gender", field: "genderName", filter: 'agDateColumnFilter' },
-      { headerName: "Logged in using", field: "provider", filter: 'agTextColumnFilter' },
+      { headerName: "Role", field: "roleName", filter: 'agTextColumnFilter', width: 180 },
+      { headerName: "Name", field: "displayName", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 250 },
+      { headerName: "Email", field: "email", suppressSizeToFit: true, filter: 'agDateColumnFilter', width: 250 },
+      { headerName: "Mobile", field: "mobile", filter: 'agTextColumnFilter', width: 200 },
+      { headerName: "Gender", field: "genderName", filter: 'agDateColumnFilter', width: 200 },
+      { headerName: "Logging used", field: "provider", filter: 'agTextColumnFilter', width: 160 },
       {
-        headerName: "Is Active", field: "isActive",
+        headerName: "Is Active", field: "isActive", width: 200,
         cellRenderer: params => {
           return `<div style='text-align:center;'><input disabled type='checkbox' ${params.value ? 'checked' : ''} /></div>`;
-        } 
+        }
       }
     ];
   }
@@ -144,5 +144,5 @@ export class ManageUserComponent implements OnInit {
 
   onPageChange(number: number) {
     this.config.currentPage = number;
-  }   
+  }
 }             
