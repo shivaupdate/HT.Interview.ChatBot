@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
@@ -25,7 +27,9 @@ export class CameraComponent implements OnInit {
   recordedBlobs = null;
   hideStopBtn = true;
 
-  constructor() { }
+  private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
@@ -95,6 +99,7 @@ export class CameraComponent implements OnInit {
     if (this.video) {
       this.video.controls = true;
     }
+    this.download();
   }
 
   handleVideoStream(blob) {
@@ -106,6 +111,17 @@ export class CameraComponent implements OnInit {
     console.log('download recorded stream');
     const timestamp = new Date().getUTCMilliseconds();
     const blob = new Blob(this.recordedBlobs, { type: this.format });
+    var formData = new FormData();
+    var fileName = 'ABCDEF.webm';
+    formData.append('firstName', "test");
+    formData.append('lastName', "test");
+    formData.append('email', "test");
+    formData.append('mobile', "test");
+    formData.append('recordingFile', blob, fileName);
+    this.http.post(this.webAPIUrl, formData).subscribe(data => { });
+
+
+
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.style.display = 'none';

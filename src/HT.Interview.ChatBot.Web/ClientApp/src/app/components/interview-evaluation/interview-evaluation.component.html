@@ -1,34 +1,34 @@
 <app-standard>
-  <div *ngIf="operationMode == 1">      
-      <h3 class="main-title">Interview Evaluation</h3>
-      <ag-grid-angular id="resultGrid" style="padding-left:30px; padding-right:30px; background-color:transparent;"
-                       class="ag-theme-blue"
-                       [enableColResize]="true"
-                       [enableSorting]="true"
-                       [rowData]="viewGridData | paginate: config"
-                       [columnDefs]="viewGridColumns"
-                       (firstDataRendered)="onFirstDataRendered($event)"
-                       (gridReady)="onViewGridReady($event)"
-                       [pagination]="false"
-                       [rowSelection]='single'
-                       [enableFilter]="true"
-                       [domLayout]="domLayout"
-                       [gridOptions]="viewGridOptions">
-      </ag-grid-angular>
-      <br />
-      <div class="pagination-theme">
-        <pagination-controls [id]="config.id"
-                             [maxSize]="maxSize"
-                             [directionLinks]="directionLinks"
-                             [autoHide]="autoHide"
-                             [responsive]="responsive"
-                             [previousLabel]="labels.previousLabel"
-                             [nextLabel]="labels.nextLabel"
-                             [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-                             [screenReaderPageLabel]="labels.screenReaderPageLabel"
-                             [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-                             (pageChange)="onPageChange($event)">
-        </pagination-controls>       
+  <div *ngIf="operationMode == 1">
+    <h3 class="main-title">Interview Evaluation</h3>
+    <ag-grid-angular id="resultGrid" style="padding-left:30px; padding-right:30px; background-color:transparent;"
+                     class="ag-theme-blue"
+                     [enableColResize]="true"
+                     [enableSorting]="true"
+                     [pagination]="false"
+                     [rowSelection]='single'
+                     [enableFilter]="true"
+                     [domLayout]="domLayout"
+                     (firstDataRendered)="onEvaluateGridFirstDataRendered($event)"
+                     (gridReady)="onEvaluateGridReady($event)"
+                     [rowData]="evaluateGridData | paginate: evaluateGridPagingConfig"
+                     [columnDefs]="evaluateGridColumns"
+                     [gridOptions]="evaluateGridOptions">
+    </ag-grid-angular>
+    <br />
+    <div class="pagination-theme">
+      <pagination-controls [id]="evaluateGridPagingConfig.id"
+                           [maxSize]="maxSize"
+                           [directionLinks]="directionLinks"
+                           [autoHide]="autoHide"
+                           [responsive]="responsive"
+                           [previousLabel]="labels.previousLabel"
+                           [nextLabel]="labels.nextLabel"
+                           [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                           [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                           [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                           (pageChange)="onEvaluateGridPageChange($event)">
+      </pagination-controls>
     </div>
   </div>
   <div *ngIf="operationMode == 3">
@@ -56,23 +56,39 @@
           <button class="btn btn-primary" (click)="onSave()" style="margin-top: -5px">Save</button>
           <button class="btn btn-default" (click)="onCancel()" style="margin-top: -5px">Cancel</button>
         </div>
-      </div>   
+      </div>
     </div>
-    <div style="width:100%; height:100%; overflow: hidden; padding-left:30px; padding-right:30px; background-color:transparent;">
-      <ag-grid-angular id="evaludateGrid" style="width:100%; height:500px;"
+    <div style="padding-left:30px; padding-right:30px; background-color:transparent;">
+      <ag-grid-angular id="evaludateGrid"
                        class="ag-theme-blue"
                        [enableColResize]="true"
                        [enableSorting]="true"
-                       [rowData]="evaluateGridData"
-                       [columnDefs]="evaluateGridColumns"
-                       (firstDataRendered)="onFirstDataRendered($event)"
-                       (gridReady)="onEvaluateGridReady($event)"
                        [pagination]="false"
                        [rowSelection]='single'
-                       [enableFilter]="true"  
+                       [enableFilter]="true"
                        [domLayout]="domLayout"
-                       [gridOptions]="evaluateGridOptions">
+                       [autoHeight]="true"
+                       (gridReady)="onEvaluateResultGridReady($event)"
+                       (columnResized)="onEvaluateResultGridColumnResized($event)"
+                       [rowData]="evaluateResultGridData | paginate: evaluateResultGridPagingConfig"
+                       [columnDefs]="evaluateResultGridColumns"
+                       [gridOptions]="evaluateResultGridOptions">
       </ag-grid-angular>
+      <br />
+      <div class="pagination-theme">
+        <pagination-controls [id]="evaluateResultGridPagingConfig.id"
+                             [maxSize]="maxSize"
+                             [directionLinks]="directionLinks"
+                             [autoHide]="autoHide"
+                             [responsive]="responsive"
+                             [previousLabel]="labels.previousLabel"
+                             [nextLabel]="labels.nextLabel"
+                             [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                             [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                             [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                             (pageChange)="onEvaluateResultGridPageChange($event)">
+        </pagination-controls>
+      </div>
     </div>
   </div>
 </app-standard>

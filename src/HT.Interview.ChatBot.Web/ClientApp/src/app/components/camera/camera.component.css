@@ -1,8 +1,6 @@
-.video-rec {
-  height: 44%;
-  margin-top: -75px;
+.video-rec { 
+  margin-top: -60px;
   border-radius: 1.0rem !important;
-  background-color: transparent !important;
-  border: double;
+  background-color: transparent !important; 
   width: 100%;
 }

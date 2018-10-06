@@ -1,7 +1,5 @@
-<app-standard>
-  <br />
-  <div class="container" style="margin-left:-10px" *ngIf="interviewState == 1">
-    <br />
+<app-standard>   
+  <div class="container" style="margin-left:-10px" *ngIf="interviewState == 1">         
     <section style="width: 1500px !important;">
       <div class="row wow fadeIn">
         <div class="col-lg-4 col-xl-4 mb-4 section">
@@ -117,7 +115,7 @@
                 <div #divChatWindow class="list-unstyled chat-1 scrollbar-light-blue" (scroll)="onScroll()">
                   <ul>
                     <ng-container *ngFor="let message of messages | async">
-                      <li class="d-flex justify-content-between mb-4">
+                      <li class="d-flex justify-content-between mb-4" style="margin-left: -100px; width: 42%;">
                         <div>
                           <ng-container *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'; else responseRecorded">
                             <div *ngIf="message.response.result.resolvedQuery === 'Allocated time expired'" class="bubble bot">
@@ -149,7 +147,7 @@
                           </ng-template>
                         </div>
                       </li>
-                      <li class="d-flex justify-content-between mb-4">
+                      <li class="d-flex justify-content-between mb-4"  style="margin-left: -30px;">
                         <div class="chat-body p-3 z-depth-1 message-from-bot">
                           <div class="row message-wrapper">
                             <div class="message-header">

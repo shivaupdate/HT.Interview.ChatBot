@@ -7,7 +7,9 @@ using HT.Interview.ChatBot.API.DTO.Response.Message;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -93,6 +95,30 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             return await GetResponseAsync(async () => (await _interviewService.GetInterviewDetail(userId))
             .GetMappedResponse<IEnumerable<InterviewDetail>, IEnumerable<InterviewDetail>>(_mapper));
+        }
+
+        /// <summary>
+        /// Create user async
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost(Common.Constants.UploadVideo), DisableRequestSizeLimit]
+        public async Task<ActionResult> CreateUserAsync([FromForm]User user)
+        {
+            var file = user.RecordingFile;
+            string path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\app-data\user\" + user.FirstName + user.LastName);
+            if (!(Directory.Exists(path)))
+            {
+                Directory.CreateDirectory(path);
+            } 
+            string fileExtension = Path.GetExtension(user.RecordingFile.FileName);
+            path = path + @"\" + "Recording_" + user.FirstName + "_" + user.LastName + "_" + fileExtension;
+            user.RecordingFilePath = path;
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await user.RecordingFile.CopyToAsync(stream);
+            }
+            return await GetResponseAsync(async () => (await _userService.UpdateUserRecordingDetailAsync(79, path,"RavindraK@Hexaware.com")));
         }
 
         #endregion

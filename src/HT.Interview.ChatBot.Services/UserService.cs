@@ -195,6 +195,33 @@ namespace HT.Interview.ChatBot.Services
         }
 
         /// <summary>
+        /// Update user recording detail async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="recordingFilePath"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        public async Task<Response> UpdateUserRecordingDetailAsync(int userId, string recordingFilePath, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.RecordingFilePath = recordingFilePath; 
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
+        /// <summary>
         /// Delete user async
         /// </summary>
         /// <param name="id"></param>

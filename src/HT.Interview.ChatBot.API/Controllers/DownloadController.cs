@@ -36,14 +36,14 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             if (filePath == null)
                 return Content("filePath not present");
-             
+
             MemoryStream memory = new MemoryStream();
             using (FileStream stream = new FileStream(filePath, FileMode.Open))
             {
                 await stream.CopyToAsync(memory);
             }
             memory.Position = 0;
-            return File(memory, GetContentType(filePath), Path.GetFileName(filePath)); 
+            return File(memory, GetContentType(filePath), Path.GetFileName(filePath));
         }
 
         #endregion
@@ -78,7 +78,8 @@ namespace HT.Interview.ChatBot.API.Controllers
                 {".jpg", "image/jpeg"},
                 {".jpeg", "image/jpeg"},
                 {".gif", "image/gif"},
-                {".csv", "text/csv"}
+                {".csv", "text/csv"},
+                {".webm", "video/webm"}
             };
         }
     }

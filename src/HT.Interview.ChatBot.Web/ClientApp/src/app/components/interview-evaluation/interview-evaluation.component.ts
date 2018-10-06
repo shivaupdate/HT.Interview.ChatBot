@@ -21,12 +21,13 @@ export class InterviewEvaluationComponent implements OnInit {
 
   @Input('data') meals: string[] = [];
 
-  private viewGridOptions: GridOptions;
   private evaluateGridOptions: GridOptions;
-  private viewGridColumns;
+  private evaluateResultGridOptions: GridOptions;
   private evaluateGridColumns;
-  private viewGridData: any;
+  private evaluateResultGridColumns;
   private evaluateGridData: any;
+  private evaluateResultGridData: any;
+  private evaluateResultGridApi;
 
   private webAPIGetCandidatesUrl = environment.application.webAPIUrl + environment.controller.userController + environment.action.getManyByRoleId + '?roleId=' + RoleEnum.Candidate;
   private webAPIGetInterviewDetailUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getInterviewDetailByUserId + '?userId=';
@@ -47,7 +48,13 @@ export class InterviewEvaluationComponent implements OnInit {
   private responsive: boolean = false;
   private domLayout = "autoHeight";
 
-  private config: PaginationInstance = {
+  private evaluateGridPagingConfig: PaginationInstance = {
+    id: 'advanced',
+    itemsPerPage: environment.application.pageSize,
+    currentPage: 1
+  };
+
+  private evaluateResultGridPagingConfig: PaginationInstance = {
     id: 'advanced',
     itemsPerPage: environment.application.pageSize,
     currentPage: 1
@@ -76,19 +83,19 @@ export class InterviewEvaluationComponent implements OnInit {
     var timeCellRenderer = function (): any {
     };
 
-    this.viewGridOptions = <GridOptions>{
+    this.evaluateGridOptions = <GridOptions>{
       context: {
         componentParent: this
       }
     };
 
-    this.evaluateGridOptions = <GridOptions>{
+    this.evaluateResultGridOptions = <GridOptions>{
       components: {
         'TimeCellRenderer': timeCellRenderer
       }
     };
 
-    this.viewGridColumns = [
+    this.evaluateGridColumns = [
       {
         headerName: "Interview Date", field: "interviewDate", suppressSizeToFit: false, filter: 'agDateColumnFilter',
         cellRenderer: (data) => { return data.value ? (moment(data.value).format('DD/MM/YYYY')) : ''; }
@@ -125,46 +132,70 @@ export class InterviewEvaluationComponent implements OnInit {
       }
     ];
 
-    this.evaluateGridColumns = [
+    this.evaluateResultGridColumns = [
       {
-        headerName: "SN", field: "rowNumber", suppressSizeToFit: true, filter: 'agTextColumnFilter',
+        headerName: "", field: "rowNumber", filter: 'agTextColumnFilter',
         cellRenderer: params => { return `<div style="text-align:center;"> ${params.value}</div>`; },
-        width: 60, maxWidth: 60
-      },
-      { headerName: "Bot Response/Question", field: "botResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 600 },
-      { headerName: "Candidate Reponse", field: "userResponse", suppressSizeToFit: true, filter: 'agTextColumnFilter', width: 400 },
-      {
-        headerName: "Expected Answer", field: "expectedAnswer", suppressSizeToFit: true, filter: 'agTextColumnFilter',
-        width: 160, maxWidth: 160,
+        autoHeight: false, width: 40, maxWidth: 40
       },
       {
-        headerName: "Allocated Time", field: "allocatedTime", suppressSizeToFit: true, filter: 'agTextColumnFilter',
-        valueFormatter: this.timeFormatter, cellClass: 'grid-time-cell', width: 140, maxWidth: 140,
+        headerName: "Bot Response/Question", field: "botResponse", filter: 'agTextColumnFilter',
+        cellClass: "cell-wrap-text", autoHeight: true, width: 400 
       },
       {
-        headerName: "Time Taken", field: "timeTaken", suppressSizeToFit: true, filter: 'agTextColumnFilter',
-        valueFormatter: this.timeFormatter, cellClass: 'grid-time-cell', width: 120, maxWidth: 120
+        headerName: "Candidate Reponse", field: "userResponse", filter: 'agTextColumnFilter',
+        cellClass: "cell-wrap-text", autoHeight: true, width: 300
+      },
+      {
+        headerName: "Expected Answer", field: "expectedAnswer", filter: 'agTextColumnFilter',
+        cellClass: "cell-wrap-text", autoHeight: true
+      },
+      {
+        headerName: "Allocated Time", field: "allocatedTime", filter: 'agTextColumnFilter', valueFormatter: this.timeFormatter,
+        cellClass: 'grid-time-cell', autoHeight: false, width: 120, maxWidth: 120
+      },
+      {
+        headerName: "Time Taken", field: "timeTaken", filter: 'agTextColumnFilter', valueFormatter: this.timeFormatter,
+        cellClass: 'grid-time-cell', autoHeight: false, width: 120, maxWidth: 120
       }
     ];
 
   }
 
-  onFirstDataRendered(params) {
-    params.api.sizeColumnsToFit();
-  }
-
-  onViewGridReady() {
-    this.http.get(this.webAPIGetCandidatesUrl)
-      .subscribe(data => {
-        this.viewGridData = data;
-      });
-  }
-
   onEvaluateGridReady() {
-    this.http.get(this.webAPIGetInterviewDetailUrl + this.user.id)
+    this.http.get(this.webAPIGetCandidatesUrl)
       .subscribe(data => {
         this.evaluateGridData = data;
       });
+  }
+
+  onEvaluateGridFirstDataRendered(params) {
+    params.api.sizeColumnsToFit();
+  }
+          
+  onEvaluateGridPageChange(number: number) {
+    this.evaluateGridPagingConfig.currentPage = number;
+  }
+
+  onEvaluateResultGridReady(params) {
+    this.evaluateResultGridApi = params.api;
+    this.http.get(this.webAPIGetInterviewDetailUrl + this.user.id)
+      .subscribe(data => {
+        this.evaluateResultGridData = data;
+      });
+    setTimeout(function () {
+      params.api.resetRowHeights();
+    }, 500);
+  }
+
+  onEvaluateResultGridColumnResized(event) {
+    if (event.finished) {
+      this.evaluateResultGridApi.resetRowHeights();
+    }
+  }
+
+  onEvaluateResultGridPageChange(number: number) {
+    this.evaluateResultGridPagingConfig.currentPage = number;
   }
 
   gridAddButtonClick(data) {
@@ -177,6 +208,7 @@ export class InterviewEvaluationComponent implements OnInit {
     }
     this.user.remark = data.remark;
     this.operationMode = OperationMode.Edit;
+    this.evaluateResultGridPagingConfig.currentPage = 1;
   }
 
   downloadFile(data) {
@@ -204,11 +236,13 @@ export class InterviewEvaluationComponent implements OnInit {
 
     this.http.put(this.webAPIUpdateUserInterviewResultUrl, body, httpOptions).subscribe(data => {
       this.operationMode = OperationMode.View;
+      this.evaluateResultGridPagingConfig.currentPage = 1;
     });
   }
 
   onCancel() {
     this.operationMode = OperationMode.View;
+    this.evaluateResultGridPagingConfig.currentPage = 1;
   }
 
   // time formatter
@@ -219,9 +253,5 @@ export class InterviewEvaluationComponent implements OnInit {
     else {
       return String(params.value) + ' sec';
     }
-  }
-
-  onPageChange(number: number) {
-    this.config.currentPage = number;
   }
 }    

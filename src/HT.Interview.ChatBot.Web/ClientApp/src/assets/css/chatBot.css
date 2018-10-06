@@ -17,3 +17,6 @@
   color: black;
   font-weight: bold;
 }
+.cell-wrap-text {
+  white-space: normal !important;
+}

@@ -206,5 +206,14 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         [NotMapped]
         public IFormFile ResumeFile { get; set; }
+
+        /// <summary>
+        /// Get or sets the Recording file
+        /// </summary>
+        /// <value>
+        /// The ResumeFile
+        /// </value> 
+        [NotMapped]
+        public IFormFile RecordingFile { get; set; }
     }
 }

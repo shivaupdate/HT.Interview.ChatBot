@@ -41,6 +41,11 @@
         public const string Update = "update";
         
         /// <summary>
+        /// Upload video
+        /// </summary>
+        public const string UploadVideo = "upload-video";
+
+        /// <summary>
         /// Delete
         /// </summary>
         public const string Delete = "delete";

@@ -69,6 +69,15 @@ namespace HT.Interview.ChatBot.Common.Contracts
         Task<Response> UpdateUserInterviewResultAsync(int userId, string remark, string endResult, string modifiedBy);
 
         /// <summary>
+        /// Update user recording details async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="recordingFilePath"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        Task<Response> UpdateUserRecordingDetailAsync(int userId, string recordingFilePath, string modifiedBy);
+
+        /// <summary>
         /// Delete user async
         /// </summary>
         /// <param name="id"></param>
