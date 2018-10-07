@@ -10,7 +10,6 @@
                      [enableFilter]="true"
                      [domLayout]="domLayout"
                      [autoHeight]="true"
-                     (firstDataRendered)="onEvaluateGridFirstDataRendered($event)"
                      (columnResized)="onEvaluateGridColumnResized($event)"
                      (gridReady)="onEvaluateGridReady($event)"
                      [rowData]="evaluateGridData | paginate: evaluateGridPagingConfig"

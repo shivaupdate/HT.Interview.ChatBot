@@ -10,6 +10,7 @@ import { Constants } from '../../models/constants';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
 import { environment } from '../../../environments/environment';
+import { FILE } from 'dns';
 
 @Component({
   selector: 'app-interview-evaluation',
@@ -106,18 +107,19 @@ export class InterviewEvaluationComponent implements OnInit {
       { headerName: "Profile Name", field: "profileName", filter: 'agTextColumnFilter' },
       { headerName: "Candidate Name", field: "displayName", filter: 'agTextColumnFilter' },
       { headerName: "Resume", cellRendererFramework: DownloadFileComponent, width: 100 },
-      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 250 },
+      { headerName: "Recording", cellRendererFramework: DownloadFileComponent, width: 100 },
+      { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 150 },
       {
         headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult",
         cellStyle: function (params) {
           if (params.value == 'Selected') {
-            return { color: 'darkgreen' };
+            return { color: 'darkgreen', fontWeight: 'bold' };
           } else if (params.value == 'Not Selected') {
-            return { color: 'red' };
+            return { color: 'red', fontWeight: 'bold'  };
           } else if (params.value == 'On Hold') {
-            return { color: 'darkblue' };
+            return { color: 'darkblue', fontWeight: 'bold'  };
           } else if (params.value == 'Require further evaluation') {
-            return { color: 'darkorange' };
+            return { color: 'darkorange', fontWeight: 'bold'  };
           }
           return null;
         }
@@ -159,12 +161,12 @@ export class InterviewEvaluationComponent implements OnInit {
     this.http.get(this.webAPIGetCandidatesUrl)
       .subscribe(data => {
         this.evaluateGridData = data;
-      });                             
+      });
     setTimeout(function () {
       params.api.resetRowHeights();
     }, 500);
   }
-       
+
   onEvaluateGridColumnResized(event) {
     if (event.finished) {
       this.evaluateGridApi.resetRowHeights();
@@ -209,11 +211,18 @@ export class InterviewEvaluationComponent implements OnInit {
     this.evaluateResultGridPagingConfig.currentPage = 1;
   }
 
-  downloadFile(data) {
-    if (data.resumeFilePath != null) {
+  downloadFile(headerName, data) {
+    var filePath: string;
+    if (headerName == 'Resume') {
+      filePath = data.resumeFilePath;
+    }
+    else if (headerName == 'Recording') {
+      filePath = data.recordingFilePath;
+    }
+    if (filePath != null) {
       const a = document.createElement('a');
       a.style.display = 'none';
-      a.href = this.webAPIDownloadResumeUrl + data.resumeFilePath;
+      a.href = this.webAPIDownloadResumeUrl + filePath;
       document.body.appendChild(a);
       a.click();
       setTimeout(() => {

@@ -5,7 +5,7 @@
 }
 
 .ag-theme-blue .ag-cell {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .ag-grid-cell-wrap-text {
@@ -14,6 +14,7 @@
 
 .ag-grid-cell-text-center {
   text-align: center !important;
+  font-weight: bold !important;
 }
 
 .pagination-theme {

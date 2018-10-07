@@ -3,7 +3,13 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
 
 @Component({
   selector: 'app-grid-button',
-  template: `<div style="text-align:center;" (click)="invokeParentMethod()"><img src="../../../assets/images/resume.png" style="cursor: pointer;height: 17px;width: 20px;"/></div>` 
+  template: `<div *ngIf="this.params.colDef.headerName == 'Resume' && params.data.resumeFilePath != null" style="text-align:center;" (click)="invokeParentMethod()">
+              <img src="../../../assets/images/resume.png" style="cursor: pointer;height: 17px;width: 20px;"/>
+            </div>
+             <div *ngIf="this.params.colDef.headerName == 'Recording' && params.data.recordingFilePath != null" style="text-align:center;" (click)="invokeParentMethod()">
+                <i class="fa fa-video-camera" style="color: darkcyan; cursor: pointer;"></i>
+              </div>
+             `
 })
 
 export class DownloadFileComponent implements
@@ -12,11 +18,11 @@ export class DownloadFileComponent implements
   public params: any;
 
   agInit(params: any): void {
-    this.params = params;
+    this.params = params;                                       
   }
 
   public invokeParentMethod() {       
-    this.params.context.componentParent.downloadFile(this.params.data);
+    this.params.context.componentParent.downloadFile(this.params.colDef.headerName, this.params.data);
   }
 
   refresh(): boolean {
