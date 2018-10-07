@@ -54,25 +54,16 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpGet(Common.Constants.Get)]
         public async Task<ActionResult> GetAsync([FromQuery] QueryRequest q)
         {
-            if (!string.IsNullOrWhiteSpace(q.DialogflowGeneratedIntentId))
+            if (q.InterviewId > 0)
             {
-                await _interviewService.UpdateResponseAsync(q.UserId, q.DialogflowGeneratedIntentId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
+                await _interviewService.UpdateResponseAsync(q.InterviewId, q.Query.FirstOrDefault(), q.TimeTaken, q.Email);
             }
 
             QueryResponse queryResponse = await _httpClient.GetAsync<QueryResponse>(q.ToQueryString());
-            queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId;
-            if (!string.IsNullOrWhiteSpace(queryResponse.Result.DialogflowGeneratedIntentId))
-            {
-                string botResponse = string.Empty;
-                try
-                {
-                    botResponse = ((SimpleResponse)queryResponse.Result.Fulfillment.Messages[0]).TextToSpeech;
-                }
-                catch
-                {
-                }
-                await _interviewService.AddResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId, botResponse, q.Email);
-            }
+            queryResponse.Result.DialogflowGeneratedIntentId = queryResponse.Result.Metadata.IntentId; 
+            queryResponse.Result.InterviewId = await _interviewService.CreateResponseAsync(q.UserId, queryResponse.Result.DialogflowGeneratedIntentId,
+                queryResponse.Result.Fulfillment.Speech, q.Email);
+
             if (q.FirstRequest)
             {
                 await _userService.UpdateUserInterviewDateAsync(q.UserId, q.Email);
@@ -105,12 +96,12 @@ namespace HT.Interview.ChatBot.API.Controllers
         [HttpPost(Common.Constants.UploadVideo), DisableRequestSizeLimit]
         public async Task<ActionResult> CreateUserAsync([FromForm]User user)
         {
-            var file = user.RecordingFile;
+            Microsoft.AspNetCore.Http.IFormFile file = user.RecordingFile;
             string path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\app-data\user\" + user.FirstName + user.LastName);
             if (!(Directory.Exists(path)))
             {
                 Directory.CreateDirectory(path);
-            } 
+            }
             string fileExtension = Path.GetExtension(user.RecordingFile.FileName);
             path = path + @"\" + "Recording_" + user.FirstName + "_" + user.LastName + "_" + fileExtension;
             user.RecordingFilePath = path;
@@ -118,7 +109,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 await user.RecordingFile.CopyToAsync(stream);
             }
-            return await GetResponseAsync(async () => (await _userService.UpdateUserRecordingDetailAsync(79, path,"RavindraK@Hexaware.com")));
+            return await GetResponseAsync(async () => (await _userService.UpdateUserRecordingDetailAsync(79, path, "RavindraK@Hexaware.com")));
         }
 
         #endregion

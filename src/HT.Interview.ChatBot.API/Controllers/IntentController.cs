@@ -70,12 +70,12 @@ namespace HT.Interview.ChatBot.API.Controllers
                     IntentsClient client = IntentsClient.Create();
                     foreach (Model.Intent intentResponse in intentList)
                     {
-                        Google.Cloud.Dialogflow.V2.Intent intent = new Google.Cloud.Dialogflow.V2.Intent();
+                        Intent intent = new Intent();
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
                         intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
-
+                        
                         if (intentResponse.ParentIntentId != null)
                         {
                             intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().DialogflowGeneratedName;
@@ -171,8 +171,9 @@ namespace HT.Interview.ChatBot.API.Controllers
             Message message = new Message()
             {
                 Text = text
+                
             };
-
+            
             return message;
         }
 

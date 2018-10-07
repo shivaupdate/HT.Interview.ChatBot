@@ -14,7 +14,7 @@ export class ChatService {
   private sessionId = this.loggedInUser.sessionId;
   private email = this.loggedInUser.email;
 
-  private dialogflowGeneratedIntentId: string;
+  private interviewId: number;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
   conversation = new BehaviorSubject<Message[]>([]);
 
@@ -46,7 +46,7 @@ export class ChatService {
 
   defaultIntent(message: Message) {
     this.cancelSpeechSynthesis();
-    message.query = 'Hello';
+    message.query = this.loggedInUser.firstName;
     message.firstRequest = true;
     this.getApiAiResponse(message).subscribe(
       response => {
@@ -60,7 +60,7 @@ export class ChatService {
     const message = new Message();
     message.timestamp = new Date();
     message.response = response;
-    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
+    this.interviewId = response.result.interviewId;
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
   }
@@ -84,13 +84,13 @@ export class ChatService {
   getApiAiResponse(message: Message): Observable<any> {      
 
     let params = new HttpParams();
-    params = params.append('UserId', this.userId);
-    params = params.append('SessionId', this.sessionId);
-    params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);
-    params = params.append('Query', message.query);
-    params = params.append('TimeTaken', message.timeTaken);
-    params = params.append('FirstRequest', String(message.firstRequest));
-    params = params.append('Email', this.email);
+    params = params.append('userId', this.userId);
+    params = params.append('sessionId', this.sessionId);
+    params = params.append('interviewId', String(this.interviewId));
+    params = params.append('query', message.query);
+    params = params.append('timeTaken', message.timeTaken);
+    params = params.append('firstRequest', String(message.firstRequest));
+    params = params.append('email', this.email);
 
     return this.http.get(this.webAPIUrl, { params });
   }

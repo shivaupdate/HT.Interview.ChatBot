@@ -29,11 +29,11 @@ namespace HT.Interview.ChatBot.API.DTO.Request
         /// A string token up to 36 symbols long, used to identify the client and to manage sessions parameters (including contexts) per client.
         /// </summary>
         public string SessionId { get; set; }
-
+         
         /// <summary>
-        /// Dialogflow generated intent id
+        /// Interview id
         /// </summary>
-        public string DialogflowGeneratedIntentId { get; set; }
+        public int InterviewId { get; set; }
 
         /// <summary>
         /// Time taken

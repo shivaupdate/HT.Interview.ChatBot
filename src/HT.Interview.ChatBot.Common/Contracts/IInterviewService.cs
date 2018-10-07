@@ -18,24 +18,23 @@ namespace HT.Interview.ChatBot.Common.Contracts
         Task<Response<IEnumerable<InterviewDetail>>> GetInterviewDetail(int userId);
 
         /// <summary>
-        /// Add response async
+        /// Create response async
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="dialogflowGeneratedIntentId"></param>
         /// <param name="botResponse"></param>
         /// <param name="createdBy"></param>
         /// <returns></returns>
-        Task<Response> AddResponseAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy);
+        Task<int> CreateResponseAsync(int userId, string dialogflowGeneratedIntentId, string botResponse, string createdBy);
 
         /// <summary>
         /// Update response async
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="dialogflowGeneratedIntentId"></param>
+        /// <param name="interviewId"></param>
         /// <param name="userResponse"></param>
         /// <param name="timeTaken"></param>
         /// <param name="modifiedBy"></param>
         /// <returns></returns>
-        Task<Response> UpdateResponseAsync(int userId, string dialogflowGeneratedIntentId, string userResponse, int? timeTaken, string modifiedBy);
+        Task<Response> UpdateResponseAsync(int interviewId, string userResponse, int? timeTaken, string modifiedBy);
     }
 }

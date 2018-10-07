@@ -45,7 +45,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
   private allocatedTime = 0;
   private remainingTime = 0;
   private constants = new Constants();
-  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));    
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
   private userName = this.loggedInUser.firstName;
   private photoUrl = this.loggedInUser.photoUrl;
   private interviewState: InterviewState;
@@ -55,7 +55,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
   private localStream;
   private video;
   private mediaRecorder;
-  private recordedBlobs = null;              
+  private recordedBlobs = null;
   private webAPIUploadRecordingUrl = environment.application.webAPIUrl + environment.controller.interviewController + '/upload-video';
 
   ngOnInit() {
@@ -64,7 +64,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
     this.navigator.getUserMedia = (this.navigator.getUserMedia
       || this.navigator.webkitGetUserMedia
       || this.navigator.mozGetUserMedia
-      || this.navigator.msGetUserMedia);     
+      || this.navigator.msGetUserMedia);
   }
 
   ngAfterViewChecked() {
@@ -80,7 +80,6 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
     this.video = this.videoElement.nativeElement;
     this.startInterviewRecording();
     this.document.body.scrollTop = 0;
-    console.log(this.document.body.scrollTop);
     this.interviewState = InterviewState.ConversationStarted;
     var __this = this;
 
@@ -89,8 +88,6 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
     this.messages = this.chat.conversation.asObservable().scan((a, val) => a.concat(val));
 
     this.chat.conversation.subscribe(res => {
-      this.remainingTime = 0;
-      this.allocatedTime = 0;
       res.forEach(function (value) {
         if (value.response.result.metadata.endConversation) {
           __this.started = false;
@@ -112,8 +109,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
             if (__this.countdownTimer) {
               __this.message.remainingTime = '';
               __this.countdownTimer.unsubscribe();
-            }
-
+            }                                                                 
             if (__this.remainingTime > 0) {
 
               __this.countdownTimer = Observable.timer(__this.timerDelay, __this.tick).subscribe(x => {
@@ -125,8 +121,15 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
 
                 __this.message.remainingTime = 'Time Remaining: ' + String(minutes) + ":" + String(seconds);
                 __this.remainingTime = __this.remainingTime - 1;
-
+                                                                                 
                 if (__this.remainingTime < 0) {
+                  if (__this.countdownTimer) {
+                    __this.message.remainingTime = '';
+                    __this.countdownTimer.unsubscribe();
+                  }
+                  __this.remainingTime = 0;
+                  __this.allocatedTime = 0;
+                  __this.timerDelay = 5;
                   __this.noReponseFromCandidate();
                 }
               })
@@ -137,10 +140,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  noReponseFromCandidate() {
-    this.remainingTime = 0;
-    this.allocatedTime = 0;
-    this.timerDelay = 5;
+  noReponseFromCandidate() {                               
     this.message.timeTaken = '';
     this.message.query = 'Allocated time expired';
     this.chat.moveToNextIntent(this.message);
@@ -159,7 +159,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
               this.countdownTimer.unsubscribe();
             }
             this.message.timeTaken = String(this.allocatedTime - this.remainingTime);
-            this.chat.converse(this.message);      
+            this.chat.converse(this.message);
           },
           // errror
           (err) => {
@@ -250,8 +250,8 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
     this.fetchRecording.emit(this.recordedBlobs);
 
     const blob = new Blob(this.recordedBlobs, { type: this.format });
-    
-    var fileName = this.loggedInUser.firstName + '.webm';      
+
+    var fileName = this.loggedInUser.firstName + '.webm';
     this.formData.append('id', this.loggedInUser.id);
     this.formData.append('firstName', this.loggedInUser.firstName);
     this.formData.append('lastName', this.loggedInUser.lastName);

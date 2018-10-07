@@ -23,10 +23,8 @@ import { FooterComponent } from './components/standard/footer/footer.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InterviewEvaluationComponent } from './components/interview-evaluation/interview-evaluation.component';
-import { ManageUserComponent } from './components/manage-user/manage-user.component';
-import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
-import { TalkToLauraComponent } from './components/talk-to-laura/talk-to-laura.component';
-import { CameraComponent } from './components/camera/camera.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';  
+import { TalkToLauraComponent } from './components/talk-to-laura/talk-to-laura.component';   
 import { EndInterviewComponent } from './components/end-interview/end-interview.component';
 
 import { GridAddButtonComponent } from './components/custom/grid-add-button/grid-add-button.component';
@@ -65,10 +63,8 @@ const appRoutes: Routes = [
     AppComponent,
     DashboardComponent,
     InterviewEvaluationComponent,
-    ManageUserComponent,
-    ChatDialogComponent,
-    TalkToLauraComponent,
-    CameraComponent,
+    ManageUserComponent,             
+    TalkToLauraComponent,    
     EndInterviewComponent,
     GridAddButtonComponent,
     DownloadFileComponent
