@@ -82,6 +82,14 @@ namespace HT.Interview.ChatBot.Common.Entities
         public bool IsList { get; set; }
 
         /// <summary>
+        /// Get or sets the IsList
+        /// </summary>
+        /// <value>
+        /// The Email
+        /// </value>  
+        public string Prompt { get; set; }
+
+        /// <summary>
         /// Get or sets the created by
         /// </summary>
         /// <value>
