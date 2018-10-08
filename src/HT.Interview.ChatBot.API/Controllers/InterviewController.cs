@@ -109,7 +109,7 @@ namespace HT.Interview.ChatBot.API.Controllers
             {
                 await user.RecordingFile.CopyToAsync(stream);
             }
-            return await GetResponseAsync(async () => (await _userService.UpdateUserRecordingDetailAsync(79, path, "RavindraK@Hexaware.com")));
+            return await GetResponseAsync(async () => (await _userService.UpdateUserRecordingDetailAsync(user.Id, path, "RavindraK@Hexaware.com")));
         }
 
         #endregion
