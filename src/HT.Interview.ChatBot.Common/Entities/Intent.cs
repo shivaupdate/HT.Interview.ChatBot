@@ -18,15 +18,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// </value> 
         [Required]
         public int Id { get; set; }
-
-        /// <summary>
-        /// Get or sets the JPC mapping id
-        /// </summary>
-        /// <value>
-        /// The JPCMappingId
-        /// </value>  
-        public int? JPCMappingId { get; set; }
-
+         
         /// <summary>
         /// Get or sets the parent intent id
         /// </summary>

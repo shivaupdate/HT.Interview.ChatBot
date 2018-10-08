@@ -18,9 +18,19 @@
         public bool WebhookUsed { get; set; }
 
         /// <summary>
+        /// Indicates wheather to end coversation
+        /// </summary>
+        public bool EndConversation { get; set; }
+
+        /// <summary>
+        /// Indicates wheather is fallback intent
+        /// </summary>
+        public bool IsFallbackIntent { get; set; }
+
+        /// <summary>
         /// Name of the intent that produced this result.
         /// </summary>
-        public string IntentName { get; set; }
+        public string IntentName { get; set; } 
 
         #endregion
     }

@@ -17,20 +17,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />     
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app-data\**" />
     <Compile Remove="ClientApp\src\assets\fonts\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app-data\**" />
     <Content Remove="ClientApp\src\assets\fonts\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\app-data\**" />
     <EmbeddedResource Remove="ClientApp\src\assets\fonts\**" />
+    <None Remove="ClientApp\src\app-data\**" />
     <None Remove="ClientApp\src\assets\fonts\**" />
   </ItemGroup>
 

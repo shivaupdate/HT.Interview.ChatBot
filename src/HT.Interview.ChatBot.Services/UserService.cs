@@ -44,16 +44,8 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<User>> GetUserByEmailAsync(string email)
         {
-            try
-            {
-                User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
-                return Response.Ok(user);
-            }
-            catch (Exception ex)
-            {
-                string mesage = ex.Message;
-                return null;
-            }
+            User user = await _chatbotDataContext.User.AsNoTracking().Where(x => x.Email == email && x.IsActive == true).FirstOrDefaultAsync();
+            return Response.Ok(user);
         }
 
         /// <summary>
@@ -64,7 +56,7 @@ namespace HT.Interview.ChatBot.Services
         public async Task<Response<IEnumerable<UserDetail>>> GetUsersByRoleIdAsync(int roleId)
         {
             IEnumerable<UserDetail> userDetails = await _chatbotDataContext.UserDetail.AsNoTracking()
-               .Where(x => x.RoleId == roleId).ToListAsync();
+               .Where(x => x.RoleId == roleId && x.InterviewDate != null).OrderByDescending(x=> x.InterviewDate).ToListAsync();
             return Response.Ok(userDetails);
         }
 
@@ -121,6 +113,112 @@ namespace HT.Interview.ChatBot.Services
             await _chatbotDataContext.SaveChangesAsync();
 
             return Response.Ok();
+        }
+
+        /// <summary>
+        /// Update user interview date async
+        /// </summary>
+        /// <param name="userId"></param> 
+        /// <returns></returns>
+        public async Task<Response> UpdateUserInterviewDateAsync(int userId, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.InterviewDate = DateTime.UtcNow.Date;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
+        /// <summary>
+        /// Update user interview date async
+        /// </summary>
+        /// <param name="userId"></param> 
+        /// <returns></returns>
+        public async Task<Response> UpdateUserInterviewCompletedAsync(int userId, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.IsInterviewCompleted = true;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
+        /// <summary>
+        /// Update user interview result async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="remark"></param>
+        /// <param name="endResult"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        public async Task<Response> UpdateUserInterviewResultAsync(int userId, string remark, string endResult, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.Remark = remark;
+                u.EndResult = endResult;
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
+        }
+
+        /// <summary>
+        /// Update user recording detail async
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="recordingFilePath"></param>
+        /// <param name="modifiedBy"></param>
+        /// <returns></returns>
+        public async Task<Response> UpdateUserRecordingDetailAsync(int userId, string recordingFilePath, string modifiedBy)
+        {
+            try
+            {
+                User u = await GetUserByIdAsync(userId);
+                u.RecordingFilePath = recordingFilePath; 
+                u.ModifiedBy = modifiedBy;
+                u.ModifiedOn = DateTime.UtcNow.Date;
+
+                _chatbotDataContext.User.Attach(u);
+                await _chatbotDataContext.SaveChangesAsync();
+
+                return Response.Ok();
+            }
+            catch (Exception)
+            {
+                return Response.Fail("InvalidRequest", ResponseType.InvalidRequest);
+            }
         }
 
         /// <summary>

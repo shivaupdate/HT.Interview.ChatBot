@@ -9,12 +9,12 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ChatService {
   private constants = new Constants();
-  private user = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
-  private userId = this.user.id;
-  private sessionId = this.user.sessionId;
-  private email = this.user.email;
+  private loggedInUser = JSON.parse(sessionStorage.getItem(this.constants.applicationUser));
+  private userId = this.loggedInUser.id;
+  private sessionId = this.loggedInUser.sessionId;
+  private email = this.loggedInUser.email;
 
-  private dialogflowGeneratedIntentId: string;
+  private interviewId: number;
   private webAPIUrl = environment.application.webAPIUrl + environment.controller.interviewController + environment.action.getWithParameters;
   conversation = new BehaviorSubject<Message[]>([]);
 
@@ -46,19 +46,21 @@ export class ChatService {
 
   defaultIntent(message: Message) {
     this.cancelSpeechSynthesis();
-    message.query = 'Hello';
+    message.query = this.loggedInUser.firstName;
+    message.firstRequest = true;
     this.getApiAiResponse(message).subscribe(
       response => {
         response.result.resolvedQuery = '';
         this.updateConversation(response);
       });
+    message.firstRequest = false;
   }
 
   updateConversation(response: any) {
     const message = new Message();
     message.timestamp = new Date();
     message.response = response;
-    this.dialogflowGeneratedIntentId = response.result.metadata.intentId;
+    this.interviewId = response.result.interviewId;
     this.conversation.next([message]);
     this.speak(response.result.fulfillment.speech);
   }
@@ -82,12 +84,13 @@ export class ChatService {
   getApiAiResponse(message: Message): Observable<any> {      
 
     let params = new HttpParams();
-    params = params.append('UserId', this.userId);
-    params = params.append('SessionId', this.sessionId);
-    params = params.append('DialogflowGeneratedIntentId', this.dialogflowGeneratedIntentId);
-    params = params.append('Query', message.query);
-    params = params.append('TimeTaken', message.timeTaken);
-    params = params.append('Email', this.email);
+    params = params.append('userId', this.userId);
+    params = params.append('sessionId', this.sessionId);
+    params = params.append('interviewId', String(this.interviewId));
+    params = params.append('query', message.query);
+    params = params.append('timeTaken', message.timeTaken);
+    params = params.append('firstRequest', String(message.firstRequest));
+    params = params.append('email', this.email);
 
     return this.http.get(this.webAPIUrl, { params });
   }

@@ -1,13 +1,25 @@
-export enum Role {
+export enum RoleEnum {
   Candidate = 1,
   Admin = 2,
   HR = 3,
   Panel = 4
-} 
+}
 
-export enum Menu {
-  Dashboard = 1,
-  InterviewEvaluation = 2,
-  ManageUsers = 3,
-  TalkToLaura = 4
+export enum GenderEnum {
+  Unknown = 1,
+  Male = 2,
+  Female = 3
+}
+
+export enum OperationMode {
+  View = 1,
+  Add = 2,
+  Edit = 3,
+  Delete = 4
+}
+
+export enum InterviewState {
+  ShowInstruction = 1,
+  ConversationStarted = 2,
+  EndConversation = 3                   
 }

@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
+    /// <summary>
+    /// Competence model
+    /// </summary>
     public class Competence
     {
         /// <summary>

@@ -3,3 +3,18 @@
   font-weight: bold;
   color: darkgreen;
 }
+
+.select-control {
+  margin: 0 0px 0.5rem 40px;
+  border-radius: 0;
+  padding: 0.3rem 0 0.55rem 0;
+  background-image: none;
+  background-color: transparent;
+  height: auto;
+  width: 250px;
+}
+
+.time-cell {
+  text-align: center !important;
+  font-weight: bold !important;
+} 

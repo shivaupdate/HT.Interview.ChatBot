@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';    
 
 import { NavbarModule, ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
-import { AgGridModule } from 'ag-grid-angular';                       
+import { AgGridModule } from 'ag-grid-angular';             
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ChatModule } from './modules/chat.module';
 import { SpeechModule } from './modules/speech.module';
@@ -23,10 +23,12 @@ import { FooterComponent } from './components/standard/footer/footer.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InterviewEvaluationComponent } from './components/interview-evaluation/interview-evaluation.component';
-import { ManageUserComponent } from './components/manage-user/manage-user.component';
-import { InterviewInstructionComponent } from './components/interview-instruction/interview-instruction.component';
-import { ChatDialogComponent } from './components/chat-dialog/chat-dialog.component';
-import { CameraComponent } from './components/camera/camera.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';  
+import { TalkToLauraComponent } from './components/talk-to-laura/talk-to-laura.component';   
+import { EndInterviewComponent } from './components/end-interview/end-interview.component';
+
+import { GridAddButtonComponent } from './components/custom/grid-add-button/grid-add-button.component';
+import { DownloadFileComponent } from './components/custom/download-file/download-file.component';
 
 import { ChatService } from './services/chat.service';
 import { SpeechService } from './services/speech.service';
@@ -48,8 +50,8 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'interview-evaluation', component: InterviewEvaluationComponent, canActivate: [AuthGuard] },
   { path: 'manage-users', component: ManageUserComponent, canActivate: [AuthGuard] },
-  { path: 'interview-instruction', component: InterviewInstructionComponent, canActivate: [AuthGuard] },
-  { path: 'talk-to-laura', component: ChatDialogComponent, canActivate: [AuthGuard] }
+  { path: 'talk-to-laura', component: TalkToLauraComponent, canActivate: [AuthGuard] },   
+  { path: 'end-interview', component: EndInterviewComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -61,19 +63,20 @@ const appRoutes: Routes = [
     AppComponent,
     DashboardComponent,
     InterviewEvaluationComponent,
-    ManageUserComponent,
-    InterviewInstructionComponent,
-    ChatDialogComponent,
-    CameraComponent
+    ManageUserComponent,             
+    TalkToLauraComponent,    
+    EndInterviewComponent,
+    GridAddButtonComponent,
+    DownloadFileComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     NavbarModule,
     ChartsModule,
-    AgGridModule.withComponents([]),
-    HttpClientModule,
-    HttpModule,
+    AgGridModule.withComponents([GridAddButtonComponent, DownloadFileComponent]),
+    NgxPaginationModule, 
+    HttpClientModule,       
     FormsModule,
     ChatModule,
     SpeechModule,

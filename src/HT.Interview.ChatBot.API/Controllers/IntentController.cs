@@ -2,7 +2,6 @@
 using Google.Cloud.Dialogflow.V2;
 using Google.Protobuf.WellKnownTypes;
 using HT.Framework.MVC;
-using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using static Google.Cloud.Dialogflow.V2.Intent.Types;
 using static Google.Cloud.Dialogflow.V2.Intent.Types.Message.Types;
+using Model = HT.Interview.ChatBot.Common.Entities;
 
 namespace HT.Interview.ChatBot.API.Controllers
 {
@@ -50,7 +50,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> GetManyAsync()
         {
             return await GetResponseAsync(async () => (await _intentService.GetIntentsAsync())
-                .GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper));
+                .GetMappedResponse<IEnumerable<Model.Intent>, IEnumerable<Model.Intent>>(_mapper));
         }
 
         /// <summary>
@@ -62,20 +62,20 @@ namespace HT.Interview.ChatBot.API.Controllers
         {
             try
             {
-                IEnumerable<IntentResponse> intentList =
-                    (await _intentService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Common.Entities.Intent>, IEnumerable<IntentResponse>>(_mapper);
+                IEnumerable<Model.Intent> intentList =
+                    (await _intentService.GetIntentsAsync()).GetMappedResponse<IEnumerable<Model.Intent>, IEnumerable<Model.Intent>>(_mapper);
 
                 if (intentList.Any())
                 {
                     IntentsClient client = IntentsClient.Create();
-                    foreach (IntentResponse intentResponse in intentList.OrderBy(x => x.ParentIntentId))
+                    foreach (Model.Intent intentResponse in intentList)
                     {
                         Intent intent = new Intent();
                         intent.DefaultResponsePlatforms.Add(Platform.ActionsOnGoogle);
                         intent.DisplayName = intentResponse.DisplayName;
                         intent.Messages.Add(AddIntentDefault(intentResponse.Text));
                         intent.Messages.Add(AddCustomPayload(intentResponse.AllocatedTime));
-
+                        
                         if (intentResponse.ParentIntentId != null)
                         {
                             intent.ParentFollowupIntentName = intentList.Where(x => x.Id == intentResponse.ParentIntentId).FirstOrDefault().DialogflowGeneratedName;
@@ -83,40 +83,46 @@ namespace HT.Interview.ChatBot.API.Controllers
 
                         if (intentResponse.InputContext != null)
                         {
-                            intent.InputContextNames.Add(AddIntentInputContext(intentResponse.InputContext));
+                            foreach (string inputContext in intentResponse.InputContext.Split(','))
+                            {
+                                intent.InputContextNames.Add(AddIntentInputContext(inputContext));
+                            }
                         }
 
                         if (intentResponse.OutputContext != null)
                         {
-                            intent.OutputContexts.Add(AddIntentOutputContext(intentResponse.OutputContext));
+                            foreach (string outputContext in intentResponse.OutputContext.Split(','))
+                            {
+                                intent.OutputContexts.Add(AddIntentOutputContext(outputContext));
+                            }
                         }
 
-                        if (intentResponse.IntentTrainingPhraseResponse.Any())
+                        if (intentResponse.IntentTrainingPhrase.Any())
                         {
-                            foreach (IntentTrainingPhraseResponse trainingPhrase in intentResponse.IntentTrainingPhraseResponse)
+                            foreach (Model.IntentTrainingPhrase trainingPhrase in intentResponse.IntentTrainingPhrase)
                             {
                                 intent.TrainingPhrases.Add(AddIntentTrainingPhrase(trainingPhrase));
                             }
                         }
 
-                        if (intentResponse.IntentParameterResponse.Any())
+                        if (intentResponse.IntentParameter.Any())
                         {
-                            foreach (IntentParameterResponse parameter in intentResponse.IntentParameterResponse)
+                            foreach (Model.IntentParameter parameter in intentResponse.IntentParameter)
                             {
                                 intent.Parameters.Add(AddIntentParameter(parameter));
                             }
                         }
 
-                        if (intentResponse.IntentSuggestionResponse.Any())
+                        if (intentResponse.IntentSuggestion.Any())
                         {
-                            intent.Messages.Add(AddIntentSuggestion(intentResponse.IntentSuggestionResponse.Select(x => x.Title).ToList()));
+                            intent.Messages.Add(AddIntentSuggestion(intentResponse.IntentSuggestion.Select(x => x.Title).ToList()));
                         }
 
                         intent = client.CreateIntent(parent: new ProjectAgentName("ht-interview-chatbot"), intent: intent);
                         intentResponse.DialogflowGeneratedIntentId = intent.IntentName.IntentId;
                         intentResponse.DialogflowGeneratedName = intent.Name;
                         intentResponse.DialogflowGeneratedIntent = JsonConvert.SerializeObject(intent);
-                        await _intentService.UpdateIntentsAsync(_mapper.Map<Common.Entities.Intent>(intentResponse));
+                        await _intentService.UpdateIntentsAsync(_mapper.Map<Model.Intent>(intentResponse));
                     }
                 }
             }
@@ -165,8 +171,9 @@ namespace HT.Interview.ChatBot.API.Controllers
             Message message = new Message()
             {
                 Text = text
+                
             };
-
+            
             return message;
         }
 
@@ -190,19 +197,21 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// </summary>
         /// <param name="tp"></param>
         /// <returns></returns>
-        private TrainingPhrase AddIntentTrainingPhrase(IntentTrainingPhraseResponse tp)
+        private TrainingPhrase AddIntentTrainingPhrase(Model.IntentTrainingPhrase tp)
         {
             TrainingPhrase.Types.Part part = new TrainingPhrase.Types.Part()
             {
                 Text = tp.Text
-
             };
 
             if (tp.EntityType != null)
             {
                 part.EntityType = tp.EntityType;
             }
-
+            if (tp.Alias != null)
+            {
+                part.Alias = tp.Alias;
+            } 
             TrainingPhrase trainingPhrase = new TrainingPhrase();
             trainingPhrase.Parts.Add(part);
             return trainingPhrase;
@@ -213,9 +222,9 @@ namespace HT.Interview.ChatBot.API.Controllers
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        private Parameter AddIntentParameter(IntentParameterResponse param)
+        private Parameter AddIntentParameter(Model.IntentParameter param)
         {
-            return new Parameter()
+            Parameter parameter = new Parameter()
             {
                 Mandatory = param.Mandatory,
                 DisplayName = param.DisplayName,
@@ -223,6 +232,11 @@ namespace HT.Interview.ChatBot.API.Controllers
                 Value = param.Value,
                 IsList = param.IsList
             };
+            if (param.Prompt != null)
+            {
+                parameter.Prompts.Add(param.Prompt);
+            }
+            return parameter;
         }
 
         /// <summary>

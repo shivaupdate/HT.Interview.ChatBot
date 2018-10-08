@@ -1,0 +1,24 @@
+
+.ag-theme-blue .ag-header-cell-label {
+  color: #ffffff !important;
+  font-weight: bold !important;
+}
+
+.ag-theme-blue .ag-cell {
+  font-weight: normal;
+}
+
+.ag-grid-cell-wrap-text {
+  white-space: normal !important;
+}
+
+.ag-grid-cell-text-center {
+  text-align: center !important;
+  font-weight: bold !important;
+}
+
+.pagination-theme {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}

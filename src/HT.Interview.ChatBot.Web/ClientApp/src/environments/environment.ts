@@ -14,16 +14,21 @@ export const environment = {
     getMany: '/get-many',
     getManyWithParameters: '/get-many?',
     getManyByRoleId: "/get-many-by-role-id",
+    getInterviewDetailByUserId:'/get-interview-detail-by-user-id',
     create: '/create',
     update: '/update',
+    updateUserInterviewResult:"/update-user-interview-result",
     delete: '/delete',
-    deleteWithParameters: '/delete?'
+    deleteWithParameters: '/delete?' 
   },
   controller: {
     userController: 'user',
     interviewController: 'interview',
     roleController: 'role',
-    dashboardController: 'dashboard'
+    dashboardController: 'dashboard',
+    genderController: 'gender',
+    profileController: 'jobprofile',
+    downloadController: 'download'
   },
   application: {
     webAPIUrl: 'http://localhost:50463/api/v1/',

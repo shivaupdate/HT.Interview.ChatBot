@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Constants } from '../../../models/constants';
-import { forEach } from '@angular/router/src/utils/collection';
-import { retry } from 'rxjs/operator/retry';
 
 @Component({
   selector: 'app-header',
@@ -19,8 +17,7 @@ export class HeaderComponent {
   }
 
   hasAccess(claimName) {   
-    let userClaims = this.user.claims;
-    console.log(userClaims);
+    let userClaims = this.user.claims;    
     let hasAccess = false;
     userClaims.forEach(function (userClaim) {  
       if (userClaim.claimName === claimName) {
