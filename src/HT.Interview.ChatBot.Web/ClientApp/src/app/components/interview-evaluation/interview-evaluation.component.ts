@@ -9,8 +9,7 @@ import { User } from '../../models/user';
 import { Constants } from '../../models/constants';
 import { RoleEnum } from '../../models/enums';
 import { OperationMode } from '../../models/enums';
-import { environment } from '../../../environments/environment';
-import { FILE } from 'dns';
+import { environment } from '../../../environments/environment';     
 
 @Component({
   selector: 'app-interview-evaluation',

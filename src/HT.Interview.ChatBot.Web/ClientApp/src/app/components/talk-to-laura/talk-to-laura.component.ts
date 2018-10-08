@@ -26,7 +26,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
   @ViewChild('divChatWindow') public divChatWindow: ElementRef;
   @ViewChild('videoElement') videoElement: any;
 
-  @Input() constrains = { video: true, audio: true };
+  @Input() constrains = { video: true, audio: false };
   @Input() showVideoPlayer = true;
   @Input() showControls = false;
 
@@ -147,7 +147,7 @@ export class TalkToLauraComponent implements OnInit, AfterViewChecked {
   }
 
   toggleVoiceRecognition() {
-    if (this.started) {
+    if (!this.started) {
       this.started = true;
       this.speech.record()
         .subscribe(
