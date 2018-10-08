@@ -54,6 +54,14 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string EntityType { get; set; }
 
         /// <summary>
+        /// Get or sets the alias
+        /// </summary>
+        /// <value>
+        /// The Alias
+        /// </value>  
+        public string Alias { get; set; }
+
+        /// <summary>
         /// Get or sets the created by
         /// </summary>
         /// <value>

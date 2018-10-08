@@ -1,11 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HT.Interview.ChatBot.Common.Entities
+﻿namespace HT.Interview.ChatBot.Common.Entities
 {
+    /// <summary>
+    /// Interview detail model
+    /// </summary>
     public class InterviewDetail
     {
+        /// <summary>
+        /// Get or sets the row number
+        /// </summary>
+        /// <value>
+        /// The RowNumber
+        /// </value> 
+        public long RowNumber { get; set; }
+
         /// <summary>
         /// Get or sets the ID
         /// </summary>

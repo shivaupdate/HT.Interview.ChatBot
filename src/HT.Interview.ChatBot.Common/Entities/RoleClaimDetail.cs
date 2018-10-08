@@ -2,6 +2,9 @@
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
+    /// <summary>
+    /// Role claim detail model
+    /// </summary>
     public class RoleClaimDetail
     {
         /// <summary>

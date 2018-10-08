@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HT.Interview.ChatBot.Common.Entities
 {
@@ -145,12 +147,20 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string RecordingFilePath { get; set; }
 
         /// <summary>
+        /// Get or sets is interview completed
+        /// </summary>
+        /// <value>
+        /// The IsInterviewCompleted
+        /// </value>  
+        [Required]
+        public bool IsInterviewCompleted { get; set; }
+
+        /// <summary>
         /// Get or sets is active
         /// </summary>
         /// <value>
         /// The IsActive
-        /// </value> 
-
+        /// </value>  
         [Required]
         public bool IsActive { get; set; }
 
@@ -187,5 +197,23 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ModifiedOn
         /// </value>  
         public DateTime? ModifiedOn { get; set; }
+
+        /// <summary>
+        /// Get or sets the resume file
+        /// </summary>
+        /// <value>
+        /// The ResumeFile
+        /// </value> 
+        [NotMapped]
+        public IFormFile ResumeFile { get; set; }
+
+        /// <summary>
+        /// Get or sets the Recording file
+        /// </summary>
+        /// <value>
+        /// The ResumeFile
+        /// </value> 
+        [NotMapped]
+        public IFormFile RecordingFile { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace HT.Interview.ChatBot.Common.Entities
         /// The ProfileName
         /// </value>  
         [Required]
-        public string ProfileName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Get or sets the description

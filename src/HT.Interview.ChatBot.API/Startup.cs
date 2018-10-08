@@ -60,7 +60,11 @@ namespace HT.Interview.ChatBot.API
             services.AddCors(options =>
             {
                 options.AddPolicy("InterviewChatBot",
-                    policy => policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
+                    policy => policy.WithOrigins("http://localhost:4200")
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials());
             });
 
             services.AddLogging();

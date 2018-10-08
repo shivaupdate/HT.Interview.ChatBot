@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
+import { Dashboard } from '../../models/dashboard';
 import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-dashboard',
@@ -10,50 +11,19 @@ import { environment } from '../../../environments/environment';
 export class DashboardComponent implements OnInit {
                    
   constructor(private http: HttpClient) { }
-  private ChartwebAPIUrl = environment.application.webAPIUrl + environment.controller.dashboardController + environment.action.get;
-  private chartData: any;
-  ngOnInit() {
-    this.test();
-  
-  }
-  ngOnChanges() {  }
+  private webAPIDashboardChartUrl = environment.application.webAPIUrl + environment.controller.dashboardController + environment.action.getMany;
 
-  public test(): void {
-    this.http.get(this.ChartwebAPIUrl)
-      .subscribe(data => {
-        this.chartData = data;
-        this.chartDatasets = this.chartData;
-        this.chartLabels = this.chartData[0].month
-      });
-   
-  }
- public map: any = { lat: 51.678418, lng: 7.809007 };
-  public chart1Type:string = 'bar';
-  public chart2Type:string = 'pie';
-  public chart3Type:string = 'line';
-  public chart4Type:string = 'radar';
-  public chart5Type:string = 'doughnut';
+  public barChartType: string = 'bar';    
+  public barChartDataset: Array<any>;
+  public barChartLabels: Array<any>;
 
-  public chartDatasets: Array<any>;
-  public chartType = 'line';
+  public pieChartType: string = 'pie';    
+  public pieChartDataset: Array<any>;
+  public pieChartLabels: Array<any>;
+  public chartData: any;
 
-  //public chartDatasets: Array<any> = [
-  //  {data: [50, 40, 60, 51, 56, 55, 40], label: '#Dot Net'},
-  //  {data: [28, 80, 40, 69, 36, 37, 110], label: '#Java'},
-  //  {data: [38, 58, 30, 90, 45, 65, 30], label: '#PHP'}
-  //];
-
-  public chartLabels: Array<any>;/* = ['Jan', 'Feb'];*/
-
-  public chartColors:Array<any> = [
-
+  public chartColors: Array<any> = [    
   ];
-
-  public dateOptionsSelect: any[];
-  public bulkOptionsSelect: any[];
-  public showOnlyOptionsSelect: any[];
-  public filterOptionsSelect: any[];
-
   public chartOptions: any = {
     responsive: true,
     legend: {
@@ -73,5 +43,23 @@ export class DashboardComponent implements OnInit {
         }
       }]
     }
-  };        
+  };
+
+  ngOnInit() {
+    this.http.get<Dashboard[]>(this.webAPIDashboardChartUrl)
+      .subscribe(data => {
+        this.chartData = data;
+       
+        this.barChartLabels = this.chartData[0].chartLabel;
+        this.barChartDataset = this.chartData[0].chartDataSet;
+
+        //var pieChartData = chartData[0].chartDataSet[0].data;
+        //this.pieChartLabels = this.chartData[0].chartLabel;
+        //this.pieChartDataset = pieChartData;
+      });  
+  }
+
+  ngOnChanges() {
+
+  }
 }

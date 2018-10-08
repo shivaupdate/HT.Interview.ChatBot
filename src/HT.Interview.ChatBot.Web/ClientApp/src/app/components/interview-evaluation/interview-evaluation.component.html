@@ -1,16 +1,95 @@
 <app-standard>
-  <h3 class="main-title">Interview Evaluation</h3>
-  <ag-grid-angular style="height: 300px; padding-left:30px; padding-right:30px; background-color:transparent;"
-                   class="ag-theme-blue"
-                   [enableSorting]="true"
-                   [rowData]="rowData"
-                   [columnDefs]="columnDefs"
-                   (firstDataRendered)="onFirstDataRendered($event)"
-                   (gridReady)="onGridReady($event)"
-                   [pagination]="true"
-                   [paginationPageSize]="paginationPageSize"
-                   rowSelection='single'
-                   [autoHeight]=true
-                   [enableFilter]="true">
-  </ag-grid-angular>
+  <div *ngIf="operationMode == 1">
+    <h3 class="main-title">Interview Evaluation</h3>
+    <ag-grid-angular id="resultGrid" style="padding-left:30px; padding-right:30px; background-color:transparent;"
+                     class="ag-theme-blue"
+                     [enableColResize]="true"
+                     [enableSorting]="true"
+                     [pagination]="false"
+                     [rowSelection]='single'
+                     [enableFilter]="true"
+                     [domLayout]="domLayout"
+                     [autoHeight]="true"
+                     (columnResized)="onEvaluateGridColumnResized($event)"
+                     (gridReady)="onEvaluateGridReady($event)"
+                     [rowData]="evaluateGridData | paginate: evaluateGridPagingConfig"
+                     [columnDefs]="evaluateGridColumns"
+                     [gridOptions]="evaluateGridOptions">
+    </ag-grid-angular>
+    <br />
+    <div class="pagination-theme">
+      <pagination-controls [id]="evaluateGridPagingConfig.id"
+                           [maxSize]="maxSize"
+                           [directionLinks]="directionLinks"
+                           [autoHide]="autoHide"
+                           [responsive]="responsive"
+                           [previousLabel]="labels.previousLabel"
+                           [nextLabel]="labels.nextLabel"
+                           [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                           [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                           [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                           (pageChange)="onEvaluateGridPageChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+  <div *ngIf="operationMode == 3">
+    <h3 class="main-title">Evaluate</h3>
+    <div class="form-row" style="padding-left: 30px;height: 80px;margin-top: -20px;">
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <i class="fa fa fa-comments-o prefix icon"></i>
+          <input mdbInputDirective type="text" class="form-control" id="remark" name="remark" [(ngModel)]="user.Remark">
+          <label for="remark" class="label">Remark</label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <i class="fa fa-pencil-square-o prefix icon"></i>
+          <select mdbInputDirective class="form-control select-control" id="endResultSelect" name="endResultSelect" [(ngModel)]="user.endResult" required data-error="Gender is required">
+            <option *ngFor="let endResult of endResultSelect" [ngValue]="endResult.id">
+              {{endResult.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="md-form form-group">
+          <button class="btn btn-primary" (click)="onSave()" style="margin-top: -5px">Save</button>
+          <button class="btn btn-default" (click)="onCancel()" style="margin-top: -5px">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div style="padding-left:30px; padding-right:30px; background-color:transparent;">
+      <ag-grid-angular id="evaludateGrid"
+                       class="ag-theme-blue"
+                       [enableColResize]="true"
+                       [enableSorting]="true"
+                       [pagination]="false"
+                       [rowSelection]='single'
+                       [enableFilter]="true"
+                       [domLayout]="domLayout"
+                       [autoHeight]="true"
+                       (gridReady)="onEvaluateResultGridReady($event)"
+                       (columnResized)="onEvaluateResultGridColumnResized($event)"
+                       [rowData]="evaluateResultGridData | paginate: evaluateResultGridPagingConfig"
+                       [columnDefs]="evaluateResultGridColumns"
+                       [gridOptions]="evaluateResultGridOptions">
+      </ag-grid-angular>
+      <br />
+      <div class="pagination-theme">
+        <pagination-controls [id]="evaluateResultGridPagingConfig.id"
+                             [maxSize]="maxSize"
+                             [directionLinks]="directionLinks"
+                             [autoHide]="autoHide"
+                             [responsive]="responsive"
+                             [previousLabel]="labels.previousLabel"
+                             [nextLabel]="labels.nextLabel"
+                             [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                             [screenReaderPageLabel]="labels.screenReaderPageLabel"
+                             [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                             (pageChange)="onEvaluateResultGridPageChange($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
 </app-standard>

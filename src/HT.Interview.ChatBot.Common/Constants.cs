@@ -41,6 +41,11 @@
         public const string Update = "update";
         
         /// <summary>
+        /// Upload video
+        /// </summary>
+        public const string UploadVideo = "upload-video";
+
+        /// <summary>
         /// Delete
         /// </summary>
         public const string Delete = "delete";
@@ -118,7 +123,12 @@
         /// <summary>
         /// Interview Detail
         /// </summary>
-        public const string InterviewDetail = "get-interview-detail-by-user-id";
+        public const string GetInterviewDetailByUserId = "get-interview-detail-by-user-id";
+
+        /// <summary>
+        /// Update user interview result
+        /// </summary>
+        public const string UpdateUserInterviewResult = "update-user-interview-result";
 
     }
 }

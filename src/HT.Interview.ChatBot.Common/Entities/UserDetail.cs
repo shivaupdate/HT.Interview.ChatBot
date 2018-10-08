@@ -178,6 +178,15 @@ namespace HT.Interview.ChatBot.Common.Entities
         public string Provider { get; set; }
 
         /// <summary>
+        /// Get or sets is interview completed
+        /// </summary>
+        /// <value>
+        /// The IsInterviewCompleted
+        /// </value>  
+        [Required]
+        public bool IsInterviewCompleted { get; set; }
+
+        /// <summary>
         /// Get or sets is active
         /// </summary>
         /// <value>

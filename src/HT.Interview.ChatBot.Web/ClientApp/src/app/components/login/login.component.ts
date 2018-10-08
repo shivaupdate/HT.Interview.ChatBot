@@ -43,8 +43,7 @@ export class LoginComponent implements OnInit {
             user => {
               user.photoUrl = socialUser.photoUrl;
               user.socialAccountInfo = JSON.stringify(socialUser);   
-              user.sessionId = String(Guid.create());
-
+              user.sessionId = String(Guid.create());  
               var body = JSON.stringify(user);     
 
               var httpOptions = {

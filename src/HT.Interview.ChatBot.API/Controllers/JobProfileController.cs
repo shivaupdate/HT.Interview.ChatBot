@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using HT.Framework.MVC;
-using HT.Interview.ChatBot.API.DTO.Response;
 using HT.Interview.ChatBot.Common.Contracts;
 using HT.Interview.ChatBot.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +43,7 @@ namespace HT.Interview.ChatBot.API.Controllers
         public async Task<ActionResult> GetManyAsync()
         {
             return await GetResponseAsync(async () => (await _jobProfileService.GetJobProfilesAsync(new JobProfile()))
-                .GetMappedResponse<IEnumerable<JobProfile>, IEnumerable<JobProfileResponse>>(_mapper));
+                .GetMappedResponse<IEnumerable<JobProfile>, IEnumerable<JobProfile>>(_mapper));
         }
 
         #endregion

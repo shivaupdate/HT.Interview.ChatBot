@@ -1,7 +1,6 @@
 ﻿using HT.Framework;
 using HT.Framework.Contracts;
 using HT.Interview.ChatBot.Common.Contracts;
-using HT.Interview.ChatBot.Common.DTO;
 using HT.Interview.ChatBot.Common.Entities;
 using HT.Interview.ChatBot.Data;
 using Microsoft.EntityFrameworkCore;
@@ -35,9 +34,7 @@ namespace HT.Interview.ChatBot.Services
             _chatbotDataContext = chatbotDataContext;
             _resourceService = factory.GetResourceService(Common.Constants.ResourceComponent);
         }
-
-        #region Get Genders
-
+         
         /// <summary>
         /// Get Genders async
         /// </summary>
@@ -47,13 +44,10 @@ namespace HT.Interview.ChatBot.Services
         /// <returns></returns>
         public async Task<Response<IEnumerable<Gender>>> GetGendersAsync(int? id, string name, string createdBy)
         {
-            IEnumerable<Gender> Genders = await _chatbotDataContext.Gender.ToListAsync();
-            // TODO: Search Genders result list against search parameters
+            IEnumerable<Gender> Genders = await _chatbotDataContext.Gender.ToListAsync(); 
             return Response.Ok(Genders);
         }
-
-        #endregion
-
+         
         #endregion
     }
 }
