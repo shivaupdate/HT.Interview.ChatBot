@@ -109,7 +109,7 @@ export class InterviewEvaluationComponent implements OnInit {
       { headerName: "Recording", cellRendererFramework: DownloadFileComponent, width: 100 },
       { headerName: "Remark", filter: 'agTextColumnFilter', field: "remark", cellClass: "ag-grid-cell-wrap-text", autoHeight: true, width: 150 },
       {
-        headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult",
+        headerName: "End Result", filter: 'agTextColumnFilter', field: "endResult",  
         cellStyle: function (params) {
           if (params.value == 'Selected') {
             return { color: 'darkgreen', fontWeight: 'bold' };
