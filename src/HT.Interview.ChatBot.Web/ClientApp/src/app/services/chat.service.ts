@@ -46,7 +46,8 @@ export class ChatService {
 
   defaultIntent(message: Message) {
     this.cancelSpeechSynthesis();
-    message.query = this.loggedInUser.firstName;
+    //message.query = this.loggedInUser.firstName;
+    message.query = "Hello";
     message.firstRequest = true;
     this.getApiAiResponse(message).subscribe(
       response => {
