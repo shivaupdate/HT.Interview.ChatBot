@@ -62,7 +62,6 @@ namespace HT.Framework
             {
                 throw new InvalidOperationException("Can accept only failure response types");
             }
-
             return new Response(false, error, responseType);
         }
 
